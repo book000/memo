@@ -18,5 +18,5 @@ pipdeptree -f | sed -r 's/^ .+//g' | sed -r 's/==.*//g' | sed '/^$/d' | xargs py
 
 # pipdeptreeを用いてrequirements.txtを吐きだす
 pipdeptree -f | sed 's/==/~=/g' > requirements.txt
-# 依存最上位パッケージだけならこれ
+# 依存最上位パッケージだけならこれ。ただしこれはrequestsなどのパッケージで依存の下にある場合におかしくなるかも
 pipdeptree -f | sed -r 's/^ .+//g' | sed '/^$/d' | sed 's/==/~=/g' | sort > requirements.txt
