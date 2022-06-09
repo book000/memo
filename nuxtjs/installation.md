@@ -59,6 +59,8 @@ mkdir src
 mv assets components layouts pages plugins static store middleware src/
 ```
 
+さらに、`nuxt.config.ts` に `srcDir: 'src/',` をいれておきましょう。
+
 ついでに、`tsconfig.json` の `compilerOptions.paths` もいじっておきましょう。
 
 ```diff
