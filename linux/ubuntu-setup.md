@@ -9,6 +9,7 @@ sudo hostnamectl set-hostname <ホスト名>
 ## IPの固定
 
 [Ubuntu 20.04 LTSで固定IPアドレスの設定 - Qiita](https://qiita.com/zen3/items/757f96cbe522a9ad397d)
+[Ubuntu 22.04 LTS:初期設定:ネットワークの設定 - Server World](https://www.server-world.info/query?os=Ubuntu_22.04&p=initial_conf&f=3)
 
 `/etc/netplan/99_config.yaml` を作成し、以下を書き込み
 
@@ -21,7 +22,9 @@ network:
       dhcp4: false
       dhcp6: false
       addresses: [192.168.0.100/24]
-      gateway4: 192.168.0.1
+      routes:
+        - to: default
+          via: 192.168.0.1
       nameservers:
         addresses: [192.168.0.1, 8.8.8.8, 8.8.4.4]
 ```
