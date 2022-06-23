@@ -115,6 +115,7 @@ GPT で作るので、`parted` コマンドを使う。
    [この記事](https://kiyoshi.hatenablog.com/entry/20131228/1388157792) では `mkpart primary ext4 0 -0` すれば問題ないとあったけど `Error: Unable to satisfy all constraints on the partition.` と怒られるし、  
    [この記事](https://qiita.com/ktateish/items/238c03f28e8b3335f684) では `parted` 実行時に `-a optimal` を付けたうえで `mkpart primary ext4 0% 100%` すれば良いとあるけど、これも上記エラーが出るし、  
    今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。
+   **2022/06/24追: `mkpart primary ext4 0% 6001GB` で良いっぽい。**
 5. 再度 `p` で 正常にパーティションが作成されたことを確認する
 6. `q` で抜ける
 
