@@ -22,7 +22,7 @@ Windows 10 Pro 21H2 (Build 19044.1706) にて実施
   - [各種ブラウザインストール](#各種ブラウザインストール)
   - [Firefox](#firefox)
   - [Chrome](#chrome)
-    - [Opera](#opera)
+  - [Opera](#opera)
   - [アンチウィルスソフトのインストール](#アンチウィルスソフトのインストール)
   - [エクスプローラーのカスタマイズ](#エクスプローラーのカスタマイズ)
     - [全般](#全般)
@@ -80,7 +80,7 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 - [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
 - `winget install Google.Chrome`
 
-#### Opera
+### Opera
 
 YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺めるために使う。  
 拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
