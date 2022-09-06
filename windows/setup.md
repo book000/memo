@@ -395,6 +395,10 @@ wsl --import docker-desktop $env:WSL_DIR\docker-desktop-data\ $env:WSL_DIR\docke
 `BlueStacks_nxt` というフォルダを勝手に作ってくるので、適当に古いやつと置き換えればマルチインスタンスマネージャーから起動できる。BlueStacks の**アプリケーション自体は C ドライブにインストール**される。
 
 BlueStacks X を勝手にインストールしやがったら、Windows のアプリと機能からアンインストールしたうえで [PC から BlueStacks 5 を完全にアンインストールする方法](https://support.bluestacks.com/hc/ja/articles/360057724751) を参考に完全アンインストールを実施したうえで再インストール。
+  
+## Nox
+
+[NoxとHyperV共存させるには](https://support.bignox.com/ja/else/hypervonbeta) を参考に、Hyper-V との共存ができる…不安定だけど。
 
 ### その他利便性向上のための設定
 
