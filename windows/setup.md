@@ -88,11 +88,12 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 インストールする拡張機能は以下の通り
 
 - [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/)
-- [Better TweetDeck](https://chrome.google.com/webstore/detail/better-tweetdeck/micblkellenpbfapmcpcfhcoeohhnpob?hl=ja)
-- [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle?hl=ja)
+- [Better TweetDeck](https://chrome.google.com/webstore/detail/better-tweetdeck/micblkellenpbfapmcpcfhcoeohhnpob)
+- [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
+- ['Improve YouTube!' (Video & YouTube Tools)](https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd)
 - [YouTube™ デュアル字幕](https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
 - [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejmjacpillmajjnopmpbkbnocid)
-- [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd?hl=ja)
+- [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
 - [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
 - [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
 - Todoist sidebar(Unofficial): 非公開になってしまったっぽいので、開発者モードからインストールする。
