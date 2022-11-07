@@ -56,3 +56,30 @@ Enter the new value, or press ENTER for the default
         Other []:
 Is the information correct? [Y/n] y
 ```
+
+`sudo` を使えるようにするなら `usermod -aG sudo test` で sudo グループにユーザーを追加しておく
+
+## SSHの設定
+
+`ed25519` でキーを作って公開鍵認証で接続させる。
+
+- `su test`: 対象ユーザーに切り替え
+- `cd`: 対象ユーザーのホームディレクトリに移動
+- `mkdir -p .ssh`: `.ssh` ディレクトリ作成
+- `chmod 700 .ssh`: `.ssh` ディレクトリを 700 (所有者のみ RWX 可) にする
+- `ssh-keygen -t ed25519`: キー作成。パスフレーズお好み
+- この段階で、パスワード認証かなにかでサーバに入って秘密鍵(`~/.ssh/id_ed25519`)を入手
+- `mv id_ed25519.pub authorized_keys` or `cat id_ed25519.pub >> authorized_keys`: 公開鍵を登録
+- `chmod 600 authorized_keys`: ファイルを 600 (所有者のみ RW 可)にする
+- `exit`: ユーザーから抜ける
+
+ここまでがユーザーの SSH 関連に関する処理。以降はサーバの SSH 設定
+
+`/etc/ssh/sshd_config` を vim などで開き、以下の箇所を修正
+
+- `#Port 22` → `Port 10000`: sshd のポートを変更する
+- `PermitRootLogin yes` → `PermitRootLogin no`: root ユーザーへのログインを拒否する
+- `#PubkeyAuthentication yes` → `PubkeyAuthentication yes`: 公開鍵認証での認証を許可する (コメントアウトを外す)
+- `PasswordAuthentication yes` → `PasswordAuthentication no`: パスワード認証を拒否する
+
+あとは `systemctl restart sshd` で sshd の再起動、`ufw allow 10000` で sshd のポートを開放。
