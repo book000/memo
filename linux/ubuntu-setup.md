@@ -71,7 +71,6 @@ Is the information correct? [Y/n] y
 - この段階で、パスワード認証かなにかでサーバに入って秘密鍵(`~/.ssh/id_ed25519`)を入手
 - `mv id_ed25519.pub authorized_keys` or `cat id_ed25519.pub >> authorized_keys`: 公開鍵を登録
 - `chmod 600 authorized_keys`: ファイルを 600 (所有者のみ RW 可)にする
-- この段階で、公開鍵認証でログインできることを確認
 - `exit`: ユーザーから抜ける
 
 ここまでがユーザーの SSH 関連に関する処理。以降はサーバの SSH 設定
