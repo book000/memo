@@ -2,7 +2,7 @@
 
 https://qiita.com/tokawa-ms/items/43624d536a44f60882cb
 
-## Enviroment
+## Environment
 
 - Windows 10 22H2 (Build 19045.2251)
 - iPad Pro 3 (11 inch) / iPadOS 16
