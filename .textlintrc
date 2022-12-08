@@ -1,0 +1,65 @@
+{
+    "rules": {
+        "preset-ja-technical-writing": {
+            "sentence-length": false,
+            "ja-no-weak-phrase": false,
+            "ja-no-mixed-period": false,
+            "no-doubled-joshi": false,
+            "no-doubled-conjunctive-particle-ga": false,
+            "no-exclamation-question-mark": false,
+            "no-doubled-conjunction": false
+        },
+        "prh": {
+            "rulePaths": [
+                "node_modules/prh/prh-rules/media/WEB+DB_PRESS.yml"
+            ]
+        },
+        "preset-ja-spacing": {
+            "ja-space-between-half-and-full-width": {
+                "space": "always"
+            },
+            "ja-space-around-code": {
+                "before": true,
+                "after": true
+            }
+        },
+        "ja-space-around-link": {
+            "before": true,
+            "after": true
+        },
+        "preset-jtf-style": {
+            "1.1.1.本文": false,
+            "1.1.3.箇条書き": false,
+            "1.2.1.句点(。)と読点(、)": false,
+            "3.1.1.全角文字と半角文字の間": false,
+            "3.3.かっこ類と隣接する文字の間のスペースの有無": false,
+            "4.1.3.ピリオド(.)、カンマ(,)": false,
+            "4.2.7.コロン(：)": false,
+            "4.3.1.丸かっこ（）": true,
+            "4.3.7.山かっこ<>": false
+        },
+        "ja-no-abusage": true,
+        "@textlint-rule/pattern": {
+          "patterns": [
+            {
+              "message": "No todo",
+              "pattern": "/TODO:/i"
+            },
+            {
+              "message": "CloudFlare to Clouflare",
+              "pattern": "/Cloudflare/i",
+              "replace": "Cloudflare"
+            }
+          ]
+        },
+        "ja-technical-writing/max-kanji-continuous-len": false
+    },
+    "filters": {
+        "allowlist": {
+            "allow": [
+                "Cloudflare",
+                "Debian"
+            ]
+        }
+    }
+}

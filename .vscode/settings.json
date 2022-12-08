@@ -1,0 +1,7 @@
+{
+  "editor.wordWrap": "on",
+  "[markdown]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false
+  }
+}
