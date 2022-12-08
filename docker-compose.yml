@@ -8,8 +8,5 @@ services:
     volumes:
       - type: bind
         source: ./
-        target: /app/docs
-      - type: bind
-        source: ./mkdocs.yml
-        target: /app/mkdocs.yml
+        target: /app
     restart: always

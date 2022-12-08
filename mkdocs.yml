@@ -2,7 +2,7 @@ site_name: book000/memo
 
 repo_name: book000/memo
 repo_url: https://github.com/book000/memo
-edit_uri: edit/main/
+edit_uri: edit/main/docs
 
 theme:
   name: material
