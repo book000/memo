@@ -3,11 +3,11 @@
 **本メモの内容に起因して、生じたあらゆる損害や障害について一切の責任を負いません。**
 
 クリーンインストール前に `クリーンインストール前にやることメモ` を確認して実施すること。  
-`<`, `>` で囲まれたものは置換する必要がある。記載されたコードは原則 PowerShell のコードなので、PowerShell で実行すること。コマンドプロンプトでは動作しない。
+`<`, `>` で囲まれたものは置換する必要がある。記載されたコードは原則 PowerShell のコードですので、PowerShell で実行すること。コマンドプロンプトでは動作しない。
 
 Windows 10 Pro 21H2 (Build 19044.1706) にて実施
 
-!! **CSMを切ってSecureBootオンでインストールを実施すること。さもないとBIOSレガシーでWindows10がインストールされる** !!
+!! **CSM を切って SecureBoot オンでインストールを実施すること。さもないと BIOS レガシーで Windows10 がインストールされる** !!
 
 ## クリーンインストール前にやることメモ
 
@@ -15,41 +15,12 @@ Windows 10 Pro 21H2 (Build 19044.1706) にて実施
 - ハード構成を変える場合は Microsoft アカウントへのログイン
 - WSL2 のエクスポート
 
-## 目次 <!-- omit in toc -->
-
-- [具体的な作業内容](#具体的な作業内容)
-  - [デバイス名の変更](#デバイス名の変更)
-  - [各種ブラウザインストール](#各種ブラウザインストール)
-  - [Firefox](#firefox)
-  - [Chrome](#chrome)
-  - [Opera](#opera)
-  - [アンチウィルスソフトのインストール](#アンチウィルスソフトのインストール)
-  - [エクスプローラーのカスタマイズ](#エクスプローラーのカスタマイズ)
-    - [全般](#全般)
-    - [表示](#表示)
-  - [ユーザーフォルダの移動](#ユーザーフォルダの移動)
-  - [Win10 の標準アプリを削除](#win10-の標準アプリを削除)
-  - [OneDrive をエクスプローラーに表示させないようにする](#onedrive-をエクスプローラーに表示させないようにする)
-  - [Scoop のインストール・移行](#scoop-のインストール移行)
-  - [Pwsh (PowerShell) のインストール](#pwsh-powershell-のインストール)
-  - [Win + X 画面の編集](#win--x-画面の編集)
-  - [Starship・HackGenNerd のインストール](#starshiphackgennerd-のインストール)
-  - [Logicool G Hub の設定移行](#logicool-g-hub-の設定移行)
-  - [その他アプリのインストール](#その他アプリのインストール)
-  - [スタートアップの設定](#スタートアップの設定)
-  - [仮想系のセットアップ](#仮想系のセットアップ)
-    - [Windows SandBox](#windows-sandbox)
-    - [WSL2](#wsl2)
-    - [Docker Desktop](#docker-desktop)
-    - [BlueStacks](#bluestacks)
-  - [その他利便性向上のための設定](#その他利便性向上のための設定)
-
 ## 具体的な作業内容
 
 ### デバイス名の変更
 
 `SystemPropertiesComputerName.exe` からデバイス名とワークグループ名を変更できる。  
-変更後は再起動が必要で、デバイス名は Firefox が利用するので最初にやったほうがいい。
+変更後は再起動が必要で、デバイス名は Firefox が利用するので最初にやったほうがよい。
 
 コマンドラインからも変更可能。管理者権限で PowerShell を開いて以下を実行。
 
@@ -102,11 +73,11 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 
 ### アンチウィルスソフトのインストール
 
-お好みで。だいたい [Avast](https://www.avast.co.jp/) を入れてる。  
+お好みで。だいたい [Avast](https://www.avast.co.jp/) を入れている。  
 インストール後は以下の設定をしておく。
 
-- `一般` -> `トラブルシューティング` -> `コンポーネントを追加または編集` に進み、 「ソフトウェアアップデーター」「Wi-Fi の検査」「サイレントモード」を削除する
-- `プロテクション` -> `メイン シールド` -> (下にスクロールして) `メールシールド` -> `送信するメールの末尾に署名を追加` のチェックを外す
+- `一般` -> `トラブルシューティング` -> `コンポーネントを追加または編集` に進み、「ソフトウェアアップデータ」「Wi-Fi の検査」「サイレントモード」を削除する
+- `プロテクション` -> `メイン シールド` ->（下にスクロールして）`メールシールド` -> `送信するメールの末尾に署名を追加` のチェックを外す
 
 ### エクスプローラーのカスタマイズ
 
@@ -134,113 +105,107 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
   - [x] 表示しない
 - ニュースと関心事項 (N)
   - [x] 無効にする
-- [ ] タスクビュー ボタンを表示(V)
-- [ ] タスク バーに People を表示する(P)
-- [ ] Windows lnk ワークスペース ボタンを表示(W)
+- [ ] タスクビュー ボタンを表示（++V++）
+- [ ] タスク バーに People を表示する（++P++）
+- [ ] Windows lnk ワークスペース ボタンを表示（++W++）
 
-を行っておく。
+を実施。
 
 ### ユーザーフォルダの移動
 
-GUI から変更する場合は、ユーザーフォルダを開きひとつずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `移動` でできる。
+GUI から変更する場合は、ユーザーフォルダを開きひとつずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `移動` できる。
 
-<details>
-<summary>コマンドラインからやりたい場合</summary>
+!!! note "コマンドラインからやりたい場合"
 
-以下のレジストリをいじることで[変更できる](https://www.inasoft.org/webhelp/rnsf7/HLP000209.html)らしい。
+    以下のレジストリをいじることで [変更できる](https://www.inasoft.org/webhelp/rnsf7/HLP000209.html) らしい。
 
-- `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders`
-- `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders`
+    - `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders`
+    - `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders`
 
-`User Shell Folders` のほうが `Shell Folders` よりも優先されるので、とりあえずそちらだけいじればよさそう。
+    `User Shell Folders` のほうが `Shell Folders` よりも優先されるので、とりあえずそちらだけいじればよさそう。
 
-```powershell
-$env:NEW_USER_DIR = "<USER_DIR>"
-mkdir $env:NEW_USER_DIR
+    ```powershell
+    $env:NEW_USER_DIR = "<USER_DIR>"
+    mkdir $env:NEW_USER_DIR
 
-# フォルダの移動
-Move-Item -Force -Path "$env:USERPROFILE\3D Objects" -Destination "$env:NEW_USER_DIR\3D Objects" # 3D オブジェクト
-Move-Item -Force -Path "$env:USERPROFILE\Contacts" -Destination "$env:NEW_USER_DIR\Contacts" # アドレス帳
-Move-Item -Force -Path "$env:USERPROFILE\Favorites" -Destination "$env:NEW_USER_DIR\Favorites" # お気に入り
-Move-Item -Force -Path "$env:USERPROFILE\Downloads" -Destination "$env:NEW_USER_DIR\Downloads" # ダウンロード
-Move-Item -Force -Path "$env:USERPROFILE\Desktop" -Destination "$env:NEW_USER_DIR\Desktop" # デスクトップ
-Move-Item -Force -Path "$env:USERPROFILE\Documents" -Destination "$env:NEW_USER_DIR\Documents" # ドキュメント
-Move-Item -Force -Path "$env:USERPROFILE\Pictures" -Destination "$env:NEW_USER_DIR\Pictures" # ピクチャ
-Move-Item -Force -Path "$env:USERPROFILE\Videos" -Destination "$env:NEW_USER_DIR\Videos" # ビデオ
-Move-Item -Force -Path "$env:USERPROFILE\Music" -Destination "$env:NEW_USER_DIR\Music" # ミュージック
-Move-Item -Force -Path "$env:USERPROFILE\Links" -Destination "$env:NEW_USER_DIR\Links" # リンク
-Move-Item -Force -Path "$env:USERPROFILE\Searches" -Destination "$env:NEW_USER_DIR\Searches" # 検索
-Move-Item -Force -Path "$env:USERPROFILE\Saved Games" -Destination "$env:NEW_USER_DIR\Saved Games" # 保存したゲーム
+    # フォルダの移動
+    Move-Item -Force -Path "$env:USERPROFILE\3D Objects" -Destination "$env:NEW_USER_DIR\3D Objects" # 3D オブジェクト
+    Move-Item -Force -Path "$env:USERPROFILE\Contacts" -Destination "$env:NEW_USER_DIR\Contacts" # アドレス帳
+    Move-Item -Force -Path "$env:USERPROFILE\Favorites" -Destination "$env:NEW_USER_DIR\Favorites" # お気に入り
+    Move-Item -Force -Path "$env:USERPROFILE\Downloads" -Destination "$env:NEW_USER_DIR\Downloads" # ダウンロード
+    Move-Item -Force -Path "$env:USERPROFILE\Desktop" -Destination "$env:NEW_USER_DIR\Desktop" # デスクトップ
+    Move-Item -Force -Path "$env:USERPROFILE\Documents" -Destination "$env:NEW_USER_DIR\Documents" # ドキュメント
+    Move-Item -Force -Path "$env:USERPROFILE\Pictures" -Destination "$env:NEW_USER_DIR\Pictures" # ピクチャ
+    Move-Item -Force -Path "$env:USERPROFILE\Videos" -Destination "$env:NEW_USER_DIR\Videos" # ビデオ
+    Move-Item -Force -Path "$env:USERPROFILE\Music" -Destination "$env:NEW_USER_DIR\Music" # ミュージック
+    Move-Item -Force -Path "$env:USERPROFILE\Links" -Destination "$env:NEW_USER_DIR\Links" # リンク
+    Move-Item -Force -Path "$env:USERPROFILE\Searches" -Destination "$env:NEW_USER_DIR\Searches" # 検索
+    Move-Item -Force -Path "$env:USERPROFILE\Saved Games" -Destination "$env:NEW_USER_DIR\Saved Games" # 保存したゲーム
 
-# レジストリの編集
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{31C0DD25-9439-4F12-BF41-7FF4EDA38722}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\3D Objects" /f  # 3D オブジェクト
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{56784854-C6CB-462B-8169-88E350ACB882}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Contacts" /f  # アドレス帳
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Favorites" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Favorites" /f  # お気に入り
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{374DE290-123F-4565-9164-39C4925E467B}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Favorites" /f  # ダウンロード
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Desktop" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Desktop" /f  # デスクトップ
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Personal" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Documents" /f  # ドキュメント
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Pictures" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Pictures" /f  # ピクチャ
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Video" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Videos" /f  # ビデオ
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Music" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Music" /f  # ミュージック
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Links" /f  # リンク
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Searches" /f  # 検索
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Saved Games" /f  # 保存したゲーム
+    # レジストリの編集
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{31C0DD25-9439-4F12-BF41-7FF4EDA38722}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\3D Objects" /f  # 3D オブジェクト
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{56784854-C6CB-462B-8169-88E350ACB882}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Contacts" /f  # アドレス帳
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Favorites" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Favorites" /f  # お気に入り
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{374DE290-123F-4565-9164-39C4925E467B}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Favorites" /f  # ダウンロード
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Desktop" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Desktop" /f  # デスクトップ
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "Personal" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Documents" /f  # ドキュメント
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Pictures" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Pictures" /f  # ピクチャ
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Video" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Videos" /f  # ビデオ
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "My Music" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Music" /f  # ミュージック
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Links" /f  # リンク
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Searches" /f  # 検索
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v "{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" /t REG_EXPAND_SZ /d "$env:NEW_USER_DIR\Saved Games" /f  # 保存したゲーム
 
-taskkill /IM explorer.exe /F
-explorer.exe
-```
+    taskkill /IM explorer.exe /F
+    explorer.exe
+    ```
 
-</details>
-
-### Win10 の標準アプリを削除
+### Win10 の標準アプリケーションを削除
 
 [Windows10 の標準アプリをまとめてアンインストール(削除)する方法#まとめて消す（上記のものを一括削除）](https://ygkb.jp/471#まとめて消す-上記のものを一括削除) を参考に、PowerShell で一括アンインストールを行う。  
 ただし、この作業だけでは消えないものもあるのでスタートメニューから必要に応じて削除  
 ここで消してしまっても Microsoft Store からインストール可能
 
-<details>
-<summary>PowerShellコード引用</summary>
+!!! note "PowerShell コード引用"
 
-```powershell
-# Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage             # 3Dビューアー (1809以降)
-Get-AppxPackage king.com.CandyCrushFriends | Remove-AppxPackage              # Candy Crush Friends
-Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                 # Cortana (20H1以降)
-Get-AppxPackage king.com.FarmHeroesSaga | Remove-AppxPackage                 # Farm Heroes Saga
-Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                     # Groove ミュージック
-Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage  # Microsoft Solitaire Collection
-Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage           # Mixed Realityポータル
-Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage            # Office
-Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage                # OneNote
-Get-AppxPackage Microsoft.People | Remove-AppxPackage                        # People
-# Get-AppxPackage Microsoft.Print3D | Remove-AppxPackage                       # Print3D (1709以降)
-Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage                      # Skype
-Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                  # Spotify (1709以降)
-Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage             # Xbox Game Bar (1809以降)
-Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage                     # Xbox Live (1809以降)
-Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage                       # Xbox 本体コンパニオン (1607以降)
-Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage               # Xbox その他 (1607以降)
-Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage          # Xbox その他 (1607以降)
-Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage       # Xbox その他 (1607以降)
-# Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage                 # アラーム＆クロック
-Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                     # 映画 & テレビ
-Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage                 # カメラ
-# Get-AppxPackage Microsoft.ScreenSketch | Remove-AppxPackage                  # 切り取り & スケッチ (1809以降)
-Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage                     # スマホ同期
-Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage                   # 天気
-Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                       # 問い合わせ
-Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                    # ヒント
-Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage            # フィードバックHub
-# Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage                # フォト
-Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage          # 付箋
-# Get-AppxPackage Microsoft.MSPaint | Remove-AppxPackage                       # ペイント3D
-Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage          # ボイスレコーダー
-Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                   # マップ
-Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage     # メール、カレンダー
-Get-AppxPackage Microsoft.Messaging | Remove-AppxPackage                     # メッセージング
-Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage                    # モバイル通信プラン
-```
-
-</details>
+    ```powershell
+    # Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage             # 3Dビューアー (1809以降)
+    Get-AppxPackage king.com.CandyCrushFriends | Remove-AppxPackage              # Candy Crush Friends
+    Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                 # Cortana (20H1以降)
+    Get-AppxPackage king.com.FarmHeroesSaga | Remove-AppxPackage                 # Farm Heroes Saga
+    Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                     # Groove ミュージック
+    Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage  # Microsoft Solitaire Collection
+    Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage           # Mixed Realityポータル
+    Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage            # Office
+    Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage                # OneNote
+    Get-AppxPackage Microsoft.People | Remove-AppxPackage                        # People
+    # Get-AppxPackage Microsoft.Print3D | Remove-AppxPackage                       # Print3D (1709以降)
+    Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage                      # Skype
+    Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                  # Spotify (1709以降)
+    Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage             # Xbox Game Bar (1809以降)
+    Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage                     # Xbox Live (1809以降)
+    Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage                       # Xbox 本体コンパニオン (1607以降)
+    Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage               # Xbox その他 (1607以降)
+    Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage          # Xbox その他 (1607以降)
+    Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage       # Xbox その他 (1607以降)
+    # Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage                 # アラーム＆クロック
+    Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                     # 映画 & テレビ
+    Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage                 # カメラ
+    # Get-AppxPackage Microsoft.ScreenSketch | Remove-AppxPackage                  # 切り取り & スケッチ (1809以降)
+    Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage                     # スマホ同期
+    Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage                   # 天気
+    Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                       # 問い合わせ
+    Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                    # ヒント
+    Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage            # フィードバックHub
+    # Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage                # フォト
+    Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage          # 付箋
+    # Get-AppxPackage Microsoft.MSPaint | Remove-AppxPackage                       # ペイント3D
+    Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage          # ボイスレコーダー
+    Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                   # マップ
+    Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage     # メール、カレンダー
+    Get-AppxPackage Microsoft.Messaging | Remove-AppxPackage                     # メッセージング
+    Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage                    # モバイル通信プラン
+    ```
 
 ### OneDrive をエクスプローラーに表示させないようにする
 
@@ -250,7 +215,7 @@ Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage                    # �
 
 Personal は `HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}` 。大学などの Business 系の OneDrive はよくわからないが `HKCU\SOFTWARE\Classes\CLSID\` の下にあるっぽい。`(既定)` の値を見ながらかなあ。  
 `System.IsPinnedToNameSpaceTree` を `0` にすることで表示を削除できる。
-  
+
 ```powershell
 reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v System.IsPinnedToNameSpaceTree /t REG_DWORD /d 0
 ```
@@ -259,7 +224,7 @@ reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v 
 
 ### Scoop のインストール・移行
 
-Scoop を利用している場合はこれのインストールと移行作業も必要。結構めんどくさい…。
+Scoop を利用している場合はこれのインストールと移行作業も必要。結構面倒くさい…。
 
 インストール先を変更している場合は、インストールの前に環境変数の設定が必要。  
 以前から利用していたファイル・フォルダがある場合は Scoop 自体の再インストールは不要
@@ -308,7 +273,7 @@ Pwsh を PowerShell と置き換え。
 
 ### Starship・HackGenNerd のインストール
 
-Starship 自体は`scoop install starship` でインストールできる。
+Starship 自体は `scoop install starship` でインストールできる。
 
 Starship は Git などのカスタムアイコンを表示するために Nerd Font を利用しているので、対応するフォントをインストールする必要がある。  
 ここでは HackGenNerd をインストールする。
@@ -322,13 +287,13 @@ Starship は Git などのカスタムアイコンを表示するために Nerd 
 
 - 参考: [Logicool G HUB のプロファイル設定をインポート/エクスポートする方法 - あかえいログ](https://akaeisan.blog/logicool-g-hub-settings/)
 
-### その他アプリのインストール
+### その他アプリケーションのインストール
 
 - EarTrumpet: 使いにくい Windows の音量ミキサーをタスクバーから操作しやすくする。
 - TeamViewer: 遠隔操作アプリケーション
 - AnyDesk: こちらも遠隔操作アプリケーション。TeamViewer と違い、有料版を急かしたりすることは少ない（少なくとも利用不可にはしてこない）。`%ProgramData%\AnyDesk` の中身を置き換えることで古いエイリアスを継続して利用可能。 [参考](https://support.anydesk.com/ja/knowledge/anydesk%E3%81%AEid%E3%81%A8%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%A2%E3%82%B9)
 - Thunderbird: メーラー。`%APPDATA%Thunderbird\Profiles` のプロファイルの中身（プロファイル名は変更しない）を置き換えれば移行できる。
-- XTRM Runtime: VB/VC系のランタイムインストーラー https://forest.watch.impress.co.jp/library/software/xtrmruntime/download_10524.html
+- XTRM Runtime: Visual Basic/VC 系のランタイムインストーラ https://forest.watch.impress.co.jp/library/software/xtrmruntime/download_10524.html
 
 ### スタートアップの設定
 
@@ -377,7 +342,7 @@ default=<USERNAME>
 
 - 参考: [Docker Desktop の ディスク領域 を C ドライブから別のドライブへ移動する方法 - nosubject.io](https://nosubject.io/windowsdocker-desktop-move-disk-image/)
 
-[ダウンロードページ](https://docs.docker.com/desktop/windows/install/) の `Docker Desktop for Windows` からインストーラーをダウンロード。とりあえずまずは純粋にインストールする。  
+[ダウンロードページ](https://docs.docker.com/desktop/windows/install/) の `Docker Desktop for Windows` からインストーラをダウンロード。とりあえずまずは純粋にインストールする。  
 きちんと起動したらきちんと落とす（普通に閉じるとタスクバーに残る）。
 
 ```powershell
@@ -397,19 +362,19 @@ wsl --import docker-desktop $env:WSL_DIR\docker-desktop-data\ $env:WSL_DIR\docke
 [BlueStacks のトップページ](https://www.bluestacks.com/) から **BlueStacks 5 を** ダウンロードして、インストール先を C ドライブ以外にしたうえでインストールする。  
 `BlueStacks_nxt` というフォルダを勝手に作ってくるので、適当に古いやつと置き換えればマルチインスタンスマネージャーから起動できる。BlueStacks の**アプリケーション自体は C ドライブにインストール**される。
 
-BlueStacks X を勝手にインストールしやがったら、Windows のアプリと機能からアンインストールしたうえで [PC から BlueStacks 5 を完全にアンインストールする方法](https://support.bluestacks.com/hc/ja/articles/360057724751) を参考に完全アンインストールを実施したうえで再インストール。
-  
+BlueStacks X を勝手にインストールしやがったら、Windows のアプリケーションと機能からアンインストールしたうえで [PC から BlueStacks 5 を完全にアンインストールする方法](https://support.bluestacks.com/hc/ja/articles/360057724751) を参考に完全アンインストールを実施したうえで再インストール。
+
 #### Nox
 
-[NoxとHyperV共存させるには](https://support.bignox.com/ja/else/hypervonbeta) を参考に、Hyper-V との共存ができる…不安定だけど。
+[Nox と HyperV 共存させるには](https://support.bignox.com/ja/else/hypervonbeta) を参考に、Hyper-V との共存ができる…不安定だけど。
 
-### その他利便性向上のための設定
+### そのほか利便性向上のための設定
 
-- PINGに応答するようにする: [Windows10 PCへのpingが通らない - n-Archives.net](https://n-archives.net/software/nwol/articles/how-to-allow-ping-response-in-windows10/)
+- ping に応答するようにする: [Windows10 PC への ping が通らない - n-Archives.net](https://n-archives.net/software/nwol/articles/how-to-allow-ping-response-in-windows10/)
 - Windows + V の有効化
 - https://www.teradas.net/archives/20665/
 - Windows サウンドなしに変更
 - サウンド -> 通信アクティビティの設定
 - VSCode Local history の保存先変更
 - Microsoft Teams の自動起動停止
-- タスクバーでウィンドウを選ぶときに全画面でプレビューされるのを止める [Windows10のタスクバープレビューを非表示にする](https://techback.info/windows10-taskbar-preview-hide/)
+- タスクバーでウィンドウを選ぶときに全画面でプレビューされるのをやめる [Windows10 のタスクバープレビューを非表示にする](https://techback.info/windows10-taskbar-preview-hide/)

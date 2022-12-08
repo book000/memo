@@ -2,15 +2,15 @@
 
 参考: [nodesource/distributions/README.md](https://github.com/nodesource/distributions/blob/master/README.md)
 
-## Ubuntu など Debian 系
+## Ubuntu など Debian GNU/Linux 系
 
 ### 1. インストールするバージョンを決める
 
-基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るといいかも
+基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも
 
 ### 2. リポジトリインストールスクリプトを走らせる
 
-まずは、パッケージが入っているリポジトリをパッケージマネージャにインストールする。ここではとりあえず執筆時点最新の v17 と LTS、最新バージョンをインストールする。
+まずは、パッケージが入っているリポジトリをパッケージマネージャーにインストールする。ここではとりあえず執筆時点最新の v17 と LTS、最新バージョンをインストールする。
 
 ```bash
 # v17 リポジトリをインストール
@@ -25,7 +25,7 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
 [APT](https://ja.wikipedia.org/wiki/APT) を用いてインストールする。
 
-とりあえずパッケージ一覧の更新をしておく。基本的に上記リポジトリインストール時点で更新されてるはずだけど…
+とりあえずパッケージ一覧の更新をしておく。基本的に上記リポジトリインストール時点で更新されているはずだけど…
 
 ```bash
 sudo apt update
@@ -43,15 +43,15 @@ sudo apt install nodejs
 
 `node -v` を試し、インストールしたバージョンが正しく表示されれば成功。
 
-## CentOS など RedHat 系
+## CentOS など Red Hat 系
 
 ### 1. インストールするバージョンを決める
 
-基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るといいかも
+基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも
 
 ### 2. リポジトリインストールスクリプトを走らせる
 
-まずは、パッケージが入っているリポジトリをパッケージマネージャにインストールする。ここではとりあえず執筆時点最新の v17 と LTS、最新バージョンをインストールする。
+まずは、パッケージが入っているリポジトリをパッケージマネージャーにインストールする。ここではとりあえず執筆時点最新の v17 と LTS、最新バージョンをインストールする。
 
 ```bash
 # v17 リポジトリをインストール

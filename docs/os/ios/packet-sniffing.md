@@ -15,7 +15,7 @@ https://qiita.com/tokawa-ms/items/43624d536a44f60882cb
 
 ### Fidder Classic
 
-安直に Scoop 経由でインストールすると CertMaker インストール時にコケるので、インストーラーを使う。  
+安直に Scoop 経由でインストールすると CertMaker インストール時にコケるので、インストーラを使う。  
 Fiddler Everywhere なる新しいソフトが出ているが、こちらでは期待する動作はしないと思うので Classic を使う。
 
 https://www.telerik.com/fiddler/fiddler-classic
@@ -43,9 +43,9 @@ Tools -> Options
 
 `http://host:8888/` にアクセス、`You can download the FidderRoot certificate` からダウンロードしインストールする。
 
-1. 「この Web サイトは構成プロファイルをダウンロードしようとしています。許可しますか？」 -> 「許可」
+1. 「この Web サイトは構成プロファイルをダウンロードしようとしています。許可しますか？」->「許可」
 2. 「プロファイルがダウンロードされました」
-3. 設定アプリを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ
+3. 設定アプリケーションを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ
 4. 「インストール」
 5. インストールが完了したら、一般タブ -> 情報 -> 証明書信頼設定 -> ルート証明書を全面的に信頼する -> `DO_NOT_TRUST_FiddlerRoot` をオン
 6. ルート証明書をアクティブにすることの警告が出るので、「続ける」
@@ -64,5 +64,5 @@ Wi-Fi タブから、接続中の AP のインフォメーションボタンを�
 
 ### 証明書のアンインストール
 
-設定アプリを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ  
+設定アプリケーションを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ  
 「プロファイルを削除」で削除。

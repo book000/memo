@@ -2,7 +2,7 @@
 
 ## 1. HDD を接続する
 
-ラズパイをシャットダウンしたあと、外付け HDD を繋いで起動する
+ラズパイをシャットダウンしたあと、外付け HDD をつないで起動する
 
 ## 2. 対象 HDD のデバイスファイルを調べる
 
@@ -36,7 +36,7 @@ Device     Start        End    Sectors  Size Type
 Partition 1 does not start on physical sector boundary.
 ```
 
-`df -h` とかと見比べながら、既存 HDD と間違えないように確認する。ここでは 5.5 TiB の `/dev/sda` が対象なので、それに対して操作する。
+`df -h` とかと見比べながら、既存 HDD と間違えないように確認する。ここでは 5.5 TiB の `/dev/sda` が対象ですので、それに対して操作する。
 
 <details>
 <summary>※ 2 TB 未満の場合は MBR でフォーマットするのでこちらを参照</summary>
@@ -48,8 +48,8 @@ Partition 1 does not start on physical sector boundary.
 `fdisk` で HDD にパーティションを作成する。
 
 1. `Command (m for help)` では、新しいパーティションを作るので `NEW` -> `n` を入れる
-2. `Partition type` では、プライマリの基本領域を作成するので `p` を入れる (そのまま Enter でも可)
-3. `Partition number` では、初めてのパーティションなので `1` を入れる (そのまま Enter でも可)
+2. `Partition type` では、プライマリの基本領域を作成するので `p` を入れる（そのまま Enter でも可）
+3. `Partition number` では、初めてのパーティションなので `1` を入れる（そのまま Enter でも可）
 4. `Created a new partition` と出たら成功
 5. `Command (m for help)` に戻るので、実施した内容を HDD に書き込むために `WRITE` -> `w` を入れる
 6. 正常に書き込まれてシェルが戻ってきたら成功
@@ -116,7 +116,7 @@ GPT で作るので、`parted` コマンドを使う。
    [この記事](https://qiita.com/ktateish/items/238c03f28e8b3335f684) では `parted` 実行時に `-a optimal` を付けたうえで `mkpart primary ext4 0% 100%` すれば良いとあるけど、これも上記エラーが出るし、  
    今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。
    **2022/06/24追: `mkpart primary ext4 0% 6001GB` で良いっぽい。**
-5. 再度 `p` で 正常にパーティションが作成されたことを確認する
+5. 再度 `p` で正常にパーティションが作成されたことを確認する
 6. `q` で抜ける
 
 ```shell

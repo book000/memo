@@ -66,11 +66,11 @@ Is the information correct? [Y/n] y
 - `su test`: 対象ユーザーに切り替え
 - `cd`: 対象ユーザーのホームディレクトリに移動
 - `mkdir -p .ssh`: `.ssh` ディレクトリ作成
-- `chmod 700 .ssh`: `.ssh` ディレクトリを 700 (所有者のみ RWX 可) にする
+- `chmod 700 .ssh`: `.ssh` ディレクトリを 700（所有者のみ RWX 可）にする
 - `ssh-keygen -t ed25519`: キー作成。パスフレーズお好み
-- この段階で、パスワード認証かなにかでサーバに入って秘密鍵(`~/.ssh/id_ed25519`)を入手
+- この段階で、パスワード認証か何かでサーバに入って秘密鍵（`~/.ssh/id_ed25519`）を入手
 - `mv id_ed25519.pub authorized_keys` or `cat id_ed25519.pub >> authorized_keys`: 公開鍵を登録
-- `chmod 600 authorized_keys`: ファイルを 600 (所有者のみ RW 可)にする
+- `chmod 600 authorized_keys`: ファイルを 600（所有者のみ RW 可）にする
 - `exit`: ユーザーから抜ける
 
 ここまでがユーザーの SSH 関連に関する処理。以降はサーバの SSH 設定
@@ -79,7 +79,7 @@ Is the information correct? [Y/n] y
 
 - `#Port 22` → `Port 10000`: sshd のポートを変更する
 - `PermitRootLogin yes` → `PermitRootLogin no`: root ユーザーへのログインを拒否する
-- `#PubkeyAuthentication yes` → `PubkeyAuthentication yes`: 公開鍵認証での認証を許可する (コメントアウトを外す)
+- `#PubkeyAuthentication yes` → `PubkeyAuthentication yes`: 公開鍵認証での認証を許可する（コメントアウトを外す）
 - `PasswordAuthentication yes` → `PasswordAuthentication no`: パスワード認証を拒否する
 
 あとは `systemctl restart sshd` で sshd の再起動、`ufw allow 10000` で sshd のポートを開放。

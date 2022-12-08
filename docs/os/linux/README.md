@@ -1,4 +1,4 @@
 # memo/linux
 
-ディストリビューションを問わないLinux系についての各種メモです。  
+ディストリビューションを問わない Linux 系についての各種メモです。  
 CentOS, Ubuntu, Raspbian (Raspberry Pi OS) がメインです。
