@@ -1,0 +1,74 @@
+site_name: book000/memo
+
+repo_name: book000/memo
+repo_url: https://github.com/book000/memo
+edit_uri: edit/main/
+
+theme:
+  name: material
+  language: ja
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.expand
+    - navigation.indexes
+    - toc.follow
+  icon:
+    logo: material/pencil-circle
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - footnotes
+  - admonition
+  - pymdownx.magiclink
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  search:
+    language: ja
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/book000
+    - icon: fontawesome/brands/github
+      link: https://github.com/book000
+
+extra_css:
+  - css/extra.css
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: iso_datetime
+  - awesome-pages
