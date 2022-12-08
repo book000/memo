@@ -6,7 +6,7 @@
 
 ## 2. 対象 HDD のデバイスファイルを調べる
 
-`sudo dmesg` や `sudo fdisk -l` で接続した HDD のデバイスファイルを調べる。  
+`sudo dmesg` や `sudo fdisk -l` で接続した HDD のデバイスファイルを調べる。
 
 ```shell
 tomachi@tomapi:~ $ sudo fdisk -l
@@ -36,71 +36,69 @@ Device     Start        End    Sectors  Size Type
 Partition 1 does not start on physical sector boundary.
 ```
 
-`df -h` とかと見比べながら、既存 HDD と間違えないように確認する。ここでは 5.5 TiB の `/dev/sda` が対象ですので、それに対して操作する。
+`df -h` とかと見比べながら、既存 HDD と間違えないように確認する。ここでは 5.5 TiB の `/dev/sda` が対象なので、それに対して操作する。
 
-<details>
-<summary>※ 2 TB 未満の場合は MBR でフォーマットするのでこちらを参照</summary>
+??? note "2 TB 未満の場合は MBR でフォーマットするのでこちらを参照"
 
-※間違えて 6TB HDD なのに MBR でフォーマットしたのでとりあえず残しておく
+    ※間違えて 6TB HDD なのに MBR でフォーマットしたのでとりあえず残しておく
 
-## 3. パーティションを作成する
+    ## 3. パーティションを作成する
 
-`fdisk` で HDD にパーティションを作成する。
+    `fdisk` で HDD にパーティションを作成する。
 
-1. `Command (m for help)` では、新しいパーティションを作るので `NEW` -> `n` を入れる
-2. `Partition type` では、プライマリの基本領域を作成するので `p` を入れる（そのまま Enter でも可）
-3. `Partition number` では、初めてのパーティションなので `1` を入れる（そのまま Enter でも可）
-4. `Created a new partition` と出たら成功
-5. `Command (m for help)` に戻るので、実施した内容を HDD に書き込むために `WRITE` -> `w` を入れる
-6. 正常に書き込まれてシェルが戻ってきたら成功
+    1. `Command (m for help)` では、新しいパーティションを作るので `NEW` -> `n` を入れる
+    2. `Partition type` では、プライマリの基本領域を作成するので `p` を入れる（そのまま Enter でも可）
+    3. `Partition number` では、初めてのパーティションなので `1` を入れる（そのまま Enter でも可）
+    4. `Created a new partition` と出たら成功
+    5. `Command (m for help)` に戻るので、実施した内容を HDD に書き込むために `WRITE` -> `w` を入れる
+    6. 正常に書き込まれてシェルが戻ってきたら成功
 
-```shell
-tomachi@tomapi:~ $ sudo fdisk /dev/sda
+    ```shell
+    tomachi@tomapi:~ $ sudo fdisk /dev/sda
 
-Welcome to fdisk (util-linux 2.33.1).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+    Welcome to fdisk (util-linux 2.33.1).
+    Changes will remain in memory only, until you decide to write them.
+    Be careful before using the write command.
 
-Device does not contain a recognized partition table.
-The size of this disk is 5.5 TiB (6001175126016 bytes). DOS partition table format cannot be used on drives for volumes larger than 4294966784 bytes for 512-byte sectors. Use GUID partition table format (GPT).
+    Device does not contain a recognized partition table.
+    The size of this disk is 5.5 TiB (6001175126016 bytes). DOS partition table format cannot be used on drives for volumes larger than 4294966784 bytes for 512-byte sectors. Use GUID partition table format (GPT).
 
-Created a new DOS disklabel with disk identifier 0x28e4f28c.
+    Created a new DOS disklabel with disk identifier 0x28e4f28c.
 
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-4294967295, default 2048): 2048
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-4294967294, default 4294967294):
+    Command (m for help): n
+    Partition type
+    p   primary (0 primary, 0 extended, 4 free)
+    e   extended (container for logical partitions)
+    Select (default p): p
+    Partition number (1-4, default 1): 1
+    First sector (2048-4294967295, default 2048): 2048
+    Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-4294967294, default 4294967294):
 
-Created a new partition 1 of type 'Linux' and of size 2 TiB.
+    Created a new partition 1 of type 'Linux' and of size 2 TiB.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
+    Command (m for help): w
+    The partition table has been altered.
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
 
-`sudo fdisk -l /dev/sda` で先ほど実施したパーティション作成が正常に完了したかを確認する。
+    `sudo fdisk -l /dev/sda` で先ほど実施したパーティション作成が正常に完了したかを確認する。
 
-```shell
-tomachi@tomapi:~ $ sudo fdisk -l /dev/sda
-Disk /dev/sda: 5.5 TiB, 6001175126016 bytes, 11721045168 sectors
-Disk model: Generic
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 4096 bytes
-I/O size (minimum/optimal): 4096 bytes / 4096 bytes
-Disklabel type: dos
-Disk identifier: 0x28e4f28c
+    ```shell
+    tomachi@tomapi:~ $ sudo fdisk -l /dev/sda
+    Disk /dev/sda: 5.5 TiB, 6001175126016 bytes, 11721045168 sectors
+    Disk model: Generic
+    Units: sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 4096 bytes
+    I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+    Disklabel type: dos
+    Disk identifier: 0x28e4f28c
 
-Device     Boot Start        End    Sectors Size Id Type
-/dev/sda1        2048 4294967294 4294965247   2T 83 Linux
-```
+    Device     Boot Start        End    Sectors Size Id Type
+    /dev/sda1        2048 4294967294 4294965247   2T 83 Linux
+    ```
 
-正常に作成できていることを確認。
-</details>
+    正常に作成できていることを確認。
 
 以下、2TB 以上の場合（GPT で作成）
 
@@ -114,7 +112,7 @@ GPT で作るので、`parted` コマンドを使う。
 4. `mkpart` でパーティションを作成する。ここで渡すパラメータはサイトによって異なるので、適切なパラメータを確認したほうが良い  
    [この記事](https://kiyoshi.hatenablog.com/entry/20131228/1388157792) では `mkpart primary ext4 0 -0` すれば問題ないとあったけど `Error: Unable to satisfy all constraints on the partition.` と怒られるし、  
    [この記事](https://qiita.com/ktateish/items/238c03f28e8b3335f684) では `parted` 実行時に `-a optimal` を付けたうえで `mkpart primary ext4 0% 100%` すれば良いとあるけど、これも上記エラーが出るし、  
-   今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。
+   今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。  
    **2022/06/24追: `mkpart primary ext4 0% 6001GB` で良いっぽい。**
 5. 再度 `p` で正常にパーティションが作成されたことを確認する
 6. `q` で抜ける

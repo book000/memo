@@ -5,7 +5,7 @@ Windows は公式のインストーラとか Scoop とか WinGet とかそこら
 
 ## 1. 最新のバージョンを確認する or インストールしたいバージョンを確認する
 
-[~~見づらい~~公式サイトのバージョンリスト](https://www.python.org/downloads/source/) か、[比較的見やすい非公式リンク一覧サイト](https://pythonlinks.python.jp) の「`Source`」を閲覧し、最新のバージョンかインストールしたいバージョンを選んでください。
+[~~見づらい~~ 公式サイトのバージョンリスト](https://www.python.org/downloads/source/) か、[比較的見やすい非公式リンク一覧サイト](https://pythonlinks.python.jp) の「`Source`」を閲覧し、最新のバージョンかインストールしたいバージョンを選んでください。
 
 ここで `tar.gz` や `zip` などのインストーラをダウンロードする必要はありません。
 

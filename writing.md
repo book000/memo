@@ -2,7 +2,7 @@
 
 ## ディレクトリ構成
 
-ドキュメント自体は全て docs ディレクトリの中に置く。この中のものが mkdocs によってビルド対象となり、デプロイされる。
+ドキュメント自体はすべて docs ディレクトリの中に置く。この中のものが mkdocs によってビルド対象となり、デプロイされる。
 
 その中で、ある程度カテゴリ分けをしている。
 
@@ -22,19 +22,19 @@ https://squidfunk.github.io/mkdocs-material/reference/
 
 ### コードブロック
 
-https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types
+https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
 
 ファイル名など、コードブロックにタイトルをつける場合、言語名の後に `title="タイトル"` とつけるらしい。つまり
 
 ```
-\`\`\`python title="main.py"
+```python title="main.py"
 ```
 
 コードの一部をハイライトする場合は、`hl_lines="2 3"` とかやると 2 行目と 3 行目がハイライトされる。
 
 ### インフォメーション・アコーディオン
 
-https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types
+https://squidfunk.github.io/mkdocs-material/reference/admonitions/
 
 ```
 !!! note "Lorem ipsum"
@@ -59,4 +59,3 @@ https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-typ
 - bug
 - example
 - quote
-

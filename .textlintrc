@@ -58,7 +58,8 @@
         "allowlist": {
             "allow": [
                 "Cloudflare",
-                "Debian"
+                "Debian",
+                "なので"
             ]
         }
     }
