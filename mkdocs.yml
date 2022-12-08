@@ -4,6 +4,15 @@ repo_name: book000/memo
 repo_url: https://github.com/book000/memo
 edit_uri: edit/main/docs
 
+copyright: 本サイト内に掲載された内容は当該ページやファイル内に特記のない限り、CC BY-SA 4.0 の元で利用できます。<br>All content on this site is available under CC BY-SA 4.0 unless otherwise noted in the relevant page or file.
+
+nav:
+  - Home: index.md
+  - ... | os/**/*.md
+  - ... | programming/**/*.md
+  - ... | etc/**/*.md
+  - ...
+
 theme:
   name: material
   language: ja
