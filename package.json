@@ -17,7 +17,7 @@
   "homepage": "https://github.com/book000/memo#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-pattern": "1.0.2",
-    "textlint": "12.2.3",
+    "textlint": "12.2.4",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-ja-no-abusage": "3.0.0",
     "textlint-rule-ja-space-around-link": "2.2.0",
