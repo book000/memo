@@ -7,7 +7,7 @@ https://qiita.com/tokawa-ms/items/43624d536a44f60882cb
 - Windows 10 22H2 (Build 19045.2251)
 - iPad Pro 3 (11 inch) / iPadOS 16
 - Telerik Fidder Classic v5.0.20211.51073
-- FidderCertMaker 
+- FidderCertMaker
 
 ## Windows にソフトをインストール
 
@@ -26,25 +26,29 @@ https://www.telerik.com/fiddler/add-ons
 
 ## Fiddler の設定
 
-1. Tools -> Options
-2. HTTPS タブ
-   - [x] Capture HTTPS CONNECTs
-   - [x] Decrypt HTTPS traffic
-   - [x] Ignore server certificate errors (unsafe)
-   - Protocols: `<client>;ssl3;tls1.0;tls1.1;tls1.2`
-3. Connections タブ
-   - [x] Allow remote computers to connect
+Tools -> Options
+
+### HTTPS タブ
+
+- [x] Capture HTTPS CONNECTs
+- [x] Decrypt HTTPS traffic
+- [x] Ignore server certificate errors (unsafe)
+- Protocols: `<client>;ssl3;tls1.0;tls1.1;tls1.2`
+
+### Connections タブ
+
+- [x] Allow remote computers to connect
 
 ## iOS に証明書をインストール
 
 `http://host:8888/` にアクセス、`You can download the FidderRoot certificate` からダウンロードしインストールする。
 
 1. 「この Web サイトは構成プロファイルをダウンロードしようとしています。許可しますか？」 -> 「許可」
-3. 「プロファイルがダウンロードされました」
-4. 設定アプリを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ
-5. 「インストール」
-6. インストールが完了したら、一般タブ -> 情報 -> 証明書信頼設定 -> ルート証明書を全面的に信頼する -> `DO_NOT_TRUST_FiddlerRoot` をオン
-7. ルート証明書をアクティブにすることの警告が出るので、「続ける」
+2. 「プロファイルがダウンロードされました」
+3. 設定アプリを開き、一般タブ -> VPN とデバイス管理 -> ダウンロード済みプロファイルの `DO_NOT_TRUST_FiddlerRoot` をタップ
+4. 「インストール」
+5. インストールが完了したら、一般タブ -> 情報 -> 証明書信頼設定 -> ルート証明書を全面的に信頼する -> `DO_NOT_TRUST_FiddlerRoot` をオン
+6. ルート証明書をアクティブにすることの警告が出るので、「続ける」
 
 ## プロキシ設定
 

@@ -1,4 +1,4 @@
-# Python3 Setup (From source code)
+# Python3 Setup for Linux (From source code)
 
 ソースからビルドしてインストールするので、Ubuntu / CentOS 系など、Unix 系で動くはず。  
 Windows は公式のインストーラーとか Scoop とか WinGet とかそこらへんでインストールすればいいんじゃないかなあ
