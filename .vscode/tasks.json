@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "shell": {
+      "executable": "pwsh.exe"
+    }
+  },
+  "tasks": [
+    {
+      "label": "Run",
+      "dependsOn": [
+        "Run mkdocs-dev",
+        "View docker-compose logs",
+        "Open browser"
+      ],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Run mkdocs-dev",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/mkdocs-dev.ps1"
+    },
+    {
+      "label": "Open browser",
+      "type": "process",
+      "command": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "args": ["http://localhost:8080"],
+      "hide": true,
+      "presentation": {
+        "close": true
+      }
+    }
+  ]
+}
