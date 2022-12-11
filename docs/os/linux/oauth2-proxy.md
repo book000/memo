@@ -102,7 +102,7 @@ upstreams = "http://127.0.0.1/"
 cookie_secret = "XXXXXXXXXXXXXXXXXXXXXX"
 
 # OAuth2 アプリケーション登録時に入れた Callback URL を設定
-redirect_url="https://example.com/oauth2/callback"
+redirect_url = "https://example.com/oauth2/callback"
 
 # OAuth2 の認証に GitHub を使う
 provider = "github"
