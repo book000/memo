@@ -121,7 +121,7 @@ email_domains = "*"
 # github_users = []
 
 # アクセスできるか確認するリポジトリを指定
-github_repo = "jaoafa/adminwiki"
+github_repo = "github/example"
 
 # WebApp 側でユーザ情報を使う場合は True。X-USER, X-EMAIL ヘッダーから拾えるらしい
 set_xauthrequest = false
