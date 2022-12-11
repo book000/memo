@@ -1,9 +1,9 @@
 # oauth2-proxy + nginx
 
 nginx と [oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy) で既存 Web アプリに OAuth2 の認証機能を持たせてみる。  
-今回は GitHub で認証するけど、Google とか OAuth2 の認証機構持ってるとこだったらいける。
+今回は GitHub で認証するけど、Google とか OAuth2 の認証機構持っているとこだったらいける。
 
-iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読み込み時に Authorization ヘッダをつけないバグがあるようで([teratail の関連質問](https://teratail.com/questions/252803))、Basic 認証をつけると無限に認証要求するので今回のこれが改善策になったりするかも。
+iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読み込み時に Authorization ヘッダをつけないバグがあるようで（[teratail の関連質問](https://teratail.com/questions/252803)）、Basic 認証をつけると無限に認証要求するので今回のこれが改善策になったりするかも。
 
 ## 環境
 
@@ -11,11 +11,11 @@ iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読
   - 正確には openresty 1.15.8.1
 - oauth2-proxy [v7.4.0](https://github.com/oauth2-proxy/oauth2-proxy/releases/tag/v7.4.0)
 
-今回は、特定のプライベートリポジトリ(`github/example` と仮定)にアクセスすることのできるユーザのみ認証できるように設定する。
+今回は、特定のプライベートリポジトリ（`github/example` と仮定）にアクセスできるユーザーのみ認証できるように設定する。
 
 ## 認証フロー
 
-こうなってるんだと思っている
+こうなっているんだろうと思っている
 
 ```mermaid
 sequenceDiagram
@@ -25,29 +25,29 @@ sequenceDiagram
   participant proxy as oauth2-proxy
   participant github as GitHub
   participant WebApp
-  
+
   User->>nginx: 初回接続
   nginx->>proxy: 認証状態の確認
   proxy->>nginx: NGレスポンス
   nginx->>User: NGレスポンス。ログインボタン(/sign_in)のあるページ表示
-  
+
   User->>nginx: GET /oauth2/sign_in
   nginx->>proxy: GET /oauth2/sign_in
   proxy->>nginx: GitHub のOAuth2認証ページリダイレクト(301)
   nginx->>User: GitHub のOAuth2認証ページリダイレクト(301)
-  
+
   User->>github: OAuth2認証ページアクセス、認証
   github->>User: 認証完了。callbackとして /oauth2/callback にリダイレクト
-  
+
   User->>nginx: コールバック
   nginx->>proxy: コールバック
   proxy-->github: ユーザデータ問い合わせなど
   proxy->>nginx: Cookie をつけて認証完了として設定
-  
+
   nginx->>WebApp: GET /
   WebApp->>nginx: WebApp / を返す
   nginx->>User: WebApp が返したレスポンスを返す
-  
+
   loop ユーザからのリクエストに応じて...
     User->>nginx: GET /path/to/
     nginx->>proxy: 認証状態の確認
@@ -72,15 +72,15 @@ GitHub の [Register a new OAuth application](https://github.com/settings/applic
 
 ### oauth2-proxy のインストール
 
-一番簡単にやるなら、すでにビルドされているものが [GitHub Release に上がっている](https://github.com/oauth2-proxy/oauth2-proxy/releases)ので、そこから wget なりで落として設置するのが楽。Golang で書かれているので、自分でビルドするにしてもそんなにめんどくさくない。
+一番簡単にやるなら、すでにビルドされているものが [GitHub Release に上がっている](https://github.com/oauth2-proxy/oauth2-proxy/releases) ので、そこから wget なりで落として設置するのが楽。Golang で書かれているので、自分でビルドするにしてもそんなに面倒くさくない。
 
-設置する場所は`/usr/local/bin` とかどこでもいいけど、とりあえず今回は openresty 環境なので `/usr/local/openresty/bin/` に設置
+設置する場所は `/usr/local/bin` とかどこでもよいけど、とりあえず今回は openresty 環境なので `/usr/local/openresty/bin/` に設置
 
 必要に応じて `sha246sum -c sha256sum.txt` を実行。
 
 ### oauth2-proxy の設定
 
-まず、Cookie Secret を生成する必要がある。今回は Python で生成。他の手段で作る場合は公式ドキュメントの [Generating a Cookie Secret](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#generating-a-cookie-secret) を参照
+まず、Cookie Secret を生成する必要がある。今回は Python で生成。ほかの手段で作る場合は公式ドキュメントの [Generating a Cookie Secret](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#generating-a-cookie-secret) を参照
 
 ```shell
 python -c 'import os,base64; print(base64.urlsafe_b64encode(os.urandom(32)).decode())'
@@ -89,9 +89,9 @@ python -c 'import os,base64; print(base64.urlsafe_b64encode(os.urandom(32)).deco
 ---
 
 その後、設定ファイルを作る。  
-このファイルもどこに作ってもいい(公式は `/etc/oauth2-proxy.cfg` に作っている)けど、今回は `/usr/local/openresty/nginx/conf/oauth2-proxy.cfg` に作成。良いかはしらん
+このファイルもどこに作っても良い（公式は `/etc/oauth2-proxy.cfg` に作っている）けど、今回は `/usr/local/openresty/nginx/conf/oauth2-proxy.cfg` に作成。良いかはしらん
 
-```
+```ini
 # oauth2-proxy が待受するホスト名。nginxと通信するだけに使用。4180 がデフォルトだがすでに使っている場合は変更すること
 http_address = "127.0.0.1:4180"
 
@@ -141,7 +141,7 @@ cookie_expire = "3h"
 ```
 
 上記以外のオプションについては、公式ドキュメントの [Command Line Options](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#command-line-options) を参照。  
-`--acr-values` の場合、`acr_values` とかに変えて入れれば通るっぽい。実際のキーは [ソースコード](https://github.com/oauth2-proxy/oauth2-proxy/blob/fd2807c091686a2a23f41123e3470a1076e877a0/pkg/apis/options/legacy_options.go#L479-534) を眺めるしかない。(リンク先は特定コミットを指定しているので最新ではない)
+`--acr-values` の場合、`acr_values` とかに変えて入れれば通るっぽい。実際のキーは [ソースコード](https://github.com/oauth2-proxy/oauth2-proxy/blob/fd2807c091686a2a23f41123e3470a1076e877a0/pkg/apis/options/legacy_options.go#L479-534) を眺めるしかない。（リンク先は特定コミットを指定しているので最新ではない）
 
 ---
 
@@ -164,7 +164,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-User と Group については、純粋な nginx なら `User=nginx` `Group=nginx` とかにしといた方がいい。
+User と Group については、純粋な nginx なら `User=nginx` `Group=nginx` とかにしといた方がよい。
 
 で、OS 起動時の起動登録と起動コマンドを実行
 
@@ -177,8 +177,8 @@ sudo systemctl start oauth2-proxy
 
 ### nginx の設定
 
-nginx の設定は環境によって厄介なのだが、まあ以下のようにルーティングするように設定したい。  
-とはいえ参考ページの受け売りに近いのでなんともいえない...。
+nginx の設定は環境によってやっかいなのだが、まあ以下のようにルーティングするように設定したい。  
+とはいえ参考ページの受け売りに近いのでなんとも言えない...。
 
 - `/oauth2/`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダに今のリクエスト URL を入れる
 - `/oauth2/auth`: `127.0.0.1:4180` にプロキシ。リクエストボディを投げない (`auth_request` にはボディを含まないから...とかいうけど、よくわからん...)
@@ -195,38 +195,38 @@ server {
     proxy_set_header X-Scheme $scheme;
     proxy_set_header X-Auth-Request-Redirect $request_uri;
   }
-  
+
   location /oauth2/auth {
     proxy_pass http://127.0.0.1:4180;
     proxy_set_header Host $host;
     proxy_set_header X-Scheme $scheme;
     proxy_set_header X-Auth-Request-Redirect $request_uri;
-    
+
     # よくわからん...
     proxy_set_header Content-Length "";
     proxy_pass_request_body off;
   }
-  
+
   location /oauth2/sign_out {
     proxy_pass http://127.0.0.1:4180;
     proxy_set_header Host $host;
     proxy_set_header X-Scheme $scheme;
     proxy_set_header X-Auth-Request-Redirect "https://example.com?sign_out";
   }
-  
+
   location / {
     auth_request /oauth2/auth;
-    
+
     # set_xauthrequest を True にしていて、WebApp 側でユーザ情報を拾うなら以下を有効化
     # auth_request_set $user $upstream_http_auth_request_user;
     # auth_request_set $email $upstream_http_x_auth_request_email;
     # proxy_set_header X-User $user;
     # proxy_set_header X-Email $email;
-    
+
     # Access Token を WebApp で使うなら以下を有効化 (X-Access-Token ヘッダに入る)
     # auth_request_set $token $upstream_http_x_auth_request_access_token;
     # proxy_set_header X-Access-Token $token;
-    
+
     # WebApp に投げる
     proxy_pass http://127.0.0.1:1234/;
     # もしくはは静的ファイルを配信
@@ -235,7 +235,7 @@ server {
 }
 ```
 
-参考ページで上げてる nginx の設定ってどうもどこからかの流用なのだけど、公式のリポジトリにある [nginx.conf](https://github.com/oauth2-proxy/oauth2-proxy/blob/fd2807c091686a2a23f41123e3470a1076e877a0/contrib/local-environment/nginx.conf) は全然違うし、なんなんだろう...。動くことは動くのだけど。
+参考ページで上げている nginx の設定はどこからかの流用らしいのだけど、公式のリポジトリにある [nginx.conf](https://github.com/oauth2-proxy/oauth2-proxy/blob/fd2807c091686a2a23f41123e3470a1076e877a0/contrib/local-environment/nginx.conf) は全然違うし、なんなんだろう...。動くことは動くのだけど。
 
 `/sign_out` でログアウトさせるときに `?sign_out` なんてクエリをつけているのは、クエリがないとなんかのキャッシュが動くのか認証後のページが出るから。
 

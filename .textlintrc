@@ -59,7 +59,10 @@
             "allow": [
                 "Cloudflare",
                 "Debian",
-                "なので"
+                "なので",
+                "Web アプリ",
+                "oauth2-proxy",
+                "もどこ"
             ]
         }
     }
