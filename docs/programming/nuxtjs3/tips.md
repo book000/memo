@@ -96,13 +96,11 @@ Vue は script タグ以下の書き方がいろいろありすぎて困るの�
 {
   "Vue3 setup-script": {
     "prefix": "<script>",
-    "body": ["<script setup lang=\"ts\">", "$1", "</script>"],
-    "description": "Nuxt3 script setup"
+    "body": ["<script setup lang=\"ts\">", "$1", "</script>"]
   },
   "Vue3 template": {
     "prefix": "<template>",
-    "body": ["<template>", "$1", "</template>"],
-    "description": "Nuxt3 template"
+    "body": ["<template>", "$1", "</template>"]
   }
 }
 ```
