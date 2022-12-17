@@ -92,14 +92,14 @@ Vue は script タグ以下の書き方がいろいろありすぎて困るの�
 
 ## Visual Studio Code 用のコードユニペット
 
-```json
+```json title=".vscode/vue3.code-snippets"
 {
-  "Nuxt3 setup-script": {
+  "Vue3 setup-script": {
     "prefix": "<script>",
     "body": ["<script setup lang=\"ts\">", "$1", "</script>"],
     "description": "Nuxt3 script setup"
   },
-  "Nuxt3 template": {
+  "Vue3 template": {
     "prefix": "<template>",
     "body": ["<template>", "$1", "</template>"],
     "description": "Nuxt3 template"
