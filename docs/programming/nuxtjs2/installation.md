@@ -1,4 +1,4 @@
-# Nuxt.js のインストール + 初期設定
+# Nuxt.js v2 のインストール + 初期設定
 
 [Nuxt.js(v2)で generate 納品する前にやっておきたい設定 - Qiita](https://qiita.com/amishiro/items/11bd642728f6b5838189) を参考に自分用にカスタムしています。  
 基本的に、TypeScript・Yarn 環境で設定します。
