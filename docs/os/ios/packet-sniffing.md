@@ -64,12 +64,18 @@ Wi-Fi タブから、接続中の AP のインフォメーションボタンを�
 FiddlerScript タブから、以下のスクリプトを追加する。  
 FiddlerScript は JScript.NET らしい…。
 
+一部のサイトでヤバイ長さの URL にアクセスしているサイトがあったので、200 文字を超える場合は無視するようにしている。
+
 ```js
 static function OnBeforeResponse(oSession: Session) {
     if (!oSession.HTTPMethodIs("CONNECT") && oSession.responseCode == 200) {
         var directoryPath = "/path/to/dir/"
         var reqPath = oSession.hostname + RemoveRight(oSession.PathAndQuery, "?").Replace(":", "-") + "/req-" + oSession.Timers.ClientBeginRequest.ToString().Replace("/", "-").Replace(":", "-") + ".http"
         var resPath = oSession.hostname + RemoveRight(oSession.PathAndQuery, "?").Replace(":", "-") + "/res-" + oSession.Timers.ClientBeginRequest.ToString().Replace("/", "-").Replace(":", "-") + "." + RemoveLeft(oSession.SuggestedFilename, ".")
+        if (reqPath.Length >= 200) {
+            // パスが200文字を超える場合は無視
+            return
+        }
         oSession.utilDecodeRequest()
         oSession.SaveRequest(directoryPath + reqPath, false)
         oSession.utilDecodeResponse()
