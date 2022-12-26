@@ -2,6 +2,10 @@
 
 https://qiita.com/tokawa-ms/items/43624d536a44f60882cb
 
+Android でも試そうとしたが、Android 7 からシステム証明書しか信頼できる証明書として使わなくなったらしく、ブラウザしかユーザー証明書を見ないので Android ではルート化せずに Packet Sniffing できないらしい。
+
+https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html
+
 ## Environment
 
 - Windows 10 22H2 (Build 19045.2251)
@@ -54,6 +58,45 @@ Tools -> Options
 
 Wi-Fi タブから、接続中の AP のインフォメーションボタンをタップ。下にスクロールし「HTTP プロキシ」欄の「プロキシを構成」に入る。  
 「手動」に切り替え、「サーバ」に Windows PC の IP 、「ポート」に `8888` を入れる。認証はオフ。
+
+## Tips: 通信レスポンスを全部ファイル保存
+
+FiddlerScript タブから、以下のスクリプトを追加する。  
+FiddlerScript は JScript.NET らしい…。
+
+```js
+static function OnBeforeResponse(oSession: Session) {
+    if (!oSession.HTTPMethodIs("CONNECT") && oSession.responseCode == 200) {
+        var directoryPath = "/path/to/dir/"
+        var reqPath = oSession.hostname + RemoveRight(oSession.PathAndQuery, "?").Replace(":", "-") + "/req-" + oSession.Timers.ClientBeginRequest.ToString().Replace("/", "-").Replace(":", "-") + ".http"
+        var resPath = oSession.hostname + RemoveRight(oSession.PathAndQuery, "?").Replace(":", "-") + "/res-" + oSession.Timers.ClientBeginRequest.ToString().Replace("/", "-").Replace(":", "-") + "." + RemoveLeft(oSession.SuggestedFilename, ".")
+        oSession.utilDecodeRequest()
+        oSession.SaveRequest(directoryPath + reqPath, false)
+        oSession.utilDecodeResponse()
+        oSession.SaveResponseBody(directoryPath + resPath)
+    }
+}
+
+static function RemoveRight(str: String, removeStr: String) {
+    var length = str.IndexOf(removeStr)
+    if (length < 0) {
+        return str
+    }
+    return str.Substring(0, length)
+}
+
+static function RemoveLeft(str: String, removeStr: String) {
+    var length = str.IndexOf(removeStr)
+    if (length < 0) {
+        return str
+    }
+    return str.Substring(length + 1)
+}
+```
+
+これを入れて `Save Script` でセーブすると、以下のように出力される。
+
+![](assets/dir-structure.png)
 
 ## やめるとき
 
