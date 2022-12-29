@@ -31,6 +31,8 @@ network:
 
 `sudo netplan apply` で反映。`ip a` で反映されていることを確認
 
+`nmcli` で管理されている場合もある。この場合、`nmcli d` で管轄内かを確認。
+
 ## ユーザーの作成
 
 [【Ubuntu】useraddとadduserの違い - Qiita](https://qiita.com/kaitoland/items/386ebc94c3efa17bbecb)
