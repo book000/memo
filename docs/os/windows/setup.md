@@ -297,11 +297,11 @@ Starship は Git などのカスタムアイコンを表示するために Nerd 
 
 ### その他アプリケーションのインストール
 
-- EarTrumpet: 使いにくい Windows の音量ミキサーをタスクバーから操作しやすくする。
-- TeamViewer: 遠隔操作アプリケーション
-- AnyDesk: こちらも遠隔操作アプリケーション。TeamViewer と違い、有料版を急かしたりすることは少ない（少なくとも利用不可にはしてこない）。`%ProgramData%\AnyDesk` の中身を置き換えることで古いエイリアスを継続して利用可能。 [参考](https://support.anydesk.com/ja/knowledge/anydesk%E3%81%AEid%E3%81%A8%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%A2%E3%82%B9)
-- Thunderbird: メーラー。`%APPDATA%Thunderbird\Profiles` のプロファイルの中身（プロファイル名は変更しない）を置き換えれば移行できる。
-- XTRM Runtime: Visual Basic/VC 系のランタイムインストーラ https://forest.watch.impress.co.jp/library/software/xtrmruntime/download_10524.html
+- [EarTrumpet](https://apps.microsoft.com/store/detail/9NBLGGH516XP): 使いにくい Windows の音量ミキサーをタスクバーから操作しやすくする。
+- [TeamViewer](https://www.teamviewer.com): 遠隔操作アプリケーション
+- [AnyDesk](https://anydesk.com): こちらも遠隔操作アプリケーション。TeamViewer と違い、有料版を急かしたりすることは少ない（少なくとも利用不可にはしてこない）。`%ProgramData%\AnyDesk` の中身を置き換えることで古いエイリアスを継続して利用可能。 [参考](https://support.anydesk.com/ja/knowledge/anydesk%E3%81%AEid%E3%81%A8%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%A2%E3%82%B9)
+- [Thunderbird](https://www.thunderbird.net/): メーラー。`%APPDATA%\Thunderbird\Profiles` のプロファイルの中身（プロファイル名は変更しない）を置き換えれば移行できる。プロファイル名を変更しなければならない場合は、`%APPDATA%\Thunderbird\profiles.ini` をいじる。
+- [XTRM Runtime](https://forest.watch.impress.co.jp/library/software/xtrmruntime/): Visual Basic/VC 系のランタイムインストーラ
 
 ### スタートアップの設定
 
@@ -380,7 +380,7 @@ BlueStacks X を勝手にインストールしやがったら、Windows のア�
 
 - ping に応答するようにする: [Windows10 PC への ping が通らない - n-Archives.net](https://n-archives.net/software/nwol/articles/how-to-allow-ping-response-in-windows10/)
 - Windows + V の有効化
-- https://www.teradas.net/archives/20665/
+- マウスを振るとほかのウィンドウが消える機能をオフにする https://www.teradas.net/archives/20665/
 - Windows サウンドなしに変更
 - サウンド -> 通信アクティビティの設定
 - VSCode Local history の保存先変更
