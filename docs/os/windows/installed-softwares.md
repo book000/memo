@@ -355,57 +355,182 @@ TeamViewer や AnyDesk ではキーの長押しがうまく動作しない問題
 
 ## Browser Extensions
 
+ブラウザの拡張機能
+
 ## Common
 
 Chrome / Firefox 共通の拡張機能
 
 ### Adblock
 
+言わずと知れた広告ブロック
+
+- Web サイト: https://getadblock.com
+- Chrome: https://chrome.google.com/webstore/detail/gighmmpiobklfepjocnamgkkbiglidom
+- Firefox: https://addons.mozilla.org/firefox/addon/adblock-for-firefox/
+
 ### Augmented Steam
+
+Steam のゲームページにそのゲームに関する情報を追加で表示したりする
+
+- Web サイト: https://augmentedsteam.com/
+- Chrome: https://chrome.google.com/webstore/detail/dnhpnfgdlenaccegplpojghhmaamnnfp
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/augmented-steam/
 
 ### Better TweetDeck
 
+TweetDeck をさらに使いやすくする
+
+- Web サイト: https://better.tw/
+- Chrome: https://chrome.google.com/webstore/detail/micblkellenpbfapmcpcfhcoeohhnpob
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/better-tweetdeck-17/
+
 ### Dark Reader
+
+ダークモード非対応のページでもダークモードにする
+
+正直使いやすいかは微妙。入れといて無効にしている。
+
+- Chrome: https://chrome.google.com/webstore/detail/eimadpbcbfnmbkopoojfekhnkhdbieeh
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/darkreader/
 
 ### Eight Dollars
 
+Twitter の認証済みバッチが従来の認証によって追加されたのか、Twitter Blue によって追加されたのかを見やすく表示する
+
+- Chrome: https://chrome.google.com/webstore/detail/fjbponfbognnefnmbffcfllkibbbobki
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/eightdollars/
+- GitHub: https://github.com/wseagar/eight-dollars
+
 ### Enhancer for YouTube
+
+YouTube を使いやすくするやつ
+
+- Web サイト: https://www.mrfdev.com/enhancer-for-youtube
+- Chrome: https://chrome.google.com/webstore/detail/ponfpcnoihfmfllpaingbgckeeldkhle
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/enhancer-for-youtube/
 
 ### Form History Control (II)
 
+フォームに追加した文字列をバックアップ（履歴として保持）しておける
+
+- Chrome: https://chrome.google.com/webstore/detail/lpcccgcdjibejkgiaeijbmkpbnbkglkb
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/form-history-control/
+
 ### I don't care about cookies
+
+Cookie に関する警告を消す
+
+- Web サイト: https://www.i-dont-care-about-cookies.eu
+- Chrome: https://chrome.google.com/webstore/detail/fihnjjcciajhdojfnbdddfaoknhalnja
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/i-dont-care-about-cookies/
 
 ### Keepa
 
+Amazon の値段推移をグラフで見る
+
+- Web サイト: https://keepa.com
+- Chrome: https://chrome.google.com/webstore/detail/neebplgakaahbhdphmkckjjcegoiijjo?hl=ja
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/keepa/
+
+### Refined GitHub
+
+GitHub を使いやすくするやつ
+
+- Chrome: https://chrome.google.com/webstore/detail/hlepfoohegkhhmjieoechaddaejaokhf
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/refined-github-/
+- GitHub: https://github.com/refined-github/refined-github
+
+### SteamDB
+
+SteamDB の情報を Steam のゲームページに表示する
+
+- Web サイト: https://steamdb.info
+- Chrome: https://chrome.google.com/webstore/detail/kdbmhfkmnlmbkgbabkdealhhbfhlmmon
+- Firefox: https://addons.mozilla.org/firefox/addon/steam-database/
+
 ### Stylus
+
+特定の Web ページにカスタム CSS を適用する
+
+- Web サイト: https://add0n.com/stylus.html
+- Chrome: https://chrome.google.com/webstore/detail/clngdbkpkpeebahjckkjfobafhncgmne
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/styl-us/
+- GitHub: https://github.com/openstyles/stylus
 
 ### Tab Auto Refresh
 
+Web ページを特定のインターバルで自動更新する
+
+- Web サイト: https://mybrowseraddon.com/tab-auto-refresh.html
+- Chrome: https://chrome.google.com/webstore/detail/jaioibhbkffompljnnipmpkeafhpicpd
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/tab-auto-refresh/
+
 ### Tampermonkey
+
+特定の Web ページにカスタム JavaScript を適用する
+
+- Web サイト: https://www.tampermonkey.net
+- Chrome: https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/tampermonkey/
 
 ### Twitter Stress Reduction
 
+Twitter で特定の文字列を含むツイートやトレンドを非表示にする
+
+- Web サイト: https://shirouzu.jp/tech/twitter-stress-reduction
+- Chrome: https://chrome.google.com/webstore/detail/ipnjgahnocpaefhffbnnjonihlihoeic
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/twitter-stress-reduction/
+
 ### uBlacklist
 
+Google の検索結果から特定ドメインの検索結果を非表示にする
+
+- Chrome: https://chrome.google.com/webstore/detail/pncfbmialoiaghdehhbnbhkkgmjanfhe
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/ublacklist/
+
 ### Web Scrobbler
+
+YouTube などで聴いている曲を Last.fm などの Scrobble サービスに Scrobble する
+
+- Web サイト: https://web-scrobbler.com/
+- Chrome: https://chrome.google.com/webstore/detail/hhinaapppaileiechjoiifaancjggfjm
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/web-scrobbler/
+- GitHub: https://github.com/web-scrobbler/web-scrobbler
 
 ## Firefox
 
 Firefox の拡張機能
 
-### amazon-simple-url
-
 ### Black Menu for Google
+
+ドロップダウンメニューから Google サービスにアクセスできる
+
+- Web サイト: https://apps.jeurissen.co/black-menu-for-google
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/black-menu-google/
 
 ### Link Cleaner+
 
+[UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) などの追跡パラメータや Amazon のクソ長い URL を短いものに置き換える
+
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/link-cleaner-plus/
+- GitHub: https://github.com/apiraino/link_cleaner
+
 ### Link to Text Fragment
 
-### Refined GitHub
+選択しているテキストの [Text Fragment](https://wicg.github.io/scroll-to-text-fragment/) URL をコピーしたり、Text Fragment 付きの URL にアクセスしたときにハイライトする
 
-### SteamDB
+Chrome の場合はこの機能がビルトインされている。
+
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/link-to-text-fragment/
+- GitHub: https://github.com/GoogleChromeLabs/link-to-text-fragment
 
 ### TWP - Translate Web Pages
+
+Web ページを翻訳する
+
+- Firefox: https://addons.mozilla.org/ja/firefox/addon/traduzir-paginas-web/
+- GitHub: https://github.com/FilipePS/Traduzir-paginas-web
 
 ## Chrome
 
@@ -413,15 +538,36 @@ Chrome の拡張機能
 
 ### Amazing Searcher
 
+Google 検索結果の右側に対象期間や言語などをカスタムできるリンク群を表示する
+
+- Chrome: https://chrome.google.com/webstore/detail/amazing-searcher/poheekmlppakdboaalpmhfpbmnefeokj
+- GitHub: https://github.com/eetann/amazing-searcher
+
 ### Chrome 時計
+
+ブラウザツールバーに時刻を表示する & 毎時 0 時に現在時刻の通知を出す
+
+- Chrome: https://chrome.google.com/webstore/detail/icegcmhgphfkgglbljbkdegiaaihifce
+- GitHub: https://github.com/derek1906/CoolClock
 
 ### DetailedTime
 
+YouTube 動画・ライブの具体的な投稿日時を表示する
+
+- Chrome: https://chrome.google.com/webstore/detail/ppgpbdnncfccljjkgfednccihjbakahd
+
 ### JSON Viewer
 
-### Kami for Google Chrome
+JSON をフォーマットして表示する
+
+- Chrome: https://chrome.google.com/webstore/detail/gbmdgpbipfallnflgajpaliibnhdgobh
+- GitHub: https://github.com/tulios/json-viewer
 
 ### YouTube デュアル字幕
+
+YouTube で複数言語の字幕を表示する
+
+- Chrome: https://chrome.google.com/webstore/detail/hkbdddpiemdeibjoknnofflfgbgnebcm
 
 ## Development
 
