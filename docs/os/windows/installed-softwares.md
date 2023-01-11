@@ -50,7 +50,7 @@ Windows の印刷機能から PDF 出力したりするソフト（仮想プリ�
 ソフトごとの音量をタスクトレイから簡単に変更できるソフト
 
 - Web サイト: https://eartrumpet.app
-- Scoop: `scoop install earthumpet` (extras bucket)
+- Scoop: `scoop install eartrumpet` (extras bucket)
 - GitHub: https://github.com/File-New-Project/EarTrumpet
 
 ### Everything
