@@ -593,7 +593,7 @@ SQLite ファイルをブラウジングするソフト
 GitHub のデスクトップソフト
 
 - Web サイト: https://desktop.github.com/
-- Scoop: `scoop install GitHub` (extras bucket)
+- Scoop: `scoop install github` (extras bucket)
 - GitHub: https://github.com/desktop/desktop
 
 ### Gitify
@@ -603,7 +603,7 @@ GitHub の通知を Windows で通知するソフト
 あんまりメンテナンスされていないので、別のソフトを探した方がよいかも。
 
 - Web サイト: https://www.gitify.io
-- Scoop: `scoop install Gitify` (extras bucket)
+- Scoop: `scoop install gitify` (extras bucket)
 - GitHub: https://github.com/manosim/gitify/
 
 ### Rufus
@@ -611,7 +611,7 @@ GitHub の通知を Windows で通知するソフト
 ISO ファイルを USB メモリなどに書き込むソフト
 
 - Web サイト: https://rufus.ie
-- Scoop: `scoop install Rufus` (extras bucket)
+- Scoop: `scoop install rufus` (extras bucket)
 - GitHub: https://github.com/pbatard/rufus
 
 ### Scoop

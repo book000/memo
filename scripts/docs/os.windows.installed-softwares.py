@@ -50,7 +50,7 @@ def get_scoop_apps_from_text(text: str):
 def replace_scoop_bucket(text: str, app: str, bucket: str):
   regex = re.compile(r"`scoop install " + app + "` \(([^)]+) bucket\)")
 
-  return regex.sub("`scoop install " + app + "` (" + bucket + " bucket)", text)
+  return regex.sub("`scoop install " + app.lower() + "` (" + bucket + " bucket)", text)
 
 
 # scoop install コマンドの bucket が正しいかを確認する
