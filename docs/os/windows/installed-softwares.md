@@ -132,6 +132,13 @@ PC とスマートフォンやタブレット間でテキストデータやフ�
 - Web サイト: https://www.cpuid.com/softwares/cpu-z.html
 - Scoop: `scoop install cpu-z` (extras bucket)
 
+### CrystalDiskInfo
+
+S.M.A.R.T. 値などから HDD / SSD の状態確認をするソフト
+
+- Web サイト: https://crystalmark.info/ja/software/crystaldiskinfo/
+- Scoop: `scoop install crystaldiskinfo` (extras bucket)
+
 ### Discord PTB/Canary
 
 Discord の開発版ソフト（パブリックテストビルド）
@@ -141,49 +148,187 @@ Scoop でインストールできるが、Discord 側にある自動アップデ
 
 - PTB ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=ptb&platform=win&arch=x86
 - Canary ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=canary&platform=win&arch=x86
-- Scoop: `scoop install discord-ptb`, `scoop install discord-canary` (versions bucket)
+- Scoop
+  - `scoop install discord-ptb` (versions bucket)
+  - `scoop install discord-canary` (versions bucket)
 
 ### DiskInfo
 
+ストレージ使用状況のチェックソフト
+
+- Vector: https://www.vector.co.jp/soft/winnt/util/se475617.html
+- Scoop/winget: N/A
+
 ### Display Off Soft
+
+無操作時にディスプレイの電源を消すソフト
+
+ゲームとかをしたあとだと Windows のスリープ設定が動かないケースがあるので入れている。
+
+- Vector: https://www.vector.co.jp/soft/winnt/util/se493306.html
+- Scoop/winget: N/A
 
 ### FFmpeg
 
+動画・音声ファイルの変換とか編集とかいろいろできるコマンドラインソフト
+
+MP4 から MP3 に変換したいときとか、ネット上の不審なサイトを使わずとも自分の PC で変換できる。
+
+- Web サイト: https://ffmpeg.org/
+- Scoop: `scoop install ffmpeg` (main bucket)
+
 ### HiMacroEx
+
+マウス・キーボード操作を記録・再生するソフト
+
+Power Automate で作るほどじゃない（特定のボタンが現れたらとかやらない）場合はこっちを使う。
+
+- Vector: https://www.vector.co.jp/soft/winnt/util/se427963.html
+- Scoop/winget: N/A
 
 ### HWMonitor
 
+ハードウェア状態監視ソフト
+
+- Web サイト: https://www.cpuid.com/softwares/hwmonitor.html
+- Scoop: `scoop install hwmonitor` (extras bucket)
+
 ### JQuake
+
+日本国内の地震監視・通知ソフト
+
+- Web サイト: https://jquake.net
+- Scoop: `scoop install jquake` ([book000/scoop-bucket](https://github.com/book000/scoop-bucket) bucket)
+- winget: N/A
 
 ### MediaInfo
 
+動画・音声ファイルの情報を表示するソフト
+
+- Web サイト: https://mediaarea.net/en/MediaInfo
+- Scoop: `scoop install mediainfo` (main bucket)
+
 ### Mouse without Borders
+
+1 つのキーボード・マウスで複数の PC を操作するソフト
+
+- インストールページ: https://www.microsoft.com/en-us/download/details.aspx?id=35460
+- winget: `winget install Microsoft.MouseWithoutBorders`
 
 ### MP3Gain
 
+MP3 ファイルの音量を音質劣化させず一定化するソフト
+
+ポータブル版は SourceForge の Files タブから ZIP ファイルを探すか、PortableApps あたりで落とす
+
+- SourceForge: https://sourceforge.net/projects/mp3gain/
+- winget: `winget install GlenSawyer.MP3Gain`
+
 ### Mp3tag
+
+MP3 ファイルのメタデータを編集するソフト
+
+メタデータのデータソースをカスタムできるので、iTunes にあるトラックデータを書き込むこともできる。[参考](https://www.nihongoka.com/mp3tag/mp3tag_itunes/)
+
+- Web サイト: https://www.mp3tag.de
+- Scoop: `scoop install mp3tag` (extras bucket)
 
 ### nWOL
 
+Wake On LAN のマジックパケットを送信するソフト
+
+- Web サイト: https://n-archives.net/software/nwol/
+- Scoop/winget: N/A
+
 ### Open Hardware Monitor
+
+ハードウェア状態監視ソフト
+
+- Web サイト: https://openhardwaremonitor.org/
+- Scoop/winget: N/A
 
 ### OutPlayed
 
+ゲームプレイを自動でキャプチャするソフト
+
+[Overwolf](https://www.overwolf.com/) のサブアプリケーション扱いなので、Overwolf をインストールしてからインストールする必要がある。
+
+- Web サイト: https://go.overwolf.com/outplayed/
+- Scoop/winget: N/A
+
+winget、`Overwolf.CurseForge` はあるのか…。
+
 ### PreMiD
+
+ブラウザでの作業を Discord のプロフィール (Discord Rich Presence) に表示するソフト
+
+YouTube や Amazon Music で再生している曲とか Google で検索しているモノとか。  
+このソフトを Windows にインストールするのに加えて、利用しているブラウザに拡張機能をインストールする必要がある。
+
+- Web サイト: https://premid.app
+- Scoop/winget: N/A（Microsoft Store 版は winget にある）
+- Chrome: https://chrome.google.com/webstore/detail/agjnjboanicjcpenljmaaigopkgdnihi
+- Firefox: ストアにはないので、[こちら](https://docs.premid.app/en/install/firefox) を参考に導入
+- GitHub: https://github.com/PreMiD/PreMiD
 
 ### ShareX
 
+画面キャプチャ & Imgur などへのアップロード、その他ユーティリティソフト
+
+- Web サイト: https://getsharex.com/
+- Scoop: `scoop install sharex` (extras bucket)
+- GitHub: https://github.com/ShareX/ShareX
+
 ### SikuliX
+
+作業自動化（RPA）ソフト
+
+Jython などで書ける RPA ソフトなので、成果物を Git 管理できたりする。jar ファイルで配布されているので、Java 環境が必要。
+
+- Web サイト: http://sikulix.com or https://sikulix.github.io
+- ダウンロードページ: https://raiman.github.io/SikuliX1/downloads.html
+- GitHub: https://github.com/RaiMan/SikuliX1
 
 ### spacedesk
 
-### VoiceMeeter
+スマートフォンやタブレットを PC の拡張ディスプレイとして使えるソフト
 
-### Yamaha SyncRoom
+- Web サイト: https://www.spacedesk.net/
+- winget: `winget install Datronicsoft.SpacedeskDriver.Server`
+- iOS: https://itunes.apple.com/us/app/id1069217220
+- Android: https://play.google.com/store/apps/details?id=ph.spacedesk.beta
+
+### Voicemeeter
+
+仮想オーディオミキサーソフト
+
+仮想オーディオデバイスとして `VoiceMeeter Input/Output`, `VoiceMeeter Aux Input/Output` の 2 つが追加される。それぞれ Input に入力された音声は Output デバイスで聴くことができるので、いろいろ活用できる。
+
+- Web サイト: https://vb-audio.com/Voicemeeter/
+- winget: `winget install VB-Audio.Voicemeeter`
+
+### Yamaha SYNCROOM
+
+リモート音楽セッションソフト
+
+これも Voicemeeter 同様に仮想オーディオデバイスとして `Yamaha SYNCROOM Driver` が追加される。
+
+- Web サイト: https://syncroom.yamaha.com
+- Scoop/winget: N/A
 
 ### ウィンドウ位置記憶プログラム (VbWinPos)
 
+特定ウィンドウの位置を記憶し、位置合わせを行うソフト
+
+- Web サイト: https://www.vector.co.jp/soft/win95/util/se401241.html
+- Scoop/winget: N/A
+
 ### プログラムの追加と削除 一覧出力
+
+Windows の「プログラムの追加と削除」のように、PC にインストールされているソフトの一覧表示と CSV 出力・印刷を行えるソフト
+
+- Web サイト: http://www.office-neo.jp/pglst/pglst.html
+- Scoop/winget: N/A
 
 ## Remote Desktop
 
@@ -191,9 +336,22 @@ Scoop でインストールできるが、Discord 側にある自動アップデ
 
 ### TeamViewer
 
+利用頻度にもよるのだろうとは思うが、かなりの頻度で商用利用と誤認されて使えなくなることがある。  
+しかしほかのソフトに比べてキー入力やマウス操作の面で安定はしている。
+
+- Web サイト: https://www.teamviewer.com
+
 ### AnyDesk
 
+TeamViewer がつながらない場合の逃げとして利用。マウス操作にはそこまで文句はないのだが、IME の切り替えがうまくいかないことがある。  
+エイリアスとして覚えやすい名前をつけられる。
+
+- Web サイト: https://anydesk.com
+
 ### Parsec
+
+ゲームプレイ向けのリモートデスクトップソフト。FF14 をプレイするために利用。  
+TeamViewer や AnyDesk ではキーの長押しがうまく動作しない問題があったりなどゲームプレイには向いていない。
 
 ## Browser Extensions
 
