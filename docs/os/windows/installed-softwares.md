@@ -573,38 +573,106 @@ YouTube で複数言語の字幕を表示する
 
 主にプログラミング方面の開発関連ソフト群
 
-### DB Browser
+### DB Browser for SQLite
+
+SQLite ファイルをブラウジングするソフト
+
+- Web サイト: https://sqlitebrowser.org/
+- Scoop: `scoop install sqlitebrowser` (extras bucket)
 
 ### DevToys
 
-### ExecTI
+開発者向けの十徳ナイフソフト。JSON と YAML の相互変換とか
+
+- Web サイト: https://devtoys.app/
+- winget: `winget install DevToys`（Microsoft Store で提供）
+- GitHub: https://github.com/veler/DevToys
 
 ### GitHub Desktop
 
+GitHub のデスクトップソフト
+
+- Web サイト: https://desktop.github.com/
+- Scoop: `scoop install GitHub` (extras bucket)
+- GitHub: https://github.com/desktop/desktop
+
 ### Gitify
 
-### mackerel-agent
+GitHub の通知を Windows で通知するソフト
 
-### PowerShell 7 (Pwsh)
+あんまりメンテナンスされていないので、別のソフトを探した方がよいかも。
 
-### PuTTY (Pageant)
+- Web サイト: https://www.gitify.io
+- Scoop: `scoop install Gitify` (extras bucket)
+- GitHub: https://github.com/manosim/gitify/
 
 ### Rufus
 
+ISO ファイルを USB メモリなどに書き込むソフト
+
+- Web サイト: https://rufus.ie
+- Scoop: `scoop install Rufus` (extras bucket)
+- GitHub: https://github.com/pbatard/rufus
+
 ### Scoop
+
+Windows パッケージ管理ソフト
+
+- Web サイト: https://scoop.sh
+- GitHub: https://github.com/ScoopInstaller/Scoop
 
 ### SourceTree
 
+Git GUI クライアントソフト
+
+- Web サイト: https://www.sourcetreeapp.com
+- Scoop: `scoop install sourcetree` (extras bucket)
+
 ### Tera Term
+
+SSH / Telnet / Serial クライアントソフト
+
+- Web サイト: https://ttssh2.osdn.jp
+- Scoop: `scoop install teraterm` (extras bucket)
 
 ### Termius
 
-### Visual Studio Code
+SSH クライアントソフト
 
-### Win32DiskImager
+Windows だけでなく、iOS や Android でも利用できる。接続設定も同期される。
+
+- Web サイト: https://termius.com
+- Scoop: `scoop install termius` (extras bucket)
+- iOS: https://apps.apple.com/us/app/id549039908
+- Android: https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client
+
+### Win32DiskImager / Win32DiskImagerRenewal
+
+イメージファイルを書き込んだり書き出したりするソフト
+
+2022 年にフォークされたのでそっちを利用。
+
+- フォーク元 SourceForge: https://sourceforge.net/projects/win32diskimager/
+- フォーク先 GitHub: https://github.com/dnobori/DN-Win32DiskImagerRenewal
+- Scoop: `scoop install win32-disk-imager` (extras bucket)、Renewal はなさそう
 
 ### WinSCP
 
+FTP / SCP / SFTP / FTPS 対応クライアントソフト
+
+- Web サイト: https://winscp.net
+- Scoop: `scoop install winscp` (extras bucket)
+
 ### Wireshark
 
-### XLaunch
+ネットワークパケット解析ソフト
+
+- Web サイト: https://www.wireshark.org
+- Scoop: `scoop install wireshark` (extras bucket)
+
+### VcXsrv
+
+Windows 用の X サーバソフト
+
+- Web サイト: https://vcxsrv.sourceforge.io
+- Scoop: `scoop install vcxsrv`
