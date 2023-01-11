@@ -64,7 +64,8 @@
                 "oauth2-proxy",
                 "もどこ",
                 "TweetDeck",
-                "I don't care about cookies"
+                "I don't care about cookies",
+                "Stable"
             ]
         }
     }

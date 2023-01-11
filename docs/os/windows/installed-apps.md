@@ -14,14 +14,14 @@ winget のインストールコマンドは Scoop の main か extras, versions 
 
 Windows のエクスプローラにも圧縮・展開機能はあるが、動作速度や形式種類数で利用。
 
-- Webサイト: https://sevenzip.osdn.jp
+- Web サイト: https://sevenzip.osdn.jp
 - Scoop: `scoop install 7zip` (main bucket)
 
 ### Authy
 
-二段階認証(2FA)でのワンタイムパスワード(OTP)の表示ソフト
+二段階認証（2FA）でのワンタイムパスワード（OTP）の表示ソフト
 
-WindowsだけでなくiOSやAndroidにもあり、これらをAuthyアカウントを用いて同期できる。認証作業時にわざわざスマホを出さなくてもいいし、Google Authenticatorみたいにスマホ移行の時に全部再生成したりしなくて良いので楽ちん。  
+Windows だけでなく iOS や Android にもあり、これらを Authy アカウントを用いて同期できる。認証作業時にわざわざスマートフォンを出さなくてもよいし、Google Authenticator みたいにスマートフォン移行の時に全部再生成したりしなくて良いので楽ちん。  
 日本語対応はしていないが、そもそもきちんと読まなきゃならない文章もそんなに出てこない。
 
 - Web サイト: https://authy.com/
@@ -33,7 +33,7 @@ WindowsだけでなくiOSやAndroidにもあり、これらをAuthyアカウン�
 
 Windows の印刷機能から PDF 出力したりするソフト（仮想プリンター）
 
-最近のソフトは独自でPDF出力機能を持っていたりするが、CubePDFの場合は出力形式としてPDFだけでなくJPEGやらPNGやらを選べるので利用
+最近のソフトは独自で PDF 出力機能を持っていたりするが、CubePDF の場合は出力形式として PDF だけでなく JPEG やら PNG やらを選べるので利用
 
 - Web サイト: https://www.cube-soft.jp/cubepdf/
 - winget: `winget install CubeSoft.CubePDF`
@@ -78,7 +78,7 @@ Windows Store で入れると有料だが、インストーラで入れれば無
 
 ### Power Automate
 
-作業自動化(RPA)ソフト
+作業自動化（RPA）ソフト
 
 - Web サイト: https://powerautomate.microsoft.com
 - winget: `winget install Microsoft.PowerAutomateDesktop`
@@ -92,7 +92,7 @@ Windows Store で入れると有料だが、インストーラで入れれば無
 
 ### Pushbullet
 
-PCとスマートフォンやタブレット間でテキストデータやファイルを共有、スマートフォンの通知をPC上で確認できるソフト
+PC とスマートフォンやタブレット間でテキストデータやファイルを共有、スマートフォンの通知を PC 上で確認できるソフト
 
 - Web サイト: https://www.pushbullet.com
 - winget: `winget install Pushbullet.Pushbullet`
@@ -109,7 +109,7 @@ PCとスマートフォンやタブレット間でテキストデータやファ
 
 画像表示ソフト
 
-無駄なUIがなく動作が軽快なのを探して利用している。
+無駄な UI がなく動作が軽快なのを探して利用している。
 
 - Web サイト: https://www.vieas.com/software/vieas.html
 - Scoop: `scoop install vieas` (extras bucket)
@@ -136,8 +136,8 @@ PCとスマートフォンやタブレット間でテキストデータやファ
 
 Discord の開発版ソフト（パブリックテストビルド）
 
-Discord 安定版(Stable)とプロファイルを共有しないので、Stable, PTB, Canary で最大3アカウントを同時に利用可能。ただし、ベータ版なので不具合などがある可能性も。  
-Scoop でインストールできるが、Discord 側にある自動アップデート機能が走って Scoop でのバージョン管理が壊れるのでインストーラーでインストールしたほうが良い。
+Discord 安定版（Stable）とプロファイルを共有しないので、Stable, PTB, Canary で最大 3 アカウントを同時に利用可能。ただし、ベータ版なので不具合などがある可能性も。  
+Scoop でインストールできるが、Discord 側にある自動アップデート機能が走って Scoop でのバージョン管理が壊れるのでインストーラでインストールしたほうが良い。
 
 - PTB ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=ptb&platform=win&arch=x86
 - Canary ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=canary&platform=win&arch=x86
