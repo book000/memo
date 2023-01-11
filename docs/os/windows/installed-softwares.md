@@ -433,7 +433,13 @@ Chrome の拡張機能
 
 ### ExecTI
 
+### GitHub Desktop
+
 ### Gitify
+
+### mackerel-agent
+
+### PowerShell 7 (Pwsh)
 
 ### PuTTY (Pageant)
 
@@ -446,6 +452,8 @@ Chrome の拡張機能
 ### Tera Term
 
 ### Termius
+
+### Visual Studio Code
 
 ### Win32DiskImager
 
