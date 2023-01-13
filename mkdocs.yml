@@ -65,6 +65,8 @@ markdown_extensions:
       custom_checkbox: true
   - mdx_truly_sane_lists:
       nested_indent: 2
+  - attr_list
+  - md_in_html
 
 extra:
   search:
@@ -85,3 +87,4 @@ plugins:
       type: iso_datetime
       timezone: Asia/Tokyo
   - awesome-pages
+  - glightbox
