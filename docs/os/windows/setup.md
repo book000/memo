@@ -56,19 +56,22 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺めるために使う。  
 拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
 
+- [公式サイト](https://www.opera.com/ja)
+- [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
+- `winget install Opera.Opera`
+
 インストールする拡張機能は以下の通り
 
-- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/)
+- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/): 削除された様子。開発者モードからインストールする。
 - [Better TweetDeck](https://chrome.google.com/webstore/detail/better-tweetdeck/micblkellenpbfapmcpcfhcoeohhnpob)
 - [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
   - 設定ファイル: [enhancer-for-youtube-settings.json](./enhancer-for-youtube-settings.json)
-- ['Improve YouTube!' (Video & YouTube Tools)](https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd)
-  - 設定ファイル: [improvedtube.json](./improvedtube.json)
 - [YouTube™ デュアル字幕](https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
-- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejmjacpillmajjnopmpbkbnocid)
+- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejimjacpillmajjnopmpbkbnocid)
 - [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
 - [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
 - [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
+  - `General` と `YouTube` オプションはすべてチェックを外すこと
 - Todoist sidebar(Unofficial): 非公開になってしまったっぽいので、開発者モードからインストールする。
 
 ### アンチウィルスソフトのインストール

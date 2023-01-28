@@ -1,5 +1,5 @@
 {
-  "version": "2.0.115.1",
+  "version": "2.0.117.10",
   "settings": {
     "blur": 0,
     "brightness": 100,
@@ -18,6 +18,7 @@
     "blockautoplay": false,
     "blockhfrformats": false,
     "blockwebmformats": false,
+    "boostvolume": false,
     "cinemamode": false,
     "cinemamodewideplayer": false,
     "controlbar": {
@@ -48,6 +49,7 @@
     "controlspeedmousebutton": false,
     "controlvolume": false,
     "controlvolumemousebutton": false,
+    "convertshorts": true,
     "customcolors": {
       "--main-color": "#00adee",
       "--main-background": "#111111",
@@ -60,7 +62,7 @@
     "customcssrules": "",
     "customscript": "",
     "customtheme": false,
-    "darktheme": false,
+    "darktheme": true,
     "date": 1653946288746,
     "defaultvolume": false,
     "disableautoplay": false,
@@ -71,6 +73,7 @@
     "hidechat": false,
     "hidecomments": false,
     "hiderelated": false,
+    "hideshorts": true,
     "ignoreplaylists": true,
     "ignorepopupplayer": true,
     "localecode": "ja",
@@ -101,7 +104,7 @@
     "theatermode": false,
     "theme": "default-dark",
     "themevariant": "youtube-deep-dark.css",
-    "update": 0,
+    "update": 1665657058945,
     "volume": 50,
     "volumemultiplier": 3,
     "volumevariation": 5,
