@@ -85,3 +85,50 @@ Is the information correct? [Y/n] y
 - `PasswordAuthentication yes` → `PasswordAuthentication no`: パスワード認証を拒否する
 
 あとは `systemctl restart sshd` で sshd の再起動、`ufw allow 10000` で sshd のポートを開放。
+
+## history関連
+
+```shell
+cat << "_EOF_" > history.sh && sudo mv history.sh /etc/profile.d/history.sh && sudo chmod a+x /etc/profile.d/history.sh && source /etc/profile.d/history.sh
+HISTTIMEFORMAT='%F %T '
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTIGNORE='history:w:top:df'
+HISTCONTROL=ignoreboth
+PROMPT_COMMAND='history -a; history -c; history -r'
+_EOF_
+```
+
+## デフォルトのmotd
+
+`/etc/update-motd.d` 以下のシェルスクリプトが順番に実行されるらしい。  
+とりあえず、`find /etc/update-motd.d | xargs -I{} sh -c "echo {} && {}"` で何が表示されるかを確認。
+
+いらないものは `sudo chmod a-x /etc/update-motd.d/50-landscape-sysinfo` とかで実行権限を剥奪する。
+
+```shell
+sudo chmod a-x /etc/update-motd.d/10-help-text
+sudo chmod a-x /etc/update-motd.d/50-landscape-sysinfo
+sudo chmod a-x /etc/update-motd.d/50-motd-news
+sudo chmod a-x /etc/update-motd.d/90-updates-available
+```
+
+https://debimate.jp/2021/08/14/ubuntu-20-04%E3%81%B8ssh%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%97%E3%81%9F%E9%9A%9B%E3%81%AB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8Bwelcome%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/
+
+## Docker
+
+```shell
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg lsb-release
+sudo apt update
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo docker run hello-world
+```
+
+https://docs.docker.com/engine/install/ubuntu/
