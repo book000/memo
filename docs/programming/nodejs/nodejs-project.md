@@ -8,19 +8,23 @@
 
 ## package.json の作成
 
-- name
-- version
-- description
-- repository
-- author
-- private
+- `name`: プロジェクトの名前。大文字を含んではならない。
+- `version`: プロジェクトバージョン
+- `description`: プロジェクトの説明
+- `main`: エントリポイントのファイルパス
+- `homepage`: Web サイトへの URL
+- `repository`: GitHub への Git URL
+- `bugs`: バグトラッカーへの URL
+- `author`: 作者名。メールアドレスを入れる場合は `XXXXX <info@example.com>` のようにする。
+- `license`: プロジェクトに適用するライセンス。`MIT` など
+- `private`: true の場合、パッケージの公開を制限する
 
 `yarn init` を使ってもよいし、そのまま `package.json` を作成して作ってもよい
 
 ```shell
 ❯ yarn init
 yarn init v1.22.19
-question name (tmp):
+question name (test):
 question version (1.0.0):
 question description:
 question entry point (index.js):
@@ -32,9 +36,18 @@ success Saved package.json
 Done in 5.07s.
 ```
 
+https://garafu.blogspot.com/2016/11/packagejson-specification-ja.html
+
 ## Node.js バージョンの指定
 
-`node -v > .node-version`, package.json で "engines": { "node": "xxx"}
+fnm などの Node.js バージョン管理ツールを利用している場合、`.node-version` などでプロジェクトで使用するバージョンを決定しておいたほうが安心。
+
+```shell
+node -v > .node-version
+```
+
+また、fnm などを利用していない人向けに `package.json` で対象の Node.js バージョンを明記しておく。  
+以下の Bash スクリプトで設定可能。
 
 ```bash
 # bash (Windowsの場合はWSLなど)で実行すること
@@ -44,6 +57,8 @@ Done in 5.07s.
 jq --rawfile version .node-version '.engines.node |= ($version | gsub("[v\\r\\n]"; ""))' package.json > package.json.tmp
 mv package.json.tmp package.json
 rm package.json.tmp
+
+# .node-version のバージョン固定になるので、18.x とか範囲指定にするといいかも。
 ```
 
 ## TypeScript 環境の構築
