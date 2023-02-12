@@ -185,7 +185,7 @@ yarn add -D -E typescript @types/node
       - `paths`: 長いパスを短くするために `@/...` をマップする
     - `include`: コンパイル対象を指定する
 
-https://typescriptbook.jp/reference/tsconfig/tsconfig.json-settings
+https://typescriptbook.jp/reference/tsconfig/tsconfig.json-settings  
 https://qiita.com/ryokkkke/items/390647a7c26933940470
 
 最後に、コンパイルして実行のプロセスを 1 コマンドで行う `ts-node` を導入する。
@@ -370,7 +370,7 @@ wget -O src/cycle.d.ts https://gist.githubusercontent.com/book000/b4c8394fe6a12e
 ## ここまでのテンプレート
 
 ```powershell
-wget https://gist.github.com/book000/7e5e900d9a6bf249f99804539e056ee3/raw/bcec1c08afd971b9e80f2895dc12b377f5d55856/all.ps1
+wget https://gist.github.com/book000/7e5e900d9a6bf249f99804539e056ee3/raw/all.ps1
 powershell ./all.ps1
 ```
 
@@ -403,7 +403,7 @@ export interface Configuration {
 
 設定ファイルには以下のように JSON Schema を定義できる。
 
-```json title="data/" hl_lines="3"
+```json title="data/" hl_lines="2"
 {
   "$schema": "../schema/Configuration.json"
 }
