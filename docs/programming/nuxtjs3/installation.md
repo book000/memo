@@ -140,7 +140,7 @@ export default defineNuxtConfig({
 yarn add -D eslint eslint-plugin-nuxt @nuxtjs/eslint-config-typescript vite-plugin-eslint
 ```
 
-package.json にこのへんのスクリプトを追加
+package.json にこのへんのスクリプトを追加。
 
 ```json title="package.json" hl_lines="8-9"
 {
@@ -156,7 +156,7 @@ package.json にこのへんのスクリプトを追加
 }
 ```
 
-さらに `nuxt.config.ts` に以下の設定を追加
+さらに `nuxt.config.ts` に以下の設定を追加。
 
 ```typescript title="nuxt.config.ts" linenums="1" hl_lines="6"
 const isDev = process.env.NODE_ENV === "development";
