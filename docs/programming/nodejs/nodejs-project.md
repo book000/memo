@@ -19,6 +19,8 @@
 - [eslint-plugin-promise](https://www.npmjs.com/package/eslint-plugin-promise) v6.1.1
 - [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn) v45.0.2
 - [yarn-run-all](https://www.npmjs.com/package/yarn-run-all) v3.1.1
+- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) v5.51.0
+- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) v5.51.0
 - [@vercel/ncc](https://www.npmjs.com/package/@vercel/ncc) v0.36.1
 - [winston](https://www.npmjs.com/package/winston) v3.8.2
 - [winston-daily-rotate-file](https://www.npmjs.com/package/winston-daily-rotate-file) v4.7.1
@@ -222,7 +224,7 @@ Prettier と ESLint はベストプラクティスが変わりに変わってい
 まずはパッケージを追加。
 
 ```shell
-yarn add -D -E prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all
+yarn add -D -E prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
 ### Prettier
@@ -295,6 +297,16 @@ rules:
   - [`unicorn/prefer-top-level-await`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-top-level-await.md): トップレベルの await を優先しなくする
   - [`unicorn/no-null`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-null.md): null を制限することをやめる
   - `no-console`: `console.log` などをエラーとする（あとで winston を導入するため）
+
+`.eslintignore` に除外するファイル・ディレクトリを記述する。
+
+```text title=".eslintignore"
+dist
+output
+node_modules
+data
+logs
+```
 
 https://hisa-tech.site/bestpractice-eslint-and-prettier/
 
