@@ -403,7 +403,7 @@ export interface Configuration {
 
 設定ファイルには以下のように JSON Schema を定義できる。
 
-```json title="data/" hl_lines="3"
+```json title="data/" hl_lines="2"
 {
   "$schema": "../schema/Configuration.json"
 }
