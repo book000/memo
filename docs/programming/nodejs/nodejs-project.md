@@ -216,7 +216,8 @@ yarn add -D -E ts-node ts-node-dev
 Lint / Formatter として、[ESLint](https://github.com/eslint/eslint) と [Prettier](https://github.com/prettier/prettier) をいれる。
 
 Prettier と ESLint はベストプラクティスが変わりに変わっているので、何が適切かわからない。  
-とりあえず参考記事に従って、**ESLint に Linter**・**Prettier に Formatter** と責務を分けて設定することにする。
+とりあえず参考記事に従って、**ESLint に Linter**・**Prettier に Formatter** と責務を分けて設定することにする。  
+...と思っていたけど、微妙に気に入らない点がいくつか出てきたので Lint と Formatter を両方 ESLint に変える方向性を模索したいと思う。
 
 まずはパッケージを追加。
 
