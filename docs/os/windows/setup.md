@@ -5,7 +5,7 @@
 クリーンインストール前に `クリーンインストール前にやることメモ` を確認して実施すること。  
 `<`, `>` で囲まれたものは置換する必要がある。記載されたコードは原則 PowerShell のコードですので、PowerShell で実行すること。コマンドプロンプトでは動作しない。
 
-Windows 10 Pro 21H2 (Build 19044.1706) にて実施
+Windows 10 Pro 21H2 (Build 19044.1706) にて実施。
 
 !! **CSM を切って SecureBoot オンでインストールを実施すること。さもないと BIOS レガシーで Windows10 がインストールされる** !!
 
@@ -36,7 +36,7 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 ### Firefox
 
 メインブラウザとして利用する。  
-拡張機能などの同期は Firefox アカウントで行う
+拡張機能などの同期は Firefox アカウントで行う。
 
 - [公式サイト](https://www.mozilla.org/ja/firefox/new/)
 - [ダウンロードリンク](https://www.mozilla.org/ja/firefox/download/thanks/)
@@ -45,7 +45,7 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 ### Chrome
 
 サブブラウザとして利用する。  
-拡張機能などの同期は Google アカウントで行う
+拡張機能などの同期は Google アカウントで行う。
 
 - [公式サイト](https://www.google.com/intl/ja_jp/chrome/)
 - [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
@@ -60,7 +60,7 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 - [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
 - `winget install Opera.Opera`
 
-インストールする拡張機能は以下の通り
+インストールする拡張機能は以下の通り。
 
 - [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/): 削除された様子。開発者モードからインストールする。
 - [Better TweetDeck](https://chrome.google.com/webstore/detail/better-tweetdeck/micblkellenpbfapmcpcfhcoeohhnpob)
@@ -104,7 +104,7 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 
 ---
 
-タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして
+タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして。
 
 ##### 検索
 
@@ -175,7 +175,7 @@ GUI から変更する場合は、ユーザーフォルダを開きひとつず�
 
 [Windows10 の標準アプリをまとめてアンインストール(削除)する方法#まとめて消す（上記のものを一括削除）](https://ygkb.jp/471#まとめて消す-上記のものを一括削除) を参考に、PowerShell で一括アンインストールを行う。  
 ただし、この作業だけでは消えないものもあるのでスタートメニューから必要に応じて削除  
-ここで消してしまっても Microsoft Store からインストール可能
+ここで消してしまっても Microsoft Store からインストール可能。
 
 ??? tip "PowerShell コード引用"
 
@@ -238,7 +238,7 @@ reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v 
 Scoop を利用している場合はこれのインストールと移行作業も必要。結構面倒くさい…。
 
 インストール先を変更している場合は、インストールの前に環境変数の設定が必要。  
-以前から利用していたファイル・フォルダがある場合は Scoop 自体の再インストールは不要
+以前から利用していたファイル・フォルダがある場合は Scoop 自体の再インストールは不要。
 
 - 参考: [scoop のインストール先を変更する - Qiita](https://qiita.com/eamat/items/c91be7a9eb71a709b32b)
 
@@ -308,7 +308,7 @@ Starship は Git などのカスタムアイコンを表示するために Nerd 
 
 ### スタートアップの設定
 
-エクスプローラーのアドレス欄に `shell:startup` と打ち込めばアクセスできる。あとはお好きに
+エクスプローラーのアドレス欄に `shell:startup` と打ち込めばアクセスできる。あとはお好きに。
 
 ### 仮想系のセットアップ
 
@@ -335,14 +335,14 @@ wsl --import <NAME> <DIRECTORY> <FILE> --version 2
 - `<DIRECTORY>`: インストール先ディレクトリ。`C:\wsl\Ubuntu` など。
 - `<FILE>`: エクスポートした tar ファイルを指定。
 
-インポートできたら、ディストリビューションに入って `/etc/wsl.conf` に以下を記述
+インポートできたら、ディストリビューションに入って `/etc/wsl.conf` に以下を記述。
 
 ```ini
 [user]
 default=<USERNAME>
 ```
 
-参考:
+参考:。
 
 - [Windows 10/11 で WSL 環境を移行する方法 - TechRacho](https://techracho.bpsinc.jp/morimorihoge/2021_11_26/113804)
 - [WSL 上の Linux を C ドライブから移動させる](https://www.aise.ics.saitama-u.ac.jp/~gotoh/HowToReplaceWSL.html)

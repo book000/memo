@@ -2,9 +2,9 @@
 
 [firewall-cmdコマンドの使い方 - Qiita](https://qiita.com/hana_shin/items/bd9ba363ba06882e1fab)
 
-すべて永続反映
+すべて永続反映。
 
-Ubuntu とかだと `ufw` を使う。`ufw allow 80` とか
+Ubuntu とかだと `ufw` を使う。`ufw allow 80` とか。
 
 ## 数値ポート
 
@@ -32,7 +32,7 @@ sudo firewall-cmd --list-ports --permanent
 
 ## サービス
 
-`/etc/services` で定義されているサービス
+`/etc/services` で定義されているサービス。
 
 ### 許可サービス一覧を表示
 

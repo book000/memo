@@ -36,6 +36,7 @@ theme:
     - navigation.expand
     - navigation.indexes
     - toc.follow
+    - content.code.copy
   icon:
     logo: material/pencil-circle
     repo: fontawesome/brands/github
