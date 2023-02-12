@@ -16,6 +16,3 @@ jobs:
   node-ci:
     name: Node CI
     uses: book000/templates/.github/workflows/reusable-nodejs-ci.yml@master
-    with:
-      directorys: web,api # default: .
-      disabled-jobs: compile # default: "" (compile, build, generate, package, lint, test, depcheck)
