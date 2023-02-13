@@ -379,11 +379,29 @@ wget -O src/cycle.d.ts https://gist.githubusercontent.com/book000/b4c8394fe6a12e
     git commit -am "feat: winston logging"
     ```
 
+## renovate
+
+以下を `renovate.json` に書き込む。
+
+```json title="renovate.json"
+{
+  "extends": [
+    "config:base"
+  ],
+  "ignorePresets": [
+    ":prHourlyLimit2"
+  ],
+  "timezone": "Asia/Tokyo",
+  "dependencyDashboard": false,
+  "automerge": true,
+  "branchConcurrentLimit": 0
+}
+```
+
 ## ここまでのテンプレート
 
 ```powershell
-wget https://gist.github.com/book000/7e5e900d9a6bf249f99804539e056ee3/raw/all.ps1
-powershell ./all.ps1
+irm https://gist.github.com/book000/7e5e900d9a6bf249f99804539e056ee3/raw/all.ps1 | iex
 ```
 
 ## 設定ファイル用の JSON Schema を生成
