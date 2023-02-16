@@ -2844,10 +2844,10 @@ xtend@^4.0.0, xtend@^4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
-zenn-cli@0.1.139:
-  version "0.1.139"
-  resolved "https://registry.yarnpkg.com/zenn-cli/-/zenn-cli-0.1.139.tgz#28f519adab764b6d74b7b28bdd07cc31bfc0c245"
-  integrity sha512-bjiwnX4rqg2CgCjDDhTtoQyoD+VJBJhW+SqhxN/B6zP0W5yZdT6asEntRVcsm8u9eloV1sgCt1OazORsv1YtYg==
+zenn-cli@0.1.140:
+  version "0.1.140"
+  resolved "https://registry.yarnpkg.com/zenn-cli/-/zenn-cli-0.1.140.tgz#8b6ef2a8d1d03b9ea31f97256ff852630f2a6674"
+  integrity sha512-fcMxd5DHeZeaVkeD1qUoKOgE3gNf1E8+Yh8Kb4hCVIiiwuPR4SOI0uCcno7aeD6LH7OSSymzn0clEdx/QrUhlQ==
 
 zlibjs@^0.2.0:
   version "0.2.0"
