@@ -5,7 +5,7 @@
 クリーンインストール前に `クリーンインストール前にやることメモ` を確認して実施すること。  
 `<`, `>` で囲まれたものは置換する必要がある。記載されたコードは原則 PowerShell のコードですので、PowerShell で実行すること。コマンドプロンプトでは動作しない。
 
-Windows 10 Pro 21H2 (Build 19044.1706) にて実施
+Windows 10 Pro 21H2 (Build 19044.1706) にて実施。
 
 !! **CSM を切って SecureBoot オンでインストールを実施すること。さもないと BIOS レガシーで Windows10 がインストールされる** !!
 
@@ -36,7 +36,7 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 ### Firefox
 
 メインブラウザとして利用する。  
-拡張機能などの同期は Firefox アカウントで行う
+拡張機能などの同期は Firefox アカウントで行う。
 
 - [公式サイト](https://www.mozilla.org/ja/firefox/new/)
 - [ダウンロードリンク](https://www.mozilla.org/ja/firefox/download/thanks/)
@@ -45,7 +45,7 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 ### Chrome
 
 サブブラウザとして利用する。  
-拡張機能などの同期は Google アカウントで行う
+拡張機能などの同期は Google アカウントで行う。
 
 - [公式サイト](https://www.google.com/intl/ja_jp/chrome/)
 - [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
@@ -56,19 +56,22 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺めるために使う。  
 拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
 
-インストールする拡張機能は以下の通り
+- [公式サイト](https://www.opera.com/ja)
+- [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
+- `winget install Opera.Opera`
 
-- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/)
+インストールする拡張機能は以下の通り。
+
+- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/): 削除された様子。開発者モードからインストールする。
 - [Better TweetDeck](https://chrome.google.com/webstore/detail/better-tweetdeck/micblkellenpbfapmcpcfhcoeohhnpob)
 - [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
   - 設定ファイル: [enhancer-for-youtube-settings.json](./enhancer-for-youtube-settings.json)
-- ['Improve YouTube!' (Video & YouTube Tools)](https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd)
-  - 設定ファイル: [improvedtube.json](./improvedtube.json)
 - [YouTube™ デュアル字幕](https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
-- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejmjacpillmajjnopmpbkbnocid)
+- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejimjacpillmajjnopmpbkbnocid)
 - [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
 - [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
 - [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
+  - `General` と `YouTube` オプションはすべてチェックを外すこと
 - Todoist sidebar(Unofficial): 非公開になってしまったっぽいので、開発者モードからインストールする。
 
 ### アンチウィルスソフトのインストール
@@ -77,7 +80,9 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 インストール後は以下の設定をしておく。
 
 - `一般` -> `トラブルシューティング` -> `コンポーネントを追加または編集` に進み、「ソフトウェアアップデータ」「Wi-Fi の検査」「サイレントモード」を削除する
-- `プロテクション` -> `メイン シールド` ->（下にスクロールして）`メールシールド` -> `送信するメールの末尾に署名を追加` のチェックを外す
+- `プロテクション` -> `メイン シールド` ->（下にスクロールして）`ウェブ シールド` -> `HTTPS スキャンを有効にする` のチェックを外す
+  - SSL/TLS 証明書の上書きが無効化される。`wget` や `curl` での HTTPS 通信が行えるようになる
+- `プロテクション` -> `メイン シールド` ->（下にスクロールして）`メール シールド` -> `送信するメールの末尾に署名を追加` のチェックを外す
 
 ### エクスプローラーのカスタマイズ
 
@@ -101,7 +106,7 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 
 ---
 
-タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして
+タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして。
 
 ##### 検索
 
@@ -172,7 +177,7 @@ GUI から変更する場合は、ユーザーフォルダを開きひとつず�
 
 [Windows10 の標準アプリをまとめてアンインストール(削除)する方法#まとめて消す（上記のものを一括削除）](https://ygkb.jp/471#まとめて消す-上記のものを一括削除) を参考に、PowerShell で一括アンインストールを行う。  
 ただし、この作業だけでは消えないものもあるのでスタートメニューから必要に応じて削除  
-ここで消してしまっても Microsoft Store からインストール可能
+ここで消してしまっても Microsoft Store からインストール可能。
 
 ??? tip "PowerShell コード引用"
 
@@ -235,7 +240,7 @@ reg add "HKCU\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v 
 Scoop を利用している場合はこれのインストールと移行作業も必要。結構面倒くさい…。
 
 インストール先を変更している場合は、インストールの前に環境変数の設定が必要。  
-以前から利用していたファイル・フォルダがある場合は Scoop 自体の再インストールは不要
+以前から利用していたファイル・フォルダがある場合は Scoop 自体の再インストールは不要。
 
 - 参考: [scoop のインストール先を変更する - Qiita](https://qiita.com/eamat/items/c91be7a9eb71a709b32b)
 
@@ -297,15 +302,15 @@ Starship は Git などのカスタムアイコンを表示するために Nerd 
 
 ### その他アプリケーションのインストール
 
-- EarTrumpet: 使いにくい Windows の音量ミキサーをタスクバーから操作しやすくする。
-- TeamViewer: 遠隔操作アプリケーション
-- AnyDesk: こちらも遠隔操作アプリケーション。TeamViewer と違い、有料版を急かしたりすることは少ない（少なくとも利用不可にはしてこない）。`%ProgramData%\AnyDesk` の中身を置き換えることで古いエイリアスを継続して利用可能。 [参考](https://support.anydesk.com/ja/knowledge/anydesk%E3%81%AEid%E3%81%A8%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%A2%E3%82%B9)
-- Thunderbird: メーラー。`%APPDATA%Thunderbird\Profiles` のプロファイルの中身（プロファイル名は変更しない）を置き換えれば移行できる。
-- XTRM Runtime: Visual Basic/VC 系のランタイムインストーラ https://forest.watch.impress.co.jp/library/software/xtrmruntime/download_10524.html
+- [EarTrumpet](https://apps.microsoft.com/store/detail/9NBLGGH516XP): 使いにくい Windows の音量ミキサーをタスクバーから操作しやすくする。
+- [TeamViewer](https://www.teamviewer.com): 遠隔操作アプリケーション
+- [AnyDesk](https://anydesk.com): こちらも遠隔操作アプリケーション。TeamViewer と違い、有料版を急かしたりすることは少ない（少なくとも利用不可にはしてこない）。`%ProgramData%\AnyDesk` の中身を置き換えることで古いエイリアスを継続して利用可能。 [参考](https://support.anydesk.com/ja/knowledge/anydesk%E3%81%AEid%E3%81%A8%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%A2%E3%82%B9)
+- [Thunderbird](https://www.thunderbird.net/): メーラー。`%APPDATA%\Thunderbird\Profiles` のプロファイルの中身（プロファイル名は変更しない）を置き換えれば移行できる。プロファイル名を変更しなければならない場合は、`%APPDATA%\Thunderbird\profiles.ini` をいじる。
+- [XTRM Runtime](https://forest.watch.impress.co.jp/library/software/xtrmruntime/): Visual Basic/VC 系のランタイムインストーラ
 
 ### スタートアップの設定
 
-エクスプローラーのアドレス欄に `shell:startup` と打ち込めばアクセスできる。あとはお好きに
+エクスプローラーのアドレス欄に `shell:startup` と打ち込めばアクセスできる。あとはお好きに。
 
 ### 仮想系のセットアップ
 
@@ -332,14 +337,14 @@ wsl --import <NAME> <DIRECTORY> <FILE> --version 2
 - `<DIRECTORY>`: インストール先ディレクトリ。`C:\wsl\Ubuntu` など。
 - `<FILE>`: エクスポートした tar ファイルを指定。
 
-インポートできたら、ディストリビューションに入って `/etc/wsl.conf` に以下を記述
+インポートできたら、ディストリビューションに入って `/etc/wsl.conf` に以下を記述。
 
 ```ini
 [user]
 default=<USERNAME>
 ```
 
-参考:
+参考:。
 
 - [Windows 10/11 で WSL 環境を移行する方法 - TechRacho](https://techracho.bpsinc.jp/morimorihoge/2021_11_26/113804)
 - [WSL 上の Linux を C ドライブから移動させる](https://www.aise.ics.saitama-u.ac.jp/~gotoh/HowToReplaceWSL.html)
@@ -380,7 +385,7 @@ BlueStacks X を勝手にインストールしやがったら、Windows のア�
 
 - ping に応答するようにする: [Windows10 PC への ping が通らない - n-Archives.net](https://n-archives.net/software/nwol/articles/how-to-allow-ping-response-in-windows10/)
 - Windows + V の有効化
-- https://www.teradas.net/archives/20665/
+- マウスを振るとほかのウィンドウが消える機能をオフにする https://www.teradas.net/archives/20665/
 - Windows サウンドなしに変更
 - サウンド -> 通信アクティビティの設定
 - VSCode Local history の保存先変更

@@ -15,7 +15,7 @@ https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate
 
 ## Windows にソフトをインストール
 
-以下をインストール
+以下をインストール。
 
 ### Fidder Classic
 

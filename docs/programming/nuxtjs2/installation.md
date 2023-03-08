@@ -82,7 +82,7 @@ mv assets components layouts pages plugins static store middleware src/
 sed -i.bak -E 's/\/\/.+//g' nuxt.config.ts
 ```
 
-改行消えないので、\n 含む置き換えでもよいかも
+改行消えないので、\n 含む置き換えでもよいかも。
 
 ## README.md の削除
 

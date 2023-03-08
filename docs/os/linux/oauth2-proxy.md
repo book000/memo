@@ -15,7 +15,7 @@ iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読
 
 ## 認証フロー
 
-こうなっているんだろうと思っている
+こうなっているんだろうと思っている。
 
 ```mermaid
 sequenceDiagram
@@ -74,13 +74,13 @@ GitHub の [Register a new OAuth application](https://github.com/settings/applic
 
 一番簡単にやるなら、すでにビルドされているものが [GitHub Release に上がっている](https://github.com/oauth2-proxy/oauth2-proxy/releases) ので、そこから wget なりで落として設置するのが楽。Golang で書かれているので、自分でビルドするにしてもそんなに面倒くさくない。
 
-設置する場所は `/usr/local/bin` とかどこでもよいけど、とりあえず今回は openresty 環境なので `/usr/local/openresty/bin/` に設置
+設置する場所は `/usr/local/bin` とかどこでもよいけど、とりあえず今回は openresty 環境なので `/usr/local/openresty/bin/` に設置。
 
 必要に応じて `sha246sum -c sha256sum.txt` を実行。
 
 ### oauth2-proxy の設定
 
-まず、Cookie Secret を生成する必要がある。今回は Python で生成。ほかの手段で作る場合は公式ドキュメントの [Generating a Cookie Secret](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#generating-a-cookie-secret) を参照
+まず、Cookie Secret を生成する必要がある。今回は Python で生成。ほかの手段で作る場合は公式ドキュメントの [Generating a Cookie Secret](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#generating-a-cookie-secret) を参照。
 
 ```shell
 python -c 'import os,base64; print(base64.urlsafe_b64encode(os.urandom(32)).decode())'
@@ -89,7 +89,7 @@ python -c 'import os,base64; print(base64.urlsafe_b64encode(os.urandom(32)).deco
 ---
 
 その後、設定ファイルを作る。  
-このファイルもどこに作っても良い（公式は `/etc/oauth2-proxy.cfg` に作っている）けど、今回は `/usr/local/openresty/nginx/conf/oauth2-proxy.cfg` に作成。良いかはしらん
+このファイルもどこに作っても良い（公式は `/etc/oauth2-proxy.cfg` に作っている）けど、今回は `/usr/local/openresty/nginx/conf/oauth2-proxy.cfg` に作成。良いかはしらん。
 
 ```ini
 # oauth2-proxy が待受するホスト名。nginxと通信するだけに使用。4180 がデフォルトだがすでに使っている場合は変更すること
@@ -145,7 +145,7 @@ cookie_expire = "3h"
 
 ---
 
-その後、oauth2-proxy を Systemd に登録して常時稼働させておく。以下を `/etc/systemd/system/oauth2-proxy.service` に書き込み
+その後、oauth2-proxy を Systemd に登録して常時稼働させておく。以下を `/etc/systemd/system/oauth2-proxy.service` に書き込み。
 
 ```ini
 [Unit]
@@ -166,7 +166,7 @@ WantedBy=multi-user.target
 
 User と Group については、純粋な nginx なら `User=nginx` `Group=nginx` とかにしといた方がよい。
 
-で、OS 起動時の起動登録と起動コマンドを実行
+で、OS 起動時の起動登録と起動コマンドを実行。
 
 ```shell
 sudo systemctl enable oauth2-proxy
@@ -185,7 +185,7 @@ nginx の設定は環境によってやっかいなのだが、まあ以下の�
 - `/oauth2/sign_out`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダに `/?sign_out` を指定
 - `/`: `auth_request` で `/oauth2/auth` を認証エンドポイントとして設定
 
-というわけで、まあ以下のような感じになる
+というわけで、まあ以下のような感じになる。
 
 ```conf
 server {

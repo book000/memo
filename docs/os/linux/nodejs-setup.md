@@ -6,7 +6,7 @@
 
 ### 1. インストールするバージョンを決める
 
-基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも
+基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも。
 
 ### 2. リポジトリインストールスクリプトを走らせる
 
@@ -25,13 +25,13 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
 [APT](https://ja.wikipedia.org/wiki/APT) を用いてインストールする。
 
-とりあえずパッケージ一覧の更新をしておく。基本的に上記リポジトリインストール時点で更新されているはずだけど…
+とりあえずパッケージ一覧の更新をしておく。基本的に上記リポジトリインストール時点で更新されているはずだけど…。
 
 ```bash
 sudo apt update
 ```
 
-その後、パッケージのインストールを行う
+その後、パッケージのインストールを行う。
 
 ```bash
 sudo apt install nodejs
@@ -47,7 +47,7 @@ sudo apt install nodejs
 
 ### 1. インストールするバージョンを決める
 
-基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも
+基本は LTS か Latest を使う。何が指定できるかは [リリース一覧](https://nodejs.org/ja/download/releases/) あたりを見るとよいかも。
 
 ### 2. リポジトリインストールスクリプトを走らせる
 
@@ -66,13 +66,13 @@ curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo -E bash -
 
 [YUM](https://ja.wikipedia.org/wiki/Yellowdog_Updater_Modified) を用いてインストールする。
 
-すでに古い Node.js をインストールしている場合、キャッシュが残っていて目当てのバージョンがうまくインストールできないケースがあるので以下を実行しておく
+すでに古い Node.js をインストールしている場合、キャッシュが残っていて目当てのバージョンがうまくインストールできないケースがあるので以下を実行しておく。
 
 ```bash
 sudo yum clean all
 ```
 
-その後、パッケージのインストールを行う
+その後、パッケージのインストールを行う。
 
 ```bash
 sudo yum install nodejs

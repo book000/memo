@@ -7,7 +7,8 @@
             "no-doubled-joshi": false,
             "no-doubled-conjunctive-particle-ga": false,
             "no-exclamation-question-mark": false,
-            "no-doubled-conjunction": false
+            "no-doubled-conjunction": false,
+            "max-kanji-continuous-len": false
         },
         "prh": {
             "rulePaths": [
@@ -40,19 +41,24 @@
         },
         "ja-no-abusage": true,
         "@textlint-rule/pattern": {
-          "patterns": [
-            {
-              "message": "No todo",
-              "pattern": "/TODO:/i"
-            },
-            {
-              "message": "CloudFlare to Clouflare",
-              "pattern": "/Cloudflare/i",
-              "replace": "Cloudflare"
-            }
-          ]
+            "patterns": [
+                {
+                    "message": "No todo",
+                    "pattern": "/TODO:/i"
+                },
+                {
+                    "message": "CloudFlare to Clouflare",
+                    "pattern": "/Cloudflare/i",
+                    "replace": "Cloudflare"
+                }
+            ]
         },
-        "ja-technical-writing/max-kanji-continuous-len": false
+        "ja-no-mixed-period": {
+            "forceAppendPeriod": true,
+            "allowPeriodMarks": [
+                "\""
+            ]
+        }
     },
     "filters": {
         "allowlist": {
@@ -62,7 +68,12 @@
                 "なので",
                 "Web アプリ",
                 "oauth2-proxy",
-                "もどこ"
+                "もどこ",
+                "TweetDeck",
+                "I don't care about cookies",
+                "Stable",
+                "PortableApps",
+                "まとも"
             ]
         }
     }
