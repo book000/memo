@@ -22,10 +22,7 @@
 - [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) v5.51.0
 - [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) v5.51.0
 - [@vercel/ncc](https://www.npmjs.com/package/@vercel/ncc) v0.36.1
-- [winston](https://www.npmjs.com/package/winston) v3.8.2
-- [winston-daily-rotate-file](https://www.npmjs.com/package/winston-daily-rotate-file) v4.7.1
-- [logform](https://www.npmjs.com/package/logform) v2.5.1
-- [cycle](https://www.npmjs.com/package/cycle) v1.0.3
+- [@book000/node-utils](https://www.npmjs.com/package/@book000/node-utils) v1.0.1
 
 ## package.json の作成
 
@@ -363,12 +360,10 @@ yarn add -D -E @vercel/ncc
 
 ## winston でロギング
 
-[winston](https://github.com/winstonjs/winston) でロギングする。[独自のラッパ](https://gist.github.com/book000/b4c8394fe6a12e6ea640df0c8703eb65) を使う。
+[winston](https://github.com/winstonjs/winston) でロギングする。[独自のライブラリ](https://www.npmjs.com/package/@book000/node-utils) を使う。
 
 ```shell
-yarn add -D -E winston winston-daily-rotate-file logform cycle
-wget -O src/logger.ts https://gist.githubusercontent.com/book000/b4c8394fe6a12e6ea640df0c8703eb65/raw/logger.ts
-wget -O src/cycle.d.ts https://gist.githubusercontent.com/book000/b4c8394fe6a12e6ea640df0c8703eb65/raw/cycle.d.ts
+yarn add -D -E @book000/node-utils
 ```
 
 その後、ESLint のルールに `no-console: error` を、（Dockerfile に `ENV LOG_DIR /data/logs` を）追加する。
@@ -401,7 +396,7 @@ wget -O src/cycle.d.ts https://gist.githubusercontent.com/book000/b4c8394fe6a12e
 ## ここまでのテンプレート
 
 ```powershell
-irm https://gist.github.com/book000/7e5e900d9a6bf249f99804539e056ee3/raw/all.ps1 | iex
+irm https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/all.ps1 | iex
 ```
 
 ## 設定ファイル用の JSON Schema を生成
