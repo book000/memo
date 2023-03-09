@@ -70,12 +70,12 @@ Is the information correct? [Y/n] y
 - `mkdir -p .ssh`: `.ssh` ディレクトリ作成
 - `chmod 700 .ssh`: `.ssh` ディレクトリを 700（所有者のみ RWX 可）にする
 - `ssh-keygen -t ed25519`: キー作成。パスフレーズお好み
-- この段階で、パスワード認証か何かでサーバに入って秘密鍵（`~/.ssh/id_ed25519`）を入手
+- この段階で、パスワード認証か何かでサーバーに入って秘密鍵（`~/.ssh/id_ed25519`）を入手
 - `mv id_ed25519.pub authorized_keys` or `cat id_ed25519.pub >> authorized_keys`: 公開鍵を登録
 - `chmod 600 authorized_keys`: ファイルを 600（所有者のみ RW 可）にする
 - `exit`: ユーザーから抜ける
 
-ここまでがユーザーの SSH 関連に関する処理。以降はサーバの SSH 設定。
+ここまでがユーザーの SSH 関連に関する処理。以降はサーバーの SSH 設定。
 
 `/etc/ssh/sshd_config` を vim などで開き、以下の箇所を修正。
 

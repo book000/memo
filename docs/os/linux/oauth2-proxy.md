@@ -3,7 +3,7 @@
 nginx と [oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy) で既存 Web アプリに OAuth2 の認証機能を持たせてみる。  
 今回は GitHub で認証するけど、Google とか OAuth2 の認証機構持っているとこだったらいける。
 
-iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読み込み時に Authorization ヘッダをつけないバグがあるようで（[teratail の関連質問](https://teratail.com/questions/252803)）、Basic 認証をつけると無限に認証要求するので今回のこれが改善策になったりするかも。
+iOS 系の場合、JavaScript 内で import した JavaScript ファイルの読み込み時に Authorization ヘッダーをつけないバグがあるようで（[teratail の関連質問](https://teratail.com/questions/252803)）、Basic 認証をつけると無限に認証要求するので今回のこれが改善策になったりするかも。
 
 ## 環境
 
@@ -180,9 +180,9 @@ sudo systemctl start oauth2-proxy
 nginx の設定は環境によってやっかいなのだが、まあ以下のようにルーティングするように設定したい。  
 とはいえ参考ページの受け売りに近いのでなんとも言えない...。
 
-- `/oauth2/`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダに今のリクエスト URL を入れる
+- `/oauth2/`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダーに今のリクエスト URL を入れる
 - `/oauth2/auth`: `127.0.0.1:4180` にプロキシ。リクエストボディを投げない (`auth_request` にはボディを含まないから...とかいうけど、よくわからん...)
-- `/oauth2/sign_out`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダに `/?sign_out` を指定
+- `/oauth2/sign_out`: `127.0.0.1:4180` にプロキシ。`X-Auth-Request-Redirect` という認証完了時のリダイレクト先ヘッダーに `/?sign_out` を指定
 - `/`: `auth_request` で `/oauth2/auth` を認証エンドポイントとして設定
 
 というわけで、まあ以下のような感じになる。

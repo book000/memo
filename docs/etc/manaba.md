@@ -11,7 +11,7 @@
 - manaba からのリマインドメールは `do-not-reply@manaba.jp` から来る。
 - 価格体系は純粋に払い出される ID の数だけでなく、基本となるものに追加して有償で機能をオプション追加できるシステムらしい。アンケート機能とかがそれなのかな？
 - respon という出席登録アプリケーション / サービスのオプションがある。位置情報を拾って、ほかの出席者と極端に離れていたりしたらバツになる…とか聞いたが、正直かなり眉唾だと思っている。だったら Web から出せるのおかしいし。
-- [GitHub で manaba と検索をかける](https://github.com/search?q=manaba&type=repositories) と、結かまいろんなリポジトリが出てくる。
+- [GitHub で manaba と検索をかける](https://github.com/search?q=manaba&type=repositories) と、いろんなリポジトリが出てくる。
 
 ## ライブラリ
 
