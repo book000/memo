@@ -4,7 +4,7 @@
 
 ドキュメント自体はすべて docs ディレクトリの中に置く。この中のものが mkdocs によってビルド対象となり、デプロイされる。
 
-その中で、ある程度カテゴリ分けをしている。
+そのなかで、ある程度カテゴリ分けをしている。
 
 - os: 各 OS ごとの話
   - windows: Windows の話
@@ -24,9 +24,9 @@ https://squidfunk.github.io/mkdocs-material/reference/
 
 https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
 
-ファイル名など、コードブロックにタイトルをつける場合、言語名の後に `title="タイトル"` とつけるらしい。つまり
+ファイル名など、コードブロックにタイトルをつける場合、言語名の後に `title="タイトル"` とつけるらしい。つまり...
 
-```
+```markdown
 ```python title="main.py"
 ```
 
@@ -36,7 +36,7 @@ https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
 
 https://squidfunk.github.io/mkdocs-material/reference/admonitions/
 
-```
+```markdown
 !!! note "Lorem ipsum"
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod

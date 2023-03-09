@@ -275,24 +275,69 @@ Winget をいれたら以下のコマンドを実行。
 winget install Microsoft.PowerShell
 ```
 
-### Win + X 画面の編集
-
-Pwsh を入れたので Win + X やスタートボタンの右クリックで出るリストを編集しておく。
-
-`WinXMenuEditor` というアプリケーションを使う。[いかにも怪しそうなダウンロードページ](https://winaero.com/download.php?view.21) の `Download link` から `WinXMenuEditorRelease.zip` をダウンロード、展開。`WinXEditor.exe` を実行。  
-Pwsh を PowerShell と置き換え。
-
-このいかにも怪しそうなやつを使いたくなければ、`%LOCALAPPDATA%\Microsoft\Windows\WinX` のグループフォルダと `desktop.ini` の編集を頑張るしかないかなあ。
-
 ### Starship・HackGenNerd のインストール
 
-Starship 自体は `scoop install starship` でインストールできる。
+Starship 自体は `scoop install starship` でインストールできる。  
+`code $PROFILE` で PowerShell のプロファイルを開き、`Invoke-Expression (&starship init powershell)` を追加。
 
 Starship は Git などのカスタムアイコンを表示するために Nerd Font を利用しているので、対応するフォントをインストールする必要がある。  
 ここでは HackGenNerd をインストールする。
 
 [Releases](https://github.com/yuru7/HackGen/releases) から `HackGenNerd_vX.Y.Z.zip` をダウンロード、展開。`HackGenNerd-Regular.ttf`　`HackGenNerdConsole-Regular.ttf` `HackGen35Nerd-Regular.ttf` `HackGen35NerdConsole-Regular.ttf` を入れて Pwsh などのフォント設定を変更しておく。  
+Pwsh のショートカットファイルのプロパティを開き、`フォント` -> `HackGenNerd Console` を選ぶ。  
 この際、`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerShell\PowerShell 7 (x64).lnk` はその場では編集できない場合があるので、デスクトップなどにコピーして編集、戻すという形をとったほうがよさそう。
+
+VS Code ターミナルのフォントは `settings.json` に以下を書き加える。
+
+```json
+{
+  "terminal.integrated.fontFamily": "'HackGen35Nerd', Consolas, meiryo, 'Courier New', monospace",
+}
+```
+
+### Win + X 画面の編集
+
+Pwsh を入れたので Win + X やスタートボタンの右クリックで出るリストを編集しておく。
+
+面倒なので、`Group3` を置き換えられる [Zip ファイル](Group3.zip) を用意した。展開して中の `Group3` を `%LOCALAPPDATA%\Microsoft\Windows\WinX\Group3` と置き換えるだけ。
+
+??? "failure" 古い
+    `WinXMenuEditor` というアプリケーションを使う。[いかにも怪しそうなダウンロードページ](https://winaero.com/download.php?view.21) の `Download link` から `WinXMenuEditorRelease.zip` をダウンロード、展開。`WinXEditor.exe` を実行。  
+    Pwsh を PowerShell と置き換え。
+
+    このいかにも怪しそうなやつを使いたくなければ、`%LOCALAPPDATA%\Microsoft\Windows\WinX` のグループフォルダと `desktop.ini` の編集を頑張るしかないかなあ。
+
+### fnm のインストール
+
+- 参考: [WindowsのNode.jsバージョン管理をNodistからfnmに変えてみる - Umi Uyuraのブログ](https://umi-uyura.hatenablog.com/entry/2021/09/30/083419)
+
+Fast Node Manager (fnm) をいれる。  
+Scoop を移行した場合は fnm が入ったままになっているはずだが、入っていない場合は `scoop install fnm` する。
+
+`code $PROFILE` で PowerShell のプロファイルを開き、`fnm env --use-on-cd | Out-String | Invoke-Expression` を追記する。
+
+一部 `cmd.exe` 経由で node コマンドを実行するプログラム向けに cmd.exe の初期化設定にも追加しておく。
+
+好きな場所に `cmd-init.cmd` として以下を保存する。
+
+```cmd
+@ECHO OFF
+
+IF "%MYSTARTUP_INIT%"=="OK" (
+    EXIT /b
+)
+
+SET MYSTARTUP_INIT=OK
+
+REM Setup fnm
+FOR /f "tokens=*" %%z IN ('fnm env --use-on-cd') DO CALL %%z
+```
+
+レジストリに、作成した cmd ファイルを呼び出すように設定する。以下のコマンドの `<CMD-FILE-PATH>` を置き換えた上で実行。
+
+```pwsh
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v AutoRun /t "REG_SZ" /d "<CMD-FILE-PATH>" /f
+```
 
 ### Logicool G Hub の設定移行
 
