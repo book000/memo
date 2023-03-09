@@ -85,14 +85,14 @@ Windows Store で入れると有料だが、インストーラで入れれば無
 
 ### PowerToys
 
-作業効率化機能を複数持ったユーティリティソフト。
+作業効率化の機能を複数持ったユーティリティソフト。
 
 - GitHub: https://github.com/microsoft/PowerToys
 - Scoop: `scoop install powertoys` (extras bucket)
 
 ### Pushbullet
 
-PC とスマートフォンやタブレット間でテキストデータやファイルを共有、スマートフォンの通知を PC 上で確認できるソフト。
+パソコンとスマートフォンやタブレット間でテキストデータやファイルを共有、スマートフォンの通知をパソコン上で確認できるソフト。
 
 - Web サイト: https://www.pushbullet.com
 - winget: `winget install Pushbullet.Pushbullet`
@@ -116,7 +116,7 @@ PC とスマートフォンやタブレット間でテキストデータやフ�
 
 ### 最前面でポーズ
 
-特定のキー（デフォルトは Pause キー）でウィンドウを最前面に固定するソフト。
+特定のキー（デフォルトは Pause キー）で画面を最前面に固定するソフト。
 
 - Vector: https://www.vector.co.jp/soft/winnt/util/se468861.html
 - Scoop/winget: N/A
@@ -144,7 +144,7 @@ S.M.A.R.T. 値などから HDD / SSD の状態確認をするソフト。
 Discord の開発版ソフト（パブリックテストビルド）
 
 Discord 安定版（Stable）とプロファイルを共有しないので、Stable, PTB, Canary で最大 3 アカウントを同時に利用可能。ただし、ベータ版なので不具合などがある可能性も。  
-Scoop でインストールできるが、Discord 側にある自動アップデート機能が走って Scoop でのバージョン管理が壊れるのでインストーラでインストールしたほうが良い。
+Scoop でインストールできるが、Discord そばにある自動アップデート機能が走って Scoop でのバージョン管理が壊れるのでインストーラでインストールしたほうが良い。
 
 - PTB ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=ptb&platform=win&arch=x86
 - Canary ダウンロードページ: https://discord.com/api/downloads/distributions/app/installers/latest?channel=canary&platform=win&arch=x86
@@ -172,7 +172,7 @@ Scoop でインストールできるが、Discord 側にある自動アップデ
 
 動画・音声ファイルの変換とか編集とかいろいろできるコマンドラインソフト。
 
-MP4 から MP3 に変換したいときとか、ネット上の不審なサイトを使わずとも自分の PC で変換できる。
+MP4 から MP3 に変換したいときとか、ネット上の不審なサイトを使わずとも自分のパソコンで変換できる。
 
 - Web サイト: https://ffmpeg.org/
 - Scoop: `scoop install ffmpeg` (main bucket)
@@ -210,7 +210,7 @@ Power Automate で作るほどじゃない（特定のボタンが現れたら�
 
 ### Mouse without Borders
 
-1 つのキーボード・マウスで複数の PC を操作するソフト。
+1 つのキーボード・マウスで複数のパソコンを操作するソフト。
 
 - インストールページ: https://www.microsoft.com/en-us/download/details.aspx?id=35460
 - winget: `winget install Microsoft.MouseWithoutBorders`
@@ -291,7 +291,7 @@ Jython などで書ける RPA ソフトなので、成果物を Git 管理でき
 
 ### spacedesk
 
-スマートフォンやタブレットを PC の拡張ディスプレイとして使えるソフト。
+スマートフォンやタブレットをパソコンの拡張ディスプレイとして使えるソフト。
 
 - Web サイト: https://www.spacedesk.net/
 - winget: `winget install Datronicsoft.SpacedeskDriver.Server`
@@ -316,16 +316,16 @@ Jython などで書ける RPA ソフトなので、成果物を Git 管理でき
 - Web サイト: https://syncroom.yamaha.com
 - Scoop/winget: N/A
 
-### ウィンドウ位置記憶プログラム (VbWinPos)
+### 画面位置記憶プログラム (VbWinPos)
 
-特定ウィンドウの位置を記憶し、位置合わせを行うソフト。
+特定画面の位置を記憶し、位置合わせを行うソフト。
 
 - Web サイト: https://www.vector.co.jp/soft/win95/util/se401241.html
 - Scoop/winget: N/A
 
 ### プログラムの追加と削除 一覧出力
 
-Windows の「プログラムの追加と削除」のように、PC にインストールされているソフトの一覧表示と CSV 出力・印刷を行えるソフト。
+Windows の「プログラムの追加と削除」のように、パソコンにインストールされているソフトの一覧表示と CSV 出力・印刷を行えるソフト。
 
 - Web サイト: http://www.office-neo.jp/pglst/pglst.html
 - Scoop/winget: N/A
@@ -511,7 +511,7 @@ Firefox の拡張機能。
 
 ### Link Cleaner+
 
-[UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) などの追跡パラメータや Amazon のクソ長い URL を短いものに置き換える。
+[UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) などの追跡パラメータや Amazon のめちゃくちゃ長い URL を短いものに置き換える。
 
 - Firefox: https://addons.mozilla.org/ja/firefox/addon/link-cleaner-plus/
 - GitHub: https://github.com/apiraino/link_cleaner
@@ -672,7 +672,7 @@ FTP / SCP / SFTP / FTPS 対応クライアントソフト。
 
 ### VcXsrv
 
-Windows 用の X サーバソフト。
+Windows 用の X サーバーソフト。
 
 - Web サイト: https://vcxsrv.sourceforge.io
 - Scoop: `scoop install vcxsrv`

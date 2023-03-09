@@ -10,7 +10,7 @@ WinSCP で SFTP をするとき、SSH 認証でパスフレーズ付き公開鍵
 
 ---
 
-- SSH 認証でパスフレーズ付き公開鍵認証でログインできるサーバがあるものとする
+- SSH 認証でパスフレーズ付き公開鍵認証でログインできるサーバーがあるものとする
 - 公開鍵は何らかの手段で ppk ファイルに変換してあるものとする
 - ppk ファイルは例として `C:\Users\user\keys\example.com.ppk` に保存しているものとする（任意に変更可能）
 - 利用しているコンピュータに適切なセキュリティ対策が施されており、ppk ファイルおよび本記事で作成するファイルは自分自身以外がアクセスできないように対策できるものとする
@@ -103,7 +103,7 @@ putty のインストール先にある `PAGEANT.EXE` のショートカット�
 
 ### 動作するか確認
 
-まず、WinSCP でサーバ設定をする。
+まず、WinSCP でサーバー設定をする。
 
 ![](assets/server-config-window.png)
 
@@ -116,7 +116,7 @@ putty のインストール先にある `PAGEANT.EXE` のショートカット�
 - Authentication options
   - [x] Attempt authentication using Pageant
 - Authentication parameters
-  - Private key file: ppk ファイルを指定。ppk ファイルではない公開鍵を持っている場合は読み込もうとすることで ppk ファイルに変換するウィンドウが出てくる
+  - Private key file: ppk ファイルを指定。ppk ファイルではない公開鍵を持っている場合は読み込もうとすることで ppk ファイルに変換する画面が出てくる
 
 次に、作成した vbs ファイルを用いて自動的に Pageant に公開鍵を登録するため、作成した vbs ファイルをダブルクリックする。  
 パスフレーズの入力画面が表示されるが、VBScript によって自動で入力される。

@@ -22,7 +22,7 @@ yarn create nuxt-app <PROJECT-NAME>
 - `Linting tools`: リントツールを選びます（複数選択可）。基本的に全部アクティブでよいと思うので `a` で全アクティブ
 - `Testing framework`: テストフレームワークを選びます。適宜。
 - `Rendering mode`: レンダリングモードを選びます。作るものに応じて選択。
-- `Deployment target`: デプロイ先を選びます。Node.js によるサーバか静的データホストかを選びます。
+- `Deployment target`: デプロイ先を選びます。Node.js によるサーバーか静的データホストかを選びます。
 - `Development tools`: 開発ツールを選びます。TypeScript 環境なので `jsconfig.json` は選びません。Dependabot を有効化すると GitHub でプルリクを使用した依存関係アップデートができますがフォーク先でも動いたりするのでやっかいです。
 
 ## nuxt.config.js を TypeScript ファイルに変更
