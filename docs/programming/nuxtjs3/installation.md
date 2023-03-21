@@ -26,7 +26,13 @@ Yarn を使う場合でも、npx で作成するしかないようです。
 - `README.md`
 - `tsconfig.json`
 
-その後、プロジェクトのディレクトリに入り `yarn install` で依存パッケージをダウンロードします。
+その後、プロジェクトのディレクトリに入り `yarn install` で依存パッケージをダウンロードします。  
+`@types/node` のインストールも忘れずに。
+
+```shell
+yarn install
+yarn install -D -E @types/node
+```
 
 ちなみに、当然 `package.json` には `name` とかの基本設定が書かれていないので、書き加えるのを忘れずに。
 
@@ -158,7 +164,7 @@ package.json にこのへんのスクリプトを追加。
 
 さらに `nuxt.config.ts` に以下の設定を追加。
 
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="6"
+```typescript title="nuxt.config.ts" linenums="1" hl_lines="4-7"
 const isDev = process.env.NODE_ENV === "development";
 
 export default defineNuxtConfig({
@@ -183,9 +189,9 @@ yarn add -D vuetify@next
 yarn add sass
 ```
 
-`nuxt.config.ts` の `css` に以下の設定をします。
+`nuxt.config.ts` の `build` と `css` に以下の設定をします。
 
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-5"
+```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-8"
 export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
@@ -206,7 +212,7 @@ export default defineNuxtConfig({
 
 で、`nuxt.config.ts` の `modules` に定義します。
 
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="3"
+```typescript title="nuxt.config.ts" linenums="1" hl_lines="2"
 export default defineNuxtConfig({
   modules: ["@kevinmarrec/nuxt-pwa"],
 });
@@ -214,7 +220,7 @@ export default defineNuxtConfig({
 
 さらに、このモジュールはメタデータを引き継がないようなので、以下の通り PWA 用に設定する必要があります。
 
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="11-29"
+```typescript title="nuxt.config.ts" linenums="1"
 const baseName = process.env.BASE_NAME || "example-app";
 const baseDescription = process.env.BASE_DESCRIPTION || "Example app";
 const baseUrl = process.env.BASE_URL || "https://example.com";
