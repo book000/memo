@@ -140,6 +140,8 @@ export default defineNuxtConfig({
 });
 ```
 
+`src` ディレクトリに `app.vue` を移動すること。
+
 ## eslint
 
 ```shell
@@ -202,6 +204,23 @@ export default defineNuxtConfig({
     "@mdi/font/css/materialdesignicons.min.css",
   ],
 });
+```
+
+さらに、プラグインとして Vuetify の初期設定を `src/plugins/vuetify.ts` に追加します。
+
+```typescript title="src/plugins/vuetify.ts" linenums="1"
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  const vuetify = createVuetify({
+    components,
+    directives
+  })
+
+  nuxtApp.vueApp.use(vuetify)
+})
 ```
 
 ## PWA
