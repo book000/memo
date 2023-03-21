@@ -185,7 +185,7 @@ prettier は使わない？
 - 参考記事: https://zenn.dev/one_dock/articles/ab6d178741956d
 
 ```shell
-yarn add -D vuetify@next
+yarn add -D vuetify@next @mdi/font
 yarn add sass
 ```
 
@@ -196,6 +196,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+
   css: [
     "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
