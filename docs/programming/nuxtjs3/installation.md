@@ -31,7 +31,7 @@ Yarn を使う場合でも、npx で作成するしかないようです。
 
 ```shell
 yarn install
-yarn install -D -E @types/node
+yarn add -D -E @types/node
 ```
 
 ちなみに、当然 `package.json` には `name` とかの基本設定が書かれていないので、書き加えるのを忘れずに。
