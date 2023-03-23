@@ -150,7 +150,7 @@ yarn add -D eslint eslint-plugin-nuxt @nuxtjs/eslint-config-typescript vite-plug
 
 package.json にこのへんのスクリプトを追加。
 
-```json title="package.json" hl_lines="8-9"
+```json title="package.json" linenums="1" hl_lines="8-9"
 {
   "scripts": {
     "build": "nuxt build",
@@ -177,17 +177,37 @@ export default defineNuxtConfig({
 });
 ```
 
-eslint の設定は [Nuxt v3 での eslint 設定](eslint.md) を参照。
+eslint の設定は [Nuxt v3 での eslint 設定](eslint.md) を参照。とりあえずは以下。
 
-prettier は使わない？
+```yaml title=".eslintrc.yml" linenums="1"
+root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+extends:
+  - '@nuxtjs/eslint-config-typescript'
+  - plugin:@typescript-eslint/recommended
+  - plugin:vue/vue3-recommended
+  - plugin:nuxt/recommended
+```
+
+prettier は使わないので、`.prettierignore` に以下を記述。
+
+```text title=".prettierignore" linenums="1"
+**
+```
 
 ## Vuetify
 
-- Vuetify の公式ドキュメント: https://next.vuetifyjs.com/
+- Vuetify の公式ドキュメント: https://vuetifyjs.com/
 - 参考記事: https://zenn.dev/one_dock/articles/ab6d178741956d
 
 ```shell
-yarn add -D vuetify@next @mdi/font
+yarn add -D vuetify @mdi/font
 yarn add sass
 ```
 
@@ -305,7 +325,7 @@ export default defineNuxtConfig({
 
 あとは Nuxt 3 における新しい state と同様に、`useState` を使って状態を定義します。
 
-```typescript title="src/store/settings.ts"
+```typescript title="src/store/settings.ts" linenums="1"
 export const useSettingsStore = defineStore('settings', {
   state: (): {
     hoge: string
@@ -334,11 +354,11 @@ export const useSettingsStore = defineStore('settings', {
 
 そして、状態を使う場所で以下のようなコードを書きます。
 
-```typescript
+```typescript linenums="1"
 import { useSettingsStore } from '../store/settings'
 
 const settingsStore = useSettingsStore()
 
 const hoge = settingsStore.hoge
-settingsStore.setHoge("hogepiyo")
+settingsStore.setHoge("hogefugapiyo")
 ```
