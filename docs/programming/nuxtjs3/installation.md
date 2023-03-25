@@ -212,7 +212,7 @@ yarn add -D vuetify @mdi/font sass
 
 `nuxt.config.ts` の `build` と `css` に以下の設定をします。
 
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-8"
+```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-9"
 export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
