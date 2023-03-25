@@ -207,8 +207,7 @@ prettier は使わないので、`.prettierignore` に以下を記述。
 - 参考記事: https://zenn.dev/one_dock/articles/ab6d178741956d
 
 ```shell
-yarn add -D vuetify @mdi/font
-yarn add sass
+yarn add -D vuetify @mdi/font sass
 ```
 
 `nuxt.config.ts` の `build` と `css` に以下の設定をします。
