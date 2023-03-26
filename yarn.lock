@@ -89,13 +89,13 @@
     sentence-splitter "^3.0.11"
     textlint-rule-helper "2.0.1"
 
-"@textlint-rule/textlint-rule-pattern@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@textlint-rule/textlint-rule-pattern/-/textlint-rule-pattern-1.0.2.tgz#281ed45c78bb2170094b8f85a50c201eea37b5b3"
-  integrity sha512-6+rv0h49BwolxH6FyNromz1U/RvzQSSJoFkwGsuGWTQL/w/Be+jVzOPRysyxiuEdZRq5oZRKQtwWxxT1SITsKQ==
+"@textlint-rule/textlint-rule-pattern@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@textlint-rule/textlint-rule-pattern/-/textlint-rule-pattern-2.0.0.tgz#e541a7985ccae6c081978bd5c73ea065cde4bb70"
+  integrity sha512-jAouiw3k4tl45Dzn0TiqKPMeWEevF61joFNNAFW+tzcEUJu4UikK/WzcoH3Xy5gj4ytLeigiUVwQZhaZjVIUEw==
   dependencies:
-    "@textlint/regexp-string-matcher" "^2.0.1"
-    textlint-rule-helper "^2.2.1"
+    "@textlint/regexp-string-matcher" "^2.0.2"
+    textlint-rule-helper "^2.3.0"
 
 "@textlint/ast-node-types@^12.0.0":
   version "12.1.1"
@@ -307,7 +307,7 @@
     lodash.uniqwith "^4.5.0"
     to-regex "^3.0.2"
 
-"@textlint/regexp-string-matcher@^2.0.1", "@textlint/regexp-string-matcher@^2.0.2":
+"@textlint/regexp-string-matcher@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@textlint/regexp-string-matcher/-/regexp-string-matcher-2.0.2.tgz#cef4d8353dac624086069e290d9631ca285df34d"
   integrity sha512-OXLD9XRxMhd3S0LWuPHpiARQOI7z9tCOs0FsynccW2lmyZzHHFJ9/eR6kuK9xF459Qf+740qI5h+/0cx+NljzA==
