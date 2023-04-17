@@ -35,3 +35,5 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.prettierrc.yml" -OutFile ".prettierrc.yml"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/tsconfig.json" -OutFile "tsconfig.json"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/renovate.json" -OutFile "renovate.json"
+
+npx fixpack
