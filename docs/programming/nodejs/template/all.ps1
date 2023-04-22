@@ -19,7 +19,7 @@ yarn add -D -E typescript @types/node ts-node ts-node-dev prettier eslint eslint
 npm pkg set scripts.start="ts-node -r tsconfig-paths/register ./src/main.ts"
 npm pkg set scripts.dev="ts-node-dev --poll -r tsconfig-paths/register ./src/main.ts"
 npm pkg set scripts.package="run-s clean compile packing"
-npm pkg set scripts.packing="ncc build ./dist/main.js -o output/ -m"
+npm pkg set scripts.packing="ncc build ./dist/main.js -o output/"
 npm pkg set scripts.compile="tsc -p ."
 npm pkg set scripts.clean="rimraf dist output"
 npm pkg set scripts.lint="run-p -c lint:prettier lint:eslint lint:tsc"
