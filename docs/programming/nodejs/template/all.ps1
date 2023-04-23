@@ -6,8 +6,8 @@ Start-Process -NoNewWindow -Wait -FilePath "yarn.cmd" -ArgumentList "init"
 $NODE_VERSION=node -v
 $NODE_VERSION=$NODE_VERSION.Replace("v","").Replace("\r","").Replace("\n","").Replace("`u{feff}","")
 New-Item -Force .node-version -ItemType File -Value $NODE_VERSION
-$PACKAGE_JSON=jq --arg version $NODE_VERSION '.engines.node |= $version' package.json
-$PACKAGE_JSON | Out-File -FilePath package.json -Encoding utf8 -Force
+# $PACKAGE_JSON=jq --arg version $NODE_VERSION '.engines.node |= $version' package.json
+# $PACKAGE_JSON | Out-File -FilePath package.json -Encoding utf8 -Force
 
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore" -OutFile ".gitignore"
 
