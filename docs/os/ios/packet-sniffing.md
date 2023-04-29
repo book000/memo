@@ -1,4 +1,7 @@
-# Fidder で iOS Packet-Sniffing する
+# Fiddler で iOS Packet-Sniffing する
+
+!!! tip "mitmproxy に乗り換えました"
+    様々な理由から、mitmproxy でのパケットスニッフィングへ乗り換えた。[こちらの記事](https://memo.tomacheese.com/os/ios/packet-sniffing-mitmproxy/)で解説している。
 
 https://qiita.com/tokawa-ms/items/43624d536a44f60882cb
 
@@ -6,18 +9,22 @@ Android でも試そうとしたが、Android 7 からシステム証明書し�
 
 https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html
 
+!!! warning "Warning"
+    当然ですが、この記事の内容を使って不正に他者の通信を収集・分析したりしないこと。
+    もしそれを企んだところで証明書を端末にインストールしなきゃならないので中々難しそうだけども…。
+
 ## Environment
 
 - Windows 10 22H2 (Build 19045.2251)
 - iPad Pro 3 (11 inch) / iPadOS 16
-- Telerik Fidder Classic v5.0.20211.51073
-- FidderCertMaker
+- Telerik Fiddler Classic v5.0.20211.51073
+- FiddlerCertMaker
 
 ## Windows にソフトをインストール
 
 以下をインストール。
 
-### Fidder Classic
+### Fiddler Classic
 
 安直に Scoop 経由でインストールすると CertMaker インストール時にコケるので、インストーラを使う。  
 Fiddler Everywhere なる新しいソフトが出ているが、こちらでは期待する動作はしないと思うので Classic を使う。
@@ -45,7 +52,7 @@ Tools -> Options
 
 ## iOS に証明書をインストール
 
-`http://host:8888/` にアクセス、`You can download the FidderRoot certificate` からダウンロードしインストールする。
+`http://host:8888/` にアクセス、`You can download the FiddlerRoot certificate` からダウンロードしインストールする。
 
 1. `この Web サイトは構成プロファイルをダウンロードしようとしています。許可しますか？` -> `許可`
 2. `プロファイルがダウンロードされました` の表示を確認
