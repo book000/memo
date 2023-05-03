@@ -139,7 +139,7 @@ iOS 端末から `https://google.com` などに接続し、以下を確認する
 `mitmproxy` を終了したうえで、以下のコマンドを実行。
 
 ```bat
-mitmproxy
+mitmweb
 ```
 
 ブラウザで `http://localhost:8081` が開くので、あとは適当に眺める。
