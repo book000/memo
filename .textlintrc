@@ -71,7 +71,11 @@
       "ja-no-mixed-period": {
         "forceAppendPeriod": true,
         "allowEmojiAtEnd": true,
-        "allowPeriodMarks": ["\"", ":", "..."]
+        "allowPeriodMarks": [
+          "\"",
+          ":",
+          "..."
+        ]
       },
       // 文の最大長を制限しない: https://github.com/textlint-rule/textlint-rule-sentence-length
       "sentence-length": false,
@@ -104,7 +108,9 @@
         "プロフィール", // no-synonyms
         "プロファイル", // no-synonyms
         "PC", // SmartHR
-        "ウィンドウ" // SmartHR
+        "ウィンドウ", // SmartHR
+        "コピペ", // prh
+        "証明書信頼設定" // ja-technical-writing/max-kanji-continuous-len
       ]
     }
   }
