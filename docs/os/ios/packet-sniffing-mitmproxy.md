@@ -157,7 +157,7 @@ mitmproxy をインストールすると、以下のコマンドが追加され�
 すべて `-s` でスクリプトを指定できる。
 
 この機能を用いて、`mitmproxy` を通るすべての通信のリクエストとレスポンスをファイル保存してみる。  
-Gist に置いた[mitmproxy-all-write-file.py](https://gist.github.com/book000/ae5685c7903325f76ffefee115ca67e8) を使って以下りように実行する。  
+Gist に置いた [mitmproxy-all-write-file.py](https://gist.github.com/book000/ae5685c7903325f76ffefee115ca67e8) を使って以下りように実行する。  
 `C:\packet-sniffing` の箇所は保存先なのでお好きな場所に。あまり深いディレクトリだとパス長さ上限に達しやすくなるので浅いほうがオススメ。
 
 ```bat
