@@ -32,6 +32,8 @@ Outlook は Outlook そのものを閉じてしまうとメールの受信通知
 
 ## 2. theduffster/KeepOutlookRunning リポジトリの Zip ファイルをダウンロードし、展開
 
+![](assets/download-zip.png)
+
 ## 3. bat ファイルを実行
 
 ## 4. Outlook を再起動する
