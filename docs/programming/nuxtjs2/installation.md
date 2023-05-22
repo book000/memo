@@ -19,7 +19,7 @@ yarn create nuxt-app <PROJECT-NAME>
 - `Package manager`: Yarn か Npm を選びます。ここでは Yarn を矢印で選んで Enter
 - `UI framework`: UI のフレームワークを選びます。ここでは Vuetify.js を選びます。
 - `Nuxt.js modules` 追加導入するモジュールを選びます（複数選択可）。作りたいもの向けに矢印で選んでスペースで選択できます。
-- `Linting tools`: リントツールを選びます（複数選択可）。基本的に全部アクティブでよいと思うので `a` で全アクティブ
+- `Linting tools`: リントツールを選びます（複数選択可）。基本的に全部アクティブでよいと思うので ++a++ で全アクティブ
 - `Testing framework`: テストフレームワークを選びます。適宜。
 - `Rendering mode`: レンダリングモードを選びます。作るものに応じて選択。
 - `Deployment target`: デプロイ先を選びます。Node.js によるサーバーか静的データホストかを選びます。

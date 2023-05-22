@@ -48,11 +48,11 @@ Partition 1 does not start on physical sector boundary.
 
     `fdisk` で HDD にパーティションを作成する。
 
-    1. `Command (m for help)` では、新しいパーティションを作るので `NEW` -> `n` を入れる
-    2. `Partition type` では、プライマリの基本領域を作成するので `p` を入れる（そのまま Enter でも可）
-    3. `Partition number` では、初めてのパーティションなので `1` を入れる（そのまま Enter でも可）
+    1. `Command (m for help)` では、新しいパーティションを作るので `NEW` -> ++n++ を入れる
+    2. `Partition type` では、プライマリの基本領域を作成するので ++p++ を入れる（そのまま ++enter++ でも可）
+    3. `Partition number` では、初めてのパーティションなので ++1++ を入れる（そのまま ++enter++ でも可）
     4. `Created a new partition` と出たら成功
-    5. `Command (m for help)` に戻るので、実施した内容を HDD に書き込むために `WRITE` -> `w` を入れる
+    5. `Command (m for help)` に戻るので、実施した内容を HDD に書き込むために `WRITE` -> ++w++ を入れる
     6. 正常に書き込まれてシェルが戻ってきたら成功
 
     ```shell
@@ -108,16 +108,16 @@ Partition 1 does not start on physical sector boundary.
 
 GPT で作るので、`parted` コマンドを使う。
 
-1. `p` で現状のパーティション状態を確認する
+1. ++p++ で現状のパーティション状態を確認する
 2. GPT でフォーマットしたいのでラベルを GPT にする: `mklabel gpt`
-3. 再度 `p` で `Partition Table` が `gpt` であることを確認する
+3. 再度 ++p++` で `Partition Table` が `gpt` であることを確認する
 4. `mkpart` でパーティションを作成する。ここで渡すパラメータはサイトによって異なるので、適切なパラメータを確認したほうが良い  
    [この記事](https://kiyoshi.hatenablog.com/entry/20131228/1388157792) では `mkpart primary ext4 0 -0` すれば問題ないとあったけど `Error: Unable to satisfy all constraints on the partition.` と怒られるし、  
    [この記事](https://qiita.com/ktateish/items/238c03f28e8b3335f684) では `parted` 実行時に `-a optimal` を付けたうえで `mkpart primary ext4 0% 100%` すれば良いとあるけど、これも上記エラーが出るし、  
    今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。  
    **2022/06/24追: `mkpart primary ext4 0% 6001GB` で良いっぽい。**
-5. 再度 `p` で正常にパーティションが作成されたことを確認する
-6. `q` で抜ける
+5. 再度 ++p++ で正常にパーティションが作成されたことを確認する
+6. ++q++ で抜ける
 
 ```shell
 tomachi@tomapi:~ $ sudo parted /dev/sda
