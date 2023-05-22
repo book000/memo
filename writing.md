@@ -59,3 +59,8 @@ https://squidfunk.github.io/mkdocs-material/reference/admonitions/
 - bug
 - example
 - quote
+
+### キーストローク
+
+キーボード操作を表記する場合、キー名を `++` で囲む。キー名は小文字。  
+たとえば `Enter` を表現するなら `++enter++` で ++enter++。複数キーストロークを表現するなら `++shift+y++` で ++shift+y++ みたいな。
