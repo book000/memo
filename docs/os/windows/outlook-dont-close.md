@@ -24,7 +24,7 @@ Outlook は Outlook そのものを閉じてしまうとメールの受信通知
 1. Microsoft Visual C++ 2010 SP1 Redistributable Package をインストール
 2. theduffster/KeepOutlookRunning リポジトリの Zip ファイルをダウンロードし、展開
 3. bat ファイルを実行
-4. Outlook を再起動する
+4. Outlook を再起動
 
 ## 1. Microsoft Visual C++ 2010 SP1 Redistributable Package をインストール
 
