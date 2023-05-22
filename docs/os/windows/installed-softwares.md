@@ -504,7 +504,7 @@ Firefox の拡張機能。
 
 ### Black Menu for Google
 
-ドロップダウンメニューから Google サービスにアクセスできる。
+ドロップダウンリストから Google サービスにアクセスできる。
 
 - Web サイト: https://apps.jeurissen.co/black-menu-for-google
 - Firefox: https://addons.mozilla.org/ja/firefox/addon/black-menu-google/

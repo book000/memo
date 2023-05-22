@@ -297,11 +297,11 @@ VS Code ターミナルのフォントは `settings.json` に以下を書き加�
 
 ### Win + X 画面の編集
 
-Pwsh を入れたので Win + X やスタートボタンの右クリックで出るリストを編集しておく。
+Pwsh を入れたので ++windows+x++ やスタートボタンの右クリックで出るリストを編集しておく。
 
 面倒なので、`Group3` を置き換えられる [Zip ファイル](Group3.zip) を用意した。展開して中の `Group3` を `%LOCALAPPDATA%\Microsoft\Windows\WinX\Group3` と置き換えるだけ。
 
-??? "failure" 古い
+??? failure "古い"
     `WinXMenuEditor` というアプリケーションを使う。[いかにも怪しそうなダウンロードページ](https://winaero.com/download.php?view.21) の `Download link` から `WinXMenuEditorRelease.zip` をダウンロード、展開。`WinXEditor.exe` を実行。  
     Pwsh を PowerShell と置き換え。
 
