@@ -34,6 +34,41 @@ Outlook は Outlook そのものを閉じてしまうとメールの受信通知
 
 ![](assets/download-zip.png)
 
+[theduffster/KeepOutlookRunning](https://github.com/theduffster/KeepOutlookRunning) をブラウザで開く。  
+その後画像のように `<>` をクリック、`Download ZIP` でリポジトリの Zip ファイルをダウンロードし、展開する。
+
 ## 3. bat ファイルを実行
 
+すでに Outlook を起動していた場合はいったん終了しておく。
+
+展開した `InstallKeepOutlookRunning-64bit.bat` を実行する。コマンドプロンプトが開き、以下が表示されることを確認。
+
+```text
+___________________________________________________________
+Welcome to the KeepOutlookRunning (64 bit) installer batch
+___________________________________________________________
+This batch will install KeepOutlookRunning (64 bit) for the active user only
+No system files will be touched
+___________________________________________________________
+IMPORTANT: Do not run this install batch from the zip file
+           directly. It won't work. Please extract the zip
+           file contents to a folder and run it from there.
+           Must CD to the unzipped folder for this to work.
+ECHO は <OFF> です。
+___________________________________________________________
+Would you like install KeepOutlookRunning (64 bit)?(Y/N)
+Type input:
+```
+
+`Type input:` とあるので、インストールして構わなければ ++y++ を打ち込んで ++enter++。
+
+`KeepOutlookRunning was installed` と表示されたら成功。
+
 ## 4. Outlook を再起動する
+
+Outlook を起動する。以下の 2 点を確認する。
+
+- `ファイル` -> `オプション` -> `アドイン` タブ -> `アクティブなアプリケーション アドイン` に `Keep Outlook Running COM Addin` があることを確認。
+- Outlook の閉じるボタンを押したときにタスクバーにアイコンが残り続けることを確認。
+
+以上が確認できれば、インストールは成功。
