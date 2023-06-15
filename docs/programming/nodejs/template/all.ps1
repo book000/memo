@@ -14,7 +14,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/
 New-Item -Force .github/workflows/ -ItemType Directory
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci.yml" -OutFile ".github/workflows/nodejs-ci.yml"
 
-yarn add -D -E typescript @types/node ts-node ts-node-dev prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc winston @book000/node-utils
+yarn add -D -E typescript @types/node ts-node ts-node-dev prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
 
 npm pkg set scripts.start="ts-node -r tsconfig-paths/register ./src/main.ts"
 npm pkg set scripts.dev="ts-node-dev --poll -r tsconfig-paths/register ./src/main.ts"
