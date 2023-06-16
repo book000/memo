@@ -72,7 +72,7 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 - [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
 - [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
   - `General` と `YouTube` オプションはすべてチェックを外すこと
-- Todoist sidebar(Unofficial): 非公開になってしまったっぽいので、開発者モードからインストールする。
+- [Todoist sidebar](https://github.com/book000/opera-todoist-sidebar): 開発者モードからインストールする
 
 ### アンチウィルスソフトのインストール
 
@@ -106,7 +106,7 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 
 ---
 
-タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして。
+タスクバーのカスタマイズも行う。それぞれタスクバーを右クリックして以下を実施。
 
 ##### `検索`
 
@@ -121,8 +121,6 @@ YouTube などで動画を見たり音楽を聞いたり、TwitterDeck を眺め
 - [ ] `タスクビュー ボタンを表示`
 - [ ] `タスク バーに People を表示する`
 - [ ] `Windows lnk ワークスペース ボタンを表示`
-
-を実施。
 
 ### ユーザーフォルダの移動
 
