@@ -2517,6 +2517,14 @@ textlint-rule-ja-space-around-code@^2.2.0:
     match-index "^1.0.1"
     textlint-rule-helper "^2.2.0"
 
+textlint-rule-ja-space-around-link@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-space-around-link/-/textlint-rule-ja-space-around-link-2.2.0.tgz#f5134f521315fc0c9c9f64a4b0d86786d8557cf9"
+  integrity sha512-MS8hADNmyNwyi9hMFo+lh5NcYXsPIC2lTGAclysbFD6fAYjy0NCPIASKuD1yOyg1wv9MuiEfuhhw/m31h0PQHg==
+  dependencies:
+    match-index "^1.0.1"
+    textlint-rule-helper "^2.2.0"
+
 textlint-rule-ja-space-between-half-and-full-width@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/textlint-rule-ja-space-between-half-and-full-width/-/textlint-rule-ja-space-between-half-and-full-width-2.3.0.tgz#bc13649f0596abf8d23eb26ecc3a26c6014e9145"
