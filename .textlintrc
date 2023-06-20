@@ -46,11 +46,11 @@
       "ja-space-around-code": {
         "before": true,
         "after": true
-      },
-      "ja-space-around-link": {
-        "before": true,
-        "after": true
       }
+    },
+    "ja-space-around-link": {
+      "before": true,
+      "after": true
     },
     // 技術文書向けルールプリセット: https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing
     "preset-ja-technical-writing": {
