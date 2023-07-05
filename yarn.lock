@@ -340,11 +340,6 @@
   resolved "https://registry.yarnpkg.com/@textlint/module-interop/-/module-interop-12.1.1.tgz#aafdd56f798d3cd76b81179edb0a9cfd2dea7940"
   integrity sha512-SiF2NVMFny7OdZ3I+qclJXkuPLOylJVd+v3mPGF8Ri5yuDgOKrbqNyHFzz/Sn2AS0ZsIf04/pGNBQhB+fJOBRQ==
 
-"@textlint/module-interop@^13.3.2":
-  version "13.3.2"
-  resolved "https://registry.yarnpkg.com/@textlint/module-interop/-/module-interop-13.3.2.tgz#6ff62c9bc7f1ee614148d5cc43b8c6d4c97a8384"
-  integrity sha512-JPHAZlWXgedDCoaTT21dln8u+sPVJUGPw283Oxz1k24x2MWaFZO7EReu/K4QepdxNKOpdllp2DqvnWgnvZoPOg==
-
 "@textlint/module-interop@^13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@textlint/module-interop/-/module-interop-13.3.3.tgz#645b47b9e951030b2d656e2c9266b5587de2a17b"
@@ -2789,13 +2784,13 @@ textlint-rule-preset-jtf-style@^2.3.12:
     textlint-rule-helper "^2.2.0"
     textlint-rule-prh "^5.2.1"
 
-textlint-rule-preset-smarthr@1.24.0:
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-preset-smarthr/-/textlint-rule-preset-smarthr-1.24.0.tgz#ffef7c17572d43ae1f54431bba52f0dc4ec6cf42"
-  integrity sha512-P7WTjMUz9myZSqlZOf0/BQP2Q7fOmXVNEPtdf7Alm8aik6AXg6wKl6QxPtxwTzySaTNYPugRm2VLdQd9cw2Qsw==
+textlint-rule-preset-smarthr@1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-smarthr/-/textlint-rule-preset-smarthr-1.25.0.tgz#9c694f5b5c4e91baa4868368940af1fe334feebb"
+  integrity sha512-hgxPnvoAwoXWiJhLDPFwIL1WGrUjxpIvWg8HjlED4BuE7GmnuxaRcmSuuFzRKLZo3nMzNmf2SMWshvxjbU2QeQ==
   dependencies:
     "@textlint-rule/textlint-rule-no-unmatched-pair" "^1.0.9"
-    "@textlint/module-interop" "^13.3.2"
+    "@textlint/module-interop" "^13.3.3"
     textlint-rule-ja-hiragana-daimeishi "^1.0.0"
     textlint-rule-ja-hiragana-hojodoushi "^1.1.0"
     textlint-rule-ja-keishikimeishi "^1.0.5"
