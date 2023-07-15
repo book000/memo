@@ -14,8 +14,11 @@ Windows 10 Pro 21H2 (Build 19044.1706) にて実施。
 ## クリーンインストール前にやることメモ
 
 - インストール済みアプリケーションのリストアップ
+  - [プログラムの追加と削除 一覧出力](https://forest.watch.impress.co.jp/library/software/pglst/) などを利用
 - ハード構成を変える場合は Microsoft アカウントへのログイン
 - WSL2 のエクスポート
+  - `wsl -l -v`
+  - `wsl --export <NAME> <FILENAME>`
 
 ## 具体的な作業内容
 
@@ -389,7 +392,7 @@ wsl --import <NAME> <DIRECTORY> <FILE> --version 2
 default=<USERNAME>
 ```
 
-参考:。
+参考:
 
 - [Windows 10/11 で WSL 環境を移行する方法 - TechRacho](https://techracho.bpsinc.jp/morimorihoge/2021_11_26/113804)
 - [WSL 上の Linux を C ドライブから移動させる](https://www.aise.ics.saitama-u.ac.jp/~gotoh/HowToReplaceWSL.html)
