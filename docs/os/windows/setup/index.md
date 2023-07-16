@@ -86,12 +86,37 @@ Windows を使う上での個人的なおすすめ設定を行う。
 
 ### デバイス名の変更
 
+`システムのプロパティ`（`SystemPropertiesComputerName.exe`）の `コンピューター名/ドメイン名の変更` で変更する。  
+変更後は再起動が必要で、デバイス名は Firefox が利用するので最初にやったほうがよい。
+
+コマンドラインからも変更可能。**管理者権限で** PowerShell を開いて以下を実行。
+
+```powershell
+wmic computersystem where name="%computername%" call rename name="<COMPUTER-NAME>"
+wmic computersystem where name="%computername%" call joindomainorworkgroup name="<WORKSPACE-NAME>"
+```
+
 ### エクスプローラの設定
 
-- エクスプローラ起動時に `PC` を出す
-- クイックアクセスの設定を切る
-- 隠しフォルダを表示する
-- 拡張子を表示する
+まず、隠しフォルダ・ファイルと拡張子を表示する設定をする。
+
+エクスプローラを開き、上部ナビゲーションバーの `表示` から `表示` を開き、以下の設定をする。
+
+- [x] `ファイル名拡張子`
+- [x] `隠しファイル`
+
+![](assets/image.png)
+
+さらに、`・・・` から `オプション` を開き、以下の設定も行う。
+
+- `全般` タブ
+  - `エクスプローラーで開く`: `PC`
+  - `プライバシー`
+    - [ ] `最近使用したファイルを表示する`
+    - [ ] `頻繁に使用されるフォルダーを表示する`
+    - [ ] `Office.com のファイルを表示する`
+
+![](assets/image-1.png)
 
 ### タスクバーの設定
 
@@ -144,5 +169,8 @@ Windows を使う上での個人的なおすすめ設定を行う。
 ### Windows Subsystem for Linux
 
 ### Docker Desktop
+
+- SSH Agent
+- OpenSSL のアップデート
 
 ### BlueStacks
