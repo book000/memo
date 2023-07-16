@@ -1,0 +1,19 @@
+{
+  "name": "book000/memo",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "postAttachCommand": "sh ./.devcontainer/postAttachCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "taichi.vscode-textlint",
+        "bierner.markdown-mermaid",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
