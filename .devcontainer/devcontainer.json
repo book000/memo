@@ -19,6 +19,15 @@
   },
   "customizations": {
     "vscode": {
+      "settings": {
+        "editor.wordWrap": "on",
+        "[markdown]": {
+          "editor.tabSize": 4,
+          "editor.detectIndentation": false,
+          "files.insertFinalNewline": true
+        },
+        "files.insertFinalNewline": true
+      },
       "extensions": [
         "yzhang.markdown-all-in-one",
         "taichi.vscode-textlint",
