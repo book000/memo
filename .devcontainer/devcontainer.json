@@ -33,7 +33,9 @@
         "taichi.vscode-textlint",
         "bierner.markdown-mermaid",
         "DavidAnson.vscode-markdownlint",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-pull-request-github",
+        "donjayamanne.githistory"
       ]
     }
   }
