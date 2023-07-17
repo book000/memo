@@ -5,6 +5,17 @@
     "dockerfile": "Dockerfile"
   },
   "postAttachCommand": "sh ./.devcontainer/postAttachCommand.sh",
+  "waitFor": "postCreateCommand",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Preview",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
