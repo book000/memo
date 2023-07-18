@@ -299,8 +299,6 @@ Windows 11 になって右クリックメニュー（コンテキストメニュ
 
 ## ソフトウェアのインストールや設定
 
-適宜別ページへ。
-
 ### Avast
 
 アンチウイルスソフトとして Avast を利用している。
@@ -359,30 +357,111 @@ Windows 11 になって右クリックメニュー（コンテキストメニュ
 
 ### Firefox
 
+メインブラウザとして利用する。拡張機能などの同期は Firefox アカウントで行う。
+
+- [公式サイト](https://www.mozilla.org/ja/firefox/new/)
+- [ダウンロードリンク](https://www.mozilla.org/ja/firefox/download/thanks/)
+- `winget install Mozilla.Firefox`
+
 ### Chrome
 
+サブブラウザとして利用する。  
+拡張機能などの同期は Google アカウントで行う。
+
+- [公式サイト](https://www.google.com/intl/ja_jp/chrome/)
+- [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
+- `winget install Google.Chrome`
+
 ### Opera
+
+YouTube などで動画を見たり音楽を聞いたりするために使う。  
+拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
+
+- [公式サイト](https://www.opera.com/ja)
+- [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
+- `winget install Opera.Opera`
+
+インストールする拡張機能は以下の通り。
+
+- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/): 削除された様子。開発者モードからインストールする。
+- [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
+  - 設定ファイル: [enhancer-for-youtube-settings.json](./enhancer-for-youtube-settings.json)
+- [YouTube™ デュアル字幕](https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
+- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejimjacpillmajjnopmpbkbnocid)
+- [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
+- [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
+- [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
+  - `General` と `YouTube` オプションはすべてチェックを外すこと
 
 ### Scoop
 
 古い PCからストレージごと移している場合、以下の手順を **Scoop のインストール前** に行う。
 
-1. iex のインストールコマンドを叩かずに、SCOOP 環境変数を設定する。この際、N:/Portable\Scoop\tomachi など、shims ディレクトリがあるところを指すようにする
-2. apps ディレクトリからインストールコマンドをリストアップするコマンドを cmd.exe で叩く。
+!!! warning "注意"
+    インストール前に移行作業が必要なので、よく読んでから実施すること。
 
-その後、iex によるインストールを走らせる。
-インストール後は restore.ps1 で再インストール。
+1. apps ディレクトリからインストールコマンドをリストアップするコマンドを cmd.exe で叩く。
+
+**iex のインストールコマンドを叩かず** に、以下のコードで SCOOP 環境変数を設定する。  
+この際、`N:/Portable\Scoop\tomachi` など、shims ディレクトリがあるところを指すようにする。
+
+```powershell
+$env:SCOOP = '<SCOOP-DIR>'
+[environment]::setEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
+```
+
+apps ディレクトリからインストールコマンドをリストアップするコマンドを **cmd.exe で叩く**。
+
+```cmd
+for /f "delims=;" %i in ('dir /b /ad %SCOOP%\apps') do ( echo scoop install %i>>restore.ps1 )
+mv %SCOOP%\apps %SCOOP%\apps-old
+```
+
+これによって、`restore.ps1` が作成される。  
+以下のコマンドで Scoop をインストールする。
+
+```powershell
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+```
+
+PowerShell で `restore.ps1` ファイルを実行する。
+
+```powershell
+powershell -ExecutionPolicy RemoteSigned -File restore.ps1
+# or .\restore.ps1
+```
+
+### `HackGen35 Console NF のインストール
 
 ### Terminal
 
 Windows 11 から Terminal というものがインストールされるようになった。  
 この画面から PowerShell もコマンドプロンプトも Windows Subsystem for Linux も触れるので意外と便利。
 
-- HackGen35 Console NF
+- `プロファイル` -> `既定値` で、`外観` に入り、以下の設定をする
+  - フォント フェイス: `HackGen35 Console NF`
 
 ### Pwsh
 
-- HackGen35 Console NF
+Windows 10 にデフォルトで入っている PowerShell を使うと `新しいクロスプラットフォームの PowerShell をお試しください` って言われてうざいので、新しい Pwsh を入れておく。
+
+- 参考: [Windows への PowerShell のインストール](https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-on-windows)
+
+winget でインストールできる。以下のコマンドを実行。
+
+```powershell
+winget install Microsoft.PowerShell
+```
+
+インストールした Pwsh へはフォントの設定が必要。以下の作業をする。
+
+1. Pwsh のショートカットファイル（`XXXX`）をデスクトップにコピーする
+2. コピーしたショートカットファイルのプロパティを開く
+3. `フォント` タブを開き、`フォント` で `HackGen35 Console NF` を選ぶ
+4. `OK` で保存する
+5. 編集したショートカットファイルを、元の場所にコピーして上書きする
+
+Pwsh を再度開き、フォントが変更されていることを確認する。
 
 ### EarTrumpet
 

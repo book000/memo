@@ -26,7 +26,10 @@
           "editor.detectIndentation": false,
           "files.insertFinalNewline": true
         },
-        "files.insertFinalNewline": true
+        "files.insertFinalNewline": true,
+        "files.associations": {
+          ".textlintrc": "jsonc"
+        }
       },
       "extensions": [
         "yzhang.markdown-all-in-one",
