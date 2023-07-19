@@ -41,8 +41,8 @@ Windows Subsystem for Linux にて Ubuntu などを利用している場合、�
 
 - ブラウザのプロファイル（アカウント同期している場合は不要）
 - Visual Studio Code のグローバル設定ファイル（`%APPDATA%\Code\User\settings.json`）
-- Logicool G HUB のプロファイル（`%LocalAppData%\LGHUB\settings.db`）
-- Thunderbird のプロファイル（`%APPDATA%\Thunderbird\Profiles`）
+- Logicool G HUB のプロファイル（`%LOCALAPPDATA%\LGHUB\settings.db`）
+- Thunderbird のプロファイル（`%APPDATA%\Thunderbird\Profiles` & `%APPDATA%\Thunderbird\profiles.ini`）
 - AnyDesk のエイリアス設定ファイル（`%ProgramData%\AnyDesk`）
 - Minecraft の各種ファイル（`%APPDATA%\.minecraft`）
 - Becky の Inbox フォルダ（`C:\Becky!\%USERNAME%\Inbox`）

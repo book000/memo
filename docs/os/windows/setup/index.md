@@ -437,7 +437,7 @@ powershell -ExecutionPolicy RemoteSigned -File restore.ps1
 # or .\restore.ps1
 ```
 
-### `HackGen35 Console NF のインストール
+### HackGen35 Console NF のインストール
 
 ### Terminal
 
@@ -461,7 +461,8 @@ winget install Microsoft.PowerShell
 
 インストールした Pwsh へはフォントの設定が必要。以下の作業をする。
 
-1. Pwsh のショートカットファイル（`XXXX`）をデスクトップにコピーする
+1. Pwsh のショートカットファイルをデスクトップにコピーする
+   - `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerShell\PowerShell 7 (x64).lnk`
 2. コピーしたショートカットファイルのプロパティを開く
 3. `フォント` タブを開き、`フォント` で `HackGen35 Console NF` を選ぶ
 4. `OK` で保存する
@@ -471,11 +472,33 @@ Pwsh を再度開き、フォントが変更されていることを確認する
 
 ### EarTrumpet
 
+Windows 11 の音量ミキサーはどうにも使い勝手が悪い（特に複数アプリケーションから音を出している場合）ので、タスクバーでアプリケーションごとの音量調整ができる EarTrumpet を入れる。  
+以下のように利用できる。
+
+![](assets/image-9.png)
+
+Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/detail/9NBLGGH516XP) にアクセスし、ダウンロードするだけ。
+
 ### Thunderbird
+
+メーラーとして Thunderbird を利用している。
+
+[Thunderbird の Web サイト](https://www.thunderbird.net/ja/) からインストーラーをダウンロードできる。
+
+`%APPDATA%\Thunderbird\Profiles` にプロファイルがあり、利用するプロファイルの定義は `%APPDATA%\Thunderbird\profiles.ini` にある。  
+これらをリストアすればそのまま利用可能。
 
 ### Logicool G HUB
 
+[Logicool G HUB の Web サイト](https://gaming.logicool.co.jp/ja-jp/innovation/g-hub.html) からインストーラーをダウンロードできる。
+
+`%LOCALAPPDATA%\LGHUB\settings.db` のファイルをリストアすることでそのまま利用可能。
+
 ### AnyDesk
+
+[AnyDesk の Web サイト](https://anydesk.com/ja) からインストーラーをダウンロードできる。
+
+`%ProgramData%\AnyDesk` をリストアすることで、エイリアスを継続して利用可能。
 
 ### Visual Studio Code
 
