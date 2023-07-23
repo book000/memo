@@ -249,15 +249,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 - npm: https://www.npmjs.com/package/@kevinmarrec/nuxt-pwa
 - GitHub リポジトリ: https://github.com/kevinmarrec/nuxt-pwa-module
 
-で、`nuxt.config.ts` の `modules` に定義します。
-
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="2"
-export default defineNuxtConfig({
-  modules: ["@kevinmarrec/nuxt-pwa"],
-});
-```
-
-さらに、このモジュールはメタデータを引き継がないようなので、以下の通り PWA 用に設定する必要があります。
+で、`nuxt.config.ts` の `modules` に定義します。  
+また、このモジュールはメタデータを引き継がないようなので、以下の通り PWA 用に設定する必要があります。
 
 ```typescript title="nuxt.config.ts" linenums="1"
 const baseName = process.env.BASE_NAME || "example-app";
@@ -304,7 +297,7 @@ Nuxt.js v2 で利用されていた Vuex はバンドルされなくなり、開
 まず、普通にパッケージをインストールします。
 
 ```shell
-yarn add pinia @pinia/nuxt
+yarn add pinia @pinia/nuxt @pinia-plugin-persistedstate/nuxt
 ```
 
 次に、まあ例のごとく `nuxt.config.ts` の `modules` に追記します。
