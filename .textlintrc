@@ -110,7 +110,8 @@
         "PC", // SmartHR
         "ウィンドウ", // SmartHR
         "コピペ", // prh
-        "証明書信頼設定" // ja-technical-writing/max-kanji-continuous-len
+        "証明書信頼設定", // ja-technical-writing/max-kanji-continuous-len
+        "上書き" // no-synonyms
       ]
     }
   }

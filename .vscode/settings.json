@@ -2,6 +2,11 @@
   "editor.wordWrap": "on",
   "[markdown]": {
     "editor.tabSize": 4,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "files.insertFinalNewline": true
+  },
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    ".textlintrc": "jsonc"
   }
 }

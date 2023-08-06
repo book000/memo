@@ -64,3 +64,7 @@ https://squidfunk.github.io/mkdocs-material/reference/admonitions/
 
 キーボード操作を表記する場合、キー名を `++` で囲む。キー名は小文字。  
 たとえば `Enter` を表現するなら `++enter++` で ++enter++。複数キーストロークを表現するなら `++shift+y++` で ++shift+y++ みたいな。
+
+### 画像の配置
+
+文章の後に画像を置いたほうが見やすい気がする。

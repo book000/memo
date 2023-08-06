@@ -1,0 +1,45 @@
+{
+  "name": "book000/memo",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "sh ./.devcontainer/postCreateCommand.sh",
+  "postAttachCommand": "sh ./.devcontainer/postAttachCommand.sh",
+  "waitFor": "postCreateCommand",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Preview",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.wordWrap": "on",
+        "[markdown]": {
+          "editor.tabSize": 4,
+          "editor.detectIndentation": false,
+          "files.insertFinalNewline": true
+        },
+        "files.insertFinalNewline": true,
+        "files.associations": {
+          ".textlintrc": "jsonc"
+        }
+      },
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "taichi.vscode-textlint",
+        "bierner.markdown-mermaid",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-pull-request-github",
+        "donjayamanne.githistory"
+      ]
+    }
+  }
+}
