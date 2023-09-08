@@ -11,6 +11,7 @@ RUN apk update && apk add --no-cache \
     python3-dev \
     py3-pip \
     build-base \
+    pngquant \
     && rm -rf /var/cache/apk/*
 
 WORKDIR /work
