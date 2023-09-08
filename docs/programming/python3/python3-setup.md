@@ -24,7 +24,7 @@ Red Hat 系（CentOS や Fedora 等）を使用している場合はパッケー
 
 どのパッケージが必要かについての情報が微妙ですので、公式サイトなどの情報も参考にしてください。
 
-Debian GNU/Linux 系（APT) ([公式サイト](https://devguide.python.org/setup/#install-dependencies) を参考）
+Debian GNU/Linux 系（APT）: [公式サイト](https://devguide.python.org/setup/#install-dependencies) を参考。
 
 ```bash
 sudo apt install build-essential gdb lcov libbz2-dev libffi-dev \
@@ -32,7 +32,7 @@ sudo apt install build-essential gdb lcov libbz2-dev libffi-dev \
       libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 ```
 
-Red Hat 系（yum) ([公式サイト](https://devguide.python.org/setup/#install-dependencies) と [非公式リンク一覧サイトの「Python のビルド手順(Unix)」](https://pythonlinks.python.jp/) を参考）
+Red Hat 系（yum）: [公式サイト](https://devguide.python.org/setup/#install-dependencies) と [非公式リンク一覧サイトの「Python のビルド手順(Unix)」](https://pythonlinks.python.jp/) を参考）
 
 ```bash
 sudo yum groupinstall "development tools"
