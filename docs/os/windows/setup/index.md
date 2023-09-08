@@ -502,13 +502,6 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 
 ### Visual Studio Code
 
-### Windows SandBox, Hyper-V
+### 仮想システム系
 
-### Windows Subsystem for Linux
-
-### Docker Desktop
-
-- SSH Agent
-- OpenSSL のアップデート
-
-### BlueStacks
+Hyper-V とか Windows Subsystem for Linux など、仮想システム系については [仮想システム系](virtual-systems.md) にて。
