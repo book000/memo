@@ -35,7 +35,7 @@
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-ja-technical-writing": "8.0.0",
-    "textlint-rule-preset-smarthr": "1.27.0",
+    "textlint-rule-preset-smarthr": "1.28.0",
     "textlint-rule-prh": "5.3.0"
   }
 }
