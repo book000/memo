@@ -1,28 +1,31 @@
 # Node.js プロジェクトを立ち上げる手順
 
+!!! warning "Warning"
+    途中に出てくるテンプレートと、この記事の内容が異なるので注意。
+
 ## 環境
 
-- Windows 10 22H2 (Build 19045.2486)
-- Node.js v18.13.0
-- npm v8.19.3
-- Yarn v1.22.19
-- [typescript](https://www.npmjs.com/package/typescript) v4.9.5
-- [@types/node](https://www.npmjs.com/package/@types/node) v18.13.0
-- [ts-node](https://www.npmjs.com/package/ts-node) v10.9.1
-- [ts-node-dev](https://www.npmjs.com/package/ts-node-dev) v2.0.0
-- [prettier](https://www.npmjs.com/package/prettier) v2.8.4
-- [eslint](https://www.npmjs.com/package/eslint) v8.34.0
-- [eslint-config-standard](https://www.npmjs.com/package/eslint-config-standard) v8.6.0
-- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) v17.0.0
-- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) v2.27.5
-- [eslint-plugin-n](https://www.npmjs.com/package/eslint-plugin-n) v15.6.1
-- [eslint-plugin-promise](https://www.npmjs.com/package/eslint-plugin-promise) v6.1.1
-- [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn) v45.0.2
-- [yarn-run-all](https://www.npmjs.com/package/yarn-run-all) v3.1.1
-- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) v5.51.0
-- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) v5.51.0
-- [@vercel/ncc](https://www.npmjs.com/package/@vercel/ncc) v0.36.1
-- [@book000/node-utils](https://www.npmjs.com/package/@book000/node-utils) v1.0.1
+- Windows 10 22H2 (Build 22621.2428)
+- Node.js v20.9.0
+- npm v9.5.1
+- pnpm v8.8.0
+- [typescript](https://www.npmjs.com/package/typescript)
+- [@types/node](https://www.npmjs.com/package/@types/node)
+- [ts-node](https://www.npmjs.com/package/ts-node)
+- [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
+- [prettier](https://www.npmjs.com/package/prettier)
+- [eslint](https://www.npmjs.com/package/eslint)
+- [eslint-config-standard](https://www.npmjs.com/package/eslint-config-standard)
+- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier)
+- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+- [eslint-plugin-n](https://www.npmjs.com/package/eslint-plugin-n)
+- [eslint-plugin-promise](https://www.npmjs.com/package/eslint-plugin-promise)
+- [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn)
+- [yarn-run-all](https://www.npmjs.com/package/yarn-run-all)
+- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)
+- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
+- [@vercel/ncc](https://www.npmjs.com/package/@vercel/ncc)
+- [@book000/node-utils](https://www.npmjs.com/package/@book000/node-utils)
 
 ## package.json の作成
 
