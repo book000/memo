@@ -92,8 +92,6 @@ $packageJson = @{
 $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
 Write-Output "Created package.json."
 
-npx fixpack
-
 # Create .node-version
 $nodeVersion = node -v
 $nodeVersion = $nodeVersion.Replace("v","").Replace("\r","").Replace("\n","").Replace("`u{feff}","")
@@ -109,14 +107,8 @@ New-Item -Force .github/workflows/ -ItemType Directory
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci.yml" -OutFile ".github/workflows/nodejs-ci.yml"
 Write-Output "Created .github/workflows/nodejs-ci.yml."
 
-# Install packages
-pnpm install -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
-Write-Output "Installed packages."
-
 # If test is true, install packages
 if ($ifTest) {
-    pnpm install -D -E jest ts-jest @types/jest jest-expect-message
-
     # add package.json
     $packageJson.scripts.test = "jest --runInBand --passWithNoTests --detectOpenHandles --forceExit"
 
@@ -141,8 +133,14 @@ if ($ifTest) {
     $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
     Write-Output "Updated package.json."
 
-    npx fixpack
+    pnpm install -D -E jest ts-jest @types/jest jest-expect-message
 }
+
+# Install packages
+pnpm install -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
+Write-Output "Installed packages."
+
+npx fixpack
 
 # Create .eslintrc.yml
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.eslintrc.yml" -OutFile ".eslintrc.yml"
