@@ -160,7 +160,7 @@ if ($ifTest) {
 }
 
 # Install packages
-pnpm add -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn run-z @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
+pnpm add -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn run-z @typescript-eslint/parser @typescript-eslint/eslint-plugin @book000/node-utils
 Write-Output "Installed packages"
 
 npx fixpack
