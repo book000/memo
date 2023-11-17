@@ -20,7 +20,7 @@ if ($projectOrganization -eq "") {
 
 $projectRepository = Read-Host -Prompt "Project repository (Default: $projectOrganization/$projectName)"
 if ($projectRepository -eq "") {
-    $projectRepository = $projectOrganization + "/" + $projectRepository
+    $projectRepository = $projectOrganization + "/" + $projectName
 }
 
 $projectHomepage = Read-Host -Prompt "Project homepage (Default: https://github.com/$projectRepository)"
