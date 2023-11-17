@@ -64,6 +64,11 @@ Write-OutPut ""
 
 Write-Output "Creating project.."
 
+# Get pnpm version
+$pnpmVersion = pnpm -v
+$pnpmVersion = $pnpmVersion.Replace("\r","").Replace("\n","").Replace("`u{feff}","")
+$packageManager = "pnpm@$pnpmVersion"
+
 # Create package.json
 $packageJson = @{
     name = $projectName
@@ -92,6 +97,7 @@ $packageJson = @{
         "fix:eslint" = "eslint . --ext ts,tsx --fix"
         "fix:prettier" = "prettier --write src"
     }
+    packageManager = $packageManager
 }
 
 $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
