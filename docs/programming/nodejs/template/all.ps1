@@ -118,10 +118,10 @@ Write-Output "Created .node-version"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore" -OutFile ".gitignore"
 Write-Output "Created .gitignore"
 
-# Create .github/workflows/nodejs-ci.yml
+# Create .github/workflows/nodejs-ci-pnpm.yml
 New-Item -Force .github/workflows/ -ItemType Directory
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci.yml" -OutFile ".github/workflows/nodejs-ci.yml"
-Write-Output "Created .github/workflows/nodejs-ci.yml"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci-pnpm.yml" -OutFile ".github/workflows/nodejs-ci-pnpm.yml"
+Write-Output "Created .github/workflows/nodejs-ci-pnpm.yml"
 
 # If test is true, install packages
 if ($ifTest) {
