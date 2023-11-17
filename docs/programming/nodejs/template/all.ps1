@@ -79,11 +79,11 @@ $packageJson = @{
     scripts = @{
         start = "tsx ./src/main.ts"
         dev = "tsx watch ./src/main.ts"
-        lint = "run-p -c lint:prettier lint:eslint lint:tsc"
+        lint = "run-z lint:prettier,lint:eslint,lint:tsc"
         "lint:prettier" = "prettier --check src"
         "lint:eslint" = "eslint . --ext ts,tsx"
         "lint:tsc" = "tsc"
-        fix = "run-s fix:prettier fix:eslint"
+        fix = "run-z fix:prettier fix:eslint"
         "fix:eslint" = "eslint . --ext ts,tsx --fix"
         "fix:prettier" = "prettier --write src"
     }
@@ -133,11 +133,11 @@ if ($ifTest) {
     $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
     Write-Output "Updated package.json."
 
-    pnpm install -D -E jest ts-jest @types/jest jest-expect-message
+    pnpm add -D -E jest ts-jest @types/jest jest-expect-message
 }
 
 # Install packages
-pnpm install -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn yarn-run-all @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
+pnpm add -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn run-z @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
 Write-Output "Installed packages."
 
 npx fixpack
