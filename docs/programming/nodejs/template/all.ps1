@@ -18,16 +18,14 @@ if ($projectOrganization -eq "") {
     $projectOrganization = "book000"
 }
 
-$projectRepository = Read-Host -Prompt "Project repository (Default: $projectName)"
+$projectRepository = Read-Host -Prompt "Project repository (Default: $projectOrganization/$projectName)"
 if ($projectRepository -eq "") {
-    $projectRepository = $projectName
+    $projectRepository = $projectOrganization + "/" + $projectRepository
 }
 
-$projectFullRepository = $projectOrganization + "/" + $projectRepository
-
-$projectHomepage = Read-Host -Prompt "Project homepage (Default: https://github.com/$projectFullRepository)"
+$projectHomepage = Read-Host -Prompt "Project homepage (Default: https://github.com/$projectRepository)"
 if ($projectHomepage -eq "") {
-    $projectHomepage = "https://github.com/$projectFullRepository"
+    $projectHomepage = "https://github.com/$projectRepository"
 }
 
 $projectAuthorName = Read-Host -Prompt "Project author name (Default: Tomachi <tomachi@tomacheese.com>)"
@@ -45,9 +43,9 @@ if ($projectBugUrl -eq "") {
     $projectBugUrl = $projectHomepage + "/issues"
 }
 
-$projectRepositoryUrl = Read-Host -Prompt "Project repository URL (Default: git@github.com:$projectFullRepository.git)"
+$projectRepositoryUrl = Read-Host -Prompt "Project repository URL (Default: git@github.com:$projectRepository.git)"
 if ($projectRepositoryUrl -eq "") {
-    $projectRepositoryUrl = "git@github.com:$projectFullRepository.git"
+    $projectRepositoryUrl = "git@github.com:$projectRepository.git"
 }
 
 # Generate options
