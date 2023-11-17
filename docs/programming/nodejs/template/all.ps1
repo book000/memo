@@ -62,7 +62,7 @@ if ($ifTest -eq "y") {
 
 Write-OutPut ""
 
-Write-Output "Creating project..."
+Write-Output "Creating project.."
 
 # Create package.json
 $packageJson = @{
@@ -95,22 +95,33 @@ $packageJson = @{
 }
 
 $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
-Write-Output "Created package.json."
+Write-Output "Created package.json"
+
+# Create .depcheckrc.json
+$depcheckrcJson = @{
+  "ignores" = @(
+    "@types/node",
+    "run-z"
+  )
+}
+
+$depcheckrcJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .depcheckrc.json -Encoding utf8 -Force
+Write-Output "Created .depcheckrc.json"
 
 # Create .node-version
 $nodeVersion = node -v
 $nodeVersion = $nodeVersion.Replace("v","").Replace("\r","").Replace("\n","").Replace("`u{feff}","")
 New-Item -Force .node-version -ItemType File -Value $nodeVersion
-Write-Output "Created .node-version."
+Write-Output "Created .node-version"
 
 # Create .gitignore
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore" -OutFile ".gitignore"
-Write-Output "Created .gitignore."
+Write-Output "Created .gitignore"
 
 # Create .github/workflows/nodejs-ci.yml
 New-Item -Force .github/workflows/ -ItemType Directory
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci.yml" -OutFile ".github/workflows/nodejs-ci.yml"
-Write-Output "Created .github/workflows/nodejs-ci.yml."
+Write-Output "Created .github/workflows/nodejs-ci.yml"
 
 # If test is true, install packages
 if ($ifTest) {
@@ -136,36 +147,43 @@ if ($ifTest) {
     }
 
     $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
-    Write-Output "Updated package.json."
+    Write-Output "Updated package.json"
+
+    $depcheckrcJson.ignores += @(
+      "@types/jest"
+    )
+
+    $depcheckrcJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .depcheckrc.json -Encoding utf8 -Force
+    Write-Output "Updated .depcheckrc.json"
 
     pnpm add -D -E jest ts-jest @types/jest jest-expect-message
 }
 
 # Install packages
-pnpm add -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn run-z @typescript-eslint/parser @typescript-eslint/eslint-plugin @vercel/ncc @book000/node-utils
-Write-Output "Installed packages."
+pnpm add -D -E typescript @types/node tsx prettier eslint eslint-config-standard eslint-config-prettier eslint-plugin-import eslint-plugin-n eslint-plugin-promise eslint-plugin-unicorn run-z @typescript-eslint/parser @typescript-eslint/eslint-plugin @book000/node-utils
+Write-Output "Installed packages"
 
 npx fixpack
 
 # Create .eslintrc.yml
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.eslintrc.yml" -OutFile ".eslintrc.yml"
-Write-Output "Created .eslintrc.yml."
+Write-Output "Created .eslintrc.yml"
 
 # Create .eslintignore
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.eslintignore" -OutFile ".eslintignore"
-Write-Output "Created .eslintignore."
+Write-Output "Created .eslintignore"
 
 # Create .prettierrc.yml
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.prettierrc.yml" -OutFile ".prettierrc.yml"
-Write-Output "Created .prettierrc.yml."
+Write-Output "Created .prettierrc.yml"
 
 # Create tsconfig.json
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/tsconfig.json" -OutFile "tsconfig.json"
-Write-Output "Created tsconfig.json."
+Write-Output "Created tsconfig.json"
 
 # Create renovate.json
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/renovate.json" -OutFile "renovate.json"
-Write-Output "Created renovate.json."
+Write-Output "Created renovate.json"
 
 # Create .devcontainer
 New-Item -Force .devcontainer -ItemType Directory
@@ -210,7 +228,7 @@ $devcontainerJson = @{
 }
 
 $devcontainerJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .devcontainer/devcontainer.json -Encoding utf8 -Force
-Write-Output "Created .devcontainer/devcontainer.json."
+Write-Output "Created .devcontainer/devcontainer.json"
 
 Write-Output ""
-Write-Output "Done."
+Write-Output "Done"
