@@ -99,7 +99,7 @@ Write-Output "Created package.json"
 
 # Create .depcheckrc.json
 $depcheckrcJson = @{
-  "ignores": @(
+  "ignores" = @(
     "@types/node",
     "run-z"
   )
@@ -150,7 +150,7 @@ if ($ifTest) {
     Write-Output "Updated package.json"
 
     $depcheckrcJson.ignores += @(
-      "@types/jest",
+      "@types/jest"
     )
 
     $depcheckrcJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .depcheckrc.json -Encoding utf8 -Force
