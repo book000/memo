@@ -120,7 +120,7 @@ if ($ifTest) {
     $packageJson.jest = @{
       moduleFileExtensions = @("js", "ts")
       transform = @{
-        "^.+\\.ts$" = @(
+        "^.+\.ts$" = @(
           "ts-jest",
           @{
             tsconfig = "tsconfig.json"
