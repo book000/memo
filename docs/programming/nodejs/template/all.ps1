@@ -84,7 +84,7 @@ $ifIgnoreDataDirectory = Get-YesNoInput -Message "Do you want to ignore the data
 $ifAddReviewer = Get-YesNoInput -Message "Do you want to automatically add reviewers to pull requests workflow?" -DefaultValue $true
 $ifDockerfile = Get-YesNoInput -Message "Do you want to Dockerfile?" -DefaultValue $true
 
-Write-OutPut ""
+Write-Output ""
 
 Write-Output "Creating project.."
 
@@ -267,7 +267,7 @@ Write-Output "Created .devcontainer/devcontainer.json"
 
 # Create Dockerfile
 if ($ifDockerfile) {
-    Invoke-WebRequest -Uri "https://github.com/book000/memo/blob/main/docs/programming/nodejs/template/Dockerfile" -OutFile "Dockerfile"
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/Dockerfile" -OutFile "Dockerfile"
     Write-Output "Created Dockerfile"
 
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/docker.yml" -OutFile ".github/workflows/docker.yml"
