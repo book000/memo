@@ -3,62 +3,86 @@ $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 $prevErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = 'Stop'
 
+Function Get-UserInput {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        [string]$DefaultValue = $null
+    )
+
+    $ValidInput = $false
+    while (-not $ValidInput) {
+        $UserInput = Read-Host -Prompt "$Message"
+        if ($UserInput -ne "") {
+            $ValidInput = $true
+            return $UserInput
+        } else {
+            if ($DefaultValue -ne $null) {
+                $ValidInput = $true
+                return $DefaultValue
+            } else {
+                Write-Host "Please enter a value."
+            }
+        }
+    }
+}
+
+Function Get-YesNoInput {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        [Nullable[bool]]$DefaultValue = $null
+    )
+
+    $ValidInput = $false
+    while (-not $ValidInput) {
+        $Prompt = "$Message "
+        if ($DefaultValue -eq $true) {
+            $Prompt += "[Y/n]"
+        } elseif ($DefaultValue -eq $false) {
+            $Prompt += "[y/N]"
+        } else {
+            $Prompt += "[y/n]"
+        }
+
+        $UserInput = Read-Host -Prompt $Prompt
+        if ($UserInput -eq 'y') {
+            $ValidInput = $true
+            return $true
+        } elseif ($UserInput -eq 'n') {
+            $ValidInput = $true
+            return $false
+        } elseif ($UserInput -eq "" -and $DefaultValue -ne $null) {
+            $ValidInput = $true
+            return $DefaultValue
+        } else {
+            Write-Host "Please enter y or n."
+        }
+    }
+}
+
 # Get setup options
 # Project information
 $currentDirectory = Get-Location
 $projectDefaultName = $currentDirectory | Split-Path -Leaf
 
-$projectName = Read-Host -Prompt "Project name (Default: $projectDefaultName)"
-if ($projectName -eq "") {
-    $projectName = $projectDefaultName
-}
-
-$projectOrganization = Read-Host -Prompt "Project organization (Default: book000)"
-if ($projectOrganization -eq "") {
-    $projectOrganization = "book000"
-}
-
-$projectRepository = Read-Host -Prompt "Project repository (Default: $projectOrganization/$projectName)"
-if ($projectRepository -eq "") {
-    $projectRepository = $projectOrganization + "/" + $projectName
-}
-
-$projectHomepage = Read-Host -Prompt "Project homepage (Default: https://github.com/$projectRepository)"
-if ($projectHomepage -eq "") {
-    $projectHomepage = "https://github.com/$projectRepository"
-}
-
-$projectAuthorName = Read-Host -Prompt "Project author name (Default: Tomachi <tomachi@tomacheese.com>)"
-if ($projectAuthorName -eq "") {
-    $projectAuthorName = "Tomachi <tomachi@tomacheese.com>"
-}
-
-$projectLicense = Read-Host -Prompt "Project license (Default: MIT)"
-if ($projectLicense -eq "") {
-    $projectLicense = "MIT"
-}
-
-$projectBugUrl = Read-Host -Prompt "Project bug URL (Default: $projectHomepage/issues)"
-if ($projectBugUrl -eq "") {
-    $projectBugUrl = $projectHomepage + "/issues"
-}
-
-$projectRepositoryUrl = Read-Host -Prompt "Project repository URL (Default: git@github.com:$projectRepository.git)"
-if ($projectRepositoryUrl -eq "") {
-    $projectRepositoryUrl = "git@github.com:$projectRepository.git"
-}
+$projectName = Get-UserInput -Message "Project name (Default: $projectDefaultName)" -DefaultValue $projectDefaultName
+$projectOrganization = Get-UserInput -Message "Project organization (Default: book000)" -DefaultValue "book000"
+$projectRepository = Get-UserInput -Message "Project repository (Default: $projectOrganization/$projectName)" -DefaultValue "$projectOrganization/$projectName"
+$projectHomepage = Get-UserInput -Message "Project homepage (Default: https://github.com/$projectRepository)" -DefaultValue "https://github.com/$projectRepository"
+$projectDescription = Get-UserInput -Message "Project description" -DefaultValue ""
+$projectAuthorName = Get-UserInput -Message "Project author name (Default: Tomachi <tomachi@tomacheese.com>)" -DefaultValue "Tomachi <tomachi@tomacheese.com>"
+$projectLicense = Get-UserInput -Message "Project license (Default: MIT)" -DefaultValue "MIT"
+$projectBugUrl = Get-UserInput -Message "Project bug URL (Default: $projectHomepage/issues)" -DefaultValue "$projectHomepage/issues"
+$projectRepositoryUrl = Get-UserInput -Message "Project repository URL (Default: git@github.com:$projectRepository.git)" -DefaultValue "git@github.com:$projectRepository.git"
 
 # Generate options
-# if test
-$ifTest = Read-Host -Prompt "Do you want to add a test? (Default: n)"
-if ($ifTest -eq "") {
-    $ifTest = "n"
-}
-if ($ifTest -eq "y") {
-    $ifTest = $true
-} else {
-    $ifTest = $false
-}
+$ifTest = Get-YesNoInput -Message "Do you want to add a test?"
+$ifIgnoreDataDirectory = Get-YesNoInput -Message "Do you want to ignore the data directory?" -DefaultValue $true
+$ifAddReviewer = Get-YesNoInput -Message "Do you want to automatically add reviewers to pull requests workflow?" -DefaultValue $true
+$ifDockerfile = Get-YesNoInput -Message "Do you want to Dockerfile?" -DefaultValue $true
 
 Write-OutPut ""
 
@@ -123,6 +147,11 @@ Write-Output "Created .node-version"
 # Create .gitignore
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore" -OutFile ".gitignore"
 Write-Output "Created .gitignore"
+
+if ($ifIgnoreDataDirectory) {
+    Add-Content -Path .gitignore -Value "data/"
+    Write-Output "Added data/ to .gitignore"
+}
 
 # Create .github/workflows/nodejs-ci-pnpm.yml
 New-Item -Force .github/workflows/ -ItemType Directory
@@ -235,6 +264,23 @@ $devcontainerJson = @{
 
 $devcontainerJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .devcontainer/devcontainer.json -Encoding utf8 -Force
 Write-Output "Created .devcontainer/devcontainer.json"
+
+# Create Dockerfile
+if ($ifDockerfile) {
+    Invoke-WebRequest -Uri "https://github.com/book000/memo/blob/main/docs/programming/nodejs/template/Dockerfile" -OutFile "Dockerfile"
+    Write-Output "Created Dockerfile"
+
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/docker.yml" -OutFile ".github/workflows/docker.yml"
+    # Replace { imageName: "tomacheese/twitter-dm-memo", context: ".", file: "Dockerfile", packageName: "twitter-dm-memo" }
+    (Get-Content -Path ".github/workflows/docker.yml" -Raw) -replace "{ imageName: `"tomacheese/twitter-dm-memo`", context: `".`", file: `"Dockerfile`", packageName: `"twitter-dm-memo`" }", "{ imageName: `"$projectOrganization/$projectName`", context: `".`", file: `"Dockerfile`", packageName: `"$projectName`" }" | Set-Content -Path ".github/workflows/docker.yml"
+    Write-Output "Created .github/workflows/docker.yml"
+}
+
+# Create add-reviewer.yml
+if ($ifAddReviewer) {
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/add-reviewer.yml" -OutFile ".github/workflows/add-reviewer.yml"
+    Write-Output "Created .github/workflows/add-reviewer.yml"
+}
 
 Write-Output ""
 Write-Output "Done"
