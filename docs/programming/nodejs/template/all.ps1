@@ -153,6 +153,24 @@ if ($ifIgnoreDataDirectory) {
     Write-Output "Added data/ to .gitignore"
 }
 
+# Create LICENSE
+if ($projectLicense -eq "MIT") {
+    # Get MIT license from GitHub API
+    Invoke-WebRequest -Uri "https://api.github.com/licenses/mit" | ConvertFrom-Json | Select-Object -ExpandProperty body | Out-File -FilePath LICENSE -Encoding utf8 -Force -NoNewline
+
+    # Replace [year] with current year
+    (Get-Content -Path LICENSE -Raw) -replace "\[year\]", (Get-Date).Year | Set-Content -Path LICENSE -Encoding utf8 -Force -NoNewline
+
+    # Replace [fullname] with author name
+    # "Tomachi" -> "Tomachi"
+    # "Tomachi <tomachi@tomacheese.com>" -> "Tomachi"
+    $projectAuthorNameWithoutEmail = $projectAuthorName -replace "<.*>", ""
+    $projectAuthorNameWithoutEmail = $projectAuthorNameWithoutEmail.Trim()
+    (Get-Content -Path LICENSE -Raw) -replace "\[fullname\]", $projectAuthorNameWithoutEmail | Set-Content -Path LICENSE -Encoding utf8 -Force -NoNewline
+
+    Write-Output "Created LICENSE"
+}
+
 # Create .github/workflows/nodejs-ci-pnpm.yml
 New-Item -Force .github/workflows/ -ItemType Directory
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/templates/master/workflows/nodejs-ci-pnpm.yml" -OutFile ".github/workflows/nodejs-ci-pnpm.yml"
