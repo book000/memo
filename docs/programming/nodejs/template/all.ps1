@@ -295,8 +295,14 @@ if($ifConfigSchema) {
 
     # Add script
     $packageJson.scripts."generate-schema" = "typescript-json-schema --required $tsConfigInterfacePath ConfigInterface -o schema/Configuration.json"
-
     $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
+
+    # Add depcheck ignore
+    $depcheckrcJson.ignores += @(
+      "typescript-json-schema"
+    )
+    $depcheckrcJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .depcheckrc.json -Encoding utf8 -Force
+
     Write-Output "Add generate-schema script to package.json"
 }
 
