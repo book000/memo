@@ -80,6 +80,10 @@ $projectRepositoryUrl = Get-UserInput -Message "Project repository URL (Default:
 
 # Generate options
 $ifTest = Get-YesNoInput -Message "Do you want to add a test?"
+$ifConfigSchema = Get-YesNoInput -Message "Do you want to add a config schema generator?" -DefaultValue $true
+if ($ifConfigSchema) {
+    $tsConfigInterfacePath = Get-UserInput -Message "TypeScript Config interface file path (Default: src/config.ts)" -DefaultValue "src/config.ts"
+}
 $ifIgnoreDataDirectory = Get-YesNoInput -Message "Do you want to ignore the data directory?" -DefaultValue $true
 $ifAddReviewer = Get-YesNoInput -Message "Do you want to automatically add reviewers to pull requests workflow?" -DefaultValue $true
 $ifDockerfile = Get-YesNoInput -Message "Do you want to Dockerfile?" -DefaultValue $true
@@ -282,6 +286,19 @@ $devcontainerJson = @{
 
 $devcontainerJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .devcontainer/devcontainer.json -Encoding utf8 -Force
 Write-Output "Created .devcontainer/devcontainer.json"
+
+if($ifConfigSchema) {
+    # Install typescript-json-schema
+    pnpm add -D -E typescript-json-schema
+
+    $packageJson = Get-Content -Path package.json -Raw | ConvertFrom-Json -AsHashtable
+
+    # Add script
+    $packageJson.scripts."generate-schema" = "typescript-json-schema --required $tsConfigInterfacePath ConfigInterface -o schema/Configuration.json"
+
+    $packageJson | ConvertTo-Json -Depth 100 | Out-File -FilePath package.json -Encoding utf8 -Force
+    Write-Output "Add generate-schema script to package.json"
+}
 
 # Create Dockerfile
 if ($ifDockerfile) {
