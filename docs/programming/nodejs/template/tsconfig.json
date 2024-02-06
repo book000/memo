@@ -15,6 +15,7 @@
     "declarationMap": true,
     "strict": true,
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "strictBindCallApply": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
