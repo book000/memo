@@ -115,6 +115,7 @@ $packageJson = @{
     private = $true
     main = "dist/main.js"
     scripts = @{
+        preinstall = "npx only-allow pnpm"
         start = "tsx ./src/main.ts"
         dev = "tsx watch ./src/main.ts"
         lint = "run-z lint:prettier,lint:eslint,lint:tsc"
