@@ -325,3 +325,5 @@ if ($ifAddReviewer) {
 
 Write-Output ""
 Write-Output "Done"
+
+$ErrorActionPreference = $prevErrorActionPreference
