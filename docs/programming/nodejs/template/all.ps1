@@ -151,6 +151,7 @@ Write-Output "Created .node-version"
 
 # Create .gitignore
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore" -OutFile ".gitignore"
+Add-Content -Path ".gitignore" -Value "`n# pnpm`n.pnpm-store"
 Write-Output "Created .gitignore"
 
 if ($ifIgnoreDataDirectory) {
