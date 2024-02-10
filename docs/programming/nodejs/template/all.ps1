@@ -243,6 +243,10 @@ Write-Output "Created tsconfig.json"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/renovate.json" -OutFile "renovate.json"
 Write-Output "Created renovate.json"
 
+# Create .fixparkrc
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/book000/memo/main/docs/programming/nodejs/template/.fixpackrc" -OutFile ".fixpackrc"
+Write-Output "Created .fixpackrc"
+
 # Create .devcontainer
 New-Item -Force .devcontainer -ItemType Directory
 $devcontainerJson = @{
