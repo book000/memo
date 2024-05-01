@@ -260,8 +260,9 @@ New-Item -Force .devcontainer -ItemType Directory
 $devcontainerJson = @{
   name                = $projectName
   image               = "mcr.microsoft.com/devcontainers/typescript-node:0-18"
-  postCreateCommand   = "pnpm install"
-  waitFor             = "postCreateCommand"
+  postCreateCommand   = "corepack enable"
+  postStartCommand    = "pnpm install"
+  waitFor             = "postStartCommand"
   otherPortAttributes = @{
     "onAutoForward" = "silent"
   }
