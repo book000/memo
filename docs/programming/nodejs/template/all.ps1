@@ -263,7 +263,7 @@ $devcontainerJson = @{
   postCreateCommand   = "corepack enable"
   postStartCommand    = "pnpm install"
   waitFor             = "postStartCommand"
-  otherPortAttributes = @{
+  otherPortsAttributes = @{
     "onAutoForward" = "silent"
   }
   customizations      = @{
