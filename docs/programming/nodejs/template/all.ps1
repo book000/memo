@@ -299,6 +299,7 @@ $devcontainerJson = @{
 }
 
 $devcontainerJson | ConvertTo-Json -Depth 100 | Out-File -FilePath .devcontainer/devcontainer.json -Encoding utf8 -Force
+npx fixdevcontainer
 Write-Output "Created .devcontainer/devcontainer.json"
 
 if ($ifConfigSchema) {
