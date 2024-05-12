@@ -71,11 +71,7 @@
       "ja-no-mixed-period": {
         "forceAppendPeriod": true,
         "allowEmojiAtEnd": true,
-        "allowPeriodMarks": [
-          "\"",
-          ":",
-          "..."
-        ]
+        "allowPeriodMarks": ["\"", ":", "..."]
       },
       // 文の最大長を制限しない: https://github.com/textlint-rule/textlint-rule-sentence-length
       "sentence-length": false,
@@ -86,7 +82,14 @@
       // 文中に同じ助詞が複数出てくるのをチェックしない: https://github.com/textlint-ja/textlint-rule-no-doubled-joshi
       "no-doubled-joshi": false,
       // 同じ接続詞が連続して書かれていないかをチェックしない: https://github.com/textlint-ja/textlint-rule-no-doubled-conjunction
-      "no-doubled-conjunction": false
+      "no-doubled-conjunction": false,
+      // ですますとである調の混在のみをチェックする: https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",
+        "preferInBody": "",
+        "preferInList": "",
+        "strict": false
+      }
     },
     // prhルール: https://github.com/textlint-rule/textlint-rule-prh
     "prh": {
