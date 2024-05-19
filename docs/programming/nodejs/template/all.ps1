@@ -257,16 +257,34 @@ Write-Output "Created .fixpackrc"
 
 # Create .devcontainer
 New-Item -Force .devcontainer -ItemType Directory
+
+$postCreateCommands = @(
+  # corepackを使うためpnpmとyarnをアンインストールする
+  "sudo npm uninstall -g pnpm yarn",
+  # nodeユーザーにnode_modulesと.pnpm-storeの所有権を付与する
+  "sudo chown node node_modules .pnpm-store",
+  # corepackを有効化
+  "sudo corepack enable",
+  # corepackでパッケージマネージャーをインストールする
+  "corepack install",
+  # 依存関係をインストールする
+  "$package_manager install"
+)
+$postCreateCommand = $postCreateCommands -join " && "
 $devcontainerJson = @{
-  name                = $projectName
-  image               = "mcr.microsoft.com/devcontainers/typescript-node:0-18"
-  postCreateCommand   = "corepack enable"
-  postStartCommand    = "pnpm install"
-  waitFor             = "postStartCommand"
+  name                 = $projectName
+  image                = "mcr.microsoft.com/devcontainers/typescript-node:0-18"
+  postCreateCommand    = $postCreateCommand
+  waitFor              = "postStartCommand"
+  remoteUser           = "node"
+  mounts               = @(
+    "source=`${localWorkspaceFolderBasename}-node_modules,target=`${containerWorkspaceFolder}/node_modules,type=volume",
+    "source=pnpm-store,target=`${containerWorkspaceFolder}/.pnpm-store,type=volume"
+  )
   otherPortsAttributes = @{
     "onAutoForward" = "silent"
   }
-  customizations      = @{
+  customizations       = @{
     extensions = @(
       "esbenp.prettier-vscode"
     )
