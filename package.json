@@ -1,20 +1,22 @@
 {
   "name": "memo",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Various technical/development notes",
+  "homepage": "https://github.com/book000/memo#readme",
+  "bugs": {
+    "url": "https://github.com/book000/memo/issues"
+  },
+  "license": "UNLICENSED",
+  "author": "Tomachi (book000)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/book000/memo.git"
   },
-  "author": "Tomachi (book000)",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/book000/memo/issues"
-  },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "textlint docs/",
     "fix": "textlint --fix docs/"
   },
-  "homepage": "https://github.com/book000/memo#readme",
   "devDependencies": {
     "@textlint-ja/textlint-rule-no-dropping-i": "2.0.1",
     "@textlint-ja/textlint-rule-no-filler": "1.1.0",
@@ -38,5 +40,5 @@
     "textlint-rule-preset-smarthr": "1.31.0",
     "textlint-rule-prh": "6.0.0"
   },
-  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+  "packageManager": "pnpm@9.5.0"
 }
