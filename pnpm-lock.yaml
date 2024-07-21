@@ -23,6 +23,9 @@ devDependencies:
   '@textlint-rule/textlint-rule-pattern':
     specifier: 2.0.0
     version: 2.0.0
+  prh:
+    specifier: 5.4.4
+    version: 5.4.4
   sudachi-synonyms-dictionary:
     specifier: 14.0.0
     version: 14.0.0
