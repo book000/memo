@@ -68,7 +68,7 @@ sequenceDiagram
 GitHub の [Register a new OAuth application](https://github.com/settings/applications/new) から OAuth アプリケーションを作成。  
 `Authorization callback URL` には対象ホストの `/oauth2/callback` を指定。
 
-作成したら、Client ID と `Generate a new client secret` を押下することで生成される Client secret をメモる。
+作成したら、Client ID と `Generate a new client secret` を押すことで生成される Client secret をメモる。
 
 ### oauth2-proxy のインストール
 
