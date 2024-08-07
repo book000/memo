@@ -41,5 +41,5 @@
     "textlint-rule-preset-smarthr": "1.31.0",
     "textlint-rule-prh": "6.0.0"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.7.0"
 }
