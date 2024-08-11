@@ -198,9 +198,6 @@ packages:
   '@textlint/module-interop@13.4.1':
     resolution: {integrity: sha512-keM5zHwyifijEDqEvAFhhXHC5UbmZjfGytRJzPPJaW3C3UsGbIzDCnfOSE9jUVTWZcngHuSJ7aKGv42Rhy9nEg==}
 
-  '@textlint/module-interop@14.0.4':
-    resolution: {integrity: sha512-okv52pRSQ1aeC8rim8qp2D2Fmj/oKDYGY2itdeZhj9E/vdkU9/r7OpdcxyuNiuqLEd/sWw03EAwt3S6mlfNIOw==}
-
   '@textlint/module-interop@14.0.5':
     resolution: {integrity: sha512-naK1z6omW/1C0UF8kLlnmtx0Ikmnp2DUUm5C2mEt5dpEqpXF39/dKFNbMOrac0nLh/65QCpj8m9GlpbbrKKjHw==}
 
@@ -364,8 +361,8 @@ packages:
   check-ends-with-period@3.0.2:
     resolution: {integrity: sha512-/Bw+avucqqZ7PjKCVDod1QDGyZjo7Ht2701pdgcpTXzK5jI73/OUh3VR+m18jNUoJx5DSOUv0AxELZF7FYtcDA==}
 
-  chrono-node@1.4.8:
-    resolution: {integrity: sha512-WwfW4/+i1e6tHx5opw/VCfxXnai12/tT5GK+wSHwKtdb0ZkAoxRGIfL8IzuFr/JEQTw4DxevysyX6+YbZSRKLQ==}
+  chrono-node@1.4.9:
+    resolution: {integrity: sha512-mz0jOeqJLDKlbiYUjTbncNdfqm9odeuKVlxRvY15ZkFcRsUsSVJ6Rsf7V7ME6kkcfxbcG+CqnIafqqx1nu9C7A==}
 
   clone-regexp@1.0.1:
     resolution: {integrity: sha512-Fcij9IwRW27XedRIJnSOEupS7RVcXtObJXbcUOX93UCLqqOdRpkvzKywOOSizmEK/Is3S/RHX9dLdfo6R1Q1mw==}
@@ -946,8 +943,8 @@ packages:
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
-  neotraverse@0.6.15:
-    resolution: {integrity: sha512-HZpdkco+JeXq0G+WWpMJ4NsX3pqb5O7eR9uGz3FfoFt+LYzU8iRWp49nJtud6hsDoywM8tIrDo3gjgmOqJA8LA==}
+  neotraverse@0.6.18:
+    resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
 
   normalize-package-data@2.5.0:
@@ -1757,7 +1754,7 @@ snapshots:
       '@textlint/ast-node-types': 14.0.5
       debug: 4.3.6
       mdast-util-gfm-autolink-literal: 0.1.3
-      neotraverse: 0.6.15
+      neotraverse: 0.6.18
       remark-footnotes: 3.0.0
       remark-frontmatter: 3.0.0
       remark-gfm: 1.0.0
@@ -1767,8 +1764,6 @@ snapshots:
       - supports-color
 
   '@textlint/module-interop@13.4.1': {}
-
-  '@textlint/module-interop@14.0.4': {}
 
   '@textlint/module-interop@14.0.5': {}
 
@@ -1972,7 +1967,7 @@ snapshots:
     dependencies:
       emoji-regex: 10.3.0
 
-  chrono-node@1.4.8:
+  chrono-node@1.4.9:
     dependencies:
       dayjs: 1.11.12
 
@@ -2666,7 +2661,7 @@ snapshots:
 
   ms@2.1.2: {}
 
-  neotraverse@0.6.15: {}
+  neotraverse@0.6.18: {}
 
   normalize-package-data@2.5.0:
     dependencies:
@@ -3030,7 +3025,7 @@ snapshots:
 
   textlint-rule-date-weekday-mismatch@1.0.6:
     dependencies:
-      chrono-node: 1.4.8
+      chrono-node: 1.4.9
       moment: 2.30.1
       textlint-tester: 12.6.1
     transitivePeerDependencies:
@@ -3284,7 +3279,7 @@ snapshots:
   textlint-rule-preset-smarthr@1.31.0:
     dependencies:
       '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.3
-      '@textlint/module-interop': 14.0.4
+      '@textlint/module-interop': 14.0.5
       textlint-rule-ja-hiragana-daimeishi: 1.0.0
       textlint-rule-ja-hiragana-hojodoushi: 1.1.0
       textlint-rule-ja-keishikimeishi: 1.0.5
