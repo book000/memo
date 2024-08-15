@@ -54,4 +54,4 @@ if exist .node-version (
 4. `新規` → `文字列型` から、`AutoRun` のキーを作成。
 5. `AutoRun` をダブルクリックし、値のデータに先ほど作成した `cmd-init.cmd` へのフルパスを入力し `OK` をクリック。
 
-![](image-11.png)
+![](assets/image-11.png)
