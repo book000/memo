@@ -159,10 +159,28 @@ prettier は使わないので、`.prettierignore` に以下を記述。
 
 https://nuxt.com/modules/vuetify-nuxt-module
 
+以下を実行する。
+
+```shell
+npx nuxi@latest module add vuetify-nuxt-module
+```
+
 ## PWA
 
 https://nuxt.com/modules/vite-pwa-nuxt
 
+以下を実行する。
+
+```shell
+npx nuxi@latest module add @vite-pwa/nuxt
+```
+
 ## Pinia
 
 https://nuxt.com/modules/pinia
+
+以下を実行する。
+
+```shell
+npx nuxi@latest module add @pinia/nuxt
+```
