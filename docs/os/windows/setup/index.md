@@ -631,7 +631,7 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 メーラーとして Thunderbird を利用している。
 
 !!! note "Note"
-    Scoop でのインストールに切り替えた。この操作は不要
+    Scoop でのインストールに切り替えた。この操作は不要。
 
 [Thunderbird の Web サイト](https://www.thunderbird.net/ja/) からインストーラーをダウンロードできる。
 

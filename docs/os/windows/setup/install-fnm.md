@@ -27,7 +27,7 @@ if (Test-Path .node-version) {
 
 ## 3. CMD.exe 起動時に初期化されるように設定
 
-以下を `cmd-init.cmd` として任意の場所に格納
+以下を `cmd-init.cmd` として任意の場所に格納。
 
 ```bat
 @ECHO OFF
@@ -46,7 +46,7 @@ if exist .node-version (
 )
 ```
 
-レジストリエディタで、HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor を開き、文字列型の AutoRun として作成したcmdファイルへのパスを指定。
+レジストリエディタで、HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor を開き、文字列型の AutoRun として作成した cmd ファイルへのパスを指定。
 
 1. レジストリエディタ（`regedit`）を開く
 2. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor` に移動
