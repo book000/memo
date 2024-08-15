@@ -96,6 +96,13 @@ wmic computersystem where name="%computername%" call rename name="<COMPUTER-NAME
 wmic computersystem where name="%computername%" call joindomainorworkgroup name="<WORKSPACE-NAME>"
 ```
 
+### ブラウザのインストール
+
+Chrome や Firefox など、お好きなブラウザをインストールする。以下はインストールページへのリンク。
+
+- [Chrome](https://www.google.com/intl/ja_jp/chrome/)
+- [Firefox](https://www.mozilla.org/ja/firefox/windows/)
+
 ### エクスプローラの設定
 
 まず、隠しフォルダ・ファイルと拡張子を表示する設定をする。
@@ -144,6 +151,8 @@ wmic computersystem where name="%computername%" call joindomainorworkgroup name=
 - `最近追加したアプリを表示する`: オフ
 - `よく使うアプリを表示する`: オフ
 - `最近開いた項目をスタート、ジャンプ リスト、ファイル エクスプローラーに表示する`: オフ
+- `ヒント、ショートカット、新しいアプリなどのおすすめを表示する`: オフ
+- `スタート画面にアカウント関連の通知を時々表示する`: オフ
 
 ![](assets/image-4.png)
 
@@ -239,6 +248,13 @@ Discord などで通話中にほかの音量が下がってしまう問題を解
 1. 下にスクロールし、 `追加の設定` をクリック
 2. すべてのチェックボックスのチェックを外す
 
+### GeForce Experience をインストールし、ディスプレイドライバーを入れる
+
+NVIDIA のグラボを刺している場合、サブディスプレイはディスプレイドライバーを入れないと利用できない（らしい）。  
+[GeForce Experience のページ](https://www.nvidia.com/ja-jp/geforce/geforce-experience/) から、GeForce Experience のインストーラーをダウンロード、インストールする。
+
+その後、ドライバータブから GeForce Game Ready ドライバーをインストールする。
+
 ## 高度な初期設定
 
 ### 標準アプリケーションを削除
@@ -274,10 +290,11 @@ Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage            #
 Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                     # マップ
 Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage       # メール、カレンダー
 Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                       # メディアプレーヤー
-Get-AppxPackage Microsoft.BingNew | Remove-AppxPackage
-Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
-Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage
-Get-AppxPackage Microsoft.People | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingNew | Remove-AppxPackage                         # ニュース ?
+Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage                        # ニュース
+Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                         # ヘルプ
+Get-AppxPackage Microsoft.People | Remove-AppxPackage                          # People
+Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        # クイック アシスト
 ```
 
 これだけでは削除されないものもあるので、それらはスタートメニューから手動でアンインストール。
@@ -294,6 +311,110 @@ PCを利用する上で不要なサービスがあるなら、適宜停止する
 
 参考: https://ygkb.jp/22889
 
+```powershell
+# ActiveX Installer (AxInstSV)
+sc.exe stop AxInstSV
+sc.exe config AxInstSV start=disabled
+
+# Certificate Propagation
+sc.exe stop CertPropSvc
+sc.exe config CertPropSvc start=disabled
+
+# Connected User Experiences and Telemetry
+sc.exe stop DiagTrack
+sc.exe config DiagTrack start=disabled
+
+# Distributed Link Tracking Client
+sc.exe stop TrkWks
+sc.exe config TrkWks start=disabled
+
+# Distributed Transaction Coordinator
+sc.exe stop MSDTC
+sc.exe config MSDTC start=disabled
+
+# Downloaded Maps Manager
+sc.exe stop MapsBroker
+sc.exe config MapsBroker start=disabled
+
+# Fax
+sc.exe stop Fax
+sc.exe config Fax start=disabled
+
+# Internet Connection Sharing (ICS)
+sc.exe stop SharedAccess
+sc.exe config SharedAccess start=disabled
+
+# Microsoft iSCSI Initiator Service
+sc.exe stop MSiSCSI
+sc.exe config MSiSCSI start=disabled
+
+# Peer Name Resolution Protocol
+sc.exe stop PNRPsvc
+sc.exe config PNRPsvc start=disabled
+
+# Peer Networking Grouping
+sc.exe stop p2psvc
+sc.exe config p2psvc start=disabled
+
+# Peer Networking Identity Manager
+sc.exe stop p2pimsvc
+sc.exe config p2pimsvc start=disabled
+
+# PNRP Machine Name Publication Service
+sc.exe stop PNRPAutoReg
+sc.exe config PNRPAutoReg start=disabled
+
+# Portable Device Enumerator Service
+sc.exe stop WPDBusEnum
+sc.exe config WPDBusEnum start=disabled
+
+# Smart Card
+sc.exe stop SCardSvr
+sc.exe config SCardSvr start=disabled
+
+# Smart Card Device Enumeration Service
+sc.exe stop ScDeviceEnum
+sc.exe config ScDeviceEnum start=disabled
+
+# Smart Card Removal Policy
+sc.exe stop SCPolicySvc
+sc.exe config SCPolicySvc start=disabled
+
+# SNMP Trap
+sc.exe stop SNMPTrap
+sc.exe config SNMPTrap start=disabled
+
+# Telephony
+sc.exe stop TapiSrv
+sc.exe config TapiSrv start=disabled
+
+# UPnP Device Host
+sc.exe stop upnphost
+sc.exe config upnphost start=disabled
+
+# Windows Media Player Network Sharing Service
+sc.exe stop WMPNetworkSvc
+sc.exe config WMPNetworkSvc start=disabled
+
+# 市販デモ サービス
+sc.exe stop RetailDemo
+sc.exe config RetailDemo start=disabled
+```
+
+### ゲーム起動時に Xbox オーバーレイの通知を消す
+
+ストアアプリを消したりサービスを止めたことで Minecraft などのゲーム起動時に「この ms-gamingoverlay リンクを開くには新しいアプリが必要です」というポップアップが出る。  
+これを表示しないようにする。
+
+参考: https://narolll.hateblo.jp/entry/20220503/1651540497
+
+1. レジストリエディタ（`regedit`）を開く
+2. `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR` に移動
+3. `GameDVR` を右クリック
+4. `新規` → `キー` から、`AppCaptureEnabled` のキーを作成。
+5. 作成したキー `{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` を右クリックし、`新規` → `DWORD (32 ビット) 値` から、`AppCaptureEnabled` を作成。
+6. `AppCaptureEnabled` をダブルクリックし、値のデータに `0` を入力し `OK` をクリック。
+
 ### ファイルなどの右クリックメニューを戻す
 
 Windows 11 になって右クリックメニュー（コンテキストメニュー）が簡素化された。これで十分なら良いのだが、そうでないことの方が多いので Windows 10 の時のメニューに戻す。
@@ -307,6 +428,26 @@ Windows 11 になって右クリックメニュー（コンテキストメニュ
 5. 作成したキー `{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` を右クリックし、`新規` → `キー` から、`InprocServer32` を作成。
 6. `(既定)` をクリックし、空白の状態で `OK` をクリック
 7. タスクマネージャーなどからエクスプローラを再起動
+
+### スタートメニューの Web 検索を無効化する
+
+Windows キーを押してキーワード入力したとき、PC 内のアプリケーションなどを検索できるが、そのときに Web 検索されるのをやめたい。
+
+参考: https://www.tomshardware.com/how-to/disable-windows-web-search
+
+1. レジストリエディタ（`regedit`）を開く
+2. `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows` に移動
+3. `Windows` を右クリック
+4. `新規` → `キー` から、`Explorer` のキーを作成。
+5. 作成したキー `Explorer` を右クリックし、`新規` → `DWORD (32 ビット) 値` から、`DisableSearchBoxSuggestions` を作成。
+6. `DisableSearchBoxSuggestions` をダブルクリックし、値のデータに `1` を入力し `OK` をクリック。
+7. タスクマネージャーなどからエクスプローラを再起動
+
+### winget (アプリ インストーラー) の更新
+
+最初に入っている winget は v1 バージョンなことで、いろいろインストール時にバグがある様子。アップデートする。
+
+Microsoft Store を開き、ライブラリタブに移動。インストール済みソフトウェアをアップデートすることで更新できる。
 
 ## ソフトウェアのインストールや設定
 
@@ -438,6 +579,7 @@ mv %SCOOP%\apps %SCOOP%\apps-old
 以下のコマンドで Scoop をインストールする。
 
 ```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 ```
 
@@ -449,6 +591,11 @@ powershell -ExecutionPolicy RemoteSigned -File restore.ps1
 ```
 
 ### HackGen35 Console NF のインストール
+
+プログラミングフォント HackGen に Nerd Fonts が入った HackGen35 Console NF をインストールする。
+
+1. [yuru7/HackGen の Release ページ](https://github.com/yuru7/HackGen/releases) にアクセス
+2. `HackGen_NF_vX.Y.Z.zip` をダウンロード、展開し、`HackGen35ConsoleNF-Regular.ttf` をインストール
 
 ### Terminal
 
@@ -470,17 +617,6 @@ winget でインストールできる。以下のコマンドを実行。
 winget install Microsoft.PowerShell
 ```
 
-インストールした Pwsh へはフォントの設定が必要。以下の作業をする。
-
-1. Pwsh のショートカットファイルをデスクトップにコピーする
-   - `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerShell\PowerShell 7 (x64).lnk`
-2. コピーしたショートカットファイルのプロパティを開く
-3. `フォント` タブを開き、`フォント` で `HackGen35 Console NF` を選ぶ
-4. `OK` で保存する
-5. 編集したショートカットファイルを、元の場所にコピーして上書きする
-
-Pwsh を再度開き、フォントが変更されていることを確認する。
-
 ### EarTrumpet
 
 Windows 11 の音量ミキサーはどうにも使い勝手が悪い（特に複数アプリケーションから音を出している場合）ので、タスクバーでアプリケーションごとの音量調整ができる EarTrumpet を入れる。  
@@ -493,6 +629,9 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 ### Thunderbird
 
 メーラーとして Thunderbird を利用している。
+
+!!! note "Note"
+    Scoop でのインストールに切り替えた。この操作は不要。
 
 [Thunderbird の Web サイト](https://www.thunderbird.net/ja/) からインストーラーをダウンロードできる。
 
@@ -513,6 +652,12 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 
 ### Visual Studio Code
 
+[Visual Studio Code のページ](https://code.visualstudio.com/) にて、Visual Studio Code をインストールする。
+
 ### 仮想システム系
 
 Hyper-V とか Windows Subsystem for Linux など、仮想システム系については [仮想システム系](virtual-systems.md) にて。
+
+### fnm
+
+別ページにて説明。[fnm のインストール](install-fnm.md) を参照。
