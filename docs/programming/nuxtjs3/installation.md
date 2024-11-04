@@ -7,21 +7,16 @@ Nuxt をインストールしたあと、Vuetify もいれます。さらに PWA
 
 ## 環境
 
-- `nuxt`: `3.12.4`
-- `vuetify`: `3.0.5`
-- `sass`: `1.57.0`
-- `eslint`: `8.30.0`
-- `eslint-plugin-nuxt`: `4.0.0`
-- `@nuxtjs/eslint-config-typescript`: `12.0.0`
+- `nuxt`: `3.13.2`
+- `vuetify`: `3.7.3`
+- `@nuxt/eslint`: `0.6.1`
 
 ## スタータープロジェクトを入れる
 
 `npx nuxi@latest init <PROJECT-NAME>` でスタータープロジェクトを作成します。  
 Yarn の場合は、`yarn dlx nuxi@latest init <PROJECT-NAME>`、pnpm の場合は `pnpm dlx nuxi@latest init <PROJECT-NAME>` を使います。
 
-スタータープロジェクトのインストール処理の中で、パッケージマネージャが選択できるのでそれで依存パッケージもインストールされます。
-
-// TODO: @types/node っていらないのか？
+スタータープロジェクトのインストール処理のなかで、パッケージマネージャーが選択できるのでそれで依存パッケージもインストールされます。
 
 ## 基本的な設定
 
