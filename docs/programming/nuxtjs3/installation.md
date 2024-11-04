@@ -3,38 +3,20 @@
 [Nuxt](https://nuxt.com/) の v3 インストール方法と初期設定について自分用にまとめたものです。  
 Nuxt をインストールしたあと、Vuetify もいれます。さらに PWA 化もします。
 
+公式の [Installation](https://nuxt.com/docs/getting-started/installation) を参考にして作業します。
+
 ## 環境
 
-- `nuxt`: `3.0.0`
-- `vuetify`: `3.0.5`
-- `sass`: `1.57.0`
-- `eslint`: `8.30.0`
-- `eslint-plugin-nuxt`: `4.0.0`
-- `@nuxtjs/eslint-config-typescript`: `12.0.0`
+- `nuxt`: `3.13.2`
+- `vuetify`: `3.7.3`
+- `@nuxt/eslint`: `0.6.1`
 
 ## スタータープロジェクトを入れる
 
-`npx nuxi init <PROJECT-NAME>` でスタータープロジェクトを作成します。  
-Yarn を使う場合でも、npx で作成するしかないようです。
+`npx nuxi@latest init <PROJECT-NAME>` でスタータープロジェクトを作成します。  
+Yarn の場合は、`yarn dlx nuxi@latest init <PROJECT-NAME>`、pnpm の場合は `pnpm dlx nuxi@latest init <PROJECT-NAME>` を使います。
 
-`<PROJECT-NAME>` ディレクトリの下に、以下のファイルが生成されます。
-
-- `.gitignore`
-- `app.vue`
-- `nuxt.config.ts`
-- `package.json`
-- `README.md`
-- `tsconfig.json`
-
-その後、プロジェクトのディレクトリに入り `yarn install` で依存パッケージをダウンロードします。  
-`@types/node` のインストールも忘れずに。
-
-```shell
-yarn install
-yarn add -D -E @types/node
-```
-
-ちなみに、当然 `package.json` には `name` とかの基本設定が書かれていないので、書き加えるのを忘れずに。
+スタータープロジェクトのインストール処理のなかで、パッケージマネージャーが選択できるのでそれで依存パッケージもインストールされます。
 
 ## 基本的な設定
 
@@ -51,6 +33,9 @@ const isDev = process.env.NODE_ENV === "development";
 const isSsr = true;
 
 export default defineNuxtConfig({
+  compatibilityDate: '2024-04-03',
+  devtools: { enabled: true },
+
   app: {
     head: {
       htmlAttrs: {
@@ -142,57 +127,21 @@ export default defineNuxtConfig({
 
 `src` ディレクトリに `app.vue` を移動すること。
 
-## eslint
+## TypeScript 環境の有効化
+
+以下のコマンドを実行し、TypeScript 環境を追加する。
 
 ```shell
-yarn add -D eslint eslint-plugin-nuxt @nuxtjs/eslint-config-typescript vite-plugin-eslint
+pnpm add -D vue-tsc typescript
+npx nuxi typecheck
 ```
 
-package.json にこのへんのスクリプトを追加。
+## ESLint
 
-```json title="package.json" linenums="1" hl_lines="8-9"
-{
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
-    "lintfix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore . --fix"
-  }
-}
-```
+以下で導入できるらしい。
 
-さらに `nuxt.config.ts` に以下の設定を追加。
-
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="4-7"
-const isDev = process.env.NODE_ENV === "development";
-
-export default defineNuxtConfig({
-  vite: {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    plugins: [isDev ? require("vite-plugin-eslint")() : undefined],
-  },
-});
-```
-
-eslint の設定は [Nuxt v3 での eslint 設定](eslint.md) を参照。とりあえずは以下。
-
-```yaml title=".eslintrc.yml" linenums="1"
-root: true
-env:
-  browser: true
-  es2021: true
-  node: true
-parserOptions:
-  ecmaVersion: latest
-  sourceType: module
-extends:
-  - '@nuxtjs/eslint-config-typescript'
-  - plugin:@typescript-eslint/recommended
-  - plugin:vue/vue3-recommended
-  - plugin:nuxt/recommended
+```shell
+npx nuxi module add eslint
 ```
 
 prettier は使わないので、`.prettierignore` に以下を記述。
@@ -203,154 +152,30 @@ prettier は使わないので、`.prettierignore` に以下を記述。
 
 ## Vuetify
 
-- Vuetify の公式ドキュメント: https://vuetifyjs.com/
-- 参考記事: https://zenn.dev/one_dock/articles/ab6d178741956d
+https://nuxt.com/modules/vuetify-nuxt-module
+
+以下を実行する。
 
 ```shell
-yarn add -D vuetify @mdi/font sass
-```
-
-`nuxt.config.ts` の `build` と `css` に以下の設定をします。
-
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-9"
-export default defineNuxtConfig({
-  build: {
-    transpile: ["vuetify"],
-  },
-
-  css: [
-    "vuetify/lib/styles/main.sass",
-    "@mdi/font/css/materialdesignicons.min.css",
-  ],
-});
-```
-
-さらに、プラグインとして Vuetify の初期設定を `src/plugins/vuetify.ts` に追加します。
-
-```typescript title="src/plugins/vuetify.ts" linenums="1"
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-
-export default defineNuxtPlugin((nuxtApp) => {
-  const vuetify = createVuetify({
-    components,
-    directives
-  })
-
-  nuxtApp.vueApp.use(vuetify)
-})
+npx nuxi@latest module add vuetify-nuxt-module
 ```
 
 ## PWA
 
-公式の PWA モジュールは v3 に対応していないっぽいので、v2 と互換性のある非公式の PWA モジュールを利用します。
+https://nuxt.com/modules/vite-pwa-nuxt
 
-- npm: https://www.npmjs.com/package/@kevinmarrec/nuxt-pwa
-- GitHub リポジトリ: https://github.com/kevinmarrec/nuxt-pwa-module
+以下を実行する。
 
-で、`nuxt.config.ts` の `modules` に定義します。  
-また、このモジュールはメタデータを引き継がないようなので、以下の通り PWA 用に設定する必要があります。
-
-```typescript title="nuxt.config.ts" linenums="1"
-const baseName = process.env.BASE_NAME || "example-app";
-const baseDescription = process.env.BASE_DESCRIPTION || "Example app";
-const baseUrl = process.env.BASE_URL || "https://example.com";
-const siteColor = "#1d9bf0";
-
-export default defineNuxtConfig({
-  modules: ["@kevinmarrec/nuxt-pwa"],
-
-  pwa: {
-    manifest: {
-      name: baseName,
-      short_name: baseName,
-      description: baseDescription,
-      lang: "ja",
-      theme_color: siteColor,
-      background_color: siteColor,
-      display: "standalone",
-      start_url: "/",
-    },
-    meta: {
-      name: baseName,
-      description: baseDescription,
-      theme_color: siteColor,
-      lang: "ja",
-      mobileAppIOS: true,
-    },
-  },
-});
+```shell
+npx nuxi@latest module add @vite-pwa/nuxt
 ```
 
 ## Pinia
 
-Nuxt.js v2 で利用されていた Vuex はバンドルされなくなり、開発者が状態管理ライブラリを選択できるようになった（らしい）。
+https://nuxt.com/modules/pinia
 
-2021 年 6 月ごろには Vuex 5 の情報があったのだが、[このディスカッション](https://github.com/vuejs/rfcs/discussions/270#discussioncomment-2467783) によれば Pinia が Vue における公式状態管理ライブラリという位置付けらしいので、これを使うことにします。
-
-- 公式サイト: https://pinia.vuejs.org/
-- GitHub: https://github.com/vuejs/pinia
-
-なお、状態の永続化をするため [@pinia-plugin-persistedstate/nuxt](https://www.npmjs.com/package/@pinia-plugin-persistedstate/nuxt) を利用します。
-
-まず、普通にパッケージをインストールします。
+以下を実行する。
 
 ```shell
-yarn add pinia @pinia/nuxt @pinia-plugin-persistedstate/nuxt
-```
-
-次に、まあ例のごとく `nuxt.config.ts` の `modules` に追記します。
-
-```typescript title="nuxt.config.ts" linenums="1" hl_lines="2-9"
-export default defineNuxtConfig({
-  modules: [
-    ['@pinia/nuxt',
-      {
-        autoImports: ['defineStore', 'acceptHMRUpdate']
-      }
-    ],
-    '@pinia-plugin-persistedstate/nuxt'
-  ]
-});
-```
-
-あとは Nuxt 3 における新しい state と同様に、`useState` を使って状態を定義します。
-
-```typescript title="src/store/settings.ts" linenums="1"
-export const useSettingsStore = defineStore('settings', {
-  state: (): {
-    hoge: string
-    fuga: boolean
-  } => ({
-    hoge: "hogehoge",
-    fuga: false,
-  }),
-
-  // getter をつくることもできる
-  // getters: {},
-
-  actions: {
-    setHoge(hoge: string) {
-      this.hoge = hoge
-    },
-  },
-
-  persist: {
-    storage: persistedState.localStorage
-  }
-})
-```
-
-`presist.storage` には `localStorage` のほかに `sessionStorage`, `cookies` が指定可能な様子。
-
-そして、状態を使う場所で以下のようなコードを書きます。
-
-```typescript linenums="1"
-import { useSettingsStore } from '../store/settings'
-
-const settingsStore = useSettingsStore()
-
-const hoge = settingsStore.hoge
-settingsStore.setHoge("hogefugapiyo")
+npx nuxi@latest module add @pinia/nuxt
 ```
