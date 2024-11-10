@@ -128,8 +128,8 @@ packages:
   '@textlint-rule/textlint-rule-no-invalid-control-character@2.1.0':
     resolution: {integrity: sha512-Bi/mOIbCOeQMKGgk+hTR4Q8CASkDPi2IQkDaNDkvP3zdrlvHoKbosBu4tQ55bE8jPpT+Q78Km59ZVin5xiogxw==}
 
-  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.3':
-    resolution: {integrity: sha512-asZI8nYuXP6TNHRKPSDAqBzL/7LWdX5QgFp1ZSezJOzmWinI9r9JK9ywl71T7YZbR8IN06/g35rSFJVziidc2Q==}
+  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.4':
+    resolution: {integrity: sha512-g9Ge1xUV9xJy8T7nuutF/2J6Cg2mmPx4gKsC3dCdxVxuL0wMqOOnAi8l6psFpAQ5UFtQuAzwkdclrehPtBT5tg==}
 
   '@textlint-rule/textlint-rule-pattern@2.0.0':
     resolution: {integrity: sha512-jAouiw3k4tl45Dzn0TiqKPMeWEevF61joFNNAFW+tzcEUJu4UikK/WzcoH3Xy5gj4ytLeigiUVwQZhaZjVIUEw==}
@@ -414,8 +414,8 @@ packages:
     resolution: {integrity: sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==}
     engines: {'0': node >= 6.0}
 
-  cross-spawn@7.0.3:
-    resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
+  cross-spawn@7.0.5:
+    resolution: {integrity: sha512-ZVJrKKYunU38/76t0RMOulHOnUcbU9GbpWKAOZ0mhjr7CX6FVrH+4FrAapSOekrgFQ3f/8gwMEuIft0aKq6Hug==}
     engines: {node: '>= 8'}
 
   crypt@0.0.2:
@@ -1011,8 +1011,8 @@ packages:
     resolution: {integrity: sha512-jHP15vXVGeVh1HuaA2wY6lxk+whK/x4KBG88VXeRma7CCun7iGD5qPc4eYykQ9sdQvg8jkwFKsSxHln2ybW3xQ==}
     engines: {node: '>=0.10.0'}
 
-  object-inspect@1.13.2:
-    resolution: {integrity: sha512-IRZSRuzJiynemAXPYtPe5BoI/RESNYR7TYm50MC5Mqbd3Jmw5y790sErYw3V6SryFJD64b74qQQs9wn5Bg/k3g==}
+  object-inspect@1.13.3:
+    resolution: {integrity: sha512-kDCGIbxkDSXE3euJZZXzc6to7fCrKHNI/hSRQnRuQ+BWjFNzZwiFF8fj/6o2t2G9/jTj8PSIYTfCLelLZEeRpA==}
     engines: {node: '>= 0.4'}
 
   object-is@1.1.6:
@@ -1676,7 +1676,7 @@ snapshots:
     dependencies:
       execall: 1.0.0
 
-  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.3':
+  '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.4':
     dependencies:
       sentence-splitter: 5.0.0
       textlint-rule-helper: 2.3.1
@@ -2113,7 +2113,7 @@ snapshots:
       readable-stream: 3.6.2
       typedarray: 0.0.6
 
-  cross-spawn@7.0.3:
+  cross-spawn@7.0.5:
     dependencies:
       path-key: 3.1.1
       shebang-command: 2.0.0
@@ -2224,7 +2224,7 @@ snapshots:
       is-string: 1.0.7
       is-typed-array: 1.1.13
       is-weakref: 1.0.2
-      object-inspect: 1.13.2
+      object-inspect: 1.13.3
       object-keys: 1.1.1
       object.assign: 4.1.5
       regexp.prototype.flags: 1.5.3
@@ -2317,7 +2317,7 @@ snapshots:
 
   foreground-child@3.3.0:
     dependencies:
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.5
       signal-exit: 4.1.0
 
   format@0.2.2: {}
@@ -2826,7 +2826,7 @@ snapshots:
 
   object-assign@3.0.0: {}
 
-  object-inspect@1.13.2: {}
+  object-inspect@1.13.3: {}
 
   object-is@1.1.6:
     dependencies:
@@ -3093,7 +3093,7 @@ snapshots:
       call-bind: 1.0.7
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
-      object-inspect: 1.13.2
+      object-inspect: 1.13.3
 
   signal-exit@4.1.0: {}
 
@@ -3418,7 +3418,7 @@ snapshots:
   textlint-rule-preset-ja-technical-writing@10.0.1(textlint@14.3.0):
     dependencies:
       '@textlint-rule/textlint-rule-no-invalid-control-character': 2.1.0
-      '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.3
+      '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.4
       '@textlint/module-interop': 13.4.1
       textlint-rule-ja-no-abusage: 3.0.0
       textlint-rule-ja-no-mixed-period: 3.0.1
@@ -3459,7 +3459,7 @@ snapshots:
 
   textlint-rule-preset-smarthr@1.32.0:
     dependencies:
-      '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.3
+      '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.4
       '@textlint/module-interop': 14.3.0
       textlint-rule-ja-hiragana-daimeishi: 1.0.0
       textlint-rule-ja-hiragana-hojodoushi: 1.1.0
