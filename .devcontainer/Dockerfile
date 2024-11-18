@@ -5,13 +5,13 @@ RUN apk update && apk add --no-cache \
     python3 \
     nodejs \
     npm \
-    yarn \
     git \
     openssh-client \
     python3-dev \
     py3-pip \
     build-base \
     pngquant \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && npm i -g pnpm
 
 WORKDIR /work

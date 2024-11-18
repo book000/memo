@@ -268,7 +268,7 @@ $postCreateCommands = @(
   # corepackでパッケージマネージャーをインストールする
   "corepack install",
   # 依存関係をインストールする
-  "$package_manager install"
+  "pnpm install"
 )
 $postCreateCommand = $postCreateCommands -join " && "
 $devcontainerJson = @{
