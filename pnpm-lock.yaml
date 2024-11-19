@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@textlint-ja/textlint-rule-no-dropping-i':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.0
+        version: 3.0.0
       '@textlint-ja/textlint-rule-no-filler':
         specifier: 1.1.0
         version: 1.1.0
@@ -108,8 +108,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@textlint-ja/textlint-rule-no-dropping-i@2.0.1':
-    resolution: {integrity: sha512-kdUw+npS/n0b8/yYQzNvlQaL5gLKZv2z4W1RvNkbUOon9CaVN6zKZqbCYy/zplfU27q/GA12qu4jFti577k7yg==}
+  '@textlint-ja/textlint-rule-no-dropping-i@3.0.0':
+    resolution: {integrity: sha512-M3o0XM7priXqTf7HQIDFuMS8WWd2cjNjKGuqHXMBGDd3QgEqdzb0YPy9Ch2OQmvnOTFVQl2o27SN4oXnGV7mIw==}
 
   '@textlint-ja/textlint-rule-no-filler@1.1.0':
     resolution: {integrity: sha512-4yWdtS378xxBrkzmQWYZf2u6GefNMAv5xORSIY+xXVqDseddaDKm/m6n0JQFbbNvZQgFyXQotF+ILn6O5wy7CQ==}
@@ -1644,7 +1644,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@textlint-ja/textlint-rule-no-dropping-i@2.0.1':
+  '@textlint-ja/textlint-rule-no-dropping-i@3.0.0':
     dependencies:
       kuromojin: 3.0.0
       textlint-rule-helper: 2.3.1
