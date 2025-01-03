@@ -108,5 +108,7 @@
   // MD048: コードフェンススタイルはバッククォートによるものとする
   "code-fence-style": {
     "style": "backtick"
-  }
+  },
+  // MD051: リンクフラグメントは有効でなくてもよい。attr_list 拡張機能で明示的に ID を振る場合に反応しなくなるため
+  "link-fragments": false
 }
