@@ -11,8 +11,7 @@ VRChat の設定はほぼすべてがレジストリに登録されている。�
 
 不明
 
-!!! note
-    VRChat Plus の契約が切れた日付とかが記録される？現在 VRChat Plus を契約中のため、この値は `hex:00` だった。
+VRChat Plus の契約が切れた日付とかが記録される？現在 VRChat Plus を契約中のため、この値は `hex:00` だった。
 
 ### 14C4B06B824EC593239362517F538B29_h1518735675
 
@@ -1000,9 +999,15 @@ Mute で `dword:00000000`、Unmute で `dword:00000001`
 
 - 種類: `REG_DWORD`
 
+よくわからないが、インスタンス移動中は `dword:00000001`、移動完了後は `dword:00000000`？
+
 ### LocationContext_World_h2703649242
 
 - 種類: `REG_BINARY`
+
+現在いるワールドのワールド ID とワールド名がバーティカルバー区切りで記録される。
+
+例: `hex:77,72,6c,64,5f,62,65,30,37,36,37,37,37,2d,38,31,39,66,2d,34,61,36,31,2d,61,31,30,65,2d,33,32,65,35,35,39,66,39,36,38,31,33,7c,54,6f,6d,61,48,6f,6d,65,00` → `wrld_be076777-819f-4a61-a10e-32e559f96813|TomaHome`
 
 ### LOD_QUALITY_h4091515664
 
@@ -1152,6 +1157,8 @@ Mute で `dword:00000000`、Unmute で `dword:00000001`
 
 - 種類: `REG_DWORD`
 
+ウィンドウの縦幅。なぜか *Screenmanager Resolution Window Height_h1684712807* と同じ。
+
 ### Screenmanager Resolution Use Native Default_h1405981789
 
 - 種類: `REG_DWORD`
@@ -1168,13 +1175,23 @@ Mute で `dword:00000000`、Unmute で `dword:00000001`
 
 - 種類: `REG_DWORD`
 
+ウィンドウの横幅
+
+例: `dword:00000f00` → 3840 px
+
 ### Screenmanager Resolution Window Height_h1684712807
 
 - 種類: `REG_DWORD`
 
+ウィンドウの縦幅
+
+例: `dword:00000806` → 2054 px
+
 ### Screenmanager Resolution Window Width_h2524650974
 
 - 種類: `REG_DWORD`
+
+ウィンドウの横幅。なぜか *Screenmanager Resolution Width_h182942802* と同じ。
 
 ### Screenmanager Stereo 3D_h1665754519
 
@@ -1184,9 +1201,17 @@ Mute で `dword:00000000`、Unmute で `dword:00000001`
 
 - 種類: `REG_DWORD`
 
+ウィンドウの左上の X 座標
+
+例: `dword:0000003c` → 60 px
+
 ### Screenmanager Window Position Y_h4088080502
 
 - 種類: `REG_DWORD`
+
+ウィンドウの左上の Y 座標
+
+例: `dword:0000002b` → 43 px
 
 ### SeatedPlayEnabled_h2646878214
 
@@ -1782,8 +1807,6 @@ Mute で `dword:00000000`、Unmute で `dword:00000001`
 
 `Audit & Voice` の `Earmuff Mode` セクション内 `Distance` の設定値。  
 データの詳細は [共通のデータ > 距離](#common-distance) を参照。
-
-// TODO: ここまで
 
 ### VRC_EARMUFF_MODE_REDUCED_VOLUME_h3523741539
 
@@ -2512,7 +2535,35 @@ System Default の場合は `hex:00`、デバイスを選んだ場合は、そ�
 
 ### 距離 {: #common-distance }
 
+長いので一部を省略します。
+
 | ゲーム内設定値 | レジストリデータ |
 | :- | :- |
+| 0.0m | `hex(4):00,00,00,00,00,00,00,00` |
+| 0.1m | `hex(4):00,00,00,a0,99,99,b9,3f` |
+| 0.2m | `hex(4):00,00,00,40,33,33,c3,3f` |
+| 0.3m | `hex(4):00,00,00,40,33,33,d3,3f` |
+| 0.4m | `hex(4):00,00,00,a0,99,99,e1,3f` |
+| 0.5m | `hex(4):00,00,00,e0,cc,cc,dc,3f` |
+| 0.6m | `hex(4):00,00,00,40,33,33,e3,3f` |
+| 0.7m | `hex(4):00,00,00,00,00,00,e8,3f` |
+| 0.8m | `hex(4):00,00,00,a0,99,99,e9,3f` |
+| 0.9m | `hex(4):00,00,00,e0,cc,cc,ec,3f` |
+| 1.0m | `hex(4):00,00,00,60,66,66,ee,3f` |
+| ... | ... |
+| 9.0m | `hex(4):00,00,00,00,00,00,22,40` |
+| 9.1m | `hex(4):33,33,33,33,33,33,22,40` |
+| 9.2m | `hex(4):66,66,66,66,66,66,22,40` |
+| 9.3m | `hex(4):9a,99,99,99,99,99,22,40` |
+| 9.4m | `hex(4):cd,cc,cc,cc,cc,cc,22,40` |
+| 9.5m | `hex(4):00,00,00,00,00,00,23,40` |
+| 9.6m | `hex(4):33,33,33,33,33,33,23,40` |
+| 9.7m | `hex(4):66,66,66,66,66,66,23,40` |
+| 9.8m | `hex(4):9a,99,99,99,99,99,23,40` |
+| 9.9m | `hex(4):cd,cc,cc,cc,cc,cc,23,40` |
+| 10.0m | `hex(4):00,00,00,00,00,00,24,40` |
 
-// ここ書く
+以下の Python スクリプトですべてのパターンを出力できます。  
+浮動小数点数を IEEE 754 形式の倍精度実数での 16 進数に変換してあげればよさそうです。
+
+https://gist.github.com/book000/46b59268e6836baffdb7faa6c4fc1c8e#file-calculate-vrchat-distance-registory-data-py
