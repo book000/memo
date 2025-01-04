@@ -2563,7 +2563,7 @@ System Default の場合は `hex:00`、デバイスを選んだ場合は、そ�
 | 9.9m | `hex(4):cd,cc,cc,cc,cc,cc,23,40` |
 | 10.0m | `hex(4):00,00,00,00,00,00,24,40` |
 
-以下の Python スクリプトですべてのパターンを出力できます。  
-浮動小数点数を IEEE 754 形式の倍精度実数での 16 進数に変換してあげればよさそうです。
+以下の Python スクリプトですべてのパターンを出力できる。  
+浮動小数点数を IEEE 754 形式の倍精度実数での 16 進数に変換してあげればよさそう。
 
 https://gist.github.com/book000/46b59268e6836baffdb7faa6c4fc1c8e#file-calculate-vrchat-distance-registory-data-py
