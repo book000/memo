@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    lint:
+      glob: "*.{md}"
+      run: pnpm run textlint {staged_files}
