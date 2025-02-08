@@ -263,6 +263,8 @@ $postCreateCommands = @(
   "sudo npm uninstall -g pnpm yarn",
   # nodeユーザーにnode_modulesと.pnpm-storeの所有権を付与する
   "sudo chown node node_modules .pnpm-store",
+  # corepack をインストール
+  "sudo npm install -g corepack@latest",
   # corepackを有効化
   "sudo corepack enable",
   # corepackでパッケージマネージャーをインストールする
