@@ -296,7 +296,7 @@ $devcontainerJson = @{
       "[typescript]"         = @{
         "editor.defaultFormatter"  = "esbenp.prettier-vscode"
         "editor.codeActionsOnSave" = @{
-          "source.organizeImports" = $false
+          "source.organizeImports" = "never"
         }
       }
       "git.branchProtection" = @("main", "master")
@@ -310,7 +310,7 @@ $devcontainerJson = @{
         "[typescript]"         = @{
           "editor.defaultFormatter"  = "esbenp.prettier-vscode"
           "editor.codeActionsOnSave" = @{
-            "source.organizeImports" = $false
+            "source.organizeImports" = "never"
           }
         }
         "git.branchProtection" = @("main", "master")
