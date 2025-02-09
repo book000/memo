@@ -17,11 +17,11 @@ scoop install fnm
 `code $PROFILE` などで、PowerShell のプロファイルファイルを開き、以下を記述。
 
 ```powershell
-fnm env --corepack-enabled --use-on-cd --shell power-shell | Out-String | Invoke-Expression
-
-# if .node-version file exists, use it to set the node version
-if (Test-Path .node-version) {
-    fnm install
+$fnmEnvOutput = fnm env --corepack-enabled --use-on-cd --shell power-shell | Out-String
+$fnmEnvOutput = $fnmEnvOutput -replace '(?m)^Set-FnmOnLoad\s*$', ''
+Invoke-Expression $fnmEnvOutput
+If ((Test-Path .nvmrc) -Or (Test-Path .node-version) -Or (Test-Path package.json)) {
+    fnm use --install-if-missing --silent-if-unchanged
 }
 ```
 

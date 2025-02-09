@@ -15,7 +15,8 @@
   "scripts": {
     "preinstall": "npx --yes only-allow pnpm",
     "lint": "textlint docs/",
-    "fix": "textlint --fix docs/"
+    "fix": "textlint --fix docs/",
+    "textlint": "textlint"
   },
   "devDependencies": {
     "@textlint-ja/textlint-rule-no-dropping-i": "3.0.0",
@@ -41,5 +42,5 @@
     "textlint-rule-preset-smarthr": "1.32.1",
     "textlint-rule-prh": "6.0.0"
   },
-  "packageManager": "pnpm@10.2.1"
+  "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }
