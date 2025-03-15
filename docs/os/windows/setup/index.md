@@ -27,7 +27,7 @@ Microsoft の [Windows 11 をダウンロードする](https://www.microsoft.com
 
 Windows 11 ではセキュアブートが必須になった。BIOS（UEFI）にてこの設定を有効化する必要があるのだが、どういう設定をすればいいか厄介なので一応メモ。
 
-- CSM を無効にする（Windows 7 以下が実行不可になる？）
+- CSM を無効にする（Windows 7 以下が実行不可になる）
 - Secure Boot を有効にする（起動時にデジタル署名をチェックする）
 - 間違っても両方を有効にはしない
 - ASUS のマザーボードなら起動設定（Boot）にある
