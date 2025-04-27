@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(textlint@14.6.0)
       textlint-rule-date-weekday-mismatch:
-        specifier: 1.0.6
-        version: 1.0.6
+        specifier: 1.1.0
+        version: 1.1.0
       textlint-rule-footnote-order:
         specifier: 1.0.3
         version: 1.0.3
@@ -1415,8 +1415,8 @@ packages:
     peerDependencies:
       textlint: '>= 9.0.0'
 
-  textlint-rule-date-weekday-mismatch@1.0.6:
-    resolution: {integrity: sha512-ROZnjGr6z9+kg5+psF34aD71Im2DtlGAsgpgQhY9zeeK9WGXVwpCioFu2k3ys/A06pEAHQpc2MOkXJGVbRpgRA==}
+  textlint-rule-date-weekday-mismatch@1.1.0:
+    resolution: {integrity: sha512-vFuSKGpMFcRWh7LSvYKVE7QQBGxm2/1w2oIvMLfHN5EnXiFGQqrK560Otvc0POKf9yUIDI2iIMfT85z+st+LiA==}
 
   textlint-rule-footnote-order@1.0.3:
     resolution: {integrity: sha512-HH4AWGi05S88XJ0HTzihOpVPDV+BRpnqt/MXnVcQBHTc6wGxNgVoBWN19o43G3D8m3GYnoUAR8UF/IbAYbKolA==}
@@ -3422,7 +3422,7 @@ snapshots:
       js-yaml: 4.1.0
       textlint: 14.6.0
 
-  textlint-rule-date-weekday-mismatch@1.0.6:
+  textlint-rule-date-weekday-mismatch@1.1.0:
     dependencies:
       chrono-node: 1.4.9
       moment: 2.30.1
