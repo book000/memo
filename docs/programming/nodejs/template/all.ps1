@@ -196,7 +196,7 @@ Write-Output "Created .github/workflows/nodejs-ci-pnpm.yml"
 # If test is true, install packages
 if ($ifTest) {
   # add package.json
-  $packageJson.scripts.test = "jest --runInBand --passWithNoTests --detectOpenHandles --forceExit"
+  $packageJson.scripts.test = "jest --runInBand --passWithNoTests --detectOpenHandles --forceExit --coverage"
 
   $packageJson.jest = @{
     moduleFileExtensions = @("js", "ts")
