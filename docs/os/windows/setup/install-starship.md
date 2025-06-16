@@ -1,12 +1,12 @@
 # Starship のインストール
 
-Starship は、シェル用のミニマルで高速、かつ高度にカスタマイズ可能なプロンプトです。
+Starship は、シェル用のミニマルで高速、かつ高度にカスタマイズ可能なプロンプトである。
 
 ## 前提条件
 
 ### フォントの設定
 
-[Nerd Font](https://www.nerdfonts.com/) をインストールしてターミナルで有効にする必要があります。
+[Nerd Font](https://www.nerdfonts.com/) をインストールしてターミナルで有効にする必要がある。
 
 推奨フォント：`HackGen35 Console NF`
 
@@ -21,7 +21,7 @@ Starship は、シェル用のミニマルで高速、かつ高度にカスタ�
 
 ## インストール方法
 
-Scoop を使用してインストールします。管理者権限を必要とせず、ユーザー固有のインストールが可能です。
+Scoop を使用してインストールする。管理者権限を必要とせず、ユーザー固有のインストールが可能である。
 
 ```powershell
 scoop install starship
@@ -29,7 +29,7 @@ scoop install starship
 
 ## PowerShell の設定
 
-PowerShell プロファイル（`~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`）に以下を追加してください。
+PowerShell プロファイル（`~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`）に以下を追加する。
 
 ```powershell
 Invoke-Expression (&starship init powershell)
@@ -39,7 +39,7 @@ Invoke-Expression (&starship init powershell)
 
 ### プロファイルファイルの作成
 
-PowerShell プロファイルが存在しない場合は、以下のコマンドで作成できます。
+PowerShell プロファイルが存在しない場合は、以下のコマンドで作成できる。
 
 ```powershell
 # プロファイルディレクトリを作成
@@ -51,9 +51,9 @@ New-Item -ItemType File -Path $PROFILE -Force
 
 ### 設定の確認
 
-PowerShell を再起動すると、Starship プロンプトが適用されます。正常に動作していることを確認してください。
+PowerShell を再起動すると、Starship プロンプトが適用される。正常に動作していることを確認する。
 
 ### カスタマイズ
 
-Starship の設定をカスタマイズする場合は、`~\.config\starship.toml` ファイルを作成して設定を記述します。詳細は [Starship 公式ドキュメント](https://starship.rs/ja-JP/config/) を参照してください。
+Starship の設定をカスタマイズする場合は、`~\.config\starship.toml` ファイルを作成して設定を記述する。詳細は [Starship 公式ドキュメント](https://starship.rs/ja-JP/config/) を参照。
 
