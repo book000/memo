@@ -95,13 +95,13 @@ packages:
     resolution: {integrity: sha512-D2hP9eA+Sqx1kBZgzxZh0y1trbuU+JoDkiEwqhQ36nodYqJwyEIhPSdMNd7lOm/4io72luTPWH20Yda0xOuUow==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.27.7':
-    resolution: {integrity: sha512-qnzXzDXdr/po3bOTbTIQZ7+TxNKxpkN5IifVLXS+r7qwynkZfPyjZfE7hCXbo7IoO9TNcSyibgONsf2HauUd3Q==}
+  '@babel/parser@7.28.0':
+    resolution: {integrity: sha512-jVZGvOxOuNSsuQuLRTh13nU0AogFlw32w/MT+LV6D3sP5WdbW61E77RnkbaO2dUvmPAYrBDJXGn5gGS6tH4j8g==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/types@7.27.7':
-    resolution: {integrity: sha512-8OLQgDScAOHXnAz2cV+RfzzNMipuLVBz2biuAJFMV9bfkNf393je3VM8CLkjQodW5+iWsSJdSgSWT6rsZoXHPw==}
+  '@babel/types@7.28.0':
+    resolution: {integrity: sha512-jYnje+JyZG5YThjHiF28oT4SIZLnYOcSBb6+SDaFIyzDVSkXQmQQYclJ2R+YxcdmK0AX6x1E5OQNtuh3jHDrUg==}
     engines: {node: '>=6.9.0'}
 
   '@isaacs/cliui@8.0.2':
@@ -126,8 +126,8 @@ packages:
   '@kvs/types@2.1.4':
     resolution: {integrity: sha512-XtTOUatnJrDcuYNPfN+9x1xuVp11IuyPi9zOLVJPpfnKp+vUCatka/Crp2cfz0uKt4QE1Pb4Dg/TNYgVYA2Org==}
 
-  '@modelcontextprotocol/sdk@1.13.2':
-    resolution: {integrity: sha512-Vx7qOcmoKkR3qhaQ9qf3GxiVKCEu+zfJddHv6x3dY/9P6+uIwJnmuAur5aB+4FDXf41rRrDnOEGkviX5oYZ67w==}
+  '@modelcontextprotocol/sdk@1.15.0':
+    resolution: {integrity: sha512-67hnl/ROKdb03Vuu0YOr+baKTvf1/5YBHBm9KnZdjdAh8hjt4FRCPD5ucwxGB237sBpzlqQsLy1PFu7z/ekZ9Q==}
     engines: {node: '>=18'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -412,8 +412,8 @@ packages:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
     engines: {node: '>= 0.8'}
 
-  cacheable@1.10.0:
-    resolution: {integrity: sha512-SSgQTAnhd7WlJXnGlIi4jJJOiHzgnM5wRMEPaXAU4kECTAMpBoYKoZ9i5zHmclIEZbxcu3j7yY/CF8DTmwIsHg==}
+  cacheable@1.10.1:
+    resolution: {integrity: sha512-Fa2BZY0CS9F0PFc/6aVA6tgpOdw+hmv9dkZOlHXII5v5Hw+meJBIWDcPrG9q/dXxGcNbym5t77fzmawrBQfTmQ==}
 
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
@@ -683,8 +683,8 @@ packages:
     resolution: {integrity: sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==}
     engines: {node: '>=18'}
 
-  flat-cache@6.1.10:
-    resolution: {integrity: sha512-B6/v1f0NwjxzmeOhzfXPGWpKBVA207LS7lehaVKQnFrVktcFRfkzjZZ2gwj2i1TkEUMQht7ZMJbABUT5N+V1Nw==}
+  flat-cache@6.1.11:
+    resolution: {integrity: sha512-zfOAns94mp7bHG/vCn9Ru2eDCmIxVQ5dELUHKjHfDEOJmHNzE+uGa6208kfkgmtym4a0FFjEuFksCXFacbVhSg==}
 
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
@@ -1857,8 +1857,8 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
-  zod@3.25.67:
-    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
+  zod@3.25.74:
+    resolution: {integrity: sha512-J8poo92VuhKjNknViHRAIuuN6li/EwFbAC8OedzI8uxpEPGiXHGQu9wemIAioIpqgfB4SySaJhdk0mH5Y4ICBg==}
 
   zwitch@1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
@@ -1881,11 +1881,11 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.27.1': {}
 
-  '@babel/parser@7.27.7':
+  '@babel/parser@7.28.0':
     dependencies:
-      '@babel/types': 7.27.7
+      '@babel/types': 7.28.0
 
-  '@babel/types@7.27.7':
+  '@babel/types@7.28.0':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
@@ -1924,19 +1924,20 @@ snapshots:
 
   '@kvs/types@2.1.4': {}
 
-  '@modelcontextprotocol/sdk@1.13.2':
+  '@modelcontextprotocol/sdk@1.15.0':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
       cors: 2.8.5
       cross-spawn: 7.0.6
       eventsource: 3.0.7
+      eventsource-parser: 3.0.3
       express: 5.1.0
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.25.67
-      zod-to-json-schema: 3.24.6(zod@3.25.67)
+      zod: 3.25.74
+      zod-to-json-schema: 3.24.6(zod@3.25.74)
     transitivePeerDependencies:
       - supports-color
 
@@ -2389,7 +2390,7 @@ snapshots:
 
   bytes@3.1.2: {}
 
-  cacheable@1.10.0:
+  cacheable@1.10.1:
     dependencies:
       hookified: 1.10.0
       keyv: 5.3.4
@@ -2713,7 +2714,7 @@ snapshots:
 
   file-entry-cache@10.1.1:
     dependencies:
-      flat-cache: 6.1.10
+      flat-cache: 6.1.11
 
   finalhandler@2.1.0:
     dependencies:
@@ -2728,9 +2729,9 @@ snapshots:
 
   find-up-simple@1.0.1: {}
 
-  flat-cache@6.1.10:
+  flat-cache@6.1.11:
     dependencies:
-      cacheable: 1.10.0
+      cacheable: 1.10.1
       flatted: 3.3.3
       hookified: 1.10.0
 
@@ -4047,14 +4048,14 @@ snapshots:
 
   textlint-rule-prh@5.3.0:
     dependencies:
-      '@babel/parser': 7.27.7
+      '@babel/parser': 7.28.0
       prh: 5.4.4
       textlint-rule-helper: 2.3.1
       untildify: 3.0.3
 
   textlint-rule-prh@6.1.0:
     dependencies:
-      '@babel/parser': 7.27.7
+      '@babel/parser': 7.28.0
       prh: 5.4.4
       textlint-rule-helper: 2.3.1
 
@@ -4092,7 +4093,7 @@ snapshots:
 
   textlint@15.1.1:
     dependencies:
-      '@modelcontextprotocol/sdk': 1.13.2
+      '@modelcontextprotocol/sdk': 1.15.0
       '@textlint/ast-node-types': 15.1.1
       '@textlint/ast-traverse': 15.1.1
       '@textlint/config-loader': 15.1.1
@@ -4117,7 +4118,7 @@ snapshots:
       read-package-up: 11.0.0
       structured-source: 4.0.0
       unique-concat: 0.2.2
-      zod: 3.25.67
+      zod: 3.25.74
     transitivePeerDependencies:
       - supports-color
 
@@ -4351,10 +4352,10 @@ snapshots:
 
   zlibjs@0.3.1: {}
 
-  zod-to-json-schema@3.24.6(zod@3.25.67):
+  zod-to-json-schema@3.24.6(zod@3.25.74):
     dependencies:
-      zod: 3.25.67
+      zod: 3.25.74
 
-  zod@3.25.67: {}
+  zod@3.25.74: {}
 
   zwitch@1.0.5: {}
