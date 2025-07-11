@@ -102,9 +102,6 @@
     },
     // AI文書作成ルールプリセット: https://github.com/textlint-ja/textlint-rule-preset-ai-writing
     "preset-ai-writing": {
-      "ai-tech-writing-guideline": {
-        "severity": "info"
-      },
       "no-ai-hype-expressions": {
         "allows": ["十分にアンインストールする方法"]
       }
