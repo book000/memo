@@ -9,7 +9,13 @@ etckeeper は `/etc` ディレクトリの変更を自動的にバージョン�
 
 ## 環境
 
-Ubuntu 22.04 LTS での動作を確認済み。他のバージョンでも同様に動作する。
+以下の環境で動作を確認済み。
+
+- Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+- Git 2.34.1
+- etckeeper 1.18.16
+
+他の Ubuntu バージョンでも同様に動作する。
 
 ## 前提知識
 
@@ -78,11 +84,69 @@ GitHub などのリモートリポジトリを使用する場合、リモート�
 sudo git remote add origin git@github.com:tomacheese/etckeeper-{machine-name}.git
 ```
 
+### 5.1. 推奨 .gitignore 設定
+
+`/etc` ディレクトリには動的に生成されるファイルや頻繁に変更されるファイルが含まれるため、これらを Git 管理から除外することを推奨する。
+
+以下のコマンドで推奨の `.gitignore` ファイルを作成する。
+
+```bash
+sudo tee /etc/.gitignore > /dev/null << 'EOF'
+# ログファイル
+*.log
+*.log.*
+/var/log/*
+
+# 一時ファイル
+*.tmp
+*.temp
+/tmp/*
+
+# ランタイム状態ファイル
+/machine-id
+/hostname
+/hosts.allow
+/hosts.deny
+
+# NetworkManager関連の動的ファイル
+/NetworkManager/system-connections/*
+/NetworkManager/conf.d/*
+
+# systemd関連の動的ファイル
+/systemd/system/*.wants/*
+/systemd/user/*.wants/*
+
+# SSL証明書の動的ファイル
+/ssl/certs/ca-certificates.crt
+/ssl/private/*
+
+# アプリケーション固有の動的設定
+/alternatives/*
+/apparmor.d/cache/*
+/ca-certificates.conf.dpkg*
+/chatscript/options.dpkg*
+/cron.d/.placeholder
+
+# パッケージマネージャーの一時ファイル
+/apt/apt.conf.d/*~
+/apt/preferences.d/*~
+/dpkg/dpkg.cfg.d/*~
+
+# 認証関連の機密ファイル（必要に応じて調整）
+/shadow*
+/gshadow*
+/sudoers.d/README
+EOF
+```
+
+直接エディタで編集する場合は `sudo vim /etc/.gitignore` を使用できる。
+
 ### 6. 初期コミットとプッシュ
 
 初期コミットを作成し、リモートリポジトリにプッシュする。
 
 ```bash
+sudo git add -A
 sudo etckeeper commit -m "first commit"
 sudo git push --set-upstream origin master
 ```
