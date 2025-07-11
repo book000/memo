@@ -21,6 +21,11 @@
           "message": "CloudFlare to Cloudflare",
           "pattern": "/CloudFlare/",
           "replace": "Cloudflare"
+        },
+        {
+          "message": "Prevent period after colon from automatic correction",
+          "pattern": "/[：:]。/",
+          "replace": "。"
         }
       ]
     },
