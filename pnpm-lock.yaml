@@ -62,6 +62,9 @@ importers:
       textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet:
         specifier: 1.0.1
         version: 1.0.1
+      textlint-rule-preset-ai-writing:
+        specifier: ^1.1.0
+        version: 1.1.0
       textlint-rule-preset-ja-spacing:
         specifier: 2.4.3
         version: 2.4.3
@@ -1650,6 +1653,9 @@ packages:
 
   textlint-rule-no-zero-width-spaces@1.0.1:
     resolution: {integrity: sha512-AkxpzBILGB4YsXddzHx2xqpXmqMv5Yd+PQm4anUV+ADSJuwLP1Jd6yHf/LOtu9j3ps8K3XM9vQrXRK73z0bU3A==}
+
+  textlint-rule-preset-ai-writing@1.1.0:
+    resolution: {integrity: sha512-bZEIdShA7RI0U1PkTA5K8PkDsh7LGs24nLQpnKgkfvcGfXEXZNRNGfS/b3oZQd4A4xydNCMKgk5M1+JKDKWFCQ==}
 
   textlint-rule-preset-ja-spacing@2.4.3:
     resolution: {integrity: sha512-WAiWY9TOE8/bRdl14XJdjkPQcV0hLS4O+PCUYU1yxXmJhZ8V3ciw2GYqpA9GL73qAxL25UD6mkf1yfz6aJ4qSA==}
@@ -3963,6 +3969,11 @@ snapshots:
       textlint-rule-helper: 2.3.1
 
   textlint-rule-no-zero-width-spaces@1.0.1: {}
+
+  textlint-rule-preset-ai-writing@1.1.0:
+    dependencies:
+      '@textlint/regexp-string-matcher': 2.0.2
+      textlint-util-to-string: 3.3.4
 
   textlint-rule-preset-ja-spacing@2.4.3:
     dependencies:
