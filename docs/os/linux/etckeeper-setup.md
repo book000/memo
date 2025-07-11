@@ -105,12 +105,10 @@ sudo tee /etc/.gitignore > /dev/null << 'EOF'
 # ランタイム状態ファイル
 /machine-id
 /hostname
-/hosts.allow
-/hosts.deny
 
-# NetworkManager関連の動的ファイル
-/NetworkManager/system-connections/*
-/NetworkManager/conf.d/*
+# NetworkManager関連の動的ファイル（接続設定は保持）
+/NetworkManager/timestamps
+/NetworkManager/NetworkManager.state
 
 # systemd関連の動的ファイル
 /systemd/system/*.wants/*
