@@ -106,7 +106,7 @@
         "severity": "info"
       },
       "no-ai-hype-expressions": {
-        "allows": ["完全にアンインストールする方法"]
+        "allows": ["十分にアンインストールする方法"]
       }
     }
   },

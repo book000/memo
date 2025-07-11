@@ -66,4 +66,4 @@ Hyper-V が有効化されていれば Windows SandBox も利用可能なはず�
 [BlueStacks のトップページ](https://www.bluestacks.com/) から **BlueStacks 5 を** ダウンロードして、インストール先を C ドライブ以外にしたうえでインストールする。  
 `BlueStacks_nxt` というフォルダを勝手に作ってくるので、適当に古いやつと置き換えればマルチインスタンスマネージャーから起動できる。BlueStacks の**アプリケーション自体は C ドライブにインストール**される。
 
-BlueStacks X を勝手にインストールしやがったら、Windows のアプリケーションと機能からアンインストールしたうえで [PC から BlueStacks 5 を完全にアンインストールする方法](https://support.bluestacks.com/hc/ja/articles/360057724751) を参考に完全アンインストールを実施したうえで再インストール。
+BlueStacks X を勝手にインストールしやがったら、Windows のアプリケーションと機能からアンインストールしたうえで [PC から BlueStacks 5 を十分にアンインストールする方法](https://support.bluestacks.com/hc/ja/articles/360057724751) を参考に完全アンインストールを実施したうえで再インストール。
