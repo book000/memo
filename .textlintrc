@@ -99,6 +99,12 @@
         // SmartHRのルール
         "node_modules/textlint-rule-preset-smarthr/dict/prh-idiomatic-usage.yml"
       ]
+    },
+    // AI文書作成ルールプリセット: https://github.com/textlint-ja/textlint-rule-preset-ai-writing
+    "preset-ai-writing": {
+      "no-ai-hype-expressions": {
+        "allows": ["完全にアンインストールする方法"]
+      }
     }
   },
   "filters": {
