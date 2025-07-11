@@ -37,11 +37,17 @@ sudo apt install etckeeper
 
 `/etc/etckeeper/etckeeper.conf` を編集し、使用するバージョン管理システムとリモートリポジトリを設定する。
 
+以下のコマンドで設定を変更する。
+
 ```bash
-sudo vim /etc/etckeeper/etckeeper.conf
+# VCS設定を git に変更
+sudo sed -i 's/^#VCS="git"/VCS="git"/' /etc/etckeeper/etckeeper.conf
+
+# PUSH_REMOTE設定を有効にする
+sudo sed -i 's/^#PUSH_REMOTE=/PUSH_REMOTE="origin"/' /etc/etckeeper/etckeeper.conf
 ```
 
-以下の設定を変更する。
+設定内容の確認。
 
 ```bash
 # 使用するバージョン管理システムを指定（デフォルトは git）
@@ -50,6 +56,8 @@ VCS="git"
 # リモートリポジトリにプッシュする場合は有効にする
 PUSH_REMOTE="origin"
 ```
+
+直接エディタで編集する場合は `sudo vim /etc/etckeeper/etckeeper.conf` を使用できる。
 
 ### 4. Git リポジトリの初期化
 
@@ -81,17 +89,19 @@ sudo git push --set-upstream origin master
 
 ### 7. 自動プッシュの設定
 
-毎日自動的にリモートリポジトリにプッシュするため、`/etc/etckeeper/daily` を編集する。
+毎日自動的にリモートリポジトリにプッシュするため、`/etc/etckeeper/daily` にプッシュコマンドを追加する。
 
 ```bash
-sudo vim /etc/etckeeper/daily
+echo "git push -u origin master" | sudo tee -a /etc/etckeeper/daily
 ```
 
-ファイルの最後に以下の行を追加する。
+設定を確認する。
 
 ```bash
-git push -u origin master
+sudo cat /etc/etckeeper/daily
 ```
+
+直接エディタで編集する場合は `sudo vim /etc/etckeeper/daily` を使用できる。
 
 ## 使用方法
 
