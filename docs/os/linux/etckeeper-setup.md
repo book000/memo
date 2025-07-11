@@ -125,11 +125,9 @@ sudo tee /etc/.gitignore > /dev/null << 'EOF'
 /chatscript/options.dpkg*
 /cron.d/.placeholder
 
-# CUPS関連のバックアップファイル（メイン設定は保持）
-/cups/printers.conf.O
-/cups/printers.conf.*~
-/cups/classes.conf.O
-/cups/classes.conf.*~
+# CUPS関連（動的生成されるため除外）
+/cups/printers.conf*
+/cups/classes.conf*
 
 # パッケージマネージャーの一時ファイル
 /apt/apt.conf.d/*~
