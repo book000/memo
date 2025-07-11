@@ -63,7 +63,7 @@ importers:
         specifier: 1.0.1
         version: 1.0.1
       textlint-rule-preset-ai-writing:
-        specifier: ^1.1.0
+        specifier: 1.1.0
         version: 1.1.0
       textlint-rule-preset-ja-spacing:
         specifier: 2.4.3
