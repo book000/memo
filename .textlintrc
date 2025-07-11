@@ -23,7 +23,7 @@
           "replace": "Cloudflare"
         },
         {
-          "message": "コロンで終わる場合に、自動修正で句点が付いてしまうのを防ぐ",
+          "message": "Prevent period after colon from automatic correction",
           "pattern": "/[：:]。/",
           "replace": "。"
         }
