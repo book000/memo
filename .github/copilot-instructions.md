@@ -31,7 +31,7 @@
 
 ### コミット規約
 
-Conventional Commits の形式を使用します：。
+Conventional Commits の形式を使用します。
 
 ```
 <type>(<scope>): <description>
@@ -41,7 +41,7 @@ Conventional Commits の形式を使用します：。
 [optional footer(s)]
 ```
 
-主要なタイプ：。
+主要なタイプ。
 - `feat`: 新機能
 - `fix`: バグ修正
 - `docs`: ドキュメントのみの変更
@@ -73,7 +73,7 @@ memo/
 
 ### 日本語文書の品質
 
-このプロジェクトでは textlint を使用して日本語文書の品質を保っています。以下のルールに従ってください：。
+このプロジェクトでは textlint を使用して日本語文書の品質を保っています。以下のルールに従ってください。
 
 1. 句読点は句点（。）と読点（、）を正しく使用する
 2. 表記統一は同じ意味の言葉で統一した表記を使用する
@@ -134,7 +134,7 @@ pnpm add <package-name>
 
 ## GitHub Actions
 
-以下のワークフローが設定されています：。
+以下のワークフローが設定されています。
 
 - build.yml: ビルドチェック
 - nodejs-ci-pnpm.yml: Node.js CI with pnpm

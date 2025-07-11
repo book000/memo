@@ -21,6 +21,11 @@
           "message": "CloudFlare to Cloudflare",
           "pattern": "/CloudFlare/",
           "replace": "Cloudflare"
+        },
+        {
+          "message": "コロンで終わる場合に、自動修正で句点が付いてしまうのを防ぐ",
+          "pattern": "/[：:]。/",
+          "replace": "。"
         }
       ]
     },
