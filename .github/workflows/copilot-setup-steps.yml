@@ -41,3 +41,11 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           pnpm install --frozen-lockfile
+
+      - name: Verify setup
+        run: |
+          echo "✓ Node.js version: $(node --version)"
+          echo "✓ pnpm version: $(pnpm --version)"
+          echo "✓ Python version: $(python --version)"
+          echo "✓ MkDocs version: $(python -m mkdocs --version)"
+          echo "✓ textlint available: $(pnpm list textlint --depth=0 | grep textlint || echo 'installed')"
