@@ -14,19 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read Node.js version
-        id: node-version
-        run: echo "node-version=$(cat .node-version)" >> $GITHUB_OUTPUT
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ steps.node-version.outputs.node-version }}
+          node-version-file: '.node-version'
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.12.4
+          package_json_file: 'package.json'
 
       - name: Set up Python
         uses: actions/setup-python@v5
