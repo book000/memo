@@ -1,0 +1,70 @@
+# GitHub Copilot Code Agent development environment setup
+# This workflow sets up the development environment that GitHub Copilot will use when working on this repository.
+# It prepares Node.js, pnpm, Python, and all necessary dependencies for the memo documentation project.
+
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  copilot-setup-steps:
+    name: Set up development environment for GitHub Copilot
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: 'package.json'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Node.js dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Verify setup
+        run: |
+          echo "✓ Node.js version: $(node --version)"
+          echo "✓ pnpm version: $(pnpm --version)"
+          echo "✓ Python version: $(python --version)"
+          echo "✓ MkDocs version: $(python -m mkdocs --version)"
+          echo "✓ textlint available: $(pnpm list textlint --depth=0 | grep textlint || echo 'installed')"
