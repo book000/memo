@@ -27,7 +27,7 @@
     "@textlint-rule/textlint-rule-pattern": "2.0.0",
     "prh": "5.4.4",
     "sudachi-synonyms-dictionary": "16.0.0",
-    "textlint": "15.3.0",
+    "textlint": "15.4.0",
     "textlint-filter-rule-allowlist": "4.0.0",
     "textlint-rule-date-weekday-mismatch": "1.1.1",
     "textlint-rule-footnote-order": "1.0.3",
