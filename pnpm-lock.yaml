@@ -796,8 +796,8 @@ packages:
     resolution: {integrity: sha512-NqADB8VjPFLM2V0VvHUewwwsw0ZWBaIdgo+ieHtK3hasLz4qeCRjYcqfB6AQrBggRKppKF8L52/VqdVsO47Dlw==}
     engines: {node: '>= 0.4'}
 
-  hashery@1.3.0:
-    resolution: {integrity: sha512-fWltioiy5zsSAs9ouEnvhsVJeAXRybGCNNv0lvzpzNOSDbULXRy7ivFWwCCv4I5Am6kSo75hmbsCduOoc2/K4w==}
+  hashery@1.4.0:
+    resolution: {integrity: sha512-Wn2i1In6XFxl8Az55kkgnFRiAlIAushzh26PTjL2AKtQcEfXrcLa7Hn5QOWGZEf3LU057P9TwwZjFyxfS1VuvQ==}
     engines: {node: '>=20'}
 
   hasown@2.0.2:
@@ -1320,8 +1320,8 @@ packages:
     resolution: {integrity: sha512-kXuQdQTB6oN3KhI6V4acnBSZx8D2I4xzZvn9+wFLLFCoBNQY/sFnCW6c43OL7pOQ2HvGV4lnWIXNmgfp7cTWhQ==}
     engines: {node: '>=20'}
 
-  qs@6.14.0:
-    resolution: {integrity: sha512-YWWTjgABSKcvs/nWBi9PycY/JiPJqOD4JA6o9Sej2AtvSGarXxKC3OQSk4pAarbdQlKAh5D4FCQkJNkW+GAn3w==}
+  qs@6.14.1:
+    resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
     engines: {node: '>=0.6'}
 
   range-parser@1.2.1:
@@ -1696,8 +1696,8 @@ packages:
   textlint-rule-prh@6.1.0:
     resolution: {integrity: sha512-KrchADHw1/LZ/tAQ2XwL/XdUhunKCvlNmwgp+6hdyzuWX7uojOkDdJWWV0KAN4XWsK6Te5w/SZcYwQ7X6i3B0A==}
 
-  textlint-rule-sentence-length@5.2.0:
-    resolution: {integrity: sha512-d7H29IYOEulzT7hLX3pfP0RMch0Ng8TFiRgtmCjD6ubXoXDzBNCDAJK5D9QkUnO1hSHLdG3s3rxNdcBM5/rfCQ==}
+  textlint-rule-sentence-length@5.2.1:
+    resolution: {integrity: sha512-z4HylabPy+e1I5DcuzDmcT65hvyytTlsD+uM49JkCBTSJBWqzQQ3kCGk4b1cF+kANS2HifWNnpTG/jfSOeavIw==}
 
   textlint-tester@12.6.1:
     resolution: {integrity: sha512-4O8hrXNb0BUePg+yvueWdR+ViXC8R7RgUcmo+56iU28pgqcrAjSEpz2YGpbsSF54wlyxJuP4v98whgjlEJtCmw==}
@@ -1919,7 +1919,7 @@ snapshots:
 
   '@cacheable/utils@2.3.3':
     dependencies:
-      hashery: 1.3.0
+      hashery: 1.4.0
       keyv: 5.5.5
 
   '@hono/node-server@1.19.7(hono@4.11.3)':
@@ -1937,7 +1937,7 @@ snapshots:
 
   '@keyv/bigmap@1.3.0(keyv@5.5.5)':
     dependencies:
-      hashery: 1.3.0
+      hashery: 1.4.0
       hookified: 1.14.0
       keyv: 5.5.5
 
@@ -2407,7 +2407,7 @@ snapshots:
       http-errors: 2.0.1
       iconv-lite: 0.7.1
       on-finished: 2.4.1
-      qs: 6.14.0
+      qs: 6.14.1
       raw-body: 3.0.2
       type-is: 2.0.1
     transitivePeerDependencies:
@@ -2717,7 +2717,7 @@ snapshots:
       once: 1.4.0
       parseurl: 1.3.3
       proxy-addr: 2.0.7
-      qs: 6.14.0
+      qs: 6.14.1
       range-parser: 1.2.1
       router: 2.2.0
       send: 1.2.1
@@ -2862,7 +2862,7 @@ snapshots:
     dependencies:
       has-symbols: 1.1.0
 
-  hashery@1.3.0:
+  hashery@1.4.0:
     dependencies:
       hookified: 1.14.0
 
@@ -3448,7 +3448,7 @@ snapshots:
     dependencies:
       hookified: 1.14.0
 
-  qs@6.14.0:
+  qs@6.14.1:
     dependencies:
       side-channel: 1.1.0
 
@@ -4043,7 +4043,7 @@ snapshots:
       textlint-rule-no-nfd: 2.0.2
       textlint-rule-no-zero-width-spaces: 1.0.1
       textlint-rule-preset-jtf-style: 3.0.3
-      textlint-rule-sentence-length: 5.2.0
+      textlint-rule-sentence-length: 5.2.1
     transitivePeerDependencies:
       - supports-color
 
@@ -4085,7 +4085,7 @@ snapshots:
       textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet: 1.0.1
       textlint-rule-no-nfd: 2.0.2
       textlint-rule-prh: 6.1.0
-      textlint-rule-sentence-length: 5.2.0
+      textlint-rule-sentence-length: 5.2.1
     transitivePeerDependencies:
       - supports-color
 
@@ -4102,7 +4102,7 @@ snapshots:
       prh: 5.4.4
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-sentence-length@5.2.0:
+  textlint-rule-sentence-length@5.2.1:
     dependencies:
       '@textlint/regexp-string-matcher': 2.0.2
       sentence-splitter: 5.0.0
