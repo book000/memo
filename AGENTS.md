@@ -25,3 +25,12 @@
 - ログに機密情報を出力しない。
 
 ## リポジトリ固有
+- **documentation_format**: Markdown (MkDocs site: memo.tomacheese.com)
+- **language_focus**: Japanese with technical English terms
+- **writing_tools**: textlint with extensive Japanese rule sets
+**quality_checks:**
+  - markdownlint for markdown structure
+  - textlint for Japanese language quality
+  - prh for typo checking
+- **license**: CC BY-SA 4.0
+- **development_environment**: VS Code devcontainer with Python/MkDocs

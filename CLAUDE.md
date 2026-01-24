@@ -13,7 +13,16 @@
 - 前提・仮定・不確実性を明示し、仮定を事実のように扱わない。
 
 ## プロジェクト概要
-- 目的: 技術的なさまざまな分野に関するメモです。Linux 系や各種プログラミング言語、フレームワークなどの自分用メモ（備忘録）があります。
+Technical knowledge base and personal notes repository covering Linux, programming languages, and frameworks, published as a documentation site.
+
+### 技術スタック
+- **言語**: Markdown, Python (MkDocs)
+- **フレームワーク**: MkDocs, textlint
+- **パッケージマネージャー**: pnpm@10.28.1
+- **主要な依存関係**:
+  - textlint@15.5.1
+  - textlint-rule-preset-ja-technical-writing
+  - prh@5.4.4
 
 ## 重要ルール
 - 会話言語: 日本語
@@ -42,28 +51,64 @@
 - TypeScript 使用時は `skipLibCheck` で回避しない。
 - 関数やインターフェースには docstring（JSDoc など）を記載する。
 
+### コーディング規約
+- **eslint**: Not applicable
+- **prettier**: Not applicable
+- **typescript**: Not applicable
+- **textlint**: Comprehensive Japanese writing rules (70+ rules) including: technical writing, spacing, hiragana preferences, synonyms, date/weekday validation
+
 ## 相談ルール
 - Codex CLI: 実装レビュー、局所設計、整合性確認に使う。
 - Gemini CLI: 外部仕様や最新情報の確認に使う。
 - 他エージェントの指摘は黙殺せず、採用または理由を明記して不採用とする。
 
-## 開発コマンド
+### 開発コマンド
 ```bash
-# 依存関係のインストール
+# install
 pnpm install
 
-# 開発 / テスト / Lint は README を確認してください
+# dev
+mkdocs serve (via VS Code devcontainer)
+
+# build
+mkdocs build
+
+# test
+None
+
+# lint
+textlint docs/
+
+# fix
+textlint --fix docs/
+
 ```
 
-## アーキテクチャと主要ファイル
+### プロジェクト構造
+**ルートファイル:**
+- `package.json`
+- `.textlintrc`
+- `.markdownlint.jsonc`
+- `mkdocs.yml`
+- `writing.md`
+- `requirements.txt`
+
+**主要ディレクトリ:**
+- `docs/`
+- `scripts/`
+- `.devcontainer/`
+- `.vscode/`
 
 ## 実装パターン
+- 既存のコードパターンに従う。
+- プロジェクト固有の実装ガイドラインがある場合はそれに従う。
 
 ## テスト
 - 方針: 変更内容に応じてテストを追加する。
 
 ## ドキュメント更新ルール
 - 更新タイミング: 実装確定後、同一コミットまたは追加コミットで更新する。
+- README、API ドキュメント、コメント等は常に最新状態を保つ。
 
 ## 作業チェックリスト
 
@@ -94,3 +139,12 @@ pnpm install
 6. PR 本文の崩れがないことを確認する。
 
 ## リポジトリ固有
+- **documentation_format**: Markdown (MkDocs site: memo.tomacheese.com)
+- **language_focus**: Japanese with technical English terms
+- **writing_tools**: textlint with extensive Japanese rule sets
+**quality_checks:**
+  - markdownlint for markdown structure
+  - textlint for Japanese language quality
+  - prh for typo checking
+- **license**: CC BY-SA 4.0
+- **development_environment**: VS Code devcontainer with Python/MkDocs
