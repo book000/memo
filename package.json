@@ -40,7 +40,7 @@
     "textlint-rule-preset-ai-writing": "1.1.0",
     "textlint-rule-preset-ja-spacing": "2.4.3",
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
-    "textlint-rule-preset-smarthr": "1.36.1",
+    "textlint-rule-preset-smarthr": "1.37.0",
     "textlint-rule-prh": "6.1.0"
   },
   "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264"
