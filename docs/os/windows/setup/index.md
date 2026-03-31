@@ -1,7 +1,7 @@
 # 自分用PCセットアップ関連メモ
 
 !!! warning "注意事項"
-    本メモの内容に起因して生じた、あらゆる損害や障害について一切の責任を負いません。
+    本メモの内容に起因して生じた、あらゆる損害や障害について一切の責任を負わない。
 
 ## 環境
 
@@ -403,7 +403,9 @@ sc.exe config RetailDemo start=disabled
 
 ### ゲーム起動時に Xbox オーバーレイの通知を消す
 
+<!-- textlint-disable preset-ja-technical-writing/no-mix-dearu-desumasu -->
 ストアアプリを消したりサービスを止めたことで Minecraft などのゲーム起動時に「この ms-gamingoverlay リンクを開くには新しいアプリが必要です」というポップアップが出る。  
+<!-- textlint-enable preset-ja-technical-writing/no-mix-dearu-desumasu -->
 これを表示しないようにする。
 
 参考: https://narolll.hateblo.jp/entry/20220503/1651540497

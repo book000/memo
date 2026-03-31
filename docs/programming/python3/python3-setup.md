@@ -5,24 +5,24 @@ Windows は公式のインストーラとか Scoop とか WinGet とかそこら
 
 ## 1. 最新のバージョンを確認する or インストールしたいバージョンを確認する
 
-[~~見づらい~~ 公式サイトのバージョンリスト](https://www.python.org/downloads/source/) か、[比較的見やすい非公式リンク一覧サイト](https://pythonlinks.python.jp) の「`Source`」を閲覧し、最新のバージョンかインストールしたいバージョンを選んでください。
+[~~見づらい~~ 公式サイトのバージョンリスト](https://www.python.org/downloads/source/) か、[比較的見やすい非公式リンク一覧サイト](https://pythonlinks.python.jp) の「`Source`」を閲覧し、最新のバージョンかインストールしたいバージョンを選ぶこと。
 
-ここで `tar.gz` や `zip` などのインストーラをダウンロードする必要はありません。
+ここで `tar.gz` や `zip` などのインストーラをダウンロードする必要はない。
 
 ## 2. パッケージマネージャーのパッケージ一覧更新 (APT のみ)
 
-Debian 系（Ubuntu/Debian 等）を使用している場合はパッケージマネージャーは [`apt`](https://ja.wikipedia.org/wiki/APT) ですので、パッケージ一覧を更新します。  
-以下のコマンドを実行してください。
+Debian 系（Ubuntu/Debian 等）を使用している場合はパッケージマネージャーは [`apt`](https://ja.wikipedia.org/wiki/APT) のため、パッケージ一覧を更新する。  
+以下のコマンドを実行すること。
 
 ```bash
 sudo apt update
 ```
 
-Red Hat 系（CentOS や Fedora 等）を使用している場合はパッケージマネージャーは [`yum`](https://ja.wikipedia.org/wiki/Yellowdog_Updater_Modified) ですので、この作業は必要ではありません。
+Red Hat 系（CentOS や Fedora 等）を使用している場合はパッケージマネージャーは [`yum`](https://ja.wikipedia.org/wiki/Yellowdog_Updater_Modified) のため、この作業は不要だ。
 
 ## 3. 必要なパッケージのインストール
 
-どのパッケージが必要かについての情報が微妙ですので、公式サイトなどの情報も参考にしてください。
+どのパッケージが必要かについての情報が微妙なので、公式サイトなどの情報も参考にすること。
 
 Debian GNU/Linux 系（APT）: [公式サイト](https://devguide.python.org/setup/#install-dependencies) を参考。
 
@@ -45,7 +45,7 @@ sudo yum install bzip2-devel gdbm-devel libffi-devel \
 
 ## 4. Python ソースコードのダウンロード・展開
 
-`<VERSION>` をインストールしたいバージョンに置き換えてください。
+`<VERSION>` をインストールしたいバージョンに置き換えること。
 
 ```bash
 wget https://www.python.org/ftp/python/<VERSION>/Python-<VERSION>.tar.xz
@@ -54,11 +54,11 @@ tar xvf Python-<VERSION>.tar.xz
 cd Python-<VERSION>.tar.xz
 ```
 
-[GitHub](https://github.com/python/cpython) からクローンしてソースコードを引っ張ってきても良いです。
+[GitHub](https://github.com/python/cpython) からクローンしてソースコードを引っ張ってきても良い。
 
 ## 5. ビルド
 
-以下のコマンドは `/usr/local/` にインストールします。
+以下のコマンドは `/usr/local/` にインストールする。
 
 ```bash
 ./configure --enable-optimizations
@@ -66,11 +66,11 @@ make -j4
 sudo make install
 ```
 
-- `make` の `-j4` は CPU コア数ですので、環境に応じて変更してください。
-- `./configure` に `--prefix=/path/to/` をつけると、インストール先を変更できます。
-- `make install` でなく `make altinstall` をすると、`man` への反映と `/usr/bin/python` のシンボリックリンクが作られなくなるようです。**既存の Python2 環境を破壊したくないなら、`altinstall` を使うべきです。**
-- `make` 後に、`The necessary bits to build these optional modules were not found:` というメッセージが出た場合、拡張モジュールに必要な依存関係がなかったためにインストールできなかった拡張モジュールが表示されています。必要な依存関係をインストール後、再度ビルドを実施してください。
+- `make` の `-j4` は CPU コア数のため、環境に応じて変更すること。
+- `./configure` に `--prefix=/path/to/` をつけると、インストール先を変更できる。
+- `make install` でなく `make altinstall` をすると、`man` への反映と `/usr/bin/python` のシンボリックリンクが作られなくなるようだ。**既存の Python2 環境を破壊したくないなら、`altinstall` を使うべきだ。**
+- `make` 後に、`The necessary bits to build these optional modules were not found:` というメッセージが出た場合、拡張モジュールに必要な依存関係がなかったためにインストールできなかった拡張モジュールが表示されている。必要な依存関係をインストール後、再度ビルドを実施すること。
 
 ## 6. 動作確認
 
-`python --version` を試し、インストールしたバージョンが正しく表示されれば成功です。
+`python --version` を試し、インストールしたバージョンが正しく表示されれば成功だ。

@@ -23,7 +23,7 @@ https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate
 また、中間者攻撃（MITM）を対策している一部のアプリケーション（Twitter など）ではこの方法は使えないので注意。
 
 !!! warning "Warning"
-    当然ですが、この記事の内容を使って不正に他者の通信を収集・分析したりしないこと。
+    当然だが、この記事の内容を使って不正に他者の通信を収集・分析したりしないこと。
     もしそれを企んだところで証明書を端末にインストールしなきゃならないので中々難しそうだけども…。
 
 ## Environment
