@@ -20,7 +20,10 @@
 指定がない場合は以下のコマンドで文体エラーのあるファイルを取得する。
 
 ```bash
-pnpm lint 2>&1 | grep -E "^/.*\.md$" | sort -u
+pnpm textlint --rule preset-ja-technical-writing docs/ 2>&1 \
+  | grep "no-mix-dearu-desumasu" \
+  | sed -E 's/^(.+\.md).*/\1/' \
+  | sort -u
 ```
 
 対象ファイルが存在しない場合はその旨を伝えて終了する。  
@@ -32,7 +35,7 @@ pnpm lint 2>&1 | grep -E "^/.*\.md$" | sort -u
 以下のコマンドで当該ファイルの文体エラー箇所を確認する。
 
 ```bash
-pnpm textlint --rule preset-ja-technical-writing "<対象ファイル>" 2>&1 | grep -A3 "no-mix-dearu-desumasu"
+pnpm textlint "<対象ファイル>" 2>&1 | grep -A3 "no-mix-dearu-desumasu"
 ```
 
 ### ステップ 3: ですます調の修正
