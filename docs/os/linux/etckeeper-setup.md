@@ -5,7 +5,7 @@ Ubuntu で etckeeper を使用して `/etc` ディレクトリの変更履歴を
 ## etckeeper とは
 
 etckeeper は `/etc` ディレクトリの変更を自動的にバージョン管理システム（Git、Mercurial、Bazaar、Darcs）で追跡するツール。  
-システムの設定変更を記録し、必要に応じて変更を元に戻すことができる。
+システムの設定変更を記録し、過去の状態に戻せる。
 
 ## 環境
 
@@ -78,7 +78,7 @@ sudo etckeeper init
 ### 5. リモートリポジトリの設定
 
 GitHub などのリモートリポジトリを使用する場合、リモートを追加する。  
-`{machine-name}` は適切なマシン名に置き換える。
+`{machine-name}` は任意のマシン名に置き換える。
 
 ```bash
 sudo git remote add origin git@github.com:tomacheese/etckeeper-{machine-name}.git

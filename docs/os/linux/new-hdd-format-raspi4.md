@@ -111,7 +111,7 @@ GPT で作るので、`parted` コマンドを使う。
 1. ++p++ で現状のパーティション状態を確認する
 2. GPT でフォーマットしたいのでラベルを GPT にする: `mklabel gpt`
 3. 再度 ++p++` で `Partition Table` が `gpt` であることを確認する
-4. `mkpart` でパーティションを作成する。ここで渡すパラメータはサイトによって異なるので、適切なパラメータを確認したほうが良い  
+4. `mkpart` でパーティションを作成する。ここで渡すパラメータはサイトによって異なるので、各サイトの手順を参照して確認する  
    [この記事](https://kiyoshi.hatenablog.com/entry/20131228/1388157792) では `mkpart primary ext4 0 -0` すれば問題ないとあったけど `Error: Unable to satisfy all constraints on the partition.` と怒られるし、  
    [この記事](https://qiita.com/ktateish/items/238c03f28e8b3335f684) では `parted` 実行時に `-a optimal` を付けたうえで `mkpart primary ext4 0% 100%` すれば良いとあるけど、これも上記エラーが出るし、  
    今回のパラメータも `Warning: The resulting partition is not properly aligned for best performance.` と出るのでよくわからない。  

@@ -11,7 +11,7 @@ Windows は公式のインストーラとか Scoop とか WinGet とかそこら
 
 ## 2. パッケージマネージャーのパッケージ一覧更新 (APT のみ)
 
-Debian 系（Ubuntu/Debian 等）を使用している場合はパッケージマネージャーは [`apt`](https://ja.wikipedia.org/wiki/APT) ですので、パッケージ一覧の更新をする必要があります。  
+Debian 系（Ubuntu/Debian 等）を使用している場合はパッケージマネージャーは [`apt`](https://ja.wikipedia.org/wiki/APT) ですので、パッケージ一覧を更新します。  
 以下のコマンドを実行してください。
 
 ```bash

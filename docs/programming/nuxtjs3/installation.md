@@ -1,7 +1,7 @@
 # Nuxt.js v3 のインストール + 初期設定
 
 [Nuxt](https://nuxt.com/) の v3 インストール方法と初期設定について自分用にまとめたものです。  
-Nuxt をインストールしたあと、Vuetify もいれます。さらに PWA 化もします。
+Nuxt をインストールしたあと、Vuetify と PWA の設定も行います。
 
 公式の [Installation](https://nuxt.com/docs/getting-started/installation) を参考にして作業します。
 
