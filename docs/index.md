@@ -2,6 +2,9 @@
 title: Home
 ---
 
+<!-- textlint-disable preset-ja-technical-writing/no-mix-dearu-desumasu -->
+<!-- このページはですます調で記述するため、文体チェックを無効化 -->
+
 このサイトは、[Tomachi](https://github.com/book000) がまとめている技術的なさまざまな分野に関するメモサイトです。  
 各種 OS のセットアップ情報や各種プログラミング言語、フレームワークなどの自分用メモ（備忘録）があります。
 
