@@ -20,9 +20,8 @@
 指定がない場合は以下のコマンドで文体エラーのあるファイルを取得する。
 
 ```bash
-pnpm textlint --rule preset-ja-technical-writing docs/ 2>&1 \
-  | grep "no-mix-dearu-desumasu" \
-  | sed -E 's/^(.+\.md).*/\1/' \
+pnpm textlint docs/ 2>&1 \
+  | awk '/^\/.*\.md$/{file=$0} /no-mix-dearu-desumasu/{print file}' \
   | sort -u
 ```
 
@@ -42,7 +41,8 @@ pnpm textlint "<対象ファイル>" 2>&1 | grep -A3 "no-mix-dearu-desumasu"
 
 対象ファイルの本文中にあるですます調をだ・である調に変換する。
 
-**対象**: 本文のみ。見出し（`#`）・箇条書き（`-`, `*`, 数字リスト）は体言止めが自然なため変更しない。
+**対象**: 本文・箇条書き（`-`, `*`, 数字リスト）。見出し（`#`）は体言止めが自然なため変更しない。  
+箇条書きのですます調はだ・である調に変換する。体言止めに変換できる場合はそちらがより自然。
 
 **変換の基本方針**:
 
