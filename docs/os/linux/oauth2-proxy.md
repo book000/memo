@@ -76,7 +76,7 @@ GitHub の [Register a new OAuth application](https://github.com/settings/applic
 
 設置する場所は `/usr/local/bin` とかどこでもよいけど、とりあえず今回は openresty 環境なので `/usr/local/openresty/bin/` に設置。
 
-必要に応じて `sha246sum -c sha256sum.txt` を実行。
+ダウンロードしたファイルの整合性を確認する場合は `sha256sum -c sha256sum.txt` を実行。
 
 ### oauth2-proxy の設定
 

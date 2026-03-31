@@ -263,7 +263,7 @@ winget、`Overwolf.CurseForge` はあるのか…。
 ブラウザでの作業を Discord のプロフィール (Discord Rich Presence) に表示するソフト。
 
 YouTube や Amazon Music で再生している曲とか Google で検索しているモノとか。  
-このソフトを Windows にインストールするのに加えて、利用しているブラウザに拡張機能をインストールする必要がある。
+Windows へのインストールに加え、利用しているブラウザに拡張機能もインストールする。
 
 - Web サイト: https://premid.app
 - Scoop/winget: N/A（Microsoft Store 版は winget にある）
