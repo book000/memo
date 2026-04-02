@@ -31,7 +31,7 @@ MonoBehaviour:
 
 ## keys フィールドのエンコード規則
 
-`ChooseNames.keys` と `ChooseMaterials.values[*].keys` に使われる文字列。要素数 n に対して、0 から n-1 までの連番を 8 桁 16 進数ブロックで連結する。
+`ChooseNames.keys` と `ChooseMaterials.values[*].keys` に使われる文字列。`make_key(n)` は 0 から n までの n+1 個の要素を生成する。`make_key_for_count(count)` は `make_key(count - 1)` を呼ぶことで、ちょうど count 個の要素に対応するキー文字列を返す。
 
 ```python
 def make_key(n: int) -> str:

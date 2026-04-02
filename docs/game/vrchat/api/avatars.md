@@ -70,6 +70,7 @@ while True:
 既存のサムネイルをダウンロードして新画像とピクセル単位で比較し、差分がない場合はアップロードをスキップする。
 
 ```python
+import os
 import urllib.request
 from PIL import Image
 

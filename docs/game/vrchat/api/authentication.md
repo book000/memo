@@ -62,6 +62,8 @@ auth = cookie_jar["auth"].value
 two_factor_auth = cookie_jar["twoFactorAuth"].value
 
 # JSON ファイルに保存する
+# 注意: 平文保存のため、.gitignore に追加し、共有ストレージには置かないこと
+# Unix 系 OS では chmod 0600 credentials.json でパーミッションを制限することを推奨
 with open("credentials.json", "w") as f:
     json.dump({"auth": auth, "twoFactorAuth": two_factor_auth}, f)
 ```
@@ -74,7 +76,7 @@ def make_cookie(name: str, value: str) -> Cookie:
         0, name, value, None, False,
         "api.vrchat.cloud", True, False,
         "/", False, False,
-        173106866300,
+        None,
         False, None, None, {},
     )
 
@@ -90,6 +92,8 @@ api_client.rest_client.cookie_jar.set_cookie(
 Cookie が無効になった場合は `UnauthorizedException` が発生する。その場合のみ ID/PW で再ログインするフォールバックを用意しておく。
 
 ```python
+import os
+
 if os.path.exists("credentials.json"):
     with open("credentials.json") as f:
         credentials = json.load(f)

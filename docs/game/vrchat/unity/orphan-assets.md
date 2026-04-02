@@ -80,7 +80,7 @@ def collect_guid_map(assets_dir: Path) -> dict[str, str]:
     guid_map = {}
     for meta in assets_dir.rglob("*.meta"):
         text = meta.read_text(encoding="utf-8", errors="ignore")
-        m = re.search(r"^guid:\s*([0-9a-fA-F]{32})\s*$", text, re.MULTILINE)
+        m = GUID_RE.search(text)
         if m and meta.with_suffix("").is_file():
             guid_map[m.group(1).lower()] = str(meta.with_suffix(""))
     return guid_map
@@ -97,7 +97,7 @@ def compute_reachable(roots: list[str], graph: dict[str, set[str]]) -> set[str]:
     return reachable
 ```
 
-この方法は Unity Editor を使わないため、Addressables の解決精度が落ちる。正確な結果が必要な場合は Unity Editor 側でダンプしたファイル（`reachable_paths.json`）を外部入力として取り込む。
+この方法は Unity Editor を使わないため、Addressables の解決精度が落ちる。正確な結果が必要な場合は Unity Editor 側でダンプしたファイル（`reachable_paths.txt`）を外部入力として取り込む。
 
 ## 孤立アセットの処理方法
 
