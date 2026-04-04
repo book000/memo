@@ -101,6 +101,6 @@ def compute_reachable(roots: list[str], graph: dict[str, set[str]]) -> set[str]:
 
 ## 孤立アセットの処理方法
 
-削除ではなく専用ディレクトリへの移動が安全。 `Assets/AssetOrphaneds/{タイムスタンプ}/` に移動すると、Unity が自動的に参照を更新する。本当に不要であることを確認した後、まとめて削除する。
+削除ではなく専用ディレクトリへの移動が安全。 `Assets/AssetOrphaneds/{タイムスタンプ}/` へ `.meta` ファイルと一緒に移動する。Unity の参照は GUID ベースのため、GUID が変わらない限り既存の参照は壊れない。本当に不要であることを確認した後、まとめて削除する。
 
 `.meta` ファイルも必ずセットで移動する。
