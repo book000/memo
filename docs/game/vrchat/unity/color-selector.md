@@ -1,13 +1,18 @@
-# ColorSelector prefab の構造
+# AvatarMenuCreatorForMA の選択式メニュー
 
-VRChat アバターで衣装の色を切り替える仕組みに使われる Unity prefab の構造。
+[AvatarMenuCreatorForMA](https://github.com/Narazaka/AvatarMenuCreaterForMA)（作者: Narazaka）は、Modular Avatar を利用して VRChat アバターのメニューを非破壊で作成する Unity ツール。ON/OFF・選択式・無段階調整の 3 種類のメニューを生成できる。
 
-## YAML 構造
+衣装の色切り替えなど「複数の選択肢から 1 つを選ぶ」場面では**選択式メニュー**（`AvatarChooseMenuCreator` コンポーネント）を使う。
+
+## prefab に保存されるデータ構造
+
+`AvatarChooseMenuCreator` コンポーネントが持つ `AvatarChooseMenu` フィールドに選択肢の設定が記録される。Unity YAML では以下のように展開される。
 
 ```yaml
 MonoBehaviour:
   AvatarChooseMenu:
     ChooseCount: 3
+    ChooseDefaultValue: 0
     ChooseNames:
       keys: 000000000100000002000000
       values:
@@ -23,15 +28,34 @@ MonoBehaviour:
         - {fileID: 2100000, guid: aaa..., type: 2}
         - {fileID: 2100000, guid: bbb..., type: 2}
         - {fileID: 2100000, guid: ccc..., type: 2}
+    ChooseObjects:
+      keys: ''
+      values: []
+    ChooseBlendShapes:
+      keys1: []
+      keys2: ''
+      values: []
 ```
 
-- `ChooseCount` は選択肢の数
-- `ChooseNames.values` は色名の一覧（UI に表示される）
-- `ChooseMaterials.values` はマテリアルグループの一覧で、各グループの `values` に色順でマテリアル参照を並べる
+### 主なフィールド
+
+| フィールド | 型 | 説明 |
+| --- | --- | --- |
+| `ChooseCount` | int | 選択肢の総数 |
+| `ChooseDefaultValue` | int | デフォルト選択肢のインデックス（0 始まり） |
+| `ChooseNames` | IntStringDictionary | インデックス → 選択肢名（VRChat メニューに表示される） |
+| `ChooseMaterials` | ChooseMaterialDictionary | マテリアルスロットごとの、選択肢順マテリアル参照リスト |
+| `ChooseObjects` | IntHashSetDictionary | 選択肢ごとにアクティブにする GameObject パス集合 |
+| `ChooseBlendShapes` | ChooseBlendShapeDictionary | 選択肢ごとの BlendShape 値 |
+| `ChooseShaderParameters` | ChooseBlendShapeDictionary | 選択肢ごとのシェーダーパラメーター値 |
+
+`ChooseNames` と `ChooseMaterials.values[*]` の内部データ形式は `SerializedDictionary` のシリアライズ形式に従い、`keys` フィールドにインデックスの一覧、`values` に対応する値の一覧を持つ。
 
 ## keys フィールドのエンコード規則
 
-`ChooseNames.keys` と `ChooseMaterials.values[*].keys` に使われる文字列。`make_key(n)` は 0 から n までの n+1 個の要素を生成する。`make_key_for_count(count)` は `make_key(count - 1)` を呼ぶことで、ちょうど count 個の要素に対応するキー文字列を返す。
+`ChooseNames.keys` や `ChooseMaterials.values[*].keys` に使われる文字列。`SerializedDictionary` が Unity にシリアライズされる際のキー配列表現で、インデックス `i` を `f"{i:02x}000000"` の 8 文字ブロックに変換して連結する。
+
+`make_key(n)` は 0 から n までの n+1 個の要素を生成する。`make_key_for_count(count)` は `make_key(count - 1)` を呼ぶことで、ちょうど count 個の要素に対応するキー文字列を返す。
 
 ```python
 def make_key(n: int) -> str:
@@ -53,7 +77,7 @@ def make_key_for_count(count: int) -> str:
 
 ## prefab を安全に書き換える方法
 
-ファイル全体を再ダンプせず、対象行のみを差し替えることでフォーマットが崩れるのを防ぐ。
+AvatarMenuCreatorForMA が生成した prefab をスクリプトで更新する場合、ファイル全体を再ダンプせず対象行のみを差し替えることでフォーマットが崩れるのを防ぐ。
 
 1. ruamel.yaml の `typ="rt"` でパースし、 `lc` 属性から各フィールドの行番号を取得する
 2. 元テキストの該当行を直接書き換える
