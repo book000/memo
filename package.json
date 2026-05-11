@@ -13,7 +13,6 @@
     "url": "git+https://github.com/book000/memo.git"
   },
   "scripts": {
-    "preinstall": "npx --yes only-allow pnpm",
     "lint": "textlint docs/",
     "fix": "textlint --fix docs/",
     "textlint": "textlint"
