@@ -51,11 +51,15 @@
       "ja-space-around-code": {
         "before": true,
         "after": true
-      }
-    },
-    "ja-space-around-link": {
-      "before": true,
-      "after": true
+      },
+      // v3 で有効化された日本語隣接リンクの前後スペースルール（スペースを必須とする）
+      "ja-space-around-link": {
+        "before": true,
+        "after": true
+      },
+      // v3 で新規追加された strong・emphasis 周辺スペースルール（このプロジェクトでは無効）
+      "ja-space-around-strong": false,
+      "ja-space-around-emphasis": false
     },
     // 技術文書向けルールプリセット: https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing
     "preset-ja-technical-writing": {
