@@ -271,8 +271,6 @@ $postCreateCommands = @(
   "corepack install",
   # 依存関係をインストールする
   "pnpm install",
-  # approve-buildsを実行する
-  "pnpm approve-builds"
 )
 $postCreateCommand = $postCreateCommands -join " && "
 $devcontainerJson = @{
