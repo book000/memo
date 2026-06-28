@@ -107,11 +107,11 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@cacheable/memory@2.0.9':
-    resolution: {integrity: sha512-HdMx6DoGywB30vacDbBsITbIX4pgFqj1zsrV58jZBUw3klzkNoXhj7qOqAgledhxG7YZI5rBSJg7Zp8/VG0DuA==}
+  '@cacheable/memory@2.2.0':
+    resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
 
-  '@cacheable/utils@2.4.1':
-    resolution: {integrity: sha512-eiFgzCbIneyMlLOmNG4g9xzF7Hv3Mga4LjxjcSC/ues6VYq2+gUbQI8JqNuw/ZM8tJIeIaBGpswAsqV2V7ApgA==}
+  '@cacheable/utils@2.5.0':
+    resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
 
   '@hono/node-server@1.19.14':
     resolution: {integrity: sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw==}
@@ -424,8 +424,8 @@ packages:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
     engines: {node: '>= 0.8'}
 
-  cacheable@2.3.5:
-    resolution: {integrity: sha512-EQfaKe09tl615iNvq/TBRWTFf1AKJNXYQSsMx0Z3EI0nA+pVsVPS8wJhnRlkbdacKPh1d0qVIhwTc2zsQNFEEg==}
+  cacheable@2.5.0:
+    resolution: {integrity: sha512-60cyAOytib/OzBw1JNSoSV/boK1AtHryDIjvVBk7XbN4ugfkM3+Sry7fEjNgPMGgOjuaZPAp8ruZ0Cxafwyq9g==}
 
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
@@ -623,8 +623,8 @@ packages:
     resolution: {integrity: sha512-j6vWzfrGVfyXxge+O0x5sh6cvxAog0a/4Rdd2K36zCMV5eJ+/+tOAngRO8cODMNWbVRdVlmGZQL2YS3yR8bIUA==}
     engines: {node: '>= 0.4'}
 
-  es-to-primitive@1.3.1:
-    resolution: {integrity: sha512-CxN9N56HYfd2m/acc/NOFrZQsN9kU4eh+2kk6A707Kz1krH8tKmfrs5RnftB8WNX80T0NS7vSQsDOlg23diR2g==}
+  es-to-primitive@1.3.4:
+    resolution: {integrity: sha512-yPDz7wqpg1/mmHLmS3tcfTfbw5f1eryXvyghYBffGdERwe+mV7ZcWzTR8LR17Kvqt3qfPurjlonmnq3MKXIOXw==}
     engines: {node: '>= 0.4'}
 
   escape-html@1.0.3:
@@ -702,8 +702,8 @@ packages:
     resolution: {integrity: sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==}
     engines: {node: '>=18'}
 
-  flat-cache@6.1.22:
-    resolution: {integrity: sha512-N2dnzVJIphnNsjHcrxGW7DePckJ6haPrSFqpsBUhHYgwtKGVq4JrBGielEGD2fCVnsGm1zlBVZ8wGhkyuetgug==}
+  flat-cache@6.1.23:
+    resolution: {integrity: sha512-f++BY9pTk+983xK1FLzlLpmM0i0z+jHmx3QESGkURMXujQZz1k5wzwX6hjnQ8goaD0B+sYnDK1yZ6MTyZfUaqA==}
 
   flatted@3.4.2:
     resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
@@ -805,8 +805,8 @@ packages:
   hastscript@5.1.2:
     resolution: {integrity: sha512-WlztFuK+Lrvi3EggsqOkQ52rKbxkXL3RwB6t5lwoa8QLMemoWfBuL43eDrwOamJyR7uKQKdmKYaBH1NZBiIRrQ==}
 
-  hono@4.12.26:
-    resolution: {integrity: sha512-uyZtpnYxM9CmQ7QsQknM4zN8EftNqhON1qYeIKM0Se67CCEe2c44xyGURwB0axX2fBDu1dqHrHAc1hmNT8ITkw==}
+  hono@4.12.27:
+    resolution: {integrity: sha512-1yrb/+w6HWQJrUCLkJ2IF5jNIPvvFkblV5RNOYl6bV+OA6p9GLcMpHFFGTosSvHvcAUibuUukRqhlYI4z32C7Q==}
     engines: {node: '>=16.9.0'}
 
   hookified@1.15.1:
@@ -1015,12 +1015,12 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@3.14.2:
-    resolution: {integrity: sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==}
+  js-yaml@3.15.0:
+    resolution: {integrity: sha512-ttBQIIQPDeLjpPOohtUdXuXUVoA2uIB6fEH9HyJ7234s5mBJ5wTx20njxplLZQgLaOfpmPQA7X2t5AX6tIPbog==}
     hasBin: true
 
-  js-yaml@4.2.0:
-    resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
+  js-yaml@4.3.0:
+    resolution: {integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==}
     hasBin: true
 
   json-schema-traverse@1.0.0:
@@ -1326,12 +1326,12 @@ packages:
     resolution: {integrity: sha512-+Owyggi9IxT1ePKGafcI87ubSmxol6smwJ+RAHDQlx9+9cPwFWDiKFFCPuWhr9ignlGpZ9vDQLw67N4dcTVFEA==}
     engines: {node: '>=20'}
 
-  qs@6.15.2:
-    resolution: {integrity: sha512-Rzq0KEyX/w/tEybncDgdkZrJgVUsUMk3xjh3t5bv3S1HTAtg+uOYt72+ZfwiQwKdysThkTBdL/rTi6HDmX9Ddw==}
+  qs@6.15.3:
+    resolution: {integrity: sha512-O9gl3zCl5h5blw1KGUzQKhA5oUXSl8rwUIM5o0S3nCXMliSvy5Dzx7/DJcI+SwgICv+IneSZwhBh1oSyEHA71A==}
     engines: {node: '>=0.6'}
 
-  range-parser@1.2.1:
-    resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
+  range-parser@1.3.0:
+    resolution: {integrity: sha512-hek2mFQpPuI4E1BBKrSto+BU3e3x4xuarsbiwr3+lf7p44juvFMV0XFWQAP3xUyqXA4RrXLIoaSUGbSt056ZMw==}
     engines: {node: '>= 0.6'}
 
   raw-body@3.0.2:
@@ -1587,8 +1587,8 @@ packages:
   textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana@2.4.3:
     resolution: {integrity: sha512-xIpEAgpaPTnavzCMLcSB/tlZ3Tq9paclyyMEgAQxkM9adv8TrwddZ+Ys+BSd4zjuVa94NED0bajYWtahSjZ53g==}
 
-  textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana@3.0.0:
-    resolution: {integrity: sha512-tyrHoTEuaW5BqoGsePJhYw07OmH5LhWpx2g8eWfVeaDfQJITJKS3mSXdOGhN++8Y+EkTAx7Z/ePIjBxJTGNcFg==}
+  textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana@3.0.2:
+    resolution: {integrity: sha512-jeWjD7gwV1zzO/el0fHaLP5Hu9ihvCJp5yjisaKk5s4w7jgoDKcT0aqyP2HFZd99bOrFWea0GecCFvJt6/B8ew==}
 
   textlint-rule-ja-no-abusage@3.0.0:
     resolution: {integrity: sha512-DIqPZgYTwTsvjX6Bgj7GA8vlwGMObagJpNoUtkucOaoy7E7GwUOL+knqFjcTtlkWSmoKpIkw5OWW5CV3kivlfQ==}
@@ -1605,14 +1605,14 @@ packages:
   textlint-rule-ja-no-space-around-parentheses@2.4.2:
     resolution: {integrity: sha512-DmmWEKu2hFJs/C4Ruxm/Zkp5gc9W+8kTgUULx54J00MJyJgLWm0XY9BH3OdN66+4+3BFutvxzCLU9y/M1+Dx7w==}
 
-  textlint-rule-ja-no-space-around-parentheses@3.0.0:
-    resolution: {integrity: sha512-vrNIrZa8cx8Yw5EIcE9uMqolM0xr9YUGhqtdB+yz2dQGV8Ptml7rSfUNFbPDDOYqjJE33bTD14dv5cjqfHo1vw==}
+  textlint-rule-ja-no-space-around-parentheses@3.0.2:
+    resolution: {integrity: sha512-/G1MNHo65kIhFFD+2/0CIZ5HuKa+GXkpHkUr3EREa2HQP52rzP8L6cwYfl+gtlEKZ8iCQMfN0SbPulodALVErw==}
 
   textlint-rule-ja-no-space-between-full-width@2.4.2:
     resolution: {integrity: sha512-yDiZrJYX2cVO85tLw+ojUntky44ijEfIX2sWinIEN0IdYMCINjYwmgRYFmnqwQ+MZyo+foAt2vLUZtaSZlk/Lw==}
 
-  textlint-rule-ja-no-space-between-full-width@3.0.0:
-    resolution: {integrity: sha512-Awhbyex7x26OnQmvbGNUZ2PF5RaH2fKHAM8SkxGyXK/IfCN1P7vnoGKk4ud6CWlEx6yKHDOJ0D9/2KgkZQr1sg==}
+  textlint-rule-ja-no-space-between-full-width@3.0.2:
+    resolution: {integrity: sha512-fQ1z01IgrG4HCuZUZ2YZiOXdBA4hQE92gbe+SXXKGjOYD+99mVq0nmqdjjRY3HPSy7IAcqlefKdK9DQ32FH85A==}
 
   textlint-rule-ja-no-successive-word@2.0.1:
     resolution: {integrity: sha512-XKTXkHwMu86SnGaj73B67U4apDdTquDKF3SfG24tRbzMyJoGe/Iba5VMId8sp8QHeTonp1bYOSxjZsbkpGyCNw==}
@@ -1623,35 +1623,35 @@ packages:
   textlint-rule-ja-space-after-exclamation@2.4.2:
     resolution: {integrity: sha512-3qH0aIG48MrA8qhcljGSGxPmvrrmOQsP/kTfj8SGDKdkBUs05z1x1bgw106RVNVv1enz2v+ZafuVdgFViRKWfA==}
 
-  textlint-rule-ja-space-after-exclamation@3.0.0:
-    resolution: {integrity: sha512-iYv5G8Tvi3KmycvkY4Fd8byqkfFwp8lm1uB2On8chu55HYDhJ4EqKV2TZRQlJX5kNZk4+zKkrI1yiFTaUCQ80g==}
+  textlint-rule-ja-space-after-exclamation@3.0.2:
+    resolution: {integrity: sha512-EiKXAD43vNVR7sWlCP1+QvMJQYSDpwxXodLOFHKWEYnUJACTm/54YBb8943oMhDbdWXPOVaBzU6XtX5lmBkIrw==}
 
   textlint-rule-ja-space-after-question@2.4.2:
     resolution: {integrity: sha512-ie1R03y1606QApXu+ZF6X+bAJLccRy/lA5JityfTO9M4EM+7ENMle9fTMoEEKJkNkjHaLi530IzqAZ+CLEe8Qw==}
 
-  textlint-rule-ja-space-after-question@3.0.0:
-    resolution: {integrity: sha512-KYId9c6wTgVfIyJkbnlEkWpOpLKfdyYbZXIyjjAqZvfY8WOEttWLO6LCpbOooyIP+ZS6tqxaY4Q1gmIQD1wbPA==}
+  textlint-rule-ja-space-after-question@3.0.2:
+    resolution: {integrity: sha512-t3aTXVX1ma/3V8E6G2mwkrHoLfu/3bTV4l6p6yySfOdb2wNiahmD08Cy71sD20CHzHxk57Ocx2OXFKKJx+9s2A==}
 
   textlint-rule-ja-space-around-code@2.4.2:
     resolution: {integrity: sha512-DM4OF7seafTKrxPFjUJyxx/lwlg8CO3wgwmTJWhQ+6po3mQVV6QaBHpc0861/32kUAJm1ZgRpiBlDWUdraXFFA==}
 
-  textlint-rule-ja-space-around-code@3.0.0:
-    resolution: {integrity: sha512-7gNOYLGBhrFjnkYlPU5MUN/Wp/nAyWxqdzcbsv7Jm+80m7kXDymC2TbrnNImC1AF87YgRGgX4OsgmoTnvsZppg==}
+  textlint-rule-ja-space-around-code@3.0.2:
+    resolution: {integrity: sha512-n9q9IBRie6ck3Bkapj+XMUT+lDD8lx0jH7YjIrDTzNRdIE76COF3NycMyhZm/o1i7tyQMggGarCmNaK1xcUKWg==}
 
-  textlint-rule-ja-space-around-emphasis@3.0.0:
-    resolution: {integrity: sha512-1BZmoVXfhJqJqONGiaMF13PqIvRAVD3f8/ziDvT3OLNXHhGuvVhaeEKXTnzMGHOeYbkqYjunSwjEArumVT9mVw==}
+  textlint-rule-ja-space-around-emphasis@3.0.2:
+    resolution: {integrity: sha512-Oxut/HrzeamAaCw9Ll1vnYTi5YOKfWwL+dgnVeRKkJkDGIvpPgIer510HaovNHHAv2d3FzEkW3PxPKva4N3WUA==}
 
-  textlint-rule-ja-space-around-link@3.0.0:
-    resolution: {integrity: sha512-qExiAO25+tE/KZdi/JaumDuuyZ13Ed4oZG1tnjUNA/6n8hpm9wg9nFU9xQ4feBW7r43lwD5VW99W0qk+eoNs8A==}
+  textlint-rule-ja-space-around-link@3.0.2:
+    resolution: {integrity: sha512-lh+7girFo0gt706/0bT3Yyf+QHdAnyaC8ybidbDN+NlDfkFi31qPdiFPrdTlQXwD9FfZelwBGAHVFAz22eoG4g==}
 
-  textlint-rule-ja-space-around-strong@3.0.0:
-    resolution: {integrity: sha512-6SN0Ax3j3cqdJmyRyQtQRjcd6AyGW0nuk6/ffsZyFoodu2QjBcUcMQgFcEsPrp1YINkedHCcQ4pqmk9OZYHkGw==}
+  textlint-rule-ja-space-around-strong@3.0.2:
+    resolution: {integrity: sha512-uKxjaikPv8BuznFS7kPu8eqPGtOTiSpKw2+P8vf+bNbN2FzJq4RHXDjhhj2R5rUmIPPFgAcurDHPZ/A1WE66HQ==}
 
   textlint-rule-ja-space-between-half-and-full-width@2.4.2:
     resolution: {integrity: sha512-GqwSy0ivm4Q5Bok9LaOwfg+H1auLRMoMi2aY/7aSIrgvX/RD5aZ2Rk2lm3TTX42mR1UrQu8GDqktUEZfvQ913w==}
 
-  textlint-rule-ja-space-between-half-and-full-width@3.0.0:
-    resolution: {integrity: sha512-L1pxdF5TzhyAgwEjpI7fOkOgxVSclEHKW7UsLG6dQPRxzhdFs9ewWAsN4unYXtwpixWgqjYKTOQwClUT2Eb03g==}
+  textlint-rule-ja-space-between-half-and-full-width@3.0.2:
+    resolution: {integrity: sha512-wdX0fCy7K7IBfxcflnEbkgx0j4mNQ7XRPGP7DFMHxJhqigZBkbrV/+uu2UwoBMxHd5CDJrPdxllrcrfNZoe4Ew==}
 
   textlint-rule-ja-unnatural-alphabet@2.0.1:
     resolution: {integrity: sha512-n93V8qh6OKdh8OB6yLT+9Xl8DSoZ7gWi51tWdhlLEPIWgBm18nLMgm6Ck+nVc3eENOdRcQURWUpCGotI8wTemA==}
@@ -1926,21 +1926,21 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@cacheable/memory@2.0.9':
+  '@cacheable/memory@2.2.0':
     dependencies:
-      '@cacheable/utils': 2.4.1
+      '@cacheable/utils': 2.5.0
       '@keyv/bigmap': 1.3.1(keyv@5.6.0)
       hookified: 1.15.1
       keyv: 5.6.0
 
-  '@cacheable/utils@2.4.1':
+  '@cacheable/utils@2.5.0':
     dependencies:
       hashery: 1.5.1
       keyv: 5.6.0
 
-  '@hono/node-server@1.19.14(hono@4.12.26)':
+  '@hono/node-server@1.19.14(hono@4.12.27)':
     dependencies:
-      hono: 4.12.26
+      hono: 4.12.27
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:
@@ -1977,7 +1977,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.29.0(zod@3.25.76)':
     dependencies:
-      '@hono/node-server': 1.19.14(hono@4.12.26)
+      '@hono/node-server': 1.19.14(hono@4.12.27)
       ajv: 8.20.0
       ajv-formats: 3.0.1(ajv@8.20.0)
       content-type: 1.0.5
@@ -1987,7 +1987,7 @@ snapshots:
       eventsource-parser: 3.1.0
       express: 5.2.1
       express-rate-limit: 8.5.2(express@5.2.1)
-      hono: 4.12.26
+      hono: 4.12.27
       jose: 6.2.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -2166,7 +2166,7 @@ snapshots:
       '@textlint/types': 15.7.1
       chalk: 4.1.2
       debug: 4.4.3
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
       lodash: 4.18.1
       pluralize: 2.0.0
       string-width: 4.2.3
@@ -2411,7 +2411,7 @@ snapshots:
       http-errors: 2.0.1
       iconv-lite: 0.7.2
       on-finished: 2.4.1
-      qs: 6.15.2
+      qs: 6.15.3
       raw-body: 3.0.2
       type-is: 2.1.0
     transitivePeerDependencies:
@@ -2429,10 +2429,10 @@ snapshots:
 
   bytes@3.1.2: {}
 
-  cacheable@2.3.5:
+  cacheable@2.5.0:
     dependencies:
-      '@cacheable/memory': 2.0.9
-      '@cacheable/utils': 2.4.1
+      '@cacheable/memory': 2.2.0
+      '@cacheable/utils': 2.5.0
       hookified: 1.15.1
       keyv: 5.6.0
       qified: 0.10.1
@@ -2620,7 +2620,7 @@ snapshots:
       es-errors: 1.3.0
       es-object-atoms: 1.1.2
       es-set-tostringtag: 2.1.0
-      es-to-primitive: 1.3.1
+      es-to-primitive: 1.3.4
       function.prototype.name: 1.2.0
       get-intrinsic: 1.3.0
       get-proto: 1.0.1
@@ -2678,9 +2678,10 @@ snapshots:
       has-tostringtag: 1.0.2
       hasown: 2.0.4
 
-  es-to-primitive@1.3.1:
+  es-to-primitive@1.3.4:
     dependencies:
       es-abstract-get: 1.0.0
+      es-define-property: 1.0.1
       es-errors: 1.3.0
       is-callable: 1.2.7
       is-date-object: 1.1.0
@@ -2733,8 +2734,8 @@ snapshots:
       once: 1.4.0
       parseurl: 1.3.3
       proxy-addr: 2.0.7
-      qs: 6.15.2
-      range-parser: 1.2.1
+      qs: 6.15.3
+      range-parser: 1.3.0
       router: 2.2.0
       send: 1.2.1
       serve-static: 2.2.1
@@ -2765,7 +2766,7 @@ snapshots:
 
   file-entry-cache@10.1.4:
     dependencies:
-      flat-cache: 6.1.22
+      flat-cache: 6.1.23
 
   finalhandler@2.1.1:
     dependencies:
@@ -2780,9 +2781,9 @@ snapshots:
 
   find-up-simple@1.0.1: {}
 
-  flat-cache@6.1.22:
+  flat-cache@6.1.23:
     dependencies:
-      cacheable: 2.3.5
+      cacheable: 2.5.0
       flatted: 3.4.2
       hookified: 1.15.1
 
@@ -2898,7 +2899,7 @@ snapshots:
       property-information: 5.6.0
       space-separated-tokens: 1.1.5
 
-  hono@4.12.26: {}
+  hono@4.12.27: {}
 
   hookified@1.15.1: {}
 
@@ -3097,12 +3098,12 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@3.14.2:
+  js-yaml@3.15.0:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
 
-  js-yaml@4.2.0:
+  js-yaml@4.3.0:
     dependencies:
       argparse: 2.0.1
 
@@ -3446,13 +3447,13 @@ snapshots:
     dependencies:
       commandpost: 1.4.0
       diff: 4.0.4
-      js-yaml: 3.14.2
+      js-yaml: 3.15.0
 
   prh@6.0.6:
     dependencies:
       commander: 14.0.3
       diff: 9.0.0
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
 
   property-information@5.6.0:
     dependencies:
@@ -3467,11 +3468,12 @@ snapshots:
     dependencies:
       hookified: 2.2.0
 
-  qs@6.15.2:
+  qs@6.15.3:
     dependencies:
+      es-define-property: 1.0.1
       side-channel: 1.1.1
 
-  range-parser@1.2.1: {}
+  range-parser@1.3.0: {}
 
   raw-body@3.0.2:
     dependencies:
@@ -3483,7 +3485,7 @@ snapshots:
   rc-config-loader@4.1.4:
     dependencies:
       debug: 4.4.3
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
       json5: 2.2.3
       require-from-string: 2.0.2
     transitivePeerDependencies:
@@ -3623,7 +3625,7 @@ snapshots:
       mime-types: 3.0.2
       ms: 2.1.3
       on-finished: 2.4.1
-      range-parser: 1.2.1
+      range-parser: 1.3.0
       statuses: 2.0.2
     transitivePeerDependencies:
       - supports-color
@@ -3807,7 +3809,7 @@ snapshots:
       '@textlint/ast-node-types': 12.6.1
       '@textlint/get-config-base-dir': 2.0.0
       '@textlint/regexp-string-matcher': 1.1.1
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
       textlint: 15.7.1
 
   textlint-filter-rule-comments@1.3.0: {}
@@ -3830,20 +3832,20 @@ snapshots:
 
   textlint-rule-ja-hiragana-daimeishi@1.0.0:
     dependencies:
-      js-yaml: 3.14.2
+      js-yaml: 3.15.0
       kuromojin: 2.1.1
       morpheme-match-all: 1.2.0
 
   textlint-rule-ja-hiragana-fukushi@1.3.0:
     dependencies:
-      js-yaml: 3.14.2
+      js-yaml: 3.15.0
       kuromojin: 2.1.1
       morpheme-match-all: 1.2.0
       untildify: 4.0.0
 
   textlint-rule-ja-hiragana-hojodoushi@1.1.0:
     dependencies:
-      js-yaml: 3.14.2
+      js-yaml: 3.15.0
       kuromojin: 2.1.1
       morpheme-match-all: 1.2.0
       untildify: 4.0.0
@@ -3857,7 +3859,7 @@ snapshots:
     dependencies:
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana@3.0.0:
+  textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
@@ -3890,7 +3892,7 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-no-space-around-parentheses@3.0.0:
+  textlint-rule-ja-no-space-around-parentheses@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
@@ -3900,7 +3902,7 @@ snapshots:
       regx: 1.0.4
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-no-space-between-full-width@3.0.0:
+  textlint-rule-ja-no-space-between-full-width@3.0.2:
     dependencies:
       regx: 1.0.4
       textlint-rule-helper: 2.5.0
@@ -3921,7 +3923,7 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-after-exclamation@3.0.0:
+  textlint-rule-ja-space-after-exclamation@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
@@ -3930,7 +3932,7 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-after-question@3.0.0:
+  textlint-rule-ja-space-after-question@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
@@ -3939,19 +3941,19 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-around-code@3.0.0:
+  textlint-rule-ja-space-around-code@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-around-emphasis@3.0.0:
+  textlint-rule-ja-space-around-emphasis@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-around-link@3.0.0:
+  textlint-rule-ja-space-around-link@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-around-strong@3.0.0:
+  textlint-rule-ja-space-around-strong@3.0.2:
     dependencies:
       textlint-rule-helper: 2.5.0
 
@@ -3961,7 +3963,7 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
-  textlint-rule-ja-space-between-half-and-full-width@3.0.0:
+  textlint-rule-ja-space-between-half-and-full-width@3.0.2:
     dependencies:
       '@textlint/regexp-string-matcher': 2.0.2
       textlint-rule-helper: 2.5.0
@@ -4056,16 +4058,16 @@ snapshots:
 
   textlint-rule-preset-ja-spacing@3.0.0:
     dependencies:
-      textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana: 3.0.0
-      textlint-rule-ja-no-space-around-parentheses: 3.0.0
-      textlint-rule-ja-no-space-between-full-width: 3.0.0
-      textlint-rule-ja-space-after-exclamation: 3.0.0
-      textlint-rule-ja-space-after-question: 3.0.0
-      textlint-rule-ja-space-around-code: 3.0.0
-      textlint-rule-ja-space-around-emphasis: 3.0.0
-      textlint-rule-ja-space-around-link: 3.0.0
-      textlint-rule-ja-space-around-strong: 3.0.0
-      textlint-rule-ja-space-between-half-and-full-width: 3.0.0
+      textlint-rule-ja-nakaguro-or-halfwidth-space-between-katakana: 3.0.2
+      textlint-rule-ja-no-space-around-parentheses: 3.0.2
+      textlint-rule-ja-no-space-between-full-width: 3.0.2
+      textlint-rule-ja-space-after-exclamation: 3.0.2
+      textlint-rule-ja-space-after-question: 3.0.2
+      textlint-rule-ja-space-around-code: 3.0.2
+      textlint-rule-ja-space-around-emphasis: 3.0.2
+      textlint-rule-ja-space-around-link: 3.0.2
+      textlint-rule-ja-space-around-strong: 3.0.2
+      textlint-rule-ja-space-between-half-and-full-width: 3.0.2
 
   textlint-rule-preset-ja-technical-writing@12.0.2:
     dependencies:
@@ -4112,7 +4114,7 @@ snapshots:
       '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.4
       '@textlint-rule/textlint-rule-pattern': 2.0.2
       '@textlint/module-interop': 15.7.1
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
       textlint-rule-ja-hiragana-daimeishi: 1.0.0
       textlint-rule-ja-hiragana-hojodoushi: 1.1.0
       textlint-rule-ja-keishikimeishi: 1.0.5
