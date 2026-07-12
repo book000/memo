@@ -17,7 +17,7 @@ https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate
 ## Environment
 
 - Windows 10 22H2 (Build 19045.2251)
-- iPad Pro 3 (11 inch) / iPadOS 16
+- iPad Pro 3 (11 inch)/iPadOS 16
 - Telerik Fiddler Classic v5.0.20211.51073
 - FiddlerCertMaker
 

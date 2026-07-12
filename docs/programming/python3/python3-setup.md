@@ -1,6 +1,6 @@
 # Python3 Setup for Linux (From source code)
 
-ソースからビルドしてインストールするので、Ubuntu / CentOS 系など、UNIX 系で動くはず。  
+ソースからビルドしてインストールするので、Ubuntu/CentOS 系など、UNIX 系で動くはず。  
 Windows は公式のインストーラとか Scoop とか WinGet とかそこらへんでインストールすればよいんじゃないかなあ。
 
 ## 1. 最新のバージョンを確認する or インストールしたいバージョンを確認する

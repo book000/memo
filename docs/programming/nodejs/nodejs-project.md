@@ -215,7 +215,7 @@ yarn add -D -E ts-node ts-node-dev
 
 ## Lint / Formatter ツールの導入
 
-Lint / Formatter として、[ESLint](https://github.com/eslint/eslint) と [Prettier](https://github.com/prettier/prettier) をいれる。
+Lint/Formatter として、[ESLint](https://github.com/eslint/eslint) と [Prettier](https://github.com/prettier/prettier) をいれる。
 
 Prettier と ESLint はベストプラクティスが変わりに変わっているので、何が適切かわからない。  
 とりあえず参考記事に従って、**ESLint に Linter**・**Prettier に Formatter** と責務を分けて設定することにする。  
