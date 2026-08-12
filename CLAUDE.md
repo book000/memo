@@ -264,7 +264,7 @@ textlint の `preset-ai-writing` ルールによって自動検出できる項�
 
 新しい記事を書いた後、または既存記事を大幅に編集した後は、以下の工程を**必ず**実施すること。
 
-Claude Code を使用している場合は、`/check-ai-writing` コマンドでステップ 1・2 をまとめて実行できる。
+Claude Code を使用している場合は、`/check-ai-writing` スキルでステップ 1・2 をまとめて実行できる。
 
 ```
 /check-ai-writing docs/programming/foo.md
