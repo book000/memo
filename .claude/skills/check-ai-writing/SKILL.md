@@ -1,3 +1,10 @@
+---
+name: check-ai-writing
+description: 記事の AI らしい表現をチェックし、textlint と手動確認で問題箇所を検出・修正する。記事執筆後または既存記事を大幅に編集した後に使用する。
+argument-hint: "[ファイルパス]"
+disable-model-invocation: true
+---
+
 # AI っぽさチェック
 
 記事の AI らしい表現をチェックし、問題があれば修正する。

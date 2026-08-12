@@ -1,3 +1,10 @@
+---
+name: normalize-style
+description: 記事本文のですます調をだ・である調に統一し、textlint で確認する。文体エラーを修正するときに使用する。
+argument-hint: "[ファイルパス]"
+disable-model-invocation: true
+---
+
 # 文体の統一
 
 記事本文のですます調をだ・である調に統一する。
