@@ -42,5 +42,5 @@
     "textlint-rule-preset-smarthr": "1.38.0",
     "textlint-rule-prh": "6.1.0"
   },
-  "packageManager": "pnpm@10.34.5+sha512.a4ee05f2f73658255bd6a89859c065a45c28a57daefae2c893a168ee2b73168c37b91e83e57ea67654ad03f03031746430e8bce38e362e042605fb8abc80192e"
+  "packageManager": "pnpm@12.3.0+sha512.d7bd39a488131de200aeec1dbc9ca58b890437f09b1f925b1bf820fdc463df01a329e3699c3d8a7bb186d5cf3f75cb68ce820c69d6b2c983525bc0821de4c529"
 }
