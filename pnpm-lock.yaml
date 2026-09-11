@@ -173,8 +173,8 @@ importers:
         specifier: 12.0.2
         version: 12.0.2
       textlint-rule-preset-smarthr:
-        specifier: 1.38.0
-        version: 1.38.0
+        specifier: 1.38.1
+        version: 1.38.1
       textlint-rule-prh:
         specifier: 6.1.0
         version: 6.1.0
@@ -1576,9 +1576,8 @@ packages:
   textlint-rule-preset-jtf-style@3.0.3:
     resolution: {integrity: sha512-NTvqjg3oMTGjSDoH6MnYu+DDWW6cEghA66Lb8N0bheTphAj99aaG10HGhwTfDbaH2P6NfPQvRP5ISxiXCT9zdg==}
 
-  textlint-rule-preset-smarthr@1.38.0:
-    resolution: {integrity: sha512-BKs9eH6hcXK2mt31IxDOb3mumcyEtXxHnkYmFffri6G1SuqL4OyC+rcOYDzaUuQ4FgArx5BfgVp7AZsaGe/WSg==}
-    engines: {pnpm: '=10.16.1'}
+  textlint-rule-preset-smarthr@1.38.1:
+    resolution: {integrity: sha512-DnuDb7cM22AzOFcI5buvIby7fKyb8+0v/jYnZrS/KgSZ54yCOCLbDJnziAzRtb4PhP6z45e1qSqtgQ+wTkCfmg==}
 
   textlint-rule-prh@5.3.0:
     resolution: {integrity: sha512-gdod+lL1SWUDyXs1ICEwvQawaSshT3mvPGufBIjF2R5WFPdKQDMsiuzsjkLm+aF+9d97dA6pFsiyC8gSW7mSgg==}
@@ -3685,7 +3684,7 @@ snapshots:
       textlint-rule-helper: 2.5.0
       textlint-rule-prh: 6.1.0
 
-  textlint-rule-preset-smarthr@1.38.0:
+  textlint-rule-preset-smarthr@1.38.1:
     dependencies:
       '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.4
       '@textlint-rule/textlint-rule-pattern': 2.0.2
