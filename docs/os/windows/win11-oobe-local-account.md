@@ -19,7 +19,7 @@ OOBE の挙動はビルドごとに変わる。ここに書いた内容は上記
 | Pro で、ネットワークに接続済み | 下の `Pro の「ドメインに参加する」経路` の節 |
 | Home で、ネットワークに接続済み | `start ms-cxh:localonly` |
 | Home で、ネットワークに接続していない（ケーブルを抜いている、Wi-Fi に未接続など） | `start ms-cxh:localonly` または `BypassNRO.cmd` |
-| Pro で、ネットワークに接続していない | `BypassNRO.cmd`（Pro での `start ms-cxh:localonly` は未確認） |
+| Pro で、ネットワークに接続していない | `start ms-cxh:localonly` または `BypassNRO.cmd` |
 
 ネットワーク画面で `次へ` が押せる状態（接続済み）だと、`インターネットに接続していません` のリンクは表示されない。Home では、ここから Microsoft アカウントのサインイン画面に進んでも、ローカルアカウントに切り替える導線はない。Pro は下の「ドメインに参加する」経路がある。
 
@@ -51,7 +51,7 @@ OOBE の画面から、ローカルアカウントの作成ウィンドウを直
 
 26300.9457 と 26300.9711 の Home で、26300.9457 ではネットワークなし、26300.9711 ではネットワークありで動いた。`BypassNRO.cmd` を先に実行する必要はない。`start ms-cxh://LOCALONLY` も同じ結果だった。
 
-Pro で単独に試した結果は未確認。Insider Preview 26220.6772 では無効化されたという報告がある（二次情報で、実機では未確認）。使えないビルドでは、次の `BypassNRO.cmd` を試す。ただし、同じ報告では `BypassNRO.cmd` も使えなくなったとされている（二次情報、未確認）。
+Pro でも、26300.9457 のネットワークなしで、`BypassNRO.cmd` を使わずに `この PC のユーザーを作成します` のウィンドウが開いた。ネットワークありの Pro は未確認。Insider Preview 26220.6772 では無効化されたという報告がある（二次情報で、実機では未確認）。使えないビルドでは、次の `BypassNRO.cmd` を試す。ただし、同じ報告では `BypassNRO.cmd` も使えなくなったとされている（二次情報、未確認）。
 
 ## `BypassNRO.cmd`
 
@@ -95,7 +95,7 @@ Pro で単独に試した結果は未確認。Insider Preview 26220.6772 では�
 ## 確認できなかったこと
 
 - 25H2 のメディアでの動作
-- Pro での `start ms-cxh:localonly` の単独の動作
+- ネットワークありの Pro での `start ms-cxh:localonly`
 - `WinJS.Application.restart("ms-cxh://LOCALONLY")` を開発者ツールのコンソールで実行する方法。OOBE で ++ctrl+shift+j++、++f12++、++ctrl+shift+i++ を押してもコンソールは開かなかった（26300.9457、Home）
 - Windows 11 の更新後に Microsoft アカウントからローカルアカウントへ切り替える手順
 
