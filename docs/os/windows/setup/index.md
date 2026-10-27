@@ -104,7 +104,7 @@ Microsoft アカウントを利用するならこのまま進んでも良い。�
 
     ![start ms-cxh:localonly で開くユーザー作成画面](assets/oobe-2-localonly.png)
 
-ネットワークの有無にかかわらず動く。`BypassNRO.cmd` を先に実行する必要はない。
+ネットワークの有無にかかわらず動く。
 
 ### Pro の「ドメインに参加する」経路
 
@@ -121,7 +121,7 @@ Pro だけに出る画面を使う。コマンドは不要で、ネットワー�
 
 ### `BypassNRO.cmd`（ネットワークに接続していない場合）
 
-ネットワークに接続していないときだけ使える。接続済みだと、再起動してもネットワーク画面が出ない。
+ネットワークに接続していないときだけ使える。
 
 1. ネットワークから切り離す（LAN ケーブルを抜き、Wi-Fi にも接続しない）
 2. OOBE で ++shift+f10++ を押し、コマンド プロンプトを開く
@@ -182,7 +182,7 @@ Add-Computer -WorkgroupName "<WORKGROUP-NAME>"
 Restart-Computer
 ```
 
-`wmic` は Windows 11 から削除されていて、26300.9711 では実行できない（[KB5067470](https://support.microsoft.com/help/5067470)）。上の PowerShell のコマンドを実行すると、`変更は、コンピューター <旧名> の再起動後に有効になります。` という警告が 2 回表示される。再起動後に、デバイス名とワークグループが変わる。
+`wmic` は Windows 11 から削除されていて、26300.9711 では実行できない（[KB5067470](https://support.microsoft.com/help/5067470)）。
 
 ### ブラウザのインストール
 
@@ -230,8 +230,6 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFr
 
 ![フォルダー オプションの全般タブ](assets/image-1.png)
 
-`最近使用したファイルを表示する` は、スタートの設定と連動している（後述）。
-
 `推奨セクションを表示する` と `アカウント ベース…` のコマンドは次のとおり。
 
 ```powershell
@@ -240,7 +238,7 @@ Set-ItemProperty $ex ShowRecommendations 0           # 推奨セクションを�
 Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベースの分析情報、最近使用したファイル、…を含めない
 ```
 
-フォルダ オプションは、`rundll32 shell32.dll,Options_RunDLL 0` でも開ける（このときのタイトルは `エクスプローラーのオプション`）。
+フォルダ オプションは、`rundll32 shell32.dll,Options_RunDLL 0` でも開ける。
 
 ### タスクバーの設定
 
@@ -255,7 +253,7 @@ Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベース
 - `タスク バーの動作`
   - `タスク バー アイコンの配置`: `左揃え`
 
-`タスク バー アイコンの配置` の既定は `中央揃え`。このほかに、`タスク バーの位置`（下、上、左、右）、`タスク バーのサイズ調整`、`再開`、`タスク バーからウィンドウを共有する`、`縮小したアプリ アイコンを表示` などの項目がある。
+`タスク バー アイコンの配置` の既定は `中央揃え`。
 
 コマンドラインで設定する場合は、PowerShell で以下を実行する（エクスプローラを再起動しなくても反映される）。
 
@@ -330,8 +328,6 @@ Set-ItemProperty $adv Start_AccountNotifications 0   # アカウントに関連�
 Set-ItemProperty $adv Start_TrackDocs 0              # 最近使った項目を表示: オフ
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequentList 0  # 最もよく使用するアプリを表示する: オフ
 ```
-
-`Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに反映されなかった。
 
 次の項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（既定では値が存在せず、オン扱い）。
 
@@ -410,7 +406,7 @@ Stop-Process -Name explorer -Force
 
 この機能は有効化しておかないと利用できないので、++win+v++ を押して機能の有効化をしておく。設定アプリの `システム` → `クリップボード` のトグルでも切り替えられる。
 
-コマンドラインで設定する場合は、PowerShell で以下を実行する。サインアウトしてサインインし直すと設定アプリのトグルに反映される（`cbdhsvc` サービスの再起動だけでは反映されなかった）。
+コマンドラインで設定する場合は、PowerShell で以下を実行する。サインアウトしてサインインし直すと設定アプリのトグルに反映される。
 
 ```powershell
 if (-not (Test-Path HKCU:\Software\Microsoft\Clipboard)) { New-Item HKCU:\Software\Microsoft\Clipboard | Out-Null }
@@ -497,7 +493,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference
 - `Windows を最大限に活用し、このデバイスの設定を完了する方法を提案する`
 - `Windows を使用する際のヒントや提案を入手する`
 
-コマンドラインで設定する場合は、PowerShell で以下を実行する。2 つのチェックがどちらも外れた状態になる。
+コマンドラインで設定する場合は、PowerShell で以下を実行する。
 
 ```powershell
 if (-not (Test-Path HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement)) { New-Item HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement | Out-Null }
@@ -557,8 +553,6 @@ Get-AppxPackage Microsoft.Windows.DevHome | Remove-AppxPackage                 #
 Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
 ```
 
-`Microsoft.WindowsStore`、`Microsoft.WindowsTerminal`、`Microsoft.WindowsNotepad`、`Microsoft.Paint`、`Microsoft.Windows.Photos` なども削除できるが、削除すると困るので通常は残す。
-
 削除したアプリは Microsoft Store から再インストールできる。`winget install -e --id <ID> --source msstore` で入れ直せる。Solitaire は `winget` では `No package found matching input criteria.` になるので、Store のページから入れる。Dev Home は `winget search` で見つからない。
 
 | アプリ | パッケージ名 | Store |
@@ -597,7 +591,6 @@ PCを利用する上で不要なサービスがあるなら、適宜停止する
 参考: https://ygkb.jp/22889
 
 - 起動の種類が `自動` なのは `DiagTrack`（実行中）、`TrkWks`（実行中）、`MapsBroker`（停止中）の 3 つだけ。無効化で実際に変わるのは、この 3 つ
-- `AxInstSV`、`MSDTC`、`MSiSCSI`、`WPDBusEnum`、`SCardSvr`、`ScDeviceEnum`、`SCPolicySvc`、`SNMPTrap`、`TapiSrv`、`upnphost`、`WMPNetworkSvc`、`RetailDemo`、`CertPropSvc`、`SharedAccess` は、最初から `手動` で停止している。無効化しなくても動かない
 
 ```powershell
 # Connected User Experiences and Telemetry
@@ -666,7 +659,7 @@ sc.exe config RetailDemo start=disabled
 ```
 
 !!! note "無効化しないサービス"
-    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要なサービスで、リモート デスクトップ サービスの依存サービスとして起動される。出典は [Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)。スマートカードやリモート デスクトップを使う場合は無効化しない。最初から `手動` なので、無効化しなくても常時は動いていない。
+    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要なサービスで、リモート デスクトップ サービスの依存サービスとして起動される。出典は [Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)。スマートカードやリモート デスクトップを使う場合は無効化しない。
 
 ### ゲーム起動時に Xbox オーバーレイの通知を消す
 
@@ -687,8 +680,6 @@ sc.exe config RetailDemo start=disabled
 ```powershell
 New-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name AppCaptureEnabled -PropertyType DWord -Value 0 -Force
 ```
-
-`GameDVR` キーには `KGLToGCSUpdatedRevision` と `KGLRevision` の 2 つの値しかなく、`AppCaptureEnabled` は最初から存在しない（`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` のサブキーを作る必要はない）。`HKCU\System\GameConfigStore` の `GameDVR_Enabled` は最初から `0`。
 
 ポップアップは、Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できた。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。
 
@@ -813,8 +804,6 @@ Windows 11 から Terminal というものがインストールされるよう�
   <!-- textlint-disable ja-spacing/ja-no-space-between-full-width -->
   - フォント フェイス: `HackGen35 Console NF`
   <!-- textlint-enable ja-spacing/ja-no-space-between-full-width -->
-
-項目名は `フォント フェイス`（Terminal 1.24.11911 で確認）。
 
 設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える。
 
