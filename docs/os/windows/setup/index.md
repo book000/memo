@@ -205,7 +205,7 @@ Set-ItemProperty $p Settings $v
 Stop-Process -Name explorer -Force
 ```
 
-`縮小したアプリ アイコンを表示` のレジストリ値は未確認。
+`縮小したアプリ アイコンを表示` は `$adv` の `IconSizePreference` で、`0` が `常時`、`1` が `なし`、`2` が `タスク バーに入りきらない場合`（既定。値なしでも同じ）。設定アプリで `常時` と `なし` を選んだ結果と、`2` を設定した結果が一致した。
 
 `ウィジェット` は、レジストリ値 `TaskbarDa` が管理者の PowerShell でも「アクセスが拒否されました」になり、書き込めない。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に効き、設定アプリのトグルがグレーアウトのオフになる。
 
@@ -263,9 +263,10 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 | `新着順`（トグル） | `Set-ItemProperty $start ShowRecentSection 0` |
 | `ピン留め済み`（トグル） | `Set-ItemProperty $start ShowPinnedSection 0` |
 | `すべて`（トグル） | `Set-ItemProperty $start ShowAllAppsSection 0` |
+| `スタート画面で名前とプロフィール画像を非表示にする`（オンにする） | `Set-ItemProperty $start HideUserInformation 1` |
 | `スタート メニューのサイズ` | `Set-ItemProperty $start StartMenuSize 1`（`1` が小、`2` が大。既定の `自動` は値なし） |
 
-`$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。`スタート画面で名前とプロフィール画像を非表示にする` のコマンドは未確認。
+`$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。
 
 ### テーマ・色の設定
 
