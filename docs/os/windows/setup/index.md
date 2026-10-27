@@ -126,6 +126,8 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 
 ![](assets/image.png)
 
+（26300.9711 の `表示` メニュー。`ファイル名拡張子` と `隠しファイル` にチェックが付いている）
+
 さらに、`・・・` から `オプション` を開き、以下の設定も行う。
 
 - `全般` タブ
@@ -145,6 +147,8 @@ Set-ItemProperty $adv Hidden 1                       # 隠しファイルを表�
 Set-ItemProperty $adv LaunchTo 1                     # エクスプローラーで開く: PC（ホームは 0）
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFrequent 0  # 使用頻度の高いフォルダーを表示しない
 ```
+
+![](assets/image-1.png)
 
 `最近使用したファイルを表示する` は、スタートの設定と連動している（後述）。
 
@@ -181,6 +185,10 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Search Searchbo
 Set-ItemProperty $adv ShowTaskViewButton 0           # タスク ビュー: オフ
 Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: 左揃え（中央揃えは 1）
 ```
+
+![](assets/image-2.png)
+
+![](assets/image-12.png)
 
 増えた項目は、レジストリで次のように設定できる。値はいずれも、設定アプリで切り替えた結果と、コマンドで設定した結果が一致することを確認した（`TaskbarSi` と `TaskbarGlomLevel` は、コマンドで設定してタスクバーの見た目が変わることを確認した）。
 
@@ -227,6 +235,8 @@ Stop-Process -Name explorer -Force                   # エクスプローラー�
 - `すべて` の下の `最もよく使用するアプリを表示する (グリッド ビューとリスト ビューのみ)`: オフ（既定でオフ）
 - `アカウントに関連する通知を表示`: オフ
 - `ジャンプ リストとエクスプローラーで最近使った項目を表示します`: オフ
+
+![](assets/image-4.png)
 
 22H2 の項目は、次のように変わっている。
 
