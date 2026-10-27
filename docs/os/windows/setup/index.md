@@ -214,7 +214,11 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
     - [ ] `推奨セクションを表示する`
     - [ ] `アカウント ベースの分析情報、最近使用したファイル、お気に入りファイル、おすすめのファイルを含める`
 
-`推奨セクションを表示する` をオンにすると、ホームの `クイック アクセス` が消えて、推奨ファイルの領域に置き換わる（ローカル アカウントでは「表示できるファイルがまだありません」と出る）。オフにすると `クイック アクセス` に戻る。`アカウント ベースの分析情報、最近使用したファイル、お気に入りファイル、おすすめのファイルを含める` をオフにすると、アカウントやクラウドのアクティビティにもとづく項目がホームの一覧に含まれなくなる（[参考](https://windowslatest.com/2025/01/31/windows-11s-file-explorer-is-getting-recommended-feed-with-microsoft-account-integration)）。ローカル アカウントでは、この項目を切り替えても表示に変化はなかった。`使用頻度の高いフォルダーを表示する` をオフにすると、ホームの `クイック アクセス` が消える。
+`推奨セクションを表示する` をオンにすると、ホームの `クイック アクセス` が消えて、推奨ファイルの領域に置き換わる。ローカル アカウントでは「表示できるファイルがまだありません」と出る。オフにすると `クイック アクセス` に戻る。
+
+`アカウント ベースの分析情報、最近使用したファイル、お気に入りファイル、おすすめのファイルを含める` をオフにすると、アカウントやクラウドのアクティビティにもとづく項目がホームの一覧に含まれなくなる（[参考](https://windowslatest.com/2025/01/31/windows-11s-file-explorer-is-getting-recommended-feed-with-microsoft-account-integration)）。ローカル アカウントでは、切り替えても表示に変化はなかった。
+
+`使用頻度の高いフォルダーを表示する` をオフにすると、ホームの `クイック アクセス` が消える。
 
 コマンドラインで設定する場合は、PowerShell で以下を実行する。エクスプローラを開き直すと反映される。
 
@@ -354,13 +358,11 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 - [`個人用設定 -> テーマ` を開く](ms-settings:themes){ .md-button }
 - [`個人用設定 -> 色` を開く](ms-settings:colors){ .md-button }
 
-`ms-settings:themes`、`ms-settings:colors` は、26300.9711 でそれぞれ `個人用設定 › テーマ`、`個人用設定 › 色` を開いた（Win+R に直接入力して確認。Win+R では `start` は使えない）。
-
 ### ユーザーフォルダの移動
 
 C ドライブにあるユーザーフォルダを別ドライブに移動する場合、以下の手順を踏む。
 
-GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `はい` で移動できる（26300.9711 でダウンロードを `C:\TestUF2\Downloads` に移動して確認した）。
+GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `はい` で移動できる。
 
 1. `C:\Users\<User>` を開く（`%HOMEDRIVE%%HOMEPATH%`）
 2. 後述するフォルダのプロパティを開く
@@ -393,7 +395,7 @@ GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ 
 - `ミュージック`: `My Music`
 - `ビデオ`: `My Video`
 
-ダウンロードを `C:\TestUF\Downloads` に変えたところ、再起動後に `shell:Downloads` がそのパスになった。既存のファイルは移動されないので、`Move-Item` で別に移す。
+既存のファイルは移動されないので、`Move-Item` で別に移す。
 
 ```powershell
 $k = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
@@ -478,7 +480,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference
 
 [`システム -> ディスプレイ` を開く](ms-settings:display){ .md-button }
 
-1. 下にスクロールし、`関連設定` の `ディスプレイの詳細設定`（説明は `ディスプレイ情報、リフレッシュ レート`）をクリック。複数のモニターがある場合は、ここで対象のモニターを選ぶ
+1. 下にスクロールし、`関連設定` の `ディスプレイの詳細設定` をクリック。複数のモニターがある場合は、ここで対象のモニターを選ぶ
 2. `リフレッシュ レートの選択` にて、選択可能な一番高いリフレッシュレートを選ぶ
 
 ### 起動時の「PCのセットアップを完了しましょう」を止める
@@ -526,33 +528,23 @@ Windows は標準で不要なアプリケーションを大量にインストー
 
 ```powershell
 Get-AppxPackage Clipchamp.Clipchamp | Remove-AppxPackage                       # Clipchamp
-Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                   # Cortana（26300.9711 の Home・Pro では存在しない）
-Get-AppxPackage Disney.37853FC22B2CE | Remove-AppxPackage                      # Disney+（26H2 の Home・Pro では存在しない）
 Get-AppxPackage MSTeams | Remove-AppxPackage                                   # Microsoft Teams（新しい Teams）
-Get-AppxPackage MicrosoftTeams | Remove-AppxPackage                            # Microsoft Teams（旧 Chat 用。26300.9711 の Home では存在しない）
 Get-AppxPackage Microsoft.Todos | Remove-AppxPackage                           # Microsoft To Do
 Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage              # Office on the Webへようこそ（26H2 では Pro のみ存在する）
 Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage    # Solitaire
-Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                    # Spotify（26H2 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.GamingApp | Remove-AppxPackage                       # Xbox ストア画面
 Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage               # Xbox Game Bar
 Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage                       # Xbox その他
-Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage                 # Xbox その他（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage            # Xbox その他
 Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage         # Xbox その他
-Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                       # 映画 & テレビ（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage                   # カメラ
 Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage                       # スマホ同期
 Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage                     # 天気
-Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                      # ヒント（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage              # フィードバック Hub
 Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage            # ボイス レコーダー
-Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                     # マップ（26300.9711 の Home・Pro では存在しない）
-Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage       # メール、カレンダー（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                       # メディアプレーヤー
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage                        # ニュース
 Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                         # ヘルプ
-Get-AppxPackage Microsoft.People | Remove-AppxPackage                          # People（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        # クイック アシスト
 Get-AppxPackage Microsoft.Copilot | Remove-AppxPackage                         # Copilot（26H2 では Home のみ存在する）
 Get-AppxPackage Microsoft.OutlookForWindows | Remove-AppxPackage               # 新しい Outlook
@@ -560,8 +552,6 @@ Get-AppxPackage Microsoft.BingSearch | Remove-AppxPackage                      #
 Get-AppxPackage Microsoft.PowerAutomateDesktop | Remove-AppxPackage            # Power Automate
 Get-AppxPackage Microsoft.Windows.DevHome | Remove-AppxPackage                 # Dev Home
 ```
-
-「26300.9711 の Home・Pro では存在しない」と書いたものは、最初から入っていなかった。実行しても何も起きない（エラーにもならない）。
 
 `Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、新しく作るユーザーには再び入る。すべてのユーザーから消してプロビジョニングも外す場合は、**管理者権限で** `-AllUsers` をつける。
 
@@ -704,7 +694,7 @@ New-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name A
 
 26300.9711 の Home では、`GameDVR` キーには `KGLToGCSUpdatedRevision` と `KGLRevision` の 2 つの値しかなく、`AppCaptureEnabled` は最初から存在しない（`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` のサブキーを作る必要はない）。`HKCU\System\GameConfigStore` の `GameDVR_Enabled` は最初から `0`。
 
-ポップアップは、Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できた。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。`AppCaptureEnabled` を `0` にすると実際のゲーム起動時のポップアップが消えるかは、ゲームを起動しての確認ができていないので未確認。
+ポップアップは、Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できた。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。
 
 ### ファイルなどの右クリックメニューを戻す
 
@@ -828,7 +818,7 @@ Windows 11 から Terminal というものがインストールされるよう�
   - フォント フェイス: `HackGen35 Console NF`
   <!-- textlint-enable ja-spacing/ja-no-space-between-full-width -->
 
-項目名は `フォント フェイス`（Terminal 1.24.11911 で確認）。`フォント スタイル` という項目はない。
+項目名は `フォント フェイス`（Terminal 1.24.11911 で確認）。
 
 設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える（`Consolas` で試した。設定画面の `フォント フェイス` に反映された）。
 
