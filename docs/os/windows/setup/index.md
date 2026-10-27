@@ -202,8 +202,6 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 
 ![エクスプローラーの表示メニュー](assets/image.png)
 
-（26300.9711 の `表示` メニュー。`ファイル名拡張子` と `隠しファイル` にチェックが付いている）
-
 さらに、`・・・` から `オプション` を開き、以下の設定も行う。
 
 - `全般` タブ
@@ -234,7 +232,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFr
 
 `最近使用したファイルを表示する` は、スタートの設定と連動している（後述）。
 
-`推奨セクションを表示する` と `アカウント ベース…` のコマンドは次のとおり（フォルダ オプションで切り替えた結果と一致した）。
+`推奨セクションを表示する` と `アカウント ベース…` のコマンドは次のとおり。
 
 ```powershell
 $ex = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer'
@@ -561,7 +559,7 @@ Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
 
 `Microsoft.WindowsStore`、`Microsoft.WindowsTerminal`、`Microsoft.WindowsNotepad`、`Microsoft.Paint`、`Microsoft.Windows.Photos` なども削除できるが、削除すると困るので通常は残す。
 
-削除したアプリは Microsoft Store から再インストールできる。26300.9711 の Pro で、削除（`-AllUsers`）してから `winget install -e --id <ID> --source msstore` で入れ直し、パッケージが戻ることを確認した。Solitaire は `winget` では `No package found matching input criteria.` になったが、Store のページは開ける。Dev Home は `winget search` で見つからなかった。
+削除したアプリは Microsoft Store から再インストールできる。`winget install -e --id <ID> --source msstore` で入れ直せる。Solitaire は `winget` では `No package found matching input criteria.` になるので、Store のページから入れる。Dev Home は `winget search` で見つからない。
 
 | アプリ | パッケージ名 | Store |
 | --- | --- | --- |
@@ -597,8 +595,6 @@ Get-AppxPackage | Where-Object IsFramework -eq $false | Where-Object NonRemovabl
 PCを利用する上で不要なサービスがあるなら、適宜停止する。コマンドは管理者権限で実施すること。
 
 参考: https://ygkb.jp/22889
-
-26300.9711 の Home で、各サービスの状態を確認した。
 
 - 起動の種類が `自動` なのは `DiagTrack`（実行中）、`TrkWks`（実行中）、`MapsBroker`（停止中）の 3 つだけ。無効化で実際に変わるのは、この 3 つ
 - `AxInstSV`、`MSDTC`、`MSiSCSI`、`WPDBusEnum`、`SCardSvr`、`ScDeviceEnum`、`SCPolicySvc`、`SNMPTrap`、`TapiSrv`、`upnphost`、`WMPNetworkSvc`、`RetailDemo`、`CertPropSvc`、`SharedAccess` は、最初から `手動` で停止している。無効化しなくても動かない
@@ -692,7 +688,7 @@ sc.exe config RetailDemo start=disabled
 New-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name AppCaptureEnabled -PropertyType DWord -Value 0 -Force
 ```
 
-26300.9711 の Home では、`GameDVR` キーには `KGLToGCSUpdatedRevision` と `KGLRevision` の 2 つの値しかなく、`AppCaptureEnabled` は最初から存在しない（`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` のサブキーを作る必要はない）。`HKCU\System\GameConfigStore` の `GameDVR_Enabled` は最初から `0`。
+`GameDVR` キーには `KGLToGCSUpdatedRevision` と `KGLRevision` の 2 つの値しかなく、`AppCaptureEnabled` は最初から存在しない（`{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` のサブキーを作る必要はない）。`HKCU\System\GameConfigStore` の `GameDVR_Enabled` は最初から `0`。
 
 ポップアップは、Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できた。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。
 
@@ -820,7 +816,7 @@ Windows 11 から Terminal というものがインストールされるよう�
 
 項目名は `フォント フェイス`（Terminal 1.24.11911 で確認）。
 
-設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える（`Consolas` で試した。設定画面の `フォント フェイス` に反映された）。
+設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える。
 
 ```json
 "defaults": { "font": { "face": "HackGen35 Console NF" } },
