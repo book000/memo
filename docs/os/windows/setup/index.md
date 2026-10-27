@@ -148,6 +148,16 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFr
 
 `最近使用したファイルを表示する` は、スタートの設定と連動している（後述）。
 
+増えた項目のコマンドは次のとおり（フォルダ オプションで切り替えた結果と一致した）。
+
+```powershell
+$ex = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer'
+Set-ItemProperty $ex ShowRecommendations 1           # 推奨セクションを表示する（オフは 0）
+Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベースの分析情報、最近使用したファイル、…を含めない
+```
+
+フォルダ オプションは、`rundll32 shell32.dll,Options_RunDLL 0` でも開ける（このときのタイトルは `エクスプローラーのオプション`）。
+
 ### タスクバーの設定
 
 設定アプリを開き、`個人用設定` から `タスクバー` を開き、以下の設定をする。
@@ -171,6 +181,31 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Search Searchbo
 Set-ItemProperty $adv ShowTaskViewButton 0           # タスク ビュー: オフ
 Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: 左揃え（中央揃えは 1）
 ```
+
+増えた項目は、レジストリで次のように設定できる。値はいずれも、設定アプリで切り替えた結果と、コマンドで設定した結果が一致することを確認した（`TaskbarSi` と `TaskbarGlomLevel` は、コマンドで設定してタスクバーの見た目が変わることを確認した）。
+
+| 設定アプリの項目 | 効果 | コマンド（PowerShell） |
+|---|---|---|
+| `再開` | 再開可能な状態になったとき、バッジ通知があるアプリを表示する | `Set-ItemProperty $adv IsEnabled 0`（オフ。オンは `1`） |
+| `タスク バーからウィンドウを共有する` | タスクバーのウインドウから共有できるようにする（共有の操作内容は未確認） | `Set-ItemProperty $adv TaskbarSn 0`（オフ） |
+| `タスク バー アプリの点滅を表示する` | アプリの通知でタスクバーのボタンが点滅する | `Set-ItemProperty $adv TaskbarFlashing 0`（オフ） |
+| `タスク バー アプリでバッジを表示する` | ボタンにバッジ（未読数など）を表示する | `Set-ItemProperty $adv TaskbarBadges 0`（オフ） |
+| `デスクトップを表示するには、タスク バーの隅を選択します` | タスクバー右端のクリックでデスクトップを表示する | `Set-ItemProperty $adv TaskbarSd 0`（オフ） |
+| `タスク バーのサイズ調整` | タスクバーの高さ | `Set-ItemProperty $adv TaskbarSi 0`（小。既定は `1`） |
+| `タスク バーのボタンをまとめラベルを非表示にする` | ボタンをまとめるか、ラベルを表示するか | `Set-ItemProperty $adv TaskbarGlomLevel 2`（まとめない。ラベルが表示される。既定は `0` の常時） |
+
+`タスク バーの位置` と `タスク バーを自動的に隠す` は、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3` の `Settings`（48 バイトのバイナリ）にある。12 バイト目（添字 12）が位置（`0` 左、`1` 上、`2` 右、`3` 下）、9 バイト目（添字 8）が自動的に隠す（`2` が通常、`3` が隠す）。変更後はエクスプローラを再起動する。
+
+```powershell
+$p = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'
+$v = (Get-ItemProperty $p).Settings
+$v[12] = 1                                           # タスクバーを上に（下は 3）
+$v[8] = 2                                            # 自動的に隠さない（隠す場合は 3）
+Set-ItemProperty $p Settings $v
+Stop-Process -Name explorer -Force
+```
+
+`縮小したアプリ アイコンを表示` のレジストリ値は未確認。
 
 `ウィジェット` は、レジストリ値 `TaskbarDa` が管理者の PowerShell でも「アクセスが拒否されました」になり、書き込めない。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に効き、設定アプリのトグルがグレーアウトのオフになる。
 
@@ -217,7 +252,20 @@ Set-ItemProperty $adv Start_TrackDocs 0              # 最近使った項目を�
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequentList 0  # 最もよく使用するアプリを表示する: オフ
 ```
 
-`Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに効かなかった。`最近追加したアプリを表示する` のコマンドは未確認。
+`Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに効かなかった。
+
+26300.9711 で増えた項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（設定アプリでオフにした結果と一致する。既定では値が存在せず、オン扱い）。
+
+| 設定アプリの項目 | コマンド（PowerShell） |
+|---|---|
+| `最近追加したアプリを表示する` | `Set-ItemProperty $start ShowRecentList 0` |
+| `最近使ったファイルとおすすめのファイルを表示する` | `Set-ItemProperty $start ShowSuggestedFiles 0` |
+| `新着順`（トグル） | `Set-ItemProperty $start ShowRecentSection 0` |
+| `ピン留め済み`（トグル） | `Set-ItemProperty $start ShowPinnedSection 0` |
+| `すべて`（トグル） | `Set-ItemProperty $start ShowAllAppsSection 0` |
+| `スタート メニューのサイズ` | `Set-ItemProperty $start StartMenuSize 1`（`1` が小、`2` が大。既定の `自動` は値なし） |
+
+`$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。`スタート画面で名前とプロフィール画像を非表示にする` のコマンドは未確認。
 
 ### テーマ・色の設定
 
@@ -226,13 +274,13 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 - [`個人用設定 -> テーマ` を開く](ms-settings:themes){ .md-button }
 - [`個人用設定 -> 色` を開く](ms-settings:colors){ .md-button }
 
+`ms-settings:themes`、`ms-settings:colors` は、26300.9711 でそれぞれ `個人用設定 › テーマ`、`個人用設定 › 色` を開いた（Win+R に直接入力して確認。Win+R では `start` は使えない）。
+
 ### ユーザーフォルダの移動
 
 C ドライブにあるユーザーフォルダを別ドライブに移動する場合、以下の手順を踏む。
 
-この手順は 26H2 では未確認。
-
-GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `移動` できる。
+GUI から変更する場合は（この手順の画面は 26H2 では未確認）、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `移動` できる。
 
 1. `C:\Users\<User>` を開く（`%HOMEDRIVE%%HOMEPATH%`）
 2. 後述するフォルダのプロパティを開く
@@ -255,6 +303,15 @@ GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ 
 - `リンク`
 - `保存したゲーム`
 - `検索`
+
+コマンドラインでは、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders` の値を書き換えて、エクスプローラを再起動する。`ダウンロード` は `{374DE290-123F-4565-9164-39C4925E467B}`、`デスクトップ` は `Desktop`、`ドキュメント` は `Personal`、`ピクチャ` は `My Pictures`、`ミュージック` は `My Music`、`ビデオ` は `My Video`。ダウンロードを `C:\TestUF\Downloads` に変えたところ、再起動後に `shell:Downloads` がそのパスになった（既存のファイルは移動されないので、`Move-Item` で別に移す）。ほかのフォルダでのコマンドと、ファイルの移動を含む結果は未確認。
+
+```powershell
+$k = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+New-Item -ItemType Directory 'D:\Users\Downloads' -Force | Out-Null
+Set-ItemProperty $k '{374DE290-123F-4565-9164-39C4925E467B}' 'D:\Users\Downloads'
+Stop-Process -Name explorer -Force
+```
 
 ### クリップボードの履歴機能を有効化
 
@@ -296,6 +353,16 @@ Windows はことあるごとに通知音を鳴らしてうるさいので、Win
 3. `サウンド設定` を `サウンドなし` に変更
 4. `OK` で保存
 
+コマンドラインでは、PowerShell で以下を実行する。「サウンド」画面の `サウンド設定` が `サウンドなし` になる。`Windows スタートアップのサウンドを再生する` のチェックは変わらない。
+
+```powershell
+Set-ItemProperty HKCU:\AppEvents\Schemes '(default)' '.None'
+Get-ChildItem 'HKCU:\AppEvents\Schemes\Apps\*\*' | ForEach-Object {
+    $c = Join-Path $_.PSPath '.Current'
+    if (Test-Path $c) { Set-ItemProperty $c '(default)' '' }
+}
+```
+
 ### 通信アクティビティの設定
 
 Discord などで通話中にほかの音量が下がってしまう問題を解決するため、通信アクティビティで音量を変更しないようにする。
@@ -320,10 +387,10 @@ Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference
 
 [`システム -> ディスプレイ` を開く](ms-settings:display){ .md-button }
 
-1. 対象のモニターを選択し、下にスクロールし `ディスプレイの詳細設定` をクリック
+1. 下にスクロールし、`関連設定` の `ディスプレイの詳細設定`（説明は `ディスプレイ情報、リフレッシュ レート`）をクリック。複数のモニターがある場合は、ここで対象のモニターを選ぶ
 2. `リフレッシュ レートの選択` にて、選択可能な一番高いリフレッシュレートを選ぶ
 
-この手順は未確認（検証した仮想マシンには、リフレッシュレートを選べる実ディスプレイがない）。
+`ディスプレイの詳細設定` までは 26300.9711 で確認した。`リフレッシュ レートの選択` は、検証した仮想マシン（Microsoft 基本ディスプレイ アダプター）に表示されず、未確認。
 
 ### 起動時の「PCのセットアップを完了しましょう」を止める
 
@@ -749,6 +816,12 @@ Windows 11 から Terminal というものがインストールされるよう�
   <!-- textlint-enable ja-spacing/ja-no-space-between-full-width -->
 
 項目名は `フォント フェイス`（Terminal 1.24.11911 で確認）。`フォント スタイル` という項目はない。
+
+設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える（`Consolas` で試した。設定画面の `フォント フェイス` に反映された）。
+
+```json
+"defaults": { "font": { "face": "HackGen35 Console NF" } },
+```
 
 ### Pwsh
 
