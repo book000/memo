@@ -121,7 +121,7 @@ Pro だけに出る画面を使う。コマンドは不要で、ネットワー�
 
 ### `BypassNRO.cmd`（ネットワークに接続していない場合）
 
-ネットワークに接続していないときだけ効く。接続済みだと、再起動してもネットワーク画面が出ない。
+ネットワークに接続していないときだけ使える。接続済みだと、再起動してもネットワーク画面が出ない。
 
 1. ネットワークから切り離す（LAN ケーブルを抜き、Wi-Fi にも接続しない）
 2. OOBE で ++shift+f10++ を押し、コマンド プロンプトを開く
@@ -294,7 +294,7 @@ Stop-Process -Name explorer -Force
 
 `縮小したアプリ アイコンを表示` は `$adv` の `IconSizePreference` で、`0` が `常時`、`1` が `なし`、`2` が `タスク バーに入りきらない場合`（既定。値なしでも同じ）。
 
-`ウィジェット` は、ユーザー単位のレジストリ値 `HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced` の `TaskbarDa`（`0` でオフ）で、設定アプリのトグルはこの値を書き換える。ただし、PowerShell や `reg` からは書き込めない。管理者で実行しても、実行ファイル名を変えても「アクセスが拒否されました」になる。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に効き、設定アプリのトグルがグレーアウトのオフになる。
+`ウィジェット` は、ユーザー単位のレジストリ値 `HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced` の `TaskbarDa`（`0` でオフ）で、設定アプリのトグルはこの値を書き換える。ただし、PowerShell や `reg` からは書き込めない。管理者で実行しても、実行ファイル名を変えても「アクセスが拒否されました」になる。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に適用され、設定アプリのトグルがグレーアウトのオフになる。
 
 ```powershell
 reg add HKLM\SOFTWARE\Policies\Microsoft\Dsh /v AllowNewsAndInterests /t REG_DWORD /d 0 /f
@@ -329,7 +329,7 @@ Set-ItemProperty $adv Start_TrackDocs 0              # 最近使った項目を�
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequentList 0  # 最もよく使用するアプリを表示する: オフ
 ```
 
-`Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに効かなかった。
+`Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに反映されなかった。
 
 次の項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（既定では値が存在せず、オン扱い）。
 
