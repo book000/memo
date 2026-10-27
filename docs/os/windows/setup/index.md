@@ -47,37 +47,37 @@ BIOS/UEFI に入り、起動順を変えてインストールメディアとし�
 
 1. `言語設定を選択` と `キーボード設定を選択` を確認して進む
 
-    ![](assets/install-1-language.png)
+    ![言語設定とキーボード設定の選択画面](assets/install-1-language.png)
 
-    ![](assets/install-2-keyboard.png)
+    ![キーボード設定の選択画面](assets/install-2-keyboard.png)
 
 2. `セットアップ オプションの選択` で `Windows 11 のインストール` を選び、`ファイル、アプリ、設定など、すべてが削除されることに同意します(A)` にチェックを入れて `次へ`
 
-    ![](assets/install-3-option.png)
+    ![セットアップ オプションの選択画面](assets/install-3-option.png)
 
 3. `プロダクト キーを入力してください` の画面になる。クリーンインストールの場合ハードウェアの情報を使って認証するので、左下の `プロダクト キーがありません` をクリック
 
-    ![](assets/install-4-productkey.png)
+    ![プロダクト キーの入力画面](assets/install-4-productkey.png)
 
 4. `イメージの選択` の画面で、インストールするエディションを選ぶ。選択肢は Home、Education、Pro、Pro Education、Pro for Workstations の 5 つ
 
-    ![](assets/install-5-image.png)
+    ![エディションの選択画面](assets/install-5-image.png)
 
 5. ライセンス条項で `同意する(A)` をクリック
 
-    ![](assets/install-6-license.png)
+    ![ライセンス条項の画面](assets/install-6-license.png)
 
 6. `Windows 11 をインストールする場所の選択` に進む。再インストールの場合は、すべてのパーティションを削除し、1 つの `割り当てられていない領域` にする。パーティションを 1 つずつ選んで `パーティションの削除(D)` をクリックする。確認の画面は出ない。システム、MSR、Windows 本体、回復の 4 つがあり、回復パーティションも削除する。新しい空のディスクでは、この手順は不要
 
-    ![](assets/install-7-partitions.png)
+    ![インストール場所の選択画面（パーティション一覧）](assets/install-7-partitions.png)
 
 7. `割り当てられていない領域` を選択して `次へ` をクリックする。パーティションを事前に作る必要はなく、インストーラーが自動で作る
 
-    ![](assets/install-8-unallocated.png)
+    ![割り当てられていない領域を選択した画面](assets/install-8-unallocated.png)
 
 8. `インストール準備完了` で、`Windows 11 Home をインストール`（Pro を選んだ場合は `Windows 11 Pro をインストール`）と `何も引き継がない` が表示されていることを確認し、`インストール(I)` をクリックする
 
-    ![](assets/install-9-ready.png)
+    ![インストール準備完了の画面](assets/install-9-ready.png)
 
 9. `Windows 11 をインストールしています` の画面で進捗が表示され、数回再起動する。終わると、国や地域を選ぶ画面になる
 
@@ -102,7 +102,7 @@ Microsoft アカウントを利用するならこのまま進んでも良い。�
 
 3. `この PC のユーザーを作成します` という画面が開く。ユーザー名、パスワード（2 回）、パスワードを忘れた場合の質問 3 問と答えを入力して `次へ(N)` を押す
 
-    ![](assets/oobe-2-localonly.png)
+    ![start ms-cxh:localonly で開くユーザー作成画面](assets/oobe-2-localonly.png)
 
 ネットワークの有無にかかわらず動く。`BypassNRO.cmd` を先に実行する必要はない。
 
@@ -113,11 +113,11 @@ Pro だけに出る画面を使う。コマンドは不要で、ネットワー�
 1. `このデバイスをどのように設定しますか?` で `職場または学校用に設定する` を選んで `次へ`
 2. Microsoft のサインイン画面で、メールアドレス欄の下の `サインイン オプション` をクリック
 
-    ![](assets/oobe-3-pro-choice.png)
+    ![Pro のデバイス設定方法の選択画面](assets/oobe-3-pro-choice.png)
 
 3. `代わりにドメインに参加する` をクリックする。ローカルアカウントの入力画面（`このデバイスを使うのはだれですか?`）に進む
 
-    ![](assets/oobe-4-pro-signin-options.png)
+    ![サインイン オプションの画面](assets/oobe-4-pro-signin-options.png)
 
 ### `BypassNRO.cmd`（ネットワークに接続していない場合）
 
@@ -133,7 +133,7 @@ Pro だけに出る画面を使う。コマンドは不要で、ネットワー�
 
 4. 国の設定とキーボード レイアウトのあと、`ネットワークに接続しましょう` に `インターネットに接続していません` のリンクが表示される。これをクリックすると、`このデバイスを使うのはだれですか?` に進む
 
-    ![](assets/oobe-1-network-link.png)
+    ![ネットワーク接続画面のインターネットに接続していないリンク](assets/oobe-1-network-link.png)
 
 `C:\Windows\System32\oobe\BypassNRO.cmd` の中身は、次の 3 行。ファイルがない場合は、`reg add` と `shutdown` を手で実行する。
 
@@ -200,7 +200,7 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 - [x] `ファイル名拡張子`
 - [x] `隠しファイル`
 
-![](assets/image.png)
+![エクスプローラーの表示メニュー](assets/image.png)
 
 （26300.9711 の `表示` メニュー。`ファイル名拡張子` と `隠しファイル` にチェックが付いている）
 
@@ -226,15 +226,15 @@ Set-ItemProperty $adv LaunchTo 1                     # エクスプローラー�
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFrequent 0  # 使用頻度の高いフォルダーを表示しない
 ```
 
-![](assets/image-1.png)
+![フォルダー オプションの全般タブ](assets/image-1.png)
 
 `最近使用したファイルを表示する` は、スタートの設定と連動している（後述）。
 
-増えた項目のコマンドは次のとおり（フォルダ オプションで切り替えた結果と一致した）。
+`推奨セクションを表示する` と `アカウント ベース…` のコマンドは次のとおり（フォルダ オプションで切り替えた結果と一致した）。
 
 ```powershell
 $ex = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer'
-Set-ItemProperty $ex ShowRecommendations 1           # 推奨セクションを表示する（オフは 0）
+Set-ItemProperty $ex ShowRecommendations 0           # 推奨セクションを表示しない（表示する場合は 1）
 Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベースの分析情報、最近使用したファイル、…を含めない
 ```
 
@@ -264,7 +264,7 @@ Set-ItemProperty $adv ShowTaskViewButton 0           # タスク ビュー: オ�
 Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: 左揃え（中央揃えは 1）
 ```
 
-![](assets/image-2.png)
+![個人用設定のタスク バー](assets/image-2.png)
 
 増えた項目は、レジストリで次のように設定できる。
 
@@ -280,7 +280,7 @@ Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: �
 
 `タスク バーの位置` と `タスク バーを自動的に隠す` は、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3` の `Settings`（48 バイトのバイナリ）にある。次の 2 か所を使う。変更後はエクスプローラを再起動する。
 
-- 12 バイト目（添字 12）: 位置。`0` が左、`1` が上、`2` が右、`3` が下
+- 13 バイト目（添字 12）: 位置。`0` が左、`1` が上、`2` が右、`3` が下
 - 9 バイト目（添字 8）: 自動的に隠す。`2` が通常、`3` が隠す
 
 ```powershell
@@ -315,7 +315,7 @@ Stop-Process -Name explorer -Force                   # エクスプローラー�
 - `アカウントに関連する通知を表示`: オフ
 - `ジャンプ リストとエクスプローラーで最近使った項目を表示します`: オフ
 
-![](assets/image-4.png)
+![個人用設定のスタート](assets/image-4.png)
 
 `ジャンプ リストとエクスプローラーで最近使った項目を表示します` をオフにすると、`最近使ったファイルとおすすめのファイルを表示する` のチェックと、エクスプローラの `フォルダー オプション` の `最近使用したファイルを表示する` も一緒にオフになる。3 か所が連動している。
 
@@ -333,6 +333,8 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 
 次の項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（既定では値が存在せず、オン扱い）。
 
+以下の `$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。
+
 | 設定アプリの項目 | コマンド（PowerShell） |
 |---|---|
 | `最近追加したアプリを表示する` | `Set-ItemProperty $start ShowRecentList 0` |
@@ -343,7 +345,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 | `スタート画面で名前とプロフィール画像を非表示にする`（オンにする） | `Set-ItemProperty $start HideUserInformation 1` |
 | `スタート メニューのサイズ` | `Set-ItemProperty $start StartMenuSize 1`（`1` が小、`2` が大。既定の `自動` は値なし） |
 
-`$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。
+`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。
 
 ### テーマ・色の設定
 
@@ -404,14 +406,14 @@ Stop-Process -Name explorer -Force
 
 ++win+v++ を押すことで、以下のようなクリップボード履歴機能が利用できる。
 
-![](assets/image-3.png)
+![クリップボード履歴の設定](assets/image-3.png)
 
 この機能は有効化しておかないと利用できないので、++win+v++ を押して機能の有効化をしておく。設定アプリの `システム` → `クリップボード` のトグルでも切り替えられる。
 
 コマンドラインで設定する場合は、PowerShell で以下を実行する。サインアウトしてサインインし直すと設定アプリのトグルに反映される（`cbdhsvc` サービスの再起動だけでは反映されなかった）。
 
 ```powershell
-New-Item -Force HKCU:\Software\Microsoft\Clipboard
+if (-not (Test-Path HKCU:\Software\Microsoft\Clipboard)) { New-Item HKCU:\Software\Microsoft\Clipboard | Out-Null }
 Set-ItemProperty HKCU:\Software\Microsoft\Clipboard EnableClipboardHistory 1   # 無効にする場合は 0
 ```
 
@@ -442,7 +444,7 @@ Windows はことあるごとに通知音を鳴らしてうるさいので、Win
 
 コマンドラインでは、PowerShell で以下を実行する。「サウンド」画面の `サウンド設定` が `サウンドなし` になる。`Windows スタートアップのサウンドを再生する` のチェックは変わらない。
 
-1 行目はスキームの名前を `.None` にするだけで、各イベントの `.Current` には wav のパスが残る（通知音 `Notification.Default` は `Windows Notify System Generic.wav` のまま）。GUI で `サウンドなし` を選ぶと、スキーム名が `.None` になり、各イベントの `.Current` も空になる。コマンドラインでも同じ状態にするため、2 つ目の処理でイベントの `.Current` を空にしている。
+1 行目はスキームの名前を `.None` にするだけで、各イベントの `.Current` には wav のパスが残る（通知音 `Notification.Default` は `Windows Notify System Generic.wav` のまま）。GUI で `サウンドなし` を選ぶと、スキーム名が `.None` になり、各イベントの `.Current` も空になる。コマンドラインでも同じ状態にするため、2 つ目の処理でイベントの `.Current` を空にしている。この処理は、すべてのイベントに割り当てたサウンドを消す。
 
 ```powershell
 Set-ItemProperty HKCU:\AppEvents\Schemes '(default)' '.None'
@@ -464,7 +466,7 @@ Discord などで通話中にほかの音量が下がってしまう問題を解
 コマンドラインで設定する場合は、PowerShell で以下を実行する。値は `0` がミュート、`1` が 80% 下げる（既定）、`2` が 50% 下げる、`3` が何もしない。
 
 ```powershell
-New-Item -Force HKCU:\Software\Microsoft\Multimedia\Audio
+if (-not (Test-Path HKCU:\Software\Microsoft\Multimedia\Audio)) { New-Item HKCU:\Software\Microsoft\Multimedia\Audio | Out-Null }
 Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference 3
 ```
 
@@ -498,7 +500,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference
 コマンドラインで設定する場合は、PowerShell で以下を実行する。2 つのチェックがどちらも外れた状態になる。
 
 ```powershell
-New-Item -Force HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement
+if (-not (Test-Path HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement)) { New-Item HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement | Out-Null }
 Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement ScoobeSystemSettingEnabled 0
 $cdm = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
 Set-ItemProperty $cdm SubscribedContent-310093Enabled 0
@@ -851,7 +853,7 @@ winget install Microsoft.PowerShell
 Windows 11 の音量ミキサーはどうにも使い勝手が悪い（特に複数アプリケーションから音を出している場合）ので、タスクバーでアプリケーションごとの音量調整ができる EarTrumpet を入れる。  
 以下のように利用できる。
 
-![](assets/image-9.png)
+![EarTrumpet の画面](assets/image-9.png)
 
 Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/detail/9nblggh516xp) にアクセスし、ダウンロードするだけ。
 
