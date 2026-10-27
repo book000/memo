@@ -5,9 +5,9 @@
 
 ## 環境
 
-- Windows 11
-  - Home 22H2 (Build 22621.1702)
-  - Pro 22H2 (Build 22621.1192)
+- Windows 11 26H2
+  - Home (Build 26300.9711)
+  - Pro（インストールメディアは Build 26300.9457）
 
 ## クリーンインストールをする前に…
 
@@ -25,12 +25,15 @@ Microsoft の [Windows 11 をダウンロードする](https://www.microsoft.com
 
 参考: https://michisugara.jp/csm_secureboot
 
-Windows 11 ではセキュアブートが必須になった。BIOS（UEFI）にてこの設定を有効化する必要があるのだが、どういう設定をすればいいか厄介なので一応メモ。
+Windows 11 の要件は、UEFI ファームウェア（Secure Boot に対応していること）と TPM 2.0。Secure Boot の有効化そのものは要件ではなく推奨。BIOS（UEFI）の設定がわかりにくいので、一応メモ。
 
 - CSM を無効にする（Windows 7 以下が実行不可になる）
 - Secure Boot を有効にする（起動時にデジタル署名をチェックする）
 - 間違っても両方を有効にはしない
 - ASUS のマザーボードなら起動設定（Boot）にある
+
+!!! note "Secure Boot 証明書の更新"
+    2011 年に発行された Secure Boot の証明書は、2026 年 6 月から順に失効している。Windows Production PCA 2011 は 2026 年 10 月 19 日に失効した。
 
 ## インストール
 
@@ -42,14 +45,41 @@ PCを起動する前に、Windows をインストールしたいストレージ�
 BIOS/UEFI に入り、起動順を変えてインストールメディアとして作成した USB メモリで起動する。Windows 11 のインストーラーが起動するはず。  
 インストーラーが起動したら、以下の手順でインストールする。
 
-1. `今すぐインストール` をクリック
-2. `Windows のライセンス認証` の画面に移動する。クリーンインストールの場合ハードウェアの情報を使って認証するので、`プロダクトキーがありません` をクリック
-3. インストールするオペレーティングシステムを選ぶ画面になる。正しいエディションを選ぶ
-4. ライセンス条項に同意して `次へ`
-5. 下の `カスタム` を選ぶ
-6. すべてのパーティションを削除（パーティションを選んで `削除`）し、1 つの `割り当てられていない領域` にする。
-7. `割り当てられていない領域` を選択した状態で、`新規` をクリックしパーティションを作成する（この手順要らないかも）
-8. Windows 11 のインストールが始まる
+1. `言語設定を選択` と `キーボード設定を選択` を確認して進む
+
+    ![言語設定とキーボード設定の選択画面](assets/install-1-language.png)
+
+    ![キーボード設定の選択画面](assets/install-2-keyboard.png)
+
+2. `セットアップ オプションの選択` で `Windows 11 のインストール` を選び、`ファイル、アプリ、設定など、すべてが削除されることに同意します(A)` にチェックを入れて `次へ`
+
+    ![セットアップ オプションの選択画面](assets/install-3-option.png)
+
+3. `プロダクト キーを入力してください` の画面になる。クリーンインストールの場合ハードウェアの情報を使って認証するので、左下の `プロダクト キーがありません` をクリック
+
+    ![プロダクト キーの入力画面](assets/install-4-productkey.png)
+
+4. `イメージの選択` の画面で、インストールするエディションを選ぶ。選択肢は Home、Education、Pro、Pro Education、Pro for Workstations の 5 つ
+
+    ![エディションの選択画面](assets/install-5-image.png)
+
+5. ライセンス条項で `同意する(A)` をクリック
+
+    ![ライセンス条項の画面](assets/install-6-license.png)
+
+6. `Windows 11 をインストールする場所の選択` に進む。再インストールの場合は、すべてのパーティションを削除し、1 つの `割り当てられていない領域` にする。パーティションを 1 つずつ選んで `パーティションの削除(D)` をクリックする。確認の画面は出ない。システム、MSR、Windows 本体、回復の 4 つがあり、回復パーティションも削除する。新しい空のディスクでは、この手順は不要
+
+    ![インストール場所の選択画面（パーティション一覧）](assets/install-7-partitions.png)
+
+7. `割り当てられていない領域` を選択して `次へ` をクリックする。パーティションを事前に作る必要はなく、インストーラーが自動で作る
+
+    ![割り当てられていない領域を選択した画面](assets/install-8-unallocated.png)
+
+8. `インストール準備完了` で、`Windows 11 Home をインストール`（Pro を選んだ場合は `Windows 11 Pro をインストール`）と `何も引き継がない` が表示されていることを確認し、`インストール(I)` をクリックする
+
+    ![インストール準備完了の画面](assets/install-9-ready.png)
+
+9. `Windows 11 をインストールしています` の画面で進捗が表示され、数回再起動する。終わると、国や地域を選ぶ画面になる
 
 ## インストール時の初期設定
 
@@ -57,20 +87,70 @@ BIOS/UEFI に入り、起動順を変えてインストールメディアとし�
 
 Windows 11 のインストール処理が終わると、国や地域を選ぶ画面が表示される。
 
-Microsoft アカウントを利用するならこのまま進んでも良いが、ローカルアカウントを利用するなら以下の手順を踏む（Windows 11 Home でも実施可能）
+Microsoft アカウントを利用するならこのまま進んでも良い。ネットワークに接続していると、更新プログラムの確認とデバイス名の入力（`スキップ` できる）を経て、`Microsoft エクスペリエンスのロックを解除する` で Microsoft アカウントのサインインを求められる。Home では、ここにローカルアカウントへの導線はない。
 
-1. ++shift+f10++ でコマンドプロンプトを起動する
-2. `oobe\ByPassNRO.cmd` と打ち込み、実行する。自動で再起動される
-3. LAN ケーブルを刺している場合は抜く
-4. セットアップを進める（国の設定とキーボードレイアウトの設定の後）と、ネットワークに接続することを要求される。この画面で、`インターネットに接続していません` というボタンが利用できるのでこれをクリック
-5. `今すぐ接続して、デバイスをすぐに使い始めましょう` という画面が出るが、`制限された設定で続行` をクリック
+ローカルアカウントを利用するなら、次のいずれかの方法を使う。
 
-その後、以下の設定が表示されるので適宜進める。
+### `start ms-cxh:localonly`（Home、Pro）
 
-- `このデバイスを使うのはだれですか？`: ここで入力した文字列がユーザー名となる。大文字小文字が識別され、ユーザーフォルダともなるので注意。アルファベットで小文字を推奨
-- `確実に覚えやすいパスワードを作成します`: ログイン時のパスワードを設定
-- 秘密の質問: 適宜設定
-- `デバイスのプライバシー設定の選択`: お好きにだが、すべてオフ（拒否）で良い
+1. OOBE の画面（`ネットワークに接続しましょう` や `Microsoft エクスペリエンスのロックを解除する`）で ++shift+f10++ を押し、コマンド プロンプトを開く
+2. 次のコマンドを実行する
+
+    ```cmd
+    start ms-cxh:localonly
+    ```
+
+3. `この PC のユーザーを作成します` という画面が開く。ユーザー名、パスワード（2 回）、パスワードを忘れた場合の質問 3 問と答えを入力して `次へ(N)` を押す
+
+    ![start ms-cxh:localonly で開くユーザー作成画面](assets/oobe-2-localonly.png)
+
+ネットワークの有無にかかわらず動く。
+
+### Pro の「ドメインに参加する」経路
+
+Pro だけに出る画面を使う。コマンドは不要で、ネットワークに接続したまま進められる。
+
+1. `このデバイスをどのように設定しますか?` で `職場または学校用に設定する` を選んで `次へ`
+2. Microsoft のサインイン画面で、メールアドレス欄の下の `サインイン オプション` をクリック
+
+    ![Pro のデバイス設定方法の選択画面](assets/oobe-3-pro-choice.png)
+
+3. `代わりにドメインに参加する` をクリックする。ローカルアカウントの入力画面（`このデバイスを使うのはだれですか?`）に進む
+
+    ![サインイン オプションの画面](assets/oobe-4-pro-signin-options.png)
+
+### `BypassNRO.cmd`（ネットワークに接続していない場合）
+
+ネットワークに接続していないときだけ使える。
+
+1. ネットワークから切り離す（LAN ケーブルを抜き、Wi-Fi にも接続しない）
+2. OOBE で ++shift+f10++ を押し、コマンド プロンプトを開く
+3. 次のコマンドを実行する。自動で再起動し、OOBE が国の選択から再開する
+
+    ```cmd
+    oobe\BypassNRO.cmd
+    ```
+
+4. 国の設定とキーボード レイアウトのあと、`ネットワークに接続しましょう` に `インターネットに接続していません` のリンクが表示される。これをクリックすると、`このデバイスを使うのはだれですか?` に進む
+
+    ![ネットワーク接続画面のインターネットに接続していないリンク](assets/oobe-1-network-link.png)
+
+`C:\Windows\System32\oobe\BypassNRO.cmd` の中身は、次の 3 行。ファイルがない場合は、`reg add` と `shutdown` を手で実行する。
+
+```cmd
+@echo off
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
+shutdown /r /t 0
+```
+
+### ローカルアカウントの入力
+
+どの方法でも、入力する内容は同じ。
+
+- `このデバイスを使うのはだれですか?`: ここで入力した文字列がユーザー名となり、ユーザーフォルダ名（`C:\Users\<ユーザー名>`）にもなる。アルファベットで入力するのが無難
+- `確実に覚えやすいパスワードを作成します`: ログイン時のパスワードを設定（次の画面で再入力）
+- `ここでセキュリティの質問を追加します`: 6 種類から 3 問を選んで答えを入力する。3 問とも必須
+- `デバイスのプライバシー設定の選択`: お好きにだが、すべてオフ（拒否）で良い。5 つのトグル（位置情報、デバイスの検索、診断データ、手書き入力とタイプ入力、パーソナライズされたオファー）があり、初期値はすべてオン。1 つ切り替えるたびに配置がずれる
 
 デスクトップが表示されれば、Windows 11 のインストールと初期設定は完了。  
 この後は利便性を上げるための設定をする。
@@ -79,6 +159,8 @@ Microsoft アカウントを利用するならこのまま進んでも良いが�
 
 デバイスドライバーなどの関係で、この段階で Windows Update をしておくのが良い。  
 Windows Update で入らないドライバーは別途インストールを行う。
+
+ネットワークに接続した状態で初期設定を進めた場合、OOBE のなかで更新が入る。ネットワークなしで進めた場合は、デスクトップで更新する。
 
 ## Windows を使う上での推奨設定
 
@@ -89,19 +171,25 @@ Windows を使う上での個人的なおすすめ設定を行う。
 `システムのプロパティ`（`SystemPropertiesComputerName.exe`）の `コンピューター名/ドメイン名の変更` で変更する。  
 変更後は再起動が必要で、デバイス名は Firefox が利用するので最初にやったほうがよい。
 
+ネットワークに接続した状態で初期設定を進めると、OOBE に `デバイス名を入力` の画面が出る。ここで名前をつけることもできる（つけると再起動する）。
+`詳細オプションを表示する` を開くと、後から変更できない `ユーザー フォルダー名` を指定する欄もある。指定しない場合は、ユーザー名がフォルダ名になる。
+
 コマンドラインからも変更可能。**管理者権限で** PowerShell を開いて以下を実行。
 
 ```powershell
-wmic computersystem where name="%computername%" call rename name="<COMPUTER-NAME>"
-wmic computersystem where name="%computername%" call joindomainorworkgroup name="<WORKSPACE-NAME>"
+Rename-Computer -NewName "<COMPUTER-NAME>"
+Add-Computer -WorkgroupName "<WORKGROUP-NAME>"
+Restart-Computer
 ```
+
+`wmic` は Windows 11 から削除されていて、26300.9711 では実行できない（[KB5067470](https://support.microsoft.com/help/5067470)）。
 
 ### ブラウザのインストール
 
 Chrome や Firefox など、お好きなブラウザをインストールする。以下はインストールページへのリンク。
 
 - [Chrome](https://www.google.com/intl/ja_jp/chrome/)
-- [Firefox](https://www.mozilla.org/ja/firefox/windows/)
+- [Firefox](https://www.firefox.com/ja/download/windows/)
 
 ### エクスプローラの設定
 
@@ -112,7 +200,7 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 - [x] `ファイル名拡張子`
 - [x] `隠しファイル`
 
-![](assets/image.png)
+![エクスプローラーの表示メニュー](assets/image.png)
 
 さらに、`・・・` から `オプション` を開き、以下の設定も行う。
 
@@ -120,10 +208,37 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
   - `エクスプローラーで開く`: `PC`
   - `プライバシー`
     - [ ] `最近使用したファイルを表示する`
-    - [ ] `頻繁に使用されるフォルダーを表示する`
-    - [ ] `Office.com のファイルを表示する`
+    - [ ] `使用頻度の高いフォルダーを表示する`
+    - [ ] `推奨セクションを表示する`
+    - [ ] `アカウント ベースの分析情報、最近使用したファイル、お気に入りファイル、おすすめのファイルを含める`
 
-![](assets/image-1.png)
+`推奨セクションを表示する` をオンにすると、ホームの `クイック アクセス` が消えて、推奨ファイルの領域に置き換わる。ローカル アカウントでは「表示できるファイルがまだありません」と出る。オフにすると `クイック アクセス` に戻る。
+
+`アカウント ベースの分析情報、最近使用したファイル、お気に入りファイル、おすすめのファイルを含める` をオフにすると、アカウントやクラウドのアクティビティにもとづく項目がホームの一覧に含まれなくなる（[参考](https://windowslatest.com/2025/01/31/windows-11s-file-explorer-is-getting-recommended-feed-with-microsoft-account-integration)）。ローカル アカウントでは、切り替えても表示に変化はなかった。
+
+`使用頻度の高いフォルダーを表示する` をオフにすると、ホームの `クイック アクセス` が消える。
+
+コマンドラインで設定する場合は、PowerShell で以下を実行する。エクスプローラを開き直すと反映される。
+
+```powershell
+$adv = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+Set-ItemProperty $adv HideFileExt 0                  # ファイル名拡張子を表示（隠す場合は 1）
+Set-ItemProperty $adv Hidden 1                       # 隠しファイルを表示（隠す場合は 2）
+Set-ItemProperty $adv LaunchTo 1                     # エクスプローラーで開く: PC（ホームは 0）
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer ShowFrequent 0  # 使用頻度の高いフォルダーを表示しない
+```
+
+![フォルダー オプションの全般タブ](assets/image-1.png)
+
+`推奨セクションを表示する` と `アカウント ベース…` のコマンドは次のとおり。
+
+```powershell
+$ex = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer'
+Set-ItemProperty $ex ShowRecommendations 0           # 推奨セクションを表示しない（表示する場合は 1）
+Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベースの分析情報、最近使用したファイル、…を含めない
+```
+
+フォルダ オプションは、`rundll32 shell32.dll,Options_RunDLL 0` でも開ける。
 
 ### タスクバーの設定
 
@@ -135,11 +250,56 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
   - `検索`: `非表示`
   - `タスク ビュー`: `オフ`
   - `ウィジェット`: `オフ`
-  - `チャット`: `オフ`
 - `タスク バーの動作`
-  - `タスク バーの配置`: `左揃え`
+  - `タスク バー アイコンの配置`: `左揃え`
 
-![](assets/image-2.png)
+`タスク バー アイコンの配置` の既定は `中央揃え`。
+
+コマンドラインで設定する場合は、PowerShell で以下を実行する（エクスプローラを再起動しなくても反映される）。
+
+```powershell
+$adv = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Search SearchboxTaskbarMode 0  # 検索: 非表示（検索ボックスは 2）
+Set-ItemProperty $adv ShowTaskViewButton 0           # タスク ビュー: オフ
+Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: 左揃え（中央揃えは 1）
+```
+
+![個人用設定のタスク バー](assets/image-2.png)
+
+増えた項目は、レジストリで次のように設定できる。
+
+| 設定アプリの項目 | 効果 | コマンド（PowerShell） |
+|---|---|---|
+| `再開` | 再開可能な状態になったとき、バッジ通知があるアプリを表示する | `Set-ItemProperty $adv IsEnabled 0`（オフ。オンは `1`） |
+| `タスク バーからウィンドウを共有する` | タスクバーのウインドウから共有できるようにする | `Set-ItemProperty $adv TaskbarSn 0`（オフ） |
+| `タスク バー アプリの点滅を表示する` | アプリの通知でタスクバーのボタンが点滅する | `Set-ItemProperty $adv TaskbarFlashing 0`（オフ） |
+| `タスク バー アプリでバッジを表示する` | ボタンにバッジ（未読数など）を表示する | `Set-ItemProperty $adv TaskbarBadges 0`（オフ） |
+| `デスクトップを表示するには、タスク バーの隅を選択します` | タスクバー右端のクリックでデスクトップを表示する | `Set-ItemProperty $adv TaskbarSd 0`（オフ） |
+| `タスク バーのサイズ調整` | タスクバーの高さ | `Set-ItemProperty $adv TaskbarSi 0`（小。既定は `1`） |
+| `タスク バーのボタンをまとめラベルを非表示にする` | ボタンをまとめるか、ラベルを表示するか | `Set-ItemProperty $adv TaskbarGlomLevel 2`（まとめない。ラベルが表示される。既定は `0` の常時） |
+
+`タスク バーの位置` と `タスク バーを自動的に隠す` は、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3` の `Settings`（48 バイトのバイナリ）にある。次の 2 か所を使う。変更後はエクスプローラを再起動する。
+
+- 13 バイト目（添字 12）: 位置。`0` が左、`1` が上、`2` が右、`3` が下
+- 9 バイト目（添字 8）: 自動的に隠す。`2` が通常、`3` が隠す
+
+```powershell
+$p = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'
+$v = (Get-ItemProperty $p).Settings
+$v[12] = 1                                           # タスクバーを上に（下は 3）
+$v[8] = 2                                            # 自動的に隠さない（隠す場合は 3）
+Set-ItemProperty $p Settings $v
+Stop-Process -Name explorer -Force
+```
+
+`縮小したアプリ アイコンを表示` は `$adv` の `IconSizePreference` で、`0` が `常時`、`1` が `なし`、`2` が `タスク バーに入りきらない場合`（既定。値なしでも同じ）。
+
+`ウィジェット` は、ユーザー単位のレジストリ値 `HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced` の `TaskbarDa`（`0` でオフ）で、設定アプリのトグルはこの値を書き換える。ただし、PowerShell や `reg` からは書き込めない。管理者で実行しても、実行ファイル名を変えても「アクセスが拒否されました」になる。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に適用され、設定アプリのトグルがグレーアウトのオフになる。
+
+```powershell
+reg add HKLM\SOFTWARE\Policies\Microsoft\Dsh /v AllowNewsAndInterests /t REG_DWORD /d 0 /f
+Stop-Process -Name explorer -Force                   # エクスプローラーを再起動
+```
 
 ### スタートメニューのカスタマイズ
 
@@ -147,14 +307,43 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 
 [`個人用設定 -> スタート` を開く](ms-settings:personalization-start){ .md-button }
 
-- `レイアウト`: **さらにピン留めを表示する**
-- `最近追加したアプリを表示する`: オフ
-- `よく使うアプリを表示する`: オフ
-- `最近開いた項目をスタート、ジャンプ リスト、ファイル エクスプローラーに表示する`: オフ
-- `ヒント、ショートカット、新しいアプリなどのおすすめを表示する`: オフ
-- `スタート画面にアカウント関連の通知を時々表示する`: オフ
+- `新着順` の下
+  - `最近追加したアプリを表示する`: オフ
+  - `最近使ったファイルとおすすめのファイルを表示する`: オフ
+  - `ヒントとアプリの推奨事項を表示する`: オフ
+- `すべて` の下の `最もよく使用するアプリを表示する (グリッド ビューとリスト ビューのみ)`: オフ（既定でオフ）
+- `アカウントに関連する通知を表示`: オフ
+- `ジャンプ リストとエクスプローラーで最近使った項目を表示します`: オフ
 
-![](assets/image-4.png)
+![個人用設定のスタート](assets/image-4.png)
+
+`ジャンプ リストとエクスプローラーで最近使った項目を表示します` をオフにすると、`最近使ったファイルとおすすめのファイルを表示する` のチェックと、エクスプローラの `フォルダー オプション` の `最近使用したファイルを表示する` も一緒にオフになる。3 か所が連動している。
+
+コマンドラインで設定する場合は、PowerShell で以下を実行する（再起動しなくても反映される）。
+
+```powershell
+$adv = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+Set-ItemProperty $adv Start_IrisRecommendations 0    # ヒントとアプリの推奨事項を表示する: オフ
+Set-ItemProperty $adv Start_AccountNotifications 0   # アカウントに関連する通知を表示: オフ
+Set-ItemProperty $adv Start_TrackDocs 0              # 最近使った項目を表示: オフ
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequentList 0  # 最もよく使用するアプリを表示する: オフ
+```
+
+次の項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（既定では値が存在せず、オン扱い）。
+
+以下の `$start` は `'HKCU:\Software\Microsoft\Windows\CurrentVersion\Start'`。
+
+| 設定アプリの項目 | コマンド（PowerShell） |
+|---|---|
+| `最近追加したアプリを表示する` | `Set-ItemProperty $start ShowRecentList 0` |
+| `最近使ったファイルとおすすめのファイルを表示する` | `Set-ItemProperty $start ShowSuggestedFiles 0` |
+| `新着順`（トグル） | `Set-ItemProperty $start ShowRecentSection 0` |
+| `ピン留め済み`（トグル） | `Set-ItemProperty $start ShowPinnedSection 0` |
+| `すべて`（トグル） | `Set-ItemProperty $start ShowAllAppsSection 0` |
+| `スタート画面で名前とプロフィール画像を非表示にする`（オンにする） | `Set-ItemProperty $start HideUserInformation 1` |
+| `スタート メニューのサイズ` | `Set-ItemProperty $start StartMenuSize 1`（`1` が小、`2` が大。既定の `自動` は値なし） |
+
+`新着順` をオフにすると、下の 3 つのチェックボックスが無効になって `最近追加したアプリを表示する` と `最近使ったファイルとおすすめのファイルを表示する` のチェックが外れる（`ヒントとアプリの推奨事項を表示する` は、チェックが付いたまま無効になる）。
 
 ### テーマ・色の設定
 
@@ -167,7 +356,7 @@ Chrome や Firefox など、お好きなブラウザをインストールする�
 
 C ドライブにあるユーザーフォルダを別ドライブに移動する場合、以下の手順を踏む。
 
-GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `移動` できる。
+GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ `プロパティ` -> `場所` -> アドレスを変更 -> `OK` -> `はい` で移動できる。
 
 1. `C:\Users\<User>` を開く（`%HOMEDRIVE%%HOMEPATH%`）
 2. 後述するフォルダのプロパティを開く
@@ -191,13 +380,38 @@ GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ 
 - `保存したゲーム`
 - `検索`
 
+コマンドラインでは、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders` の値を書き換えて、エクスプローラを再起動する。値の名前は次のとおり。
+
+- `ダウンロード`: `{374DE290-123F-4565-9164-39C4925E467B}`
+- `デスクトップ`: `Desktop`
+- `ドキュメント`: `Personal`
+- `ピクチャ`: `My Pictures`
+- `ミュージック`: `My Music`
+- `ビデオ`: `My Video`
+
+既存のファイルは移動されないので、`Move-Item` で別に移す。
+
+```powershell
+$k = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+New-Item -ItemType Directory 'D:\Users\Downloads' -Force | Out-Null
+Set-ItemProperty $k '{374DE290-123F-4565-9164-39C4925E467B}' 'D:\Users\Downloads'
+Stop-Process -Name explorer -Force
+```
+
 ### クリップボードの履歴機能を有効化
 
 ++win+v++ を押すことで、以下のようなクリップボード履歴機能が利用できる。
 
-![](assets/image-3.png)
+![クリップボード履歴の設定](assets/image-3.png)
 
-この機能は有効化しておかないと利用できないので、++win+v++ を押して機能の有効化をしておく。
+この機能は有効化しておかないと利用できないので、++win+v++ を押して機能の有効化をしておく。設定アプリの `システム` → `クリップボード` のトグルでも切り替えられる。
+
+コマンドラインで設定する場合は、PowerShell で以下を実行する。サインアウトしてサインインし直すと設定アプリのトグルに反映される。
+
+```powershell
+if (-not (Test-Path HKCU:\Software\Microsoft\Clipboard)) { New-Item HKCU:\Software\Microsoft\Clipboard | Out-Null }
+Set-ItemProperty HKCU:\Software\Microsoft\Clipboard EnableClipboardHistory 1   # 無効にする場合は 0
+```
 
 ### ウインドウを選ぶ時の全画面プレビューを無効化
 
@@ -207,15 +421,34 @@ GUI から変更する場合は、ユーザーフォルダを開き 1 つずつ 
 1. `Windows のデザインとパフォーマンスの調整`（`SystemPropertiesPerformance.exe`）を開く
 2. `視覚効果` タブにて、`プレビューを有効にする` のチェックボックスを **オフ** にする
 
+コマンドラインで設定する場合は、PowerShell で以下を実行する。`視覚効果` タブが `カスタム` になり、`プレビューを有効にする` が外れた状態で開く。`VisualFXSetting` が `3`（カスタム）でないと、自動選択のままチェックが付いた表示になる。
+
+```powershell
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects VisualFXSetting 3
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\DWM EnableAeroPeek 0   # オンに戻す場合は 1
+```
+
 ### Windows の通知サウンドを切る
 
 Windows はことあるごとに通知音を鳴らしてうるさいので、Windows の通知音を鳴らさないようにする。
 
 1. `システム サウンドの変更` を開く  
-   この設定は、[設定アプリの `システム -> サウンド`](ms-settings:sound) の一番下にある `サウンドの詳細設定` からアクセスできる
+   この設定は、[設定アプリの `システム -> サウンド`](ms-settings:sound) の `すべてのサウンド デバイス` と `音量ミキサー` の下にある `サウンドの詳細設定` からアクセスできる。`mmsys.cpl` を実行しても同じ「サウンド」画面が開く
 2. `サウンド` タブを開く
 3. `サウンド設定` を `サウンドなし` に変更
 4. `OK` で保存
+
+コマンドラインでは、PowerShell で以下を実行する。「サウンド」画面の `サウンド設定` が `サウンドなし` になる。`Windows スタートアップのサウンドを再生する` のチェックは変わらない。
+
+1 行目はスキームの名前を `.None` にするだけで、各イベントの `.Current` には wav のパスが残る（通知音 `Notification.Default` は `Windows Notify System Generic.wav` のまま）。GUI で `サウンドなし` を選ぶと、スキーム名が `.None` になり、各イベントの `.Current` も空になる。コマンドラインでも同じ状態にするため、2 つ目の処理でイベントの `.Current` を空にしている。この処理は、すべてのイベントに割り当てたサウンドを消す。
+
+```powershell
+Set-ItemProperty HKCU:\AppEvents\Schemes '(default)' '.None'
+Get-ChildItem 'HKCU:\AppEvents\Schemes\Apps\*\*' | ForEach-Object {
+    $c = Join-Path $_.PSPath '.Current'
+    if (Test-Path $c) { Set-ItemProperty $c '(default)' '' }
+}
+```
 
 ### 通信アクティビティの設定
 
@@ -226,6 +459,13 @@ Discord などで通話中にほかの音量が下がってしまう問題を解
 3. `Windows が通信アクティビティを検出したとき:` で `何もしない` を選択
 4. `OK` で保存する
 
+コマンドラインで設定する場合は、PowerShell で以下を実行する。値は `0` がミュート、`1` が 80% 下げる（既定）、`2` が 50% 下げる、`3` が何もしない。
+
+```powershell
+if (-not (Test-Path HKCU:\Software\Microsoft\Multimedia\Audio)) { New-Item HKCU:\Software\Microsoft\Multimedia\Audio | Out-Null }
+Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference 3
+```
+
 ### モニターのリフレッシュレート設定
 
 モニターが 144 Hz などの高いリフレッシュレートに対応している場合、設定を変更する必要がある。
@@ -234,7 +474,7 @@ Discord などで通話中にほかの音量が下がってしまう問題を解
 
 [`システム -> ディスプレイ` を開く](ms-settings:display){ .md-button }
 
-1. 対象のモニターを選択し、下にスクロールし `ディスプレイの詳細設定` をクリック
+1. 下にスクロールし、`関連設定` の `ディスプレイの詳細設定` をクリック。複数のモニターがある場合は、ここで対象のモニターを選ぶ
 2. `リフレッシュ レートの選択` にて、選択可能な一番高いリフレッシュレートを選ぶ
 
 ### 起動時の「PCのセットアップを完了しましょう」を止める
@@ -248,10 +488,25 @@ Discord などで通話中にほかの音量が下がってしまう問題を解
 1. 下にスクロールし、 `追加の設定` をクリック
 2. すべてのチェックボックスのチェックを外す
 
-### GeForce Experience をインストールし、ディスプレイドライバーを入れる
+チェックボックスは 2 つ（既定はどちらもオン）。
+
+- `Windows を最大限に活用し、このデバイスの設定を完了する方法を提案する`
+- `Windows を使用する際のヒントや提案を入手する`
+
+コマンドラインで設定する場合は、PowerShell で以下を実行する。
+
+```powershell
+if (-not (Test-Path HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement)) { New-Item HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement | Out-Null }
+Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement ScoobeSystemSettingEnabled 0
+$cdm = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+Set-ItemProperty $cdm SubscribedContent-310093Enabled 0
+Set-ItemProperty $cdm SubscribedContent-338389Enabled 0
+```
+
+### NVIDIA app をインストールし、ディスプレイドライバーを入れる
 
 NVIDIA のグラボを刺している場合、サブディスプレイはディスプレイドライバーを入れないと利用できない（らしい）。  
-[GeForce Experience のページ](https://www.nvidia.com/ja-jp/geforce/geforce-experience/) から、GeForce Experience のインストーラーをダウンロード、インストールする。
+GeForce Experience は NVIDIA app に置き換えられた。[NVIDIA app のページ](https://www.nvidia.com/ja-jp/software/nvidia-app/) から、インストーラーをダウンロード、インストールする。
 
 その後、ドライバータブから GeForce Game Ready ドライバーをインストールする。
 
@@ -267,37 +522,61 @@ Windows は標準で不要なアプリケーションを大量にインストー
 
 ```powershell
 Get-AppxPackage Clipchamp.Clipchamp | Remove-AppxPackage                       # Clipchamp
-Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                   # Cortana
-Get-AppxPackage Disney.37853FC22B2CE | Remove-AppxPackage                      # Disney+
-Get-AppxPackage MicrosoftTeams | Remove-AppxPackage                            # Microsoft Teams
+Get-AppxPackage MSTeams | Remove-AppxPackage                                   # Microsoft Teams（新しい Teams）
 Get-AppxPackage Microsoft.Todos | Remove-AppxPackage                           # Microsoft To Do
-Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage              # Office on the Webへようこそ
+Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage              # Office on the Webへようこそ（26H2 では Pro のみ存在する）
 Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage    # Solitaire
-Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                    # Spotify
 Get-AppxPackage Microsoft.GamingApp | Remove-AppxPackage                       # Xbox ストア画面
 Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage               # Xbox Game Bar
 Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage                       # Xbox その他
-Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage                 # Xbox その他
 Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage            # Xbox その他
 Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage         # Xbox その他
-Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                       # 映画 & テレビ
 Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage                   # カメラ
 Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage                       # スマホ同期
 Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage                     # 天気
-Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                      # ヒント
 Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage              # フィードバック Hub
 Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage            # ボイス レコーダー
-Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                     # マップ
-Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage       # メール、カレンダー
 Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                       # メディアプレーヤー
-Get-AppxPackage Microsoft.BingNew | Remove-AppxPackage                         # ニュース ?
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage                        # ニュース
 Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                         # ヘルプ
-Get-AppxPackage Microsoft.People | Remove-AppxPackage                          # People
 Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        # クイック アシスト
+Get-AppxPackage Microsoft.Copilot | Remove-AppxPackage                         # Copilot（26H2 では Home のみ存在する）
+Get-AppxPackage Microsoft.OutlookForWindows | Remove-AppxPackage               # 新しい Outlook
+Get-AppxPackage Microsoft.BingSearch | Remove-AppxPackage                      # Bing 検索
+Get-AppxPackage Microsoft.PowerAutomateDesktop | Remove-AppxPackage            # Power Automate
+Get-AppxPackage Microsoft.Windows.DevHome | Remove-AppxPackage                 # Dev Home
 ```
 
-これだけでは削除されないものもあるので、それらはスタートメニューから手動でアンインストール。
+`Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、新しく作るユーザーには再び入る。すべてのユーザーから消してプロビジョニングも外す場合は、**管理者権限で** `-AllUsers` をつける。
+
+```powershell
+Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
+```
+
+削除したアプリは Microsoft Store から再インストールできる。`winget install -e --id <ID> --source msstore` で入れ直せる。Solitaire は `winget` では `No package found matching input criteria.` になるので、Store のページから入れる。Dev Home は `winget search` で見つからない。
+
+| アプリ | パッケージ名 | Store |
+| --- | --- | --- |
+| Clipchamp | `Clipchamp.Clipchamp` | [9P1J8S7CCWWT](https://apps.microsoft.com/detail/9p1j8s7ccwwt) |
+| Microsoft Teams | `MSTeams` | [XP8BT8DW290MPQ](https://apps.microsoft.com/detail/xp8bt8dw290mpq) |
+| Microsoft To Do | `Microsoft.Todos` | [9NBLGGH5R558](https://apps.microsoft.com/detail/9nblggh5r558) |
+| Solitaire | `Microsoft.MicrosoftSolitaireCollection` | [9WZDNCRFHWD2](https://apps.microsoft.com/detail/9wzdncrfhwd2) |
+| Xbox | `Microsoft.GamingApp` | [9MV0B5HZVK9Z](https://apps.microsoft.com/detail/9mv0b5hzvk9z) |
+| Xbox Game Bar | `Microsoft.XboxGamingOverlay` | [9NZKPSTSNW4P](https://apps.microsoft.com/detail/9nzkpstsnw4p) |
+| Xbox Identity Provider | `Microsoft.XboxIdentityProvider` | [9WZDNCRD1HKW](https://apps.microsoft.com/detail/9wzdncrd1hkw) |
+| カメラ | `Microsoft.WindowsCamera` | [9WZDNCRFJBBG](https://apps.microsoft.com/detail/9wzdncrfjbbg) |
+| スマートフォン連携 | `Microsoft.YourPhone` | [9NMPJ99VJBWV](https://apps.microsoft.com/detail/9nmpj99vjbwv) |
+| 天気 | `Microsoft.BingWeather` | [9WZDNCRFJ3Q2](https://apps.microsoft.com/detail/9wzdncrfj3q2) |
+| フィードバック Hub | `Microsoft.WindowsFeedbackHub` | [9NBLGGH4R32N](https://apps.microsoft.com/detail/9nblggh4r32n) |
+| ボイス レコーダー | `Microsoft.WindowsSoundRecorder` | [9WZDNCRFHWKN](https://apps.microsoft.com/detail/9wzdncrfhwkn) |
+| メディア プレーヤー | `Microsoft.ZuneMusic` | [9WZDNCRFJ3PT](https://apps.microsoft.com/detail/9wzdncrfj3pt) |
+| ニュース | `Microsoft.BingNews` | [9WZDNCRFHVFW](https://apps.microsoft.com/detail/9wzdncrfhvfw) |
+| ヘルプ | `Microsoft.GetHelp` | [9PKDZBMV1H3T](https://apps.microsoft.com/detail/9pkdzbmv1h3t) |
+| クイック アシスト | `MicrosoftCorporationII.QuickAssist` | [9P7BP5VNWKX5](https://apps.microsoft.com/detail/9p7bp5vnwkx5) |
+| 新しい Outlook | `Microsoft.OutlookForWindows` | [9NRX63209R7B](https://apps.microsoft.com/detail/9nrx63209r7b) |
+| Bing 検索 | `Microsoft.BingSearch` | [9NZBF4GT040C](https://apps.microsoft.com/detail/9nzbf4gt040c) |
+| Power Automate | `Microsoft.PowerAutomateDesktop` | [9NFTCH6J7FHV](https://apps.microsoft.com/detail/9nftch6j7fhv) |
+| Copilot | `Microsoft.Copilot` | [9NHT9RB2F4HD](https://apps.microsoft.com/detail/9nht9rb2f4hd) |
 
 なお、調査は以下のコマンドで実施できる。
 
@@ -311,15 +590,9 @@ PCを利用する上で不要なサービスがあるなら、適宜停止する
 
 参考: https://ygkb.jp/22889
 
+- 起動の種類が `自動` なのは `DiagTrack`（実行中）、`TrkWks`（実行中）、`MapsBroker`（停止中）の 3 つだけ。無効化で実際に変わるのは、この 3 つ
+
 ```powershell
-# ActiveX Installer (AxInstSV)
-sc.exe stop AxInstSV
-sc.exe config AxInstSV start=disabled
-
-# Certificate Propagation
-sc.exe stop CertPropSvc
-sc.exe config CertPropSvc start=disabled
-
 # Connected User Experiences and Telemetry
 sc.exe stop DiagTrack
 sc.exe config DiagTrack start=disabled
@@ -328,41 +601,25 @@ sc.exe config DiagTrack start=disabled
 sc.exe stop TrkWks
 sc.exe config TrkWks start=disabled
 
+# Downloaded Maps Manager
+sc.exe stop MapsBroker
+sc.exe config MapsBroker start=disabled
+```
+
+以下は、最初から `手動` で停止しているサービス。無効化すると、手動でも起動できなくなる。
+
+```powershell
+# ActiveX Installer (AxInstSV)
+sc.exe stop AxInstSV
+sc.exe config AxInstSV start=disabled
+
 # Distributed Transaction Coordinator
 sc.exe stop MSDTC
 sc.exe config MSDTC start=disabled
 
-# Downloaded Maps Manager
-sc.exe stop MapsBroker
-sc.exe config MapsBroker start=disabled
-
-# Fax
-sc.exe stop Fax
-sc.exe config Fax start=disabled
-
-# Internet Connection Sharing (ICS)
-sc.exe stop SharedAccess
-sc.exe config SharedAccess start=disabled
-
 # Microsoft iSCSI Initiator Service
 sc.exe stop MSiSCSI
 sc.exe config MSiSCSI start=disabled
-
-# Peer Name Resolution Protocol
-sc.exe stop PNRPsvc
-sc.exe config PNRPsvc start=disabled
-
-# Peer Networking Grouping
-sc.exe stop p2psvc
-sc.exe config p2psvc start=disabled
-
-# Peer Networking Identity Manager
-sc.exe stop p2pimsvc
-sc.exe config p2pimsvc start=disabled
-
-# PNRP Machine Name Publication Service
-sc.exe stop PNRPAutoReg
-sc.exe config PNRPAutoReg start=disabled
 
 # Portable Device Enumerator Service
 sc.exe stop WPDBusEnum
@@ -401,6 +658,9 @@ sc.exe stop RetailDemo
 sc.exe config RetailDemo start=disabled
 ```
 
+!!! note "無効化しないサービス"
+    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要なサービスで、リモート デスクトップ サービスの依存サービスとして起動される。出典は [Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)。スマートカードやリモート デスクトップを使う場合は無効化しない。
+
 ### ゲーム起動時に Xbox オーバーレイの通知を消す
 
 <!-- textlint-disable preset-ja-technical-writing/no-mix-dearu-desumasu -->
@@ -412,10 +672,16 @@ sc.exe config RetailDemo start=disabled
 
 1. レジストリエディタ（`regedit`）を開く
 2. `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR` に移動
-3. `GameDVR` を右クリック
-4. `新規` → `キー` から、`AppCaptureEnabled` のキーを作成。
-5. 作成したキー `{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}` を右クリックし、`新規` → `DWORD (32 ビット) 値` から、`AppCaptureEnabled` を作成。
-6. `AppCaptureEnabled` をダブルクリックし、値のデータに `0` を入力し `OK` をクリック。
+3. 右側のペインで右クリックし、`新規` → `DWORD (32 ビット) 値` から、`AppCaptureEnabled` を作成。キーではなく値を作る
+4. `AppCaptureEnabled` をダブルクリックし、値のデータに `0` を入力し `OK` をクリック。
+
+コマンドラインでは、PowerShell で以下を実行する。
+
+```powershell
+New-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name AppCaptureEnabled -PropertyType DWord -Value 0 -Force
+```
+
+ポップアップは、Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できた。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。
 
 ### ファイルなどの右クリックメニューを戻す
 
@@ -431,6 +697,13 @@ Windows 11 になって右クリックメニュー（コンテキストメニュ
 6. `(既定)` をクリックし、空白の状態で `OK` をクリック
 7. タスクマネージャーなどからエクスプローラを再起動
 
+コマンドラインでは、PowerShell で以下を実行する。
+
+```powershell
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+Stop-Process -Name explorer -Force
+```
+
 ### スタートメニューの Web 検索を無効化する
 
 Windows キーを押してキーワード入力したとき、PC 内のアプリケーションなどを検索できるが、そのときに Web 検索されるのをやめたい。
@@ -445,82 +718,28 @@ Windows キーを押してキーワード入力したとき、PC 内のアプリ
 6. `DisableSearchBoxSuggestions` をダブルクリックし、値のデータに `1` を入力し `OK` をクリック。
 7. タスクマネージャーなどからエクスプローラを再起動
 
+コマンドラインでは、**管理者権限の** PowerShell で以下を実行する。昇格していない PowerShell では「アクセスが拒否されました」になる。
+
+```powershell
+reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v DisableSearchBoxSuggestions /t REG_DWORD /d 1 /f
+Stop-Process -Name explorer -Force
+```
+
 ### winget (アプリ インストーラー) の更新
 
-最初に入っている winget は v1 バージョンなことで、いろいろインストール時にバグがある様子。アップデートする。
+アプリ インストーラー（winget）は、Microsoft Store 経由で更新される。
+Microsoft Store を開き、左のメニューの `更新とダウンロード` で `更新プログラムの確認` をクリックする（`ms-windows-store://downloadsandupdates` でも開ける）。
 
-Microsoft Store を開き、ライブラリタブに移動。インストール済みソフトウェアをアップデートすることで更新できる。
+PowerShell から `winget upgrade Microsoft.AppInstaller` を実行しても更新対象として見つかるが、Store での更新前に実行したところ、`This package has a dependency missing from your system.` で失敗した（終了コード `0x80073cf3`）。先に Store で更新するほうが確実。
 
 ## ソフトウェアのインストールや設定
-
-### Avast
-
-アンチウイルスソフトとして Avast を利用している。
-
-[Avast のトップページ](https://www.avast.co.jp) にアクセスし、`今すぐ無料ダウンロード` からインストーラーをダウンロードし実行する。  
-セットアップ画面が開いたら、`カスタマイズ` をクリックし、以下を実施する。
-
-インストールするコンポーネントは以下のように選択する。
-
-- [x] `ファイル シールド`
-- [x] `挙動監視シールド`
-  - [x] `ランサムウェア シールド`
-- [x] `ウェブ シールド`
-- [x] `メール シールド`
-- [x] `ファイアウォール`
-- [ ] `ソフトウェア アップデータ`
-- [x] `ブラウザ　クリーンアップ`
-- [ ] `レスキュー ディスク`
-- [ ] `ネットワーク インスペクター`
-- [ ] `パスワード(旧)`
-- [x] `クリーンアップ`
-- [ ] `サイレントモード`
-
-![](assets/image-5.png)
-
-インストール後、Avast 設定内で以下の設定をする。  
-設定へは右上 `メニュー` → `設定` でアクセスできる。
-
-#### 使用状況の共有を無効化
-
-1. `一般`
-2. `個人のプライバシー`
-3. 以下のチェックを外す
-   - `アプリ使用状況データをアバストと共有して、このアプリとその他のアバスト製品の改善にご協力ください。`
-   - `アプリの使用状況データを アバスト と共有して、サードパーティーの製品を提供できるようにします。`
-   - `このアプリのコミュニケーションと製品の推奨事項をパーソナライズします。`
-
-![](assets/image-6.png)
-
-#### SSL/TLS 証明書の上書き無効化
-
-この設定がオンになっていることで、コンテンツの中身が精査されてウイルス検知できるようにはなるのだが、`wget` や `curl` での HTTPS 通信が行えなくなるので無効化する。
-
-1. `プロテクション`
-2. `メイン シールド`
-3. （下にスクロールして）`シールドを設定` で `ウェブ シールド`
-4. 以下のチェックを外す
-   - `HTTPS スキャンを有効にする`
-   - `QUIC/HTTP3 スキャンを有効にする`
-   - `WebSocket プロトコル スキャンを有効にする`
-
-![](assets/image-7.png)
-
-#### メール署名を無効化
-
-1. `プロテクション`
-2. `メイン シールド`
-3. （下にスクロールして）`シールドを設定` で `メール シールド`
-4. `送信するメールの末尾に署名を追加` のチェックを外す
-
-![](assets/image-8.png)
 
 ### Firefox
 
 メインブラウザとして利用する。拡張機能などの同期は Firefox アカウントで行う。
 
-- [公式サイト](https://www.mozilla.org/ja/firefox/new/)
-- [ダウンロードリンク](https://www.mozilla.org/ja/firefox/download/thanks/)
+- [公式サイト](https://www.firefox.com/ja/)
+- [ダウンロードリンク](https://www.firefox.com/ja/download/windows/)
 - `winget install Mozilla.Firefox`
 
 ### Chrome
@@ -532,38 +751,15 @@ Microsoft Store を開き、ライブラリタブに移動。インストール�
 - [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
 - `winget install Google.Chrome`
 
-### Opera
-
-YouTube などで動画を見たり音楽を聞いたりするために使う。  
-拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
-
-- [公式サイト](https://www.opera.com/ja)
-- [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
-- `winget install Opera.Opera`
-
-インストールする拡張機能は以下の通り。
-
-- [Install Chrome Extensions](https://addons.opera.com/ja/extensions/details/install-chrome-extensions/): 削除された様子。開発者モードからインストールする。
-- [Enhancer for YouTube™](https://chrome.google.com/webstore/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
-  - 設定ファイル: [enhancer-for-youtube-settings.json](./enhancer-for-youtube-settings.json)
-- [YouTube™ デュアル字幕](https://chrome.google.com/webstore/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
-- [YouTube NonStop](https://chrome.google.com/webstore/detail/youtube-nonstop/nlkaejimjacpillmajjnopmpbkbnocid)
-- [DetailedTime](https://chrome.google.com/webstore/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
-- [PreMiD](https://chrome.google.com/webstore/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
-- [Web Scrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
-  - `General` と `YouTube` オプションはすべてチェックを外すこと
-
 ### Scoop
 
-古い PCからストレージごと移している場合、以下の手順を **Scoop のインストール前** に行う。
+古い PC からストレージごと移している場合、以下の手順を **Scoop のインストール前** に行う。
 
 !!! warning "注意"
     インストール前に移行作業が必要なので、よく読んでから実施すること。
 
-1. apps ディレクトリからインストールコマンドをリストアップするコマンドを cmd.exe で叩く。
-
-**iex のインストールコマンドを叩かず** に、以下のコードで SCOOP 環境変数を設定する。  
-この際、`N:/Portable\Scoop\tomachi` など、shims ディレクトリがあるところを指すようにする。
+**インストールコマンド（`irm get.scoop.sh | iex`）を叩かず** に、以下のコードで SCOOP 環境変数を設定する。  
+この際、`N:\Portable\Scoop\tomachi` など、shims ディレクトリがあるところを指すようにする。
 
 ```powershell
 $env:SCOOP = '<SCOOP-DIR>'
@@ -574,15 +770,15 @@ apps ディレクトリからインストールコマンドをリストアップ
 
 ```cmd
 for /f "delims=;" %i in ('dir /b /ad %SCOOP%\apps') do ( echo scoop install %i>>restore.ps1 )
-mv %SCOOP%\apps %SCOOP%\apps-old
+ren %SCOOP%\apps apps-old
 ```
 
 これによって、`restore.ps1` が作成される。  
-以下のコマンドで Scoop をインストールする。
+以下のコマンドで、**管理者権限ではない** PowerShell から Scoop をインストールする。
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+irm get.scoop.sh | iex
 ```
 
 PowerShell で `restore.ps1` ファイルを実行する。
@@ -604,16 +800,22 @@ powershell -ExecutionPolicy RemoteSigned -File restore.ps1
 Windows 11 から Terminal というものがインストールされるようになった。  
 この画面から PowerShell もコマンドプロンプトも Windows Subsystem for Linux も触れるので意外と便利。
 
-- `プロファイル` -> `既定値` で、`外観` に入り、以下の設定をする
+- `Ctrl+,` で設定を開き、`プロファイル` -> `既定値` を開く。ページ下部の `追加の設定` にある `外観` に入り、以下の設定をする
   <!-- textlint-disable ja-spacing/ja-no-space-between-full-width -->
   - フォント フェイス: `HackGen35 Console NF`
   <!-- textlint-enable ja-spacing/ja-no-space-between-full-width -->
+
+設定ファイルで指定する場合は、`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` の `profiles` にある `"defaults": {}` を、次のように書き換える。
+
+```json
+"defaults": { "font": { "face": "HackGen35 Console NF" } },
+```
 
 ### Pwsh
 
 Windows 10 にデフォルトで入っている PowerShell を使うと `新しいクロスプラットフォームの PowerShell をお試しください` って言われてうざいので、新しい Pwsh を入れておく。
 
-- 参考: [Windows への PowerShell のインストール](https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-on-windows)
+- 参考: [Windows への PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-on-windows)
 
 winget でインストールできる。以下のコマンドを実行。
 
@@ -626,9 +828,9 @@ winget install Microsoft.PowerShell
 Windows 11 の音量ミキサーはどうにも使い勝手が悪い（特に複数アプリケーションから音を出している場合）ので、タスクバーでアプリケーションごとの音量調整ができる EarTrumpet を入れる。  
 以下のように利用できる。
 
-![](assets/image-9.png)
+![EarTrumpet の画面](assets/image-9.png)
 
-Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/detail/9NBLGGH516XP) にアクセスし、ダウンロードするだけ。
+Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/detail/9nblggh516xp) にアクセスし、ダウンロードするだけ。
 
 ### Thunderbird
 
@@ -644,7 +846,7 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 
 ### Logicool G HUB
 
-[Logicool G HUB の Web サイト](https://gaming.logicool.co.jp/ja-jp/innovation/g-hub.html) からインストーラーをダウンロードできる。
+[Logicool G HUB の Web サイト](https://gaming.logicool.co.jp/ja-jp/software/ghub) からインストーラーをダウンロードできる。
 
 `%LOCALAPPDATA%\LGHUB\settings.db` のファイルをリストアすることでそのまま利用可能。
 
@@ -653,6 +855,8 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/store/deta
 [AnyDesk の Web サイト](https://anydesk.com/ja) からインストーラーをダウンロードできる。
 
 `%ProgramData%\AnyDesk` をリストアすることで、エイリアスを継続して利用可能。
+
+ポータブル版（インストールしない版）は `%APPDATA%\AnyDesk` に設定が保存され、ID は `service.conf` に保存される。
 
 ### Visual Studio Code
 
