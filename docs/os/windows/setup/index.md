@@ -33,7 +33,7 @@ Windows 11 の要件は、UEFI ファームウェア（Secure Boot に対応し�
 - ASUS のマザーボードなら起動設定（Boot）にある
 
 !!! note "Secure Boot 証明書の更新"
-    2011 年に発行された Secure Boot の証明書は 2026 年 6 月から順に失効し、Windows Production PCA 2011 は 2026 年 10 月 19 日に失効した。
+    2011 年に発行された Secure Boot の証明書は、2026 年 6 月から順に失効している。Windows Production PCA 2011 は 2026 年 10 月 19 日に失効した。
 
 ## インストール
 
@@ -278,7 +278,10 @@ Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: �
 | `タスク バーのサイズ調整` | タスクバーの高さ | `Set-ItemProperty $adv TaskbarSi 0`（小。既定は `1`） |
 | `タスク バーのボタンをまとめラベルを非表示にする` | ボタンをまとめるか、ラベルを表示するか | `Set-ItemProperty $adv TaskbarGlomLevel 2`（まとめない。ラベルが表示される。既定は `0` の常時） |
 
-`タスク バーの位置` と `タスク バーを自動的に隠す` は、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3` の `Settings`（48 バイトのバイナリ）にある。12 バイト目（添字 12）が位置（`0` 左、`1` 上、`2` 右、`3` 下）、9 バイト目（添字 8）が自動的に隠す（`2` が通常、`3` が隠す）。変更後はエクスプローラを再起動する。
+`タスク バーの位置` と `タスク バーを自動的に隠す` は、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3` の `Settings`（48 バイトのバイナリ）にある。次の 2 か所を使う。変更後はエクスプローラを再起動する。
+
+- 12 バイト目（添字 12）: 位置。`0` が左、`1` が上、`2` が右、`3` が下
+- 9 バイト目（添字 8）: 自動的に隠す。`2` が通常、`3` が隠す
 
 ```powershell
 $p = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'
@@ -675,7 +678,7 @@ sc.exe config RetailDemo start=disabled
 ```
 
 !!! note "無効化しないサービス"
-    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要で、リモート デスクトップ サービスの依存サービスとして起動される（[Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)）。スマートカードやリモート デスクトップを使う場合は無効化しない。最初から `手動` なので、無効化しなくても常時は動いていない。
+    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要なサービスで、リモート デスクトップ サービスの依存サービスとして起動される。出典は [Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)。スマートカードやリモート デスクトップを使う場合は無効化しない。最初から `手動` なので、無効化しなくても常時は動いていない。
 
 ### ゲーム起動時に Xbox オーバーレイの通知を消す
 
