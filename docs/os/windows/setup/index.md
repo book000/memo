@@ -566,7 +566,7 @@ Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq $name | Remove
 ```
 
 Windows 11 Home 26300.9457 の `Microsoft.Todos` では、`-AllUsers` を付けた `Remove-AppxPackage` の実行後に、プロビジョニング済みの一覧からも消え、新しく作ったユーザーにも入らなかった。
-これは 1 つのパッケージ、1 つのビルドでの結果で、公式ドキュメントはプロビジョニング解除を保証していない。`Remove-AppxProvisionedPackage` を実行したあとに新規ユーザーへ入らない点は公式ドキュメントの記述にもとづき、実機では未検証。
+これは 1 つのパッケージ、1 つのビルドでの結果で、公式ドキュメントはプロビジョニング解除を保証していない。`Remove-AppxProvisionedPackage` で `Microsoft.Todos` のプロビジョニングだけを外した場合も、新しく作ったユーザーには `Microsoft.Todos` が入らず、外していない `Microsoft.BingNews` は入った。
 参考: [Remove-AppxPackage](https://learn.microsoft.com/en-us/powershell/module/appx/remove-appxpackage)、[Remove-AppxProvisionedPackage](https://learn.microsoft.com/en-us/powershell/module/dism/remove-appxprovisionedpackage)。
 
 削除したアプリは Microsoft Store から再インストールできる。`winget install -e --id <ID> --source msstore` で入れ直せる。Solitaire は `winget` では `No package found matching input criteria.` になるので、Store のページから入れる。Dev Home は `winget search` で見つからない。
