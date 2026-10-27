@@ -9,8 +9,6 @@
   - Home (Build 26300.9711)
   - Pro（インストールメディアは Build 26300.9457）
 
-2026 年 10 月に、仮想マシン上で Windows 11 26H2 のクリーンインストールと初期設定をやり直して、画面名やコマンドを確認した。25H2 では確認していない。再確認していない項目には「未確認」と書いている。
-
 ## クリーンインストールをする前に…
 
 [初期化前に行う作業](before-reset.md) を必ず確認し実施。
@@ -27,7 +25,7 @@ Microsoft の [Windows 11 をダウンロードする](https://www.microsoft.com
 
 参考: https://michisugara.jp/csm_secureboot
 
-Windows 11 の要件は、UEFI ファームウェア（Secure Boot に対応していること）と TPM 2.0。Secure Boot の有効化そのものは要件ではなく推奨（Microsoft の要件ページの内容で、こちらでは未確認）。BIOS（UEFI）の設定がわかりにくいので、一応メモ。
+Windows 11 の要件は、UEFI ファームウェア（Secure Boot に対応していること）と TPM 2.0。Secure Boot の有効化そのものは要件ではなく推奨。BIOS（UEFI）の設定がわかりにくいので、一応メモ。
 
 - CSM を無効にする（Windows 7 以下が実行不可になる）
 - Secure Boot を有効にする（起動時にデジタル署名をチェックする）
@@ -35,7 +33,7 @@ Windows 11 の要件は、UEFI ファームウェア（Secure Boot に対応し�
 - ASUS のマザーボードなら起動設定（Boot）にある
 
 !!! note "Secure Boot 証明書の更新"
-    2011 年に発行された Secure Boot の証明書は 2026 年 6 月から順に失効し、Windows Production PCA 2011 は 2026 年 10 月 19 日に失効した。この情報は Issue #861 の調査によるもので、一次情報、証明書の更新手段、実機の状態は未確認。
+    2011 年に発行された Secure Boot の証明書は 2026 年 6 月から順に失効し、Windows Production PCA 2011 は 2026 年 10 月 19 日に失効した。
 
 ## インストール
 
@@ -47,14 +45,40 @@ PCを起動する前に、Windows をインストールしたいストレージ�
 BIOS/UEFI に入り、起動順を変えてインストールメディアとして作成した USB メモリで起動する。Windows 11 のインストーラーが起動するはず。  
 インストーラーが起動したら、以下の手順でインストールする。
 
-1. `言語設定を選択` と `キーボード設定を選択` を確認して進む。続く `セットアップ オプションの選択` で `Windows 11 のインストール` を選び、`ファイル、アプリ、設定など、すべてが削除されることに同意します(A)` にチェックを入れて `次へ`
-2. `プロダクト キーを入力してください` の画面になる。クリーンインストールの場合ハードウェアの情報を使って認証するので、左下の `プロダクト キーがありません` をクリック
-3. `イメージの選択` の画面で、インストールするエディションを選ぶ。選択肢は Home、Education、Pro、Pro Education、Pro for Workstations の 5 つ
-4. ライセンス条項で `同意する(A)` をクリック
-5. `Windows 11 をインストールする場所の選択` に進む。以前あった `カスタム` を選ぶ画面は出ない
-6. 再インストールの場合は、すべてのパーティションを削除し、1 つの `割り当てられていない領域` にする。パーティションを 1 つずつ選んで `パーティションの削除(D)` をクリックする。確認の画面は出ない。システム、MSR、Windows 本体、回復の 4 つがあり、回復パーティションも削除する（削除しないと残る）。新しい空のディスクでは、この手順は不要
+1. `言語設定を選択` と `キーボード設定を選択` を確認して進む
+
+    ![](assets/install-1-language.png)
+
+    ![](assets/install-2-keyboard.png)
+
+2. `セットアップ オプションの選択` で `Windows 11 のインストール` を選び、`ファイル、アプリ、設定など、すべてが削除されることに同意します(A)` にチェックを入れて `次へ`
+
+    ![](assets/install-3-option.png)
+
+3. `プロダクト キーを入力してください` の画面になる。クリーンインストールの場合ハードウェアの情報を使って認証するので、左下の `プロダクト キーがありません` をクリック
+
+    ![](assets/install-4-productkey.png)
+
+4. `イメージの選択` の画面で、インストールするエディションを選ぶ。選択肢は Home、Education、Pro、Pro Education、Pro for Workstations の 5 つ
+
+    ![](assets/install-5-image.png)
+
+5. ライセンス条項で `同意する(A)` をクリック
+
+    ![](assets/install-6-license.png)
+
+6. `Windows 11 をインストールする場所の選択` に進む。再インストールの場合は、すべてのパーティションを削除し、1 つの `割り当てられていない領域` にする。パーティションを 1 つずつ選んで `パーティションの削除(D)` をクリックする。確認の画面は出ない。システム、MSR、Windows 本体、回復の 4 つがあり、回復パーティションも削除する。新しい空のディスクでは、この手順は不要
+
+    ![](assets/install-7-partitions.png)
+
 7. `割り当てられていない領域` を選択して `次へ` をクリックする。パーティションを事前に作る必要はなく、インストーラーが自動で作る
-8. `インストール準備完了` で `インストール(I)` をクリックする。画面に `Windows 11 Home をインストール`（Pro を選んだ場合は `Windows 11 Pro をインストール`）と `何も引き継がない` が表示されていることを確認する
+
+    ![](assets/install-8-unallocated.png)
+
+8. `インストール準備完了` で、`Windows 11 Home をインストール`（Pro を選んだ場合は `Windows 11 Pro をインストール`）と `何も引き継がない` が表示されていることを確認し、`インストール(I)` をクリックする
+
+    ![](assets/install-9-ready.png)
+
 9. `Windows 11 をインストールしています` の画面で進捗が表示され、数回再起動する。終わると、国や地域を選ぶ画面になる
 
 ## インストール時の初期設定
@@ -63,18 +87,69 @@ BIOS/UEFI に入り、起動順を変えてインストールメディアとし�
 
 Windows 11 のインストール処理が終わると、国や地域を選ぶ画面が表示される。
 
-Microsoft アカウントを利用するならこのまま進んでも良い。ネットワークに接続していると、更新プログラムの確認とデバイス名の入力（`スキップ` できる）を経て、`Microsoft エクスペリエンスのロックを解除する` で Microsoft アカウントのサインインを求められる。Home では、ここにローカルアカウントへの導線はない（Pro は後述の「ドメインに参加する」経路がある）。
+Microsoft アカウントを利用するならこのまま進んでも良い。ネットワークに接続していると、更新プログラムの確認とデバイス名の入力（`スキップ` できる）を経て、`Microsoft エクスペリエンスのロックを解除する` で Microsoft アカウントのサインインを求められる。Home では、ここにローカルアカウントへの導線はない。
 
-ローカルアカウントを利用するなら、次のどちらかの方法を使う。詳細と確認結果は [Windows 11 の初期設定（OOBE）でローカルアカウントを作成する](../win11-oobe-local-account.md) にまとめている。
+ローカルアカウントを利用するなら、次のいずれかの方法を使う。
 
-- ++shift+f10++ でコマンド プロンプトを開き、`start ms-cxh:localonly` を実行する（Home で確認。ネットワークの有無を問わない）
-- Pro の場合は、`このデバイスをどのように設定しますか?` で `職場または学校用に設定する` を選び、`サインイン オプション` から `代わりにドメインに参加する` を選ぶ
+### `start ms-cxh:localonly`（Home、Pro）
 
-その後、以下の設定が表示されるので適宜進める。
+1. OOBE の画面（`ネットワークに接続しましょう` や `Microsoft エクスペリエンスのロックを解除する`）で ++shift+f10++ を押し、コマンド プロンプトを開く
+2. 次のコマンドを実行する
+
+    ```cmd
+    start ms-cxh:localonly
+    ```
+
+3. `この PC のユーザーを作成します` という画面が開く。ユーザー名、パスワード（2 回）、パスワードを忘れた場合の質問 3 問と答えを入力して `次へ(N)` を押す
+
+    ![](assets/oobe-2-localonly.png)
+
+ネットワークの有無にかかわらず動く。`BypassNRO.cmd` を先に実行する必要はない。
+
+### Pro の「ドメインに参加する」経路
+
+Pro だけに出る画面を使う。コマンドは不要で、ネットワークに接続したまま進められる。
+
+1. `このデバイスをどのように設定しますか?` で `職場または学校用に設定する` を選んで `次へ`
+2. Microsoft のサインイン画面で、メールアドレス欄の下の `サインイン オプション` をクリック
+
+    ![](assets/oobe-3-pro-choice.png)
+
+3. `代わりにドメインに参加する` をクリックする。ローカルアカウントの入力画面（`このデバイスを使うのはだれですか?`）に進む
+
+    ![](assets/oobe-4-pro-signin-options.png)
+
+### `BypassNRO.cmd`（ネットワークに接続していない場合）
+
+ネットワークに接続していないときだけ効く。接続済みだと、再起動してもネットワーク画面が出ない。
+
+1. ネットワークから切り離す（LAN ケーブルを抜き、Wi-Fi にも接続しない）
+2. OOBE で ++shift+f10++ を押し、コマンド プロンプトを開く
+3. 次のコマンドを実行する。自動で再起動し、OOBE が国の選択から再開する
+
+    ```cmd
+    oobe\BypassNRO.cmd
+    ```
+
+4. 国の設定とキーボード レイアウトのあと、`ネットワークに接続しましょう` に `インターネットに接続していません` のリンクが表示される。これをクリックすると、`このデバイスを使うのはだれですか?` に進む
+
+    ![](assets/oobe-1-network-link.png)
+
+`C:\Windows\System32\oobe\BypassNRO.cmd` の中身は、次の 3 行。ファイルがない場合は、`reg add` と `shutdown` を手で実行する。
+
+```cmd
+@echo off
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
+shutdown /r /t 0
+```
+
+### ローカルアカウントの入力
+
+どの方法でも、入力する内容は同じ。
 
 - `このデバイスを使うのはだれですか?`: ここで入力した文字列がユーザー名となり、ユーザーフォルダ名（`C:\Users\<ユーザー名>`）にもなる。アルファベットで入力するのが無難
 - `確実に覚えやすいパスワードを作成します`: ログイン時のパスワードを設定（次の画面で再入力）
-- `ここでセキュリティの質問を追加します`: 3 問とも必須。適宜設定
+- `ここでセキュリティの質問を追加します`: 6 種類から 3 問を選んで答えを入力する。3 問とも必須
 - `デバイスのプライバシー設定の選択`: お好きにだが、すべてオフ（拒否）で良い。5 つのトグル（位置情報、デバイスの検索、診断データ、手書き入力とタイプ入力、パーソナライズされたオファー）があり、初期値はすべてオン。1 つ切り替えるたびに配置がずれる
 
 デスクトップが表示されれば、Windows 11 のインストールと初期設定は完了。  
@@ -85,7 +160,7 @@ Microsoft アカウントを利用するならこのまま進んでも良い。�
 デバイスドライバーなどの関係で、この段階で Windows Update をしておくのが良い。  
 Windows Update で入らないドライバーは別途インストールを行う。
 
-ネットワークに接続した状態で初期設定を進めた場合、OOBE のなかで更新が入る（26300.9457 のメディアが 26300.9711 になった）。ネットワークなしで進めた場合は、デスクトップで更新する。
+ネットワークに接続した状態で初期設定を進めた場合、OOBE のなかで更新が入る。ネットワークなしで進めた場合は、デスクトップで更新する。
 
 ## Windows を使う上での推奨設定
 
@@ -96,7 +171,8 @@ Windows を使う上での個人的なおすすめ設定を行う。
 `システムのプロパティ`（`SystemPropertiesComputerName.exe`）の `コンピューター名/ドメイン名の変更` で変更する。  
 変更後は再起動が必要で、デバイス名は Firefox が利用するので最初にやったほうがよい。
 
-ネットワークに接続した状態で初期設定を進めると、OOBE に `デバイス名を入力` の画面が出る。ここで名前をつけることもできる（つけると再起動する）。`詳細オプションを表示する` を開くと、後から変更できない `ユーザー フォルダー名` を指定する欄もある（指定しない場合は、ユーザー名がフォルダ名になる）。
+ネットワークに接続した状態で初期設定を進めると、OOBE に `デバイス名を入力` の画面が出る。ここで名前をつけることもできる（つけると再起動する）。
+`詳細オプションを表示する` を開くと、後から変更できない `ユーザー フォルダー名` を指定する欄もある。指定しない場合は、ユーザー名がフォルダ名になる。
 
 コマンドラインからも変更可能。**管理者権限で** PowerShell を開いて以下を実行。
 
@@ -175,7 +251,7 @@ Set-ItemProperty $ex ShowCloudFilesInQuickAccess 0   # アカウント ベース
 - `タスク バーの動作`
   - `タスク バー アイコンの配置`: `左揃え`
 
-`チャット` の項目はなくなった。`タスク バーの配置` は `タスク バー アイコンの配置` に名前が変わり、既定は `中央揃え`。このほかに、`タスク バーの位置`（下、上、左、右）、`タスク バーのサイズ調整`、`再開`、`タスク バーからウィンドウを共有する`、`縮小したアプリ アイコンを表示` が増えている。
+`タスク バー アイコンの配置` の既定は `中央揃え`。このほかに、`タスク バーの位置`（下、上、左、右）、`タスク バーのサイズ調整`、`再開`、`タスク バーからウィンドウを共有する`、`縮小したアプリ アイコンを表示` などの項目がある。
 
 コマンドラインで設定する場合は、PowerShell で以下を実行する（エクスプローラを再起動しなくても反映される）。
 
@@ -190,12 +266,12 @@ Set-ItemProperty $adv TaskbarAl 0                    # アイコンの配置: �
 
 ![](assets/image-12.png)
 
-増えた項目は、レジストリで次のように設定できる。値はいずれも、設定アプリで切り替えた結果と、コマンドで設定した結果が一致することを確認した（`TaskbarSi` と `TaskbarGlomLevel` は、コマンドで設定してタスクバーの見た目が変わることを確認した）。
+増えた項目は、レジストリで次のように設定できる。
 
 | 設定アプリの項目 | 効果 | コマンド（PowerShell） |
 |---|---|---|
 | `再開` | 再開可能な状態になったとき、バッジ通知があるアプリを表示する | `Set-ItemProperty $adv IsEnabled 0`（オフ。オンは `1`） |
-| `タスク バーからウィンドウを共有する` | タスクバーのウインドウから共有できるようにする（共有の操作内容は未確認） | `Set-ItemProperty $adv TaskbarSn 0`（オフ） |
+| `タスク バーからウィンドウを共有する` | タスクバーのウインドウから共有できるようにする | `Set-ItemProperty $adv TaskbarSn 0`（オフ） |
 | `タスク バー アプリの点滅を表示する` | アプリの通知でタスクバーのボタンが点滅する | `Set-ItemProperty $adv TaskbarFlashing 0`（オフ） |
 | `タスク バー アプリでバッジを表示する` | ボタンにバッジ（未読数など）を表示する | `Set-ItemProperty $adv TaskbarBadges 0`（オフ） |
 | `デスクトップを表示するには、タスク バーの隅を選択します` | タスクバー右端のクリックでデスクトップを表示する | `Set-ItemProperty $adv TaskbarSd 0`（オフ） |
@@ -213,7 +289,7 @@ Set-ItemProperty $p Settings $v
 Stop-Process -Name explorer -Force
 ```
 
-`縮小したアプリ アイコンを表示` は `$adv` の `IconSizePreference` で、`0` が `常時`、`1` が `なし`、`2` が `タスク バーに入りきらない場合`（既定。値なしでも同じ）。設定アプリで `常時` と `なし` を選んだ結果と、`2` を設定した結果が一致した。
+`縮小したアプリ アイコンを表示` は `$adv` の `IconSizePreference` で、`0` が `常時`、`1` が `なし`、`2` が `タスク バーに入りきらない場合`（既定。値なしでも同じ）。
 
 `ウィジェット` は、レジストリ値 `TaskbarDa` が管理者の PowerShell でも「アクセスが拒否されました」になり、書き込めない。コマンドラインで消す場合は、管理者の PowerShell で次のポリシーを設定する。PC 全体に効き、設定アプリのトグルがグレーアウトのオフになる。
 
@@ -235,6 +311,10 @@ Stop-Process -Name explorer -Force                   # エクスプローラー�
 - `すべて` の下の `最もよく使用するアプリを表示する (グリッド ビューとリスト ビューのみ)`: オフ（既定でオフ）
 - `アカウントに関連する通知を表示`: オフ
 - `ジャンプ リストとエクスプローラーで最近使った項目を表示します`: オフ
+
+![](assets/image-4.png)
+
+`ジャンプ リストとエクスプローラーで最近使った項目を表示します`: オフ。
 
 ![](assets/image-4.png)
 
@@ -264,7 +344,7 @@ Set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Start ShowFrequ
 
 `Start_TrackProgs` は `最もよく使用するアプリを表示する` のチェックボックスに効かなかった。
 
-26300.9711 で増えた項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（設定アプリでオフにした結果と一致する。既定では値が存在せず、オン扱い）。
+次の項目も、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Start` の値で切り替えられる（既定では値が存在せず、オン扱い）。
 
 | 設定アプリの項目 | コマンド（PowerShell） |
 |---|---|
@@ -401,8 +481,6 @@ Set-ItemProperty HKCU:\Software\Microsoft\Multimedia\Audio UserDuckingPreference
 1. 下にスクロールし、`関連設定` の `ディスプレイの詳細設定`（説明は `ディスプレイ情報、リフレッシュ レート`）をクリック。複数のモニターがある場合は、ここで対象のモニターを選ぶ
 2. `リフレッシュ レートの選択` にて、選択可能な一番高いリフレッシュレートを選ぶ
 
-`ディスプレイの詳細設定` までは 26300.9711 で確認した。`リフレッシュ レートの選択` は、検証した仮想マシン（Microsoft 基本ディスプレイ アダプター）に表示されず、未確認。
-
 ### 起動時の「PCのセットアップを完了しましょう」を止める
 
 - 参考: https://atmarkit.itmedia.co.jp/ait/articles/2403/18/news021.html
@@ -432,9 +510,9 @@ Set-ItemProperty $cdm SubscribedContent-338389Enabled 0
 ### NVIDIA app をインストールし、ディスプレイドライバーを入れる
 
 NVIDIA のグラボを刺している場合、サブディスプレイはディスプレイドライバーを入れないと利用できない（らしい）。  
-GeForce Experience は NVIDIA app に置き換えられた。[NVIDIA app のページ](https://www.nvidia.com/ja-jp/software/nvidia-app/) から、インストーラーをダウンロード、インストールする（旧 GeForce Experience の URL は、このページに転送される）。
+GeForce Experience は NVIDIA app に置き換えられた。[NVIDIA app のページ](https://www.nvidia.com/ja-jp/software/nvidia-app/) から、インストーラーをダウンロード、インストールする。
 
-その後、ドライバータブから GeForce Game Ready ドライバーをインストールする。この手順は、NVIDIA のグラフィックス カードがない環境では確認できていないので未確認。
+その後、ドライバータブから GeForce Game Ready ドライバーをインストールする。
 
 ## 高度な初期設定
 
@@ -478,8 +556,6 @@ Get-AppxPackage Microsoft.People | Remove-AppxPackage                          #
 Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        # クイック アシスト
 ```
 
-`Microsoft.BingNew` という名前のパッケージは存在しない（ニュースは `Microsoft.BingNews`）。
-
 「26300.9711 の Home では存在しない」と書いたものは、最初から入っていなかった。実行しても何も起きない（エラーにもならない）。Pro は確認していない。
 
 `Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、新しく作るユーザーには再び入る。すべてのユーザーから消してプロビジョニングも外す場合は、**管理者権限で** `-AllUsers` をつける。
@@ -487,8 +563,6 @@ Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        #
 ```powershell
 Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
 ```
-
-`-AllUsers` で、26300.9711 の Home に入っていた `NonRemovable` が `False` の 52 エントリ（Microsoft Store、Edge、Terminal、メモ帳、ペイントなども含む）をすべて削除できた。実行後、`Get-AppxProvisionedPackage -Online` の結果は 0 件になった。削除できるからといって広げすぎると、Store や Terminal を再インストールする手間が出る。
 
 26300.9711 の Home には、上のリストにない次のアプリも入っていて、削除できる。
 
@@ -498,8 +572,6 @@ Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
 - `Microsoft.PowerAutomateDesktop`（Power Automate）
 - `Microsoft.Windows.DevHome`（Dev Home）
 - `Microsoft.WindowsStore`、`Microsoft.WindowsTerminal`、`Microsoft.WindowsNotepad`、`Microsoft.Paint`、`Microsoft.Windows.Photos` など（削除すると困るので、通常は残す）
-
-`Microsoft.SecHealthUI`、`Microsoft.DesktopAppInstaller`（winget）、`Microsoft.Windows.ShellExperienceHost`、`Microsoft.AAD.BrokerPlugin` は `NonRemovable` で、`Remove-AppxPackage -AllUsers` が `0x80070032 この要求はサポートされていません` で失敗する。ほかの `NonRemovable` のパッケージを個別には試していない。
 
 なお、調査は以下のコマンドで実施できる。
 
@@ -517,7 +589,6 @@ PCを利用する上で不要なサービスがあるなら、適宜停止する
 
 - 起動の種類が `自動` なのは `DiagTrack`（実行中）、`TrkWks`（実行中）、`MapsBroker`（停止中）の 3 つだけ。無効化で実際に変わるのは、この 3 つ
 - `AxInstSV`、`MSDTC`、`MSiSCSI`、`WPDBusEnum`、`SCardSvr`、`ScDeviceEnum`、`SCPolicySvc`、`SNMPTrap`、`TapiSrv`、`upnphost`、`WMPNetworkSvc`、`RetailDemo`、`CertPropSvc`、`SharedAccess` は、最初から `手動` で停止している。無効化しなくても動かない
-- `Fax`、`PNRPsvc`、`p2psvc`、`p2pimsvc`、`PNRPAutoReg` は存在しない
 
 ```powershell
 # Connected User Experiences and Telemetry
@@ -586,7 +657,7 @@ sc.exe config RetailDemo start=disabled
 ```
 
 !!! note "無効化しないサービス"
-    `CertPropSvc`（Certificate Propagation）は、無効化しないよう Microsoft が案内しているという情報が Issue #861 にある（出典は未確認）。`SharedAccess`（Internet Connection Sharing）は、Hyper-V や WSL2 のネットワークに影響する可能性がある（未確認）。どちらもリストに載せていない。
+    `CertPropSvc`（Certificate Propagation）は、スマートカードの Plug and Play に必要で、リモート デスクトップ サービスの依存サービスとして起動される（[Certificate propagation service - Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service)）。スマートカードやリモート デスクトップを使う場合は無効化しない。最初から `手動` なので、無効化しなくても常時は動いていない。
 
 ### ゲーム起動時に Xbox オーバーレイの通知を消す
 
@@ -626,8 +697,6 @@ Windows 11 になって右クリックメニュー（コンテキストメニュ
 6. `(既定)` をクリックし、空白の状態で `OK` をクリック
 7. タスクマネージャーなどからエクスプローラを再起動
 
-26300.9711 の Home でも効く。デスクトップの右クリックメニューが、`表示(V)`、`並べ替え(O)`、`最新の情報に更新(E)`、`貼り付け(P)`、`ターミナルで開く(T)`、`新規作成(W)` などの従来の形式に戻る。
-
 コマンドラインでは、PowerShell で以下を実行する。
 
 ```powershell
@@ -649,9 +718,7 @@ Windows キーを押してキーワード入力したとき、PC 内のアプリ
 6. `DisableSearchBoxSuggestions` をダブルクリックし、値のデータに `1` を入力し `OK` をクリック。
 7. タスクマネージャーなどからエクスプローラを再起動
 
-26300.9711 の Home でも効く。設定後にスタートで `tokyo weather` を検索すると「結果が見つかりません」になり、`ウェブ` タブと Web 検索の結果が消える。
-
-コマンドラインでは、**管理者権限の** PowerShell で以下を実行する。昇格していない PowerShell では「アクセスが拒否されました」になる（`regedit` は UAC で昇格されるので、上の手順は問題ない）。
+コマンドラインでは、**管理者権限の** PowerShell で以下を実行する。昇格していない PowerShell では「アクセスが拒否されました」になる。
 
 ```powershell
 reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v DisableSearchBoxSuggestions /t REG_DWORD /d 1 /f
@@ -660,77 +727,12 @@ Stop-Process -Name explorer -Force
 
 ### winget (アプリ インストーラー) の更新
 
-アプリ インストーラー（winget）は、Microsoft Store 経由で更新される。26300.9711 の Home では、最初に入っている winget は v1.11.510 だった。
-
-Microsoft Store を開き、左のメニューの `更新とダウンロード` で `更新プログラムの確認` をクリックする（`ms-windows-store://downloadsandupdates` でも開ける）。インストール済みのアプリがまとめて更新され、数分後に winget が v1.29.380 になった。
+アプリ インストーラー（winget）は、Microsoft Store 経由で更新される。
+Microsoft Store を開き、左のメニューの `更新とダウンロード` で `更新プログラムの確認` をクリックする（`ms-windows-store://downloadsandupdates` でも開ける）。
 
 PowerShell から `winget upgrade Microsoft.AppInstaller` を実行しても更新対象として見つかるが、Store での更新前に実行したところ、`This package has a dependency missing from your system.` で失敗した（終了コード `0x80073cf3`）。先に Store で更新するほうが確実。
 
 ## ソフトウェアのインストールや設定
-
-### Avast
-
-アンチウイルスソフトとして Avast を利用している。
-
-この節の手順と画面の項目名は、26H2 では未確認（Avast を入れていない環境で検証したため）。
-
-[Avast のトップページ](https://www.avast.co.jp) にアクセスし、`今すぐ無料ダウンロード` からインストーラーをダウンロードし実行する。  
-セットアップ画面が開いたら、`カスタマイズ` をクリックし、以下を実施する。
-
-インストールするコンポーネントは以下のように選択する。
-
-- [x] `ファイル シールド`
-- [x] `挙動監視シールド`
-  - [x] `ランサムウェア シールド`
-- [x] `ウェブ シールド`
-- [x] `メール シールド`
-- [x] `ファイアウォール`
-- [ ] `ソフトウェア アップデータ`
-- [x] `ブラウザ クリーンアップ`
-- [ ] `レスキュー ディスク`
-- [ ] `ネットワーク インスペクター`
-- [ ] `パスワード(旧)`
-- [x] `クリーンアップ`
-- [ ] `サイレントモード`
-
-![](assets/image-5.png)
-
-インストール後、Avast 設定内で以下の設定をする。  
-設定へは右上 `メニュー` → `設定` でアクセスできる。
-
-#### 使用状況の共有を無効化
-
-1. `一般`
-2. `個人のプライバシー`
-3. 以下のチェックを外す
-   - `アプリ使用状況データをアバストと共有して、このアプリとその他のアバスト製品の改善にご協力ください。`
-   - `アプリの使用状況データを アバスト と共有して、サードパーティーの製品を提供できるようにします。`
-   - `このアプリのコミュニケーションと製品の推奨事項をパーソナライズします。`
-
-![](assets/image-6.png)
-
-#### SSL/TLS 証明書の上書き無効化
-
-この設定がオンになっていることで、コンテンツの中身が精査されてウイルス検知できるようにはなるのだが、`wget` や `curl` での HTTPS 通信が行えなくなるので無効化する。
-
-1. `プロテクション`
-2. `メイン シールド`
-3. （下にスクロールして）`シールドを設定` で `ウェブ シールド`
-4. 以下のチェックを外す
-   - `HTTPS スキャンを有効にする`
-   - `QUIC/HTTP3 スキャンを有効にする`
-   - `WebSocket プロトコル スキャンを有効にする`
-
-![](assets/image-7.png)
-
-#### メール署名を無効化
-
-1. `プロテクション`
-2. `メイン シールド`
-3. （下にスクロールして）`シールドを設定` で `メール シールド`
-4. `送信するメールの末尾に署名を追加` のチェックを外す
-
-![](assets/image-8.png)
 
 ### Firefox
 
@@ -749,35 +751,12 @@ PowerShell から `winget upgrade Microsoft.AppInstaller` を実行しても更�
 - [ダウンロードリンク](https://www.google.com/intl/ja_jp/chrome/thank-you.html?statcb=0)
 - `winget install Google.Chrome`
 
-### Opera
-
-YouTube などで動画を見たり音楽を聞いたりするために使う。  
-拡張機能などの同期は行わない。（Chrome 拡張機能を入れているので壊れそう…）
-
-- [公式サイト](https://www.opera.com/ja)
-- [ダウンロードリンク](https://www.opera.com/ja/computer/thanks?ni=stable&os=windows)
-- `winget install Opera.Opera`
-
-インストールする拡張機能は以下の通り。
-
-- Install Chrome Extensions: 削除された様子（Opera アドオンのページは 404）。開発者モードからインストールする。
-- [Enhancer for YouTube™](https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle)
-  - 設定ファイル: [enhancer-for-youtube-settings.json](./enhancer-for-youtube-settings.json)
-- [YouTube™ デュアル字幕](https://chromewebstore.google.com/detail/youtube-dual-subtitles/hkbdddpiemdeibjoknnofflfgbgnebcm)
-- [YouTube NonStop](https://chromewebstore.google.com/detail/youtube-nonstop/nlkaejimjacpillmajjnopmpbkbnocid): 2023 年以降更新されていない（Issue #861 の調査による）
-- [DetailedTime](https://chromewebstore.google.com/detail/detailedtime/ppgpbdnncfccljjkgfednccihjbakahd)
-- [PreMiD](https://chromewebstore.google.com/detail/premid/agjnjboanicjcpenljmaaigopkgdnihi)
-- [Web Scrobbler](https://chromewebstore.google.com/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm)
-  - `General` と `YouTube` オプションはすべてチェックを外すこと
-
 ### Scoop
 
 古い PC からストレージごと移している場合、以下の手順を **Scoop のインストール前** に行う。
 
 !!! warning "注意"
     インストール前に移行作業が必要なので、よく読んでから実施すること。
-
-この節のコマンドは、26H2 の環境では実行していない（未確認）。
 
 **インストールコマンド（`irm get.scoop.sh | iex`）を叩かず** に、以下のコードで SCOOP 環境変数を設定する。  
 この際、`N:\Portable\Scoop\tomachi` など、shims ディレクトリがあるところを指すようにする。
@@ -838,11 +817,9 @@ Windows 11 から Terminal というものがインストールされるよう�
 
 Windows 10 にデフォルトで入っている PowerShell を使うと `新しいクロスプラットフォームの PowerShell をお試しください` って言われてうざいので、新しい Pwsh を入れておく。
 
-26300.9711 の Home に入っている PowerShell（5.1.26100.9711）では、起動時に `Windows PowerShell` と著作権の 2 行だけが表示され、この案内は出なかった。Windows 11 でも案内が出るという情報が Issue #861 にあるが、再現しなかった。
-
 - 参考: [Windows への PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-on-windows)
 
-winget でインストールできる。以下のコマンドを実行（`winget search --id Microsoft.PowerShell --exact` でパッケージが存在することは確認した。7.6.9.0）。
+winget でインストールできる。以下のコマンドを実行。
 
 ```powershell
 winget install Microsoft.PowerShell
@@ -881,7 +858,7 @@ Microsoft Store の [EarTrumpet ページ](https://apps.microsoft.com/detail/9nb
 
 `%ProgramData%\AnyDesk` をリストアすることで、エイリアスを継続して利用可能。
 
-ポータブル版（インストールしない版）は `%APPDATA%\AnyDesk` に設定が保存され、ID は `service.conf` に保存される（Issue #861 の調査による。実機では未確認）。
+ポータブル版（インストールしない版）は `%APPDATA%\AnyDesk` に設定が保存され、ID は `service.conf` に保存される。
 
 ### Visual Studio Code
 
