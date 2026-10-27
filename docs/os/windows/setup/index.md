@@ -725,6 +725,25 @@ reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v DisableSearchBoxS
 Stop-Process -Name explorer -Force
 ```
 
+### 再起動・更新時の詳細ステータスを表示する
+
+Windows の再起動中は、既定では簡易な表示（スピナーと短いメッセージ）だけになる。`VerboseStatus` を有効にすると、内部で実行している処理の詳細が表示される。Windows 11 Home 26300.9711 では、`VerboseStatus` が未設定の状態から `1` にして `shutdown /r /t 0` で再起動したところ、`再起動しています` に続けて `サービスを停止しています` が表示された。
+
+参考: https://x.com/ActiveTK5929/status/1888624704950608222
+
+1. レジストリエディタ（`regedit`）を開く
+2. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System` に移動
+3. 右ペインで右クリックし、`新規` → `DWORD (32 ビット) 値` から、`VerboseStatus` を作成
+4. `VerboseStatus` をダブルクリックし、値のデータに `1` を入力し `OK` をクリック
+
+コマンドラインでは、**管理者権限の** コマンドプロンプトまたは PowerShell で以下を実行する。`VerboseStatus` は既定では存在しない。元に戻す場合は、値を削除する。
+
+```powershell
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v VerboseStatus /t REG_DWORD /d 1 /f
+# 元に戻す場合
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v VerboseStatus /f
+```
+
 ### winget (アプリ インストーラー) の更新
 
 アプリ インストーラー（winget）は、Microsoft Store 経由で更新される。
