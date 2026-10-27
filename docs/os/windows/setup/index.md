@@ -395,7 +395,16 @@ GUI から変更する場合は（この手順の画面は 26H2 では未確認�
 - `保存したゲーム`
 - `検索`
 
-コマンドラインでは、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders` の値を書き換えて、エクスプローラを再起動する。`ダウンロード` は `{374DE290-123F-4565-9164-39C4925E467B}`、`デスクトップ` は `Desktop`、`ドキュメント` は `Personal`、`ピクチャ` は `My Pictures`、`ミュージック` は `My Music`、`ビデオ` は `My Video`。ダウンロードを `C:\TestUF\Downloads` に変えたところ、再起動後に `shell:Downloads` がそのパスになった（既存のファイルは移動されないので、`Move-Item` で別に移す）。ほかのフォルダでのコマンドと、ファイルの移動を含む結果は未確認。
+コマンドラインでは、`HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders` の値を書き換えて、エクスプローラを再起動する。値の名前は次のとおり。
+
+- `ダウンロード`: `{374DE290-123F-4565-9164-39C4925E467B}`
+- `デスクトップ`: `Desktop`
+- `ドキュメント`: `Personal`
+- `ピクチャ`: `My Pictures`
+- `ミュージック`: `My Music`
+- `ビデオ`: `My Video`
+
+ダウンロードを `C:\TestUF\Downloads` に変えたところ、再起動後に `shell:Downloads` がそのパスになった。既存のファイルは移動されないので、`Move-Item` で別に移す。
 
 ```powershell
 $k = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
@@ -526,37 +535,42 @@ Windows は標準で不要なアプリケーションを大量にインストー
 
 ```powershell
 Get-AppxPackage Clipchamp.Clipchamp | Remove-AppxPackage                       # Clipchamp
-Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                   # Cortana（26300.9711 の Home では存在しない）
-Get-AppxPackage Disney.37853FC22B2CE | Remove-AppxPackage                      # Disney+（26H2 の Home では存在しない）
+Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage                   # Cortana（26300.9711 の Home・Pro では存在しない）
+Get-AppxPackage Disney.37853FC22B2CE | Remove-AppxPackage                      # Disney+（26H2 の Home・Pro では存在しない）
 Get-AppxPackage MSTeams | Remove-AppxPackage                                   # Microsoft Teams（新しい Teams）
 Get-AppxPackage MicrosoftTeams | Remove-AppxPackage                            # Microsoft Teams（旧 Chat 用。26300.9711 の Home では存在しない）
 Get-AppxPackage Microsoft.Todos | Remove-AppxPackage                           # Microsoft To Do
-Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage              # Office on the Webへようこそ（26H2 の Home では存在しない）
+Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage              # Office on the Webへようこそ（26H2 では Pro のみ存在する）
 Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage    # Solitaire
-Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                    # Spotify（26H2 の Home では存在しない）
+Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage                    # Spotify（26H2 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.GamingApp | Remove-AppxPackage                       # Xbox ストア画面
 Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage               # Xbox Game Bar
 Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage                       # Xbox その他
-Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage                 # Xbox その他（26300.9711 の Home では存在しない）
+Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage                 # Xbox その他（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage            # Xbox その他
 Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage         # Xbox その他
-Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                       # 映画 & テレビ（26300.9711 の Home では存在しない）
+Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage                       # 映画 & テレビ（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage                   # カメラ
 Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage                       # スマホ同期
 Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage                     # 天気
-Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                      # ヒント（26300.9711 の Home では存在しない）
+Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage                      # ヒント（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage              # フィードバック Hub
 Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage            # ボイス レコーダー
-Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                     # マップ（26300.9711 の Home では存在しない）
-Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage       # メール、カレンダー（26300.9711 の Home では存在しない）
+Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage                     # マップ（26300.9711 の Home・Pro では存在しない）
+Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage       # メール、カレンダー（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage                       # メディアプレーヤー
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage                        # ニュース
 Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage                         # ヘルプ
-Get-AppxPackage Microsoft.People | Remove-AppxPackage                          # People（26300.9711 の Home では存在しない）
+Get-AppxPackage Microsoft.People | Remove-AppxPackage                          # People（26300.9711 の Home・Pro では存在しない）
 Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        # クイック アシスト
+Get-AppxPackage Microsoft.Copilot | Remove-AppxPackage                         # Copilot（26H2 では Home のみ存在する）
+Get-AppxPackage Microsoft.OutlookForWindows | Remove-AppxPackage               # 新しい Outlook
+Get-AppxPackage Microsoft.BingSearch | Remove-AppxPackage                      # Bing 検索
+Get-AppxPackage Microsoft.PowerAutomateDesktop | Remove-AppxPackage            # Power Automate
+Get-AppxPackage Microsoft.Windows.DevHome | Remove-AppxPackage                 # Dev Home
 ```
 
-「26300.9711 の Home では存在しない」と書いたものは、最初から入っていなかった。実行しても何も起きない（エラーにもならない）。Pro は確認していない。
+「26300.9711 の Home・Pro では存在しない」と書いたものは、最初から入っていなかった。実行しても何も起きない（エラーにもならない）。
 
 `Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、新しく作るユーザーには再び入る。すべてのユーザーから消してプロビジョニングも外す場合は、**管理者権限で** `-AllUsers` をつける。
 
@@ -564,14 +578,32 @@ Get-AppxPackage MicrosoftCorporationII.QuickAssist | Remove-AppxPackage        #
 Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
 ```
 
-26300.9711 の Home には、上のリストにない次のアプリも入っていて、削除できる。
+`Microsoft.WindowsStore`、`Microsoft.WindowsTerminal`、`Microsoft.WindowsNotepad`、`Microsoft.Paint`、`Microsoft.Windows.Photos` なども削除できるが、削除すると困るので通常は残す。
 
-- `Microsoft.Copilot`（Copilot）
-- `Microsoft.OutlookForWindows`（新しい Outlook）
-- `Microsoft.BingSearch`
-- `Microsoft.PowerAutomateDesktop`（Power Automate）
-- `Microsoft.Windows.DevHome`（Dev Home）
-- `Microsoft.WindowsStore`、`Microsoft.WindowsTerminal`、`Microsoft.WindowsNotepad`、`Microsoft.Paint`、`Microsoft.Windows.Photos` など（削除すると困るので、通常は残す）
+削除したアプリは Microsoft Store から再インストールできる。26300.9711 の Pro で、削除（`-AllUsers`）してから `winget install -e --id <ID> --source msstore` で入れ直し、パッケージが戻ることを確認した。Solitaire は `winget` では `No package found matching input criteria.` になったが、Store のページは開ける。Dev Home は `winget search` で見つからなかった。
+
+| アプリ | パッケージ名 | Store |
+| --- | --- | --- |
+| Clipchamp | `Clipchamp.Clipchamp` | [9P1J8S7CCWWT](https://apps.microsoft.com/detail/9p1j8s7ccwwt) |
+| Microsoft Teams | `MSTeams` | [XP8BT8DW290MPQ](https://apps.microsoft.com/detail/xp8bt8dw290mpq) |
+| Microsoft To Do | `Microsoft.Todos` | [9NBLGGH5R558](https://apps.microsoft.com/detail/9nblggh5r558) |
+| Solitaire | `Microsoft.MicrosoftSolitaireCollection` | [9WZDNCRFHWD2](https://apps.microsoft.com/detail/9wzdncrfhwd2) |
+| Xbox | `Microsoft.GamingApp` | [9MV0B5HZVK9Z](https://apps.microsoft.com/detail/9mv0b5hzvk9z) |
+| Xbox Game Bar | `Microsoft.XboxGamingOverlay` | [9NZKPSTSNW4P](https://apps.microsoft.com/detail/9nzkpstsnw4p) |
+| Xbox Identity Provider | `Microsoft.XboxIdentityProvider` | [9WZDNCRD1HKW](https://apps.microsoft.com/detail/9wzdncrd1hkw) |
+| カメラ | `Microsoft.WindowsCamera` | [9WZDNCRFJBBG](https://apps.microsoft.com/detail/9wzdncrfjbbg) |
+| スマートフォン連携 | `Microsoft.YourPhone` | [9NMPJ99VJBWV](https://apps.microsoft.com/detail/9nmpj99vjbwv) |
+| 天気 | `Microsoft.BingWeather` | [9WZDNCRFJ3Q2](https://apps.microsoft.com/detail/9wzdncrfj3q2) |
+| フィードバック Hub | `Microsoft.WindowsFeedbackHub` | [9NBLGGH4R32N](https://apps.microsoft.com/detail/9nblggh4r32n) |
+| ボイス レコーダー | `Microsoft.WindowsSoundRecorder` | [9WZDNCRFHWKN](https://apps.microsoft.com/detail/9wzdncrfhwkn) |
+| メディア プレーヤー | `Microsoft.ZuneMusic` | [9WZDNCRFJ3PT](https://apps.microsoft.com/detail/9wzdncrfj3pt) |
+| ニュース | `Microsoft.BingNews` | [9WZDNCRFHVFW](https://apps.microsoft.com/detail/9wzdncrfhvfw) |
+| ヘルプ | `Microsoft.GetHelp` | [9PKDZBMV1H3T](https://apps.microsoft.com/detail/9pkdzbmv1h3t) |
+| クイック アシスト | `MicrosoftCorporationII.QuickAssist` | [9P7BP5VNWKX5](https://apps.microsoft.com/detail/9p7bp5vnwkx5) |
+| 新しい Outlook | `Microsoft.OutlookForWindows` | [9NRX63209R7B](https://apps.microsoft.com/detail/9nrx63209r7b) |
+| Bing 検索 | `Microsoft.BingSearch` | [9NZBF4GT040C](https://apps.microsoft.com/detail/9nzbf4gt040c) |
+| Power Automate | `Microsoft.PowerAutomateDesktop` | [9NFTCH6J7FHV](https://apps.microsoft.com/detail/9nftch6j7fhv) |
+| Copilot | `Microsoft.Copilot` | [9NHT9RB2F4HD](https://apps.microsoft.com/detail/9nht9rb2f4hd) |
 
 なお、調査は以下のコマンドで実施できる。
 
