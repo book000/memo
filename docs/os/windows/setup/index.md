@@ -551,9 +551,8 @@ Get-AppxPackage Microsoft.PowerAutomateDesktop | Remove-AppxPackage            #
 Get-AppxPackage Microsoft.Windows.DevHome | Remove-AppxPackage                 # Dev Home
 ```
 
-`Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、他のユーザーと新しく作るユーザーには残る（Windows 11 Home 26300.9457 の BingNews で確認）。
-
-既存のすべてのユーザーから消す場合は、**管理者権限で** `-AllUsers` をつける。バンドルのパッケージは、`Get-AppxPackage -AllUsers -PackageTypeFilter Bundle <名前>` のように `-PackageTypeFilter Bundle` を指定して、親のバンドルを対象にする（`Microsoft.BingNews` が該当する）。
+`Remove-AppxPackage` は、実行したユーザーからアプリを削除するだけで、他のユーザーと新しく作るユーザーには残る。
+既存のすべてのユーザーから消す場合は、**管理者権限で** `-AllUsers` をつける。バンドルのパッケージは、`Get-AppxPackage -AllUsers -PackageTypeFilter Bundle <名前>` のように `-PackageTypeFilter Bundle` を指定して、親のバンドルを対象にする。
 
 ```powershell
 Get-AppxPackage -AllUsers Microsoft.Todos | Remove-AppxPackage -AllUsers
@@ -566,7 +565,9 @@ $name = 'Microsoft.Todos'
 Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq $name | Remove-AppxProvisionedPackage -Online
 ```
 
-Windows 11 Home 26300.9457 の `Microsoft.Todos` では、`-AllUsers` を付けた `Remove-AppxPackage` の実行後に、プロビジョニング済みの一覧からも消え、新しく作ったユーザーにも入らなかった。これは 1 つのパッケージ、1 つのビルドでの結果で、公式ドキュメントはプロビジョニング解除を保証していない。`Remove-AppxProvisionedPackage` を実行したあとに新規ユーザーへ入らない点は公式ドキュメントの記述にもとづき、実機では未検証。参考: [Remove-AppxPackage](https://learn.microsoft.com/en-us/powershell/module/appx/remove-appxpackage)、[Remove-AppxProvisionedPackage](https://learn.microsoft.com/en-us/powershell/module/dism/remove-appxprovisionedpackage)。
+Windows 11 Home 26300.9457 の `Microsoft.Todos` では、`-AllUsers` を付けた `Remove-AppxPackage` の実行後に、プロビジョニング済みの一覧からも消え、新しく作ったユーザーにも入らなかった。
+これは 1 つのパッケージ、1 つのビルドでの結果で、公式ドキュメントはプロビジョニング解除を保証していない。`Remove-AppxProvisionedPackage` を実行したあとに新規ユーザーへ入らない点は公式ドキュメントの記述にもとづき、実機では未検証。
+参考: [Remove-AppxPackage](https://learn.microsoft.com/en-us/powershell/module/appx/remove-appxpackage)、[Remove-AppxProvisionedPackage](https://learn.microsoft.com/en-us/powershell/module/dism/remove-appxprovisionedpackage)。
 
 削除したアプリは Microsoft Store から再インストールできる。`winget install -e --id <ID> --source msstore` で入れ直せる。Solitaire は `winget` では `No package found matching input criteria.` になるので、Store のページから入れる。Dev Home は `winget search` で見つからない。
 
@@ -681,13 +682,9 @@ sc.exe config RetailDemo start=disabled
 <!-- textlint-disable preset-ja-technical-writing/no-mix-dearu-desumasu -->
 ストアアプリを消したりサービスを止めたことで Minecraft などのゲーム起動時に「この ms-gamingoverlay リンクを開くには新しいアプリが必要です」というポップアップが出る。  
 <!-- textlint-enable preset-ja-technical-writing/no-mix-dearu-desumasu -->
-原因は、`ms-gamingoverlay` リンクを開くアプリが PC にないこと。Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できる。表示は「アプリを取得してこの 'ms-gamingoverlay' リンクを開く」と「お使いの PC には、このリンクを開くことができるアプリがありません。」。
+原因は、`ms-gamingoverlay` リンクを開くアプリが PC にないこと。Xbox 系のアプリを削除したあとに `start ms-gamingoverlay://kglcheck` を実行すると再現できる。
 
-参考: https://narolll.hateblo.jp/entry/20220503/1651540497
-
-この参考記事の `HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR` の `AppCaptureEnabled` を `0` にする方法は、Windows 11 Home 26300.9457 では効果がなかった。値を設定したあとでも、同じ `start ms-gamingoverlay://kglcheck` でポップアップが表示された。`GameDVR_Enabled` の効果は未確認。
-
-効果を確認できたのは、現在のユーザーに `ms-gamingoverlay` の URI ハンドラーを登録する方法。PowerShell で以下を実行すると、同じ操作でポップアップが表示されなくなった。
+オーバーレイを表示しないようにするには、現在のユーザーに `ms-gamingoverlay` の URI ハンドラーを登録する。PowerShell で以下を実行すると、同じ操作でポップアップが表示されなくなる。
 
 ```powershell
 $k = 'HKCU:\Software\Classes\ms-gamingoverlay'
@@ -697,7 +694,8 @@ New-ItemProperty $k -Name 'URL Protocol' -Value '' -PropertyType String -Force |
 Set-ItemProperty "$k\shell\open\command" -Name '(default)' -Value 'cmd.exe /c exit'
 ```
 
-この設定は実行したユーザーにだけ効く。Xbox のアプリを再インストールすると、このハンドラーと競合する場合がある。元に戻す場合は、以下を実行して登録を削除する。
+この設定は実行したユーザーにだけ有効。
+Xbox のアプリを再インストールすると、このハンドラーと競合する場合がある。元に戻す場合は、以下を実行して登録を削除する。
 
 ```powershell
 Remove-Item HKCU:\Software\Classes\ms-gamingoverlay -Recurse
