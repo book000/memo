@@ -185,8 +185,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       prh:
-        specifier: 6.1.0
-        version: 6.1.0
+        specifier: 7.0.0
+        version: 7.0.0
       sudachi-synonyms-dictionary:
         specifier: 20.0.0
         version: 20.0.0
@@ -618,6 +618,10 @@ packages:
   commander@14.0.3:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
+
+  commander@15.1.0:
+    resolution: {integrity: sha512-cgnQ88TRrWcC7pVq46RzJVRMktu3W2RcbnoidnfBsl1bmDCBwJS/udcIZpKoCrbAYYaCqsz1yZCVIgbIaU3ddQ==}
+    engines: {node: '>=22.12.0'}
 
   commandpost@1.4.0:
     resolution: {integrity: sha512-aE2Y4MTFJ870NuB/+2z1cXBhSBBzRydVVjzhFC4gtenEhpnj15yu0qptWGJsO9YGrcPZ3ezX8AWb1VA391MKpQ==}
@@ -1292,6 +1296,11 @@ packages:
   prh@6.1.0:
     resolution: {integrity: sha512-FRJaF6DxCAhJwZZUkL20XmL+Fz2O79JFdcn35wdigm435A9G7WX9J5In6h6tCfmMzK/n4KVUjf68qmYMBHkqRQ==}
     engines: {node: '>=22'}
+    hasBin: true
+
+  prh@7.0.0:
+    resolution: {integrity: sha512-Ky/3v1dpuXo1YTFhbIlDau6Rw12n5L/uSpz+8itiy10jdKVMr6wK7pq/8j0brVPv+tVk1ENyoaH7JyLwrVg3bg==}
+    engines: {node: '>=22.12.0'}
     hasBin: true
 
   property-information@5.6.0:
@@ -2355,6 +2364,8 @@ snapshots:
 
   commander@14.0.3: {}
 
+  commander@15.1.0: {}
+
   commandpost@1.4.0: {}
 
   concat-stream@2.0.0:
@@ -3173,6 +3184,12 @@ snapshots:
       commander: 14.0.3
       diff: 9.0.0
       js-yaml: 4.3.2
+
+  prh@7.0.0:
+    dependencies:
+      commander: 15.1.0
+      diff: 9.0.0
+      js-yaml: 5.5.0
 
   property-information@5.6.0:
     dependencies:
