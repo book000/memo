@@ -257,21 +257,21 @@ packages:
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.29.13':
-    resolution: {integrity: sha512-fWegr+WsEsiMVW4KUNdIIzzMTZSzNiqhy0//6+2MRi2d5NFNsL/AYwBQW8eBnRbTBVRnDVzjaJEUqKaCWjMMdQ==}
+  '@babel/helper-string-parser@7.29.14':
+    resolution: {integrity: sha512-CXvKMFvM80ihI7Vox9jb+kQjnyjESQNPM+vB7U0Zz6TWuZA+Z/FL0QPMH300h33qJtIx+REeBhXqWOPW48TcAQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-validator-identifier@7.29.7':
     resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.29.13':
-    resolution: {integrity: sha512-fJM50YYjlTiBhgdkGmC1tBpv+FMAyo4annf2X6Aks+0yRlaiVkYW/3f07xAfVVkYIoZ9fFZp+mEThUFnuybhkQ==}
+  '@babel/parser@7.29.14':
+    resolution: {integrity: sha512-VL220vXuyO2z3rNIQwY7ftj9UwpqOt+33sH+sBWkOekbsSR2g7EEMnOx24ZlCH0xOA3DM/33SifVFGbnJD8r/w==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/types@7.29.11':
-    resolution: {integrity: sha512-WCsemW40Cpc6gouC1SrY6PBaZ+oLRlEVY9XBvZBI7il/HyUrb2nJ505wE1MHEFyDZNnrWDEuy4jL50WVHfTTSQ==}
+  '@babel/types@7.29.14':
+    resolution: {integrity: sha512-UjI/dKmwJwT9pOszJitq2G6EObZPnsZUfdCr92z2TlF3EZK9J3EdfOKUrCzHl6wFthbzwhzl1Soc/UIwxRiq6w==}
     engines: {node: '>=6.9.0'}
 
   '@cacheable/memory@2.2.0':
@@ -418,8 +418,8 @@ packages:
   '@textlint/regexp-string-matcher@1.1.1':
     resolution: {integrity: sha512-rrNUCKGKYBrZALotSF8D5A8xD05VHX6kxv0BP805Ig2M73Ha6LK+de31+ZocGm4CO+sikVFYyMCPPJhp7bCXcw==}
 
-  '@textlint/regexp-string-matcher@2.0.2':
-    resolution: {integrity: sha512-OXLD9XRxMhd3S0LWuPHpiARQOI7z9tCOs0FsynccW2lmyZzHHFJ9/eR6kuK9xF459Qf+740qI5h+/0cx+NljzA==}
+  '@textlint/regexp-string-matcher@2.0.3':
+    resolution: {integrity: sha512-oLaihTHU+vutFmWOXTJexrIYFTF2f60QMTXQjvWO0/jJmCXQ2yfOq6xic0XO2MjG7A1d0UIk4oBMXTLps3mfsg==}
 
   '@textlint/resolver@15.8.0':
     resolution: {integrity: sha512-E88tzfX3K8Jykk+38aJ9cy8RquD8ABVOPTO2rFEESq0wcg8x6/ypdAS8ZgR7OKiGqlRF0hkO/m5PbQwVfKM3VA==}
@@ -567,8 +567,8 @@ packages:
   boundary@2.0.0:
     resolution: {integrity: sha512-rJKn5ooC9u8q13IMCrW0RSp31pxBCHE3y9V/tp3TdWSLf8Em3p6Di4NBpfzbJge9YjjFEsD0RtFEjtvHL5VyEA==}
 
-  brace-expansion@5.0.12:
-    resolution: {integrity: sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==}
+  brace-expansion@5.0.13:
+    resolution: {integrity: sha512-Vh3dmFbc4wZeox7M9I/0L9GfFd83Su4+yCck/OF9Gi/P/dAHn0RT7X4K9R7gMNMhDck3DvhR6QXsnQdjjgwNvQ==}
     engines: {node: 20 || >=22}
 
   buffer-from@1.1.2:
@@ -835,8 +835,8 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
-  graceful-fs@4.2.11:
-    resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+  graceful-fs@4.2.12:
+    resolution: {integrity: sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw==}
 
   has-bigints@1.1.0:
     resolution: {integrity: sha512-R3pbpkcIqv2Pm3dUwgjclDRVmWpTJW2DcMzcIhEXEx1oh/CEMObMm3KLmRJOdvhM7o4uQBnwr8pzRK2sJWIqfg==}
@@ -1319,8 +1319,8 @@ packages:
     resolution: {integrity: sha512-+Owyggi9IxT1ePKGafcI87ubSmxol6smwJ+RAHDQlx9+9cPwFWDiKFFCPuWhr9ignlGpZ9vDQLw67N4dcTVFEA==}
     engines: {node: '>=20'}
 
-  rc-config-loader@4.1.4:
-    resolution: {integrity: sha512-3GiwEzklkbXTDp52UR5nT8iXgYAx1V9ZG/kDZT7p60u2GCv2XTwQq4NzinMoMpNtXhmt3WkhYXcj6HH8HdwCEQ==}
+  rc-config-loader@4.2.0:
+    resolution: {integrity: sha512-PoQabZw5RBxSW9jJhI1WJ8hpLYCjF4PrkhqkkjXYKRpWTo1cn3ovdXku2spdS79dnD3pT/axXeEUnwbG8qxz9A==}
 
   read-package-up@11.0.0:
     resolution: {integrity: sha512-MbgfoNPANMdb4oRBNg5eqLbB2t2r+o5Ua1pNt8BqGp4I0FJZhuVSOj3PaBPni4azWuSzEdNn2evevzVmEk1ohQ==}
@@ -1403,8 +1403,8 @@ packages:
     resolution: {integrity: sha512-eDqaz4MasTn6Mp3dagKzIbiNsJpgpueMEQqCJeN9F9XQRFLDGFJ0kX8R3uMp+mU7J58dWjr4q6eks/nUX/vnJQ==}
     hasBin: true
 
-  sentence-splitter@5.0.1:
-    resolution: {integrity: sha512-Eu9l95hQfI0WdhXTznuBzqsFjTuL6UnPq341Ro1s2bjE3DMoBuhE0wk4z+rwbwVXfOAeuOQM0UF30HR2+66VuQ==}
+  sentence-splitter@5.1.0:
+    resolution: {integrity: sha512-Zt4F1K7KF3QQQOVgdJ0Of6WYGI9t3aSiGRI6/DpXj1FXvL5wiOobhRbYceDZnNmnuYWfwd4l+wfyLB+nUax5ow==}
 
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
@@ -1836,17 +1836,17 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
-  '@babel/helper-string-parser@7.29.13': {}
+  '@babel/helper-string-parser@7.29.14': {}
 
   '@babel/helper-validator-identifier@7.29.7': {}
 
-  '@babel/parser@7.29.13':
+  '@babel/parser@7.29.14':
     dependencies:
-      '@babel/types': 7.29.11
+      '@babel/types': 7.29.14
 
-  '@babel/types@7.29.11':
+  '@babel/types@7.29.14':
     dependencies:
-      '@babel/helper-string-parser': 7.29.13
+      '@babel/helper-string-parser': 7.29.14
       '@babel/helper-validator-identifier': 7.29.7
 
   '@cacheable/memory@2.2.0':
@@ -1935,12 +1935,12 @@ snapshots:
 
   '@textlint-rule/textlint-rule-no-unmatched-pair@2.0.4':
     dependencies:
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
 
   '@textlint-rule/textlint-rule-pattern@2.0.2':
     dependencies:
-      '@textlint/regexp-string-matcher': 2.0.2
+      '@textlint/regexp-string-matcher': 2.0.3
       textlint-rule-helper: 2.5.0
 
   '@textlint/ast-node-types@12.6.1': {}
@@ -1992,7 +1992,7 @@ snapshots:
       '@textlint/types': 15.8.0
       '@textlint/utils': 15.8.0
       debug: 4.4.3
-      rc-config-loader: 4.1.4
+      rc-config-loader: 4.2.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2136,12 +2136,7 @@ snapshots:
       lodash.uniqwith: 4.5.0
       to-regex: 3.0.2
 
-  '@textlint/regexp-string-matcher@2.0.2':
-    dependencies:
-      escape-string-regexp: 4.0.0
-      lodash.sortby: 4.7.0
-      lodash.uniq: 4.5.0
-      lodash.uniqwith: 4.5.0
+  '@textlint/regexp-string-matcher@2.0.3': {}
 
   '@textlint/resolver@15.8.0': {}
 
@@ -2310,7 +2305,7 @@ snapshots:
 
   boundary@2.0.0: {}
 
-  brace-expansion@5.0.12:
+  brace-expansion@5.0.13:
     dependencies:
       balanced-match: 4.0.4
 
@@ -2648,7 +2643,7 @@ snapshots:
 
   gopd@1.2.0: {}
 
-  graceful-fs@4.2.11: {}
+  graceful-fs@4.2.12: {}
 
   has-bigints@1.1.0: {}
 
@@ -3071,7 +3066,7 @@ snapshots:
 
   minimatch@10.2.6:
     dependencies:
-      brace-expansion: 5.0.12
+      brace-expansion: 5.0.13
 
   minipass@7.1.3: {}
 
@@ -3208,10 +3203,10 @@ snapshots:
     dependencies:
       hookified: 2.2.0
 
-  rc-config-loader@4.1.4:
+  rc-config-loader@4.2.0:
     dependencies:
       debug: 4.4.3
-      js-yaml: 4.3.2
+      js-yaml: 5.5.0
       json5: 2.2.3
       require-from-string: 2.0.2
     transitivePeerDependencies:
@@ -3335,10 +3330,9 @@ snapshots:
       object_values: 0.1.2
       structured-source: 3.0.2
 
-  sentence-splitter@5.0.1:
+  sentence-splitter@5.1.0:
     dependencies:
-      '@textlint/ast-node-types': 13.4.1
-      structured-source: 4.0.0
+      '@textlint/ast-node-types': 15.8.0
 
   set-function-length@1.2.2:
     dependencies:
@@ -3637,13 +3631,13 @@ snapshots:
 
   textlint-rule-ja-space-between-half-and-full-width@2.4.2:
     dependencies:
-      '@textlint/regexp-string-matcher': 2.0.2
+      '@textlint/regexp-string-matcher': 2.0.3
       match-index: 1.0.3
       textlint-rule-helper: 2.5.0
 
   textlint-rule-ja-space-between-half-and-full-width@3.0.4:
     dependencies:
-      '@textlint/regexp-string-matcher': 2.0.2
+      '@textlint/regexp-string-matcher': 2.0.3
       textlint-rule-helper: 2.5.0
 
   textlint-rule-ja-unnatural-alphabet@2.0.1:
@@ -3654,7 +3648,7 @@ snapshots:
 
   textlint-rule-max-comma@4.0.0:
     dependencies:
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-util-to-string: 3.3.4
 
   textlint-rule-max-kanji-continuous-len@1.1.1:
@@ -3665,7 +3659,7 @@ snapshots:
   textlint-rule-max-ten@5.0.0:
     dependencies:
       kuromojin: 3.0.1
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
       textlint-util-to-string: 3.3.4
 
@@ -3676,20 +3670,20 @@ snapshots:
   textlint-rule-no-doubled-conjunction@3.0.1:
     dependencies:
       kuromojin: 3.0.1
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
 
   textlint-rule-no-doubled-conjunctive-particle-ga@3.0.0:
     dependencies:
       kuromojin: 3.0.1
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
       textlint-util-to-string: 3.3.4
 
   textlint-rule-no-doubled-joshi@5.1.1:
     dependencies:
       kuromojin: 3.0.1
-      sentence-splitter: 5.0.1
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
       textlint-util-to-string: 3.3.4
 
@@ -3731,7 +3725,7 @@ snapshots:
 
   textlint-rule-preset-ai-writing@1.1.0:
     dependencies:
-      '@textlint/regexp-string-matcher': 2.0.2
+      '@textlint/regexp-string-matcher': 2.0.3
       textlint-util-to-string: 3.3.4
 
   textlint-rule-preset-ja-spacing@3.0.4:
@@ -3823,14 +3817,14 @@ snapshots:
 
   textlint-rule-prh@5.3.0:
     dependencies:
-      '@babel/parser': 7.29.13
+      '@babel/parser': 7.29.14
       prh: 5.4.4
       textlint-rule-helper: 2.5.0
       untildify: 3.0.3
 
   textlint-rule-prh@6.1.1:
     dependencies:
-      '@babel/parser': 7.29.13
+      '@babel/parser': 7.29.14
       '@types/mocha': 10.0.10
       '@types/node': 24.19.2
       prh: 6.1.0
@@ -3838,8 +3832,8 @@ snapshots:
 
   textlint-rule-sentence-length@5.2.1:
     dependencies:
-      '@textlint/regexp-string-matcher': 2.0.2
-      sentence-splitter: 5.0.1
+      '@textlint/regexp-string-matcher': 2.0.3
+      sentence-splitter: 5.1.0
       textlint-rule-helper: 2.5.0
       textlint-util-to-string: 3.3.4
 
@@ -3890,7 +3884,7 @@ snapshots:
       md5: 2.3.0
       optionator: 0.9.4
       path-to-glob-pattern: 2.0.1
-      rc-config-loader: 4.1.4
+      rc-config-loader: 4.2.0
       read-package-up: 11.0.0
       structured-source: 4.0.0
       zod: 4.6.7
@@ -4084,7 +4078,7 @@ snapshots:
 
   write-file-atomic@1.3.4:
     dependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: 4.2.12
       imurmurhash: 0.1.4
       slide: 1.1.6
 
