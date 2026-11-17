@@ -232,11 +232,36 @@ function decodeContent(encoding: string, content: string): string | Buffer {
 }
 
 /**
+ * トップレベルの Content-Type ヘッダーから boundary を取得します。
+ *
+ * @param headers トップレベルのヘッダー
+ * @returns boundary の値（先頭の `--` は含まない）
+ * @throws Content-Type ヘッダーが無い、または boundary パラメータが無い場合
+ */
+function getBoundary(headers: Map<string, string>): string {
+  const contentType = headers.get('Content-Type')
+  const boundary =
+    contentType === undefined
+      ? undefined
+      : libmime.parseHeaderValue(contentType).params.boundary
+  if (!boundary) {
+    throw new Error(
+      `Content-Type header does not contain a boundary parameter: ${contentType ?? '(none)'}`
+    )
+  }
+  return boundary
+}
+
+/**
  * mhtファイルをパースします。
  * まずはこの関数を呼び出して Mhtml オブジェクトを取得してください。
  *
+ * boundary はトップレベルの Content-Type ヘッダーから取得します。
+ * 終端区切り（`--boundary--`）以降の行は無視します。
+ *
  * @param mhtml mhtファイルの文字列
  * @returns Mhtml オブジェクト
+ * @throws トップレベルの Content-Type ヘッダーに boundary が無い場合
  */
 export function parseMhtml(mhtml: string): Mhtml {
   let headers: Map<string, string> = new Map<string, string>()
@@ -244,36 +269,52 @@ export function parseMhtml(mhtml: string): Mhtml {
   const parts: MhtmlPart[] = []
   let headerKeyTemp = ''
   let partContentTemp = ''
+  let boundary = ''
+
+  const flushPartContent = (): void => {
+    if (partContentTemp.length === 0) return
+    const part = parts[parts.length - 1]
+    part.content = decodeContent(
+      part.headers.get('Content-Transfer-Encoding')!,
+      partContentTemp
+    )
+    partContentTemp = ''
+  }
 
   let mode: 'headers' | 'content' | 'part-header' | 'part-content' = 'headers'
   for (const line of mhtml.split('\r\n')) {
     if (mode === 'headers') {
       ;[headers, headerKeyTemp] = processHeader(headers, headerKeyTemp, line)
       if (line.length === 0) {
+        boundary = getBoundary(headers)
         mode = 'content'
-        continue
       }
+      continue
     }
 
-    if (mode === 'content' && !line.startsWith('------=')) {
-      contents += line + '\r\n'
+    if (line === `--${boundary}--`) {
+      flushPartContent()
+      break
     }
 
-    if (line.startsWith('------=')) {
-      if (partContentTemp.length > 0) {
-        parts[parts.length - 1].content = decodeContent(
-          parts[parts.length - 1].headers.get('Content-Transfer-Encoding')!,
-          partContentTemp
+    if (line === `--${boundary}`) {
+      flushPartContent()
+
+      const namePrefix = '----=_'
+      parts.push(
+        new MhtmlPart(
+          boundary.startsWith(namePrefix)
+            ? boundary.slice(namePrefix.length)
+            : boundary
         )
-        partContentTemp = ''
-      }
-
-      const part = new MhtmlPart(
-        line.substring(line.indexOf('------=_') + '------=_'.length)
       )
-      parts.push(part)
 
       mode = 'part-header'
+      continue
+    }
+
+    if (mode === 'content') {
+      contents += line + '\r\n'
       continue
     }
 
@@ -285,18 +326,13 @@ export function parseMhtml(mhtml: string): Mhtml {
       )
       if (line.trim().length === 0) {
         mode = 'part-content'
-        continue
       }
+      continue
     }
 
-    if (mode === 'part-content') {
-      partContentTemp += '\r\n' + line
-    }
+    partContentTemp += '\r\n' + line
   }
-  if (partContentTemp.length > 0) {
-    parts[parts.length - 1].content = partContentTemp
-    partContentTemp = ''
-  }
+  flushPartContent()
 
   contents = contents.trim()
 
@@ -328,18 +364,23 @@ function replaceFileUri(
 }
 
 /**
- * 各パートの Content-Location をもとに、HTML からリンクを検索し blob URL に置換します。
+ * replaceLink の本体。
  *
  * @param parts パートのリスト
  * @param html HTML 文字列
+ * @param visiting 置換処理の最中にあるファイル URL の集合
  * @returns 置換された HTML 文字列
  */
-export async function replaceLink(
+async function replaceLinkRecursive(
   parts: MhtmlPart[],
-  html: string
+  html: string,
+  visiting: Set<string>
 ): Promise<string> {
   for (const match of html.matchAll(/file:\/\/\/([^"]+)/g)) {
     const fileUri = match[0]
+    if (visiting.has(fileUri)) {
+      continue
+    }
     const part = parts.find(
       (p) =>
         p.headers.has('Content-Location') &&
@@ -353,7 +394,12 @@ export async function replaceLink(
     }
     let content = part.content
     if (!(part.content instanceof Buffer)) {
-      content = await replaceLink(parts, part.content)
+      visiting.add(fileUri)
+      try {
+        content = await replaceLinkRecursive(parts, part.content, visiting)
+      } finally {
+        visiting.delete(fileUri)
+      }
     }
     const blob = new Blob([content], {
       type: part.headers.get('Content-Type'),
@@ -369,6 +415,19 @@ export async function replaceLink(
     html = replaceFileUri(html, fileUri, blobUri)
   }
   return html
+}
+
+/**
+ * 各パートの Content-Location をもとに、HTML からリンクを検索し blob URL に置換します。
+ *
+ * パート同士が循環して参照している場合、循環する側のリンクは置換せずそのまま残します。
+ *
+ * @param parts パートのリスト
+ * @param html HTML 文字列
+ * @returns 置換された HTML 文字列
+ */
+export function replaceLink(parts: MhtmlPart[], html: string): Promise<string> {
+  return replaceLinkRecursive(parts, html, new Set<string>())
 }
 
 /**
@@ -429,6 +488,8 @@ export function getMainPart(parts: MhtmlPart[]): MhtmlPart | undefined {
  * Content-Location が file:///toc であるパートを探し、MToc オブジェクトを返します。
  * このパートは、目次のページです。
  *
+ * 目次パートのコンテンツが Buffer（base64 エンコード）の場合は、UTF-8 の文字列として扱います。
+ *
  * @param parts パートのリスト
  * @returns MToc
  */
@@ -443,7 +504,7 @@ export function getToc(parts: MhtmlPart[]): MToc[] | null {
   if (tocPart === undefined) {
     return null
   }
-  const content = tocPart.content as string
+  const content = tocPart.content?.toString() ?? ''
   const tocs: MToc[] = []
   for (const match of content.matchAll(
     /<li><a target="content" href="(file:\/\/\/.+?)".*?>(.+?)<\/a><\/li>/g
