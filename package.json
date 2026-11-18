@@ -23,7 +23,7 @@
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@textlint-ja/textlint-rule-no-insert-re": "1.0.2",
     "@textlint-ja/textlint-rule-no-synonyms": "1.3.0",
-    "@textlint-rule/textlint-rule-pattern": "2.0.2",
+    "@textlint-rule/textlint-rule-pattern": "2.0.3",
     "prh": "7.0.0",
     "sudachi-synonyms-dictionary": "20.0.1",
     "textlint": "15.8.0",
