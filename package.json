@@ -15,7 +15,8 @@
   "scripts": {
     "lint": "textlint docs/",
     "fix": "textlint --fix docs/",
-    "textlint": "textlint"
+    "textlint": "textlint",
+    "test": "node --test tests/*.test.cjs"
   },
   "devDependencies": {
     "@textlint-ja/textlint-rule-no-dropping-i": "3.0.0",

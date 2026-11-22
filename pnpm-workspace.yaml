@@ -1,0 +1,4 @@
+overrides:
+  textlint>glob: 14.0.6
+patchedDependencies:
+  chrono-node@1.4.9: patches/chrono-node@1.4.9.patch

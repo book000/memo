@@ -1,0 +1,55 @@
+diff --git a/dist/chrono.js b/dist/chrono.js
+index 43e93ef..9c4aa5f 100644
+--- a/dist/chrono.js
++++ b/dist/chrono.js
+@@ -554,2 +554,2 @@ exports.ORDINAL_WORDS_PATTERN = '(?:' + Object.keys(exports.ORDINAL_WORDS).join(
+-var TIME_UNIT = '(' + exports.INTEGER_WORDS_PATTERN + '|[0-9]+|[0-9]+\.[0-9]+|an?(?:\\s*few)?|half(?:\\s*an?)?)\\s*' + '(sec(?:onds?)?|min(?:ute)?s?|h(?:r|rs|our|ours)?|weeks?|days?|months?|years?)\\s*';
+-var TIME_UNIT_STRICT = '(?:[0-9]+|an?)\\s*' + '(?:seconds?|minutes?|hours?|days?)\\s*';
++var TIME_UNIT = '(' + exports.INTEGER_WORDS_PATTERN + '|[0-9]+|[0-9]+\.[0-9]+|an?(?:\\s{0,5}few)?|half(?:\\s{0,5}an?)?)\\s{0,5}' + '(sec(?:onds?)?|min(?:ute)?s?|h(?:r|rs|our|ours)?|weeks?|days?|months?|years?)\\s{0,5}';
++var TIME_UNIT_STRICT = '(?:[0-9]+|an?)\\s{0,5}' + '(?:seconds?|minutes?|hours?|days?)\\s{0,5}';
+@@ -557,2 +557,2 @@ var PATTERN_TIME_UNIT = new RegExp(TIME_UNIT, 'i');
+-exports.TIME_UNIT_PATTERN = '(?:' + TIME_UNIT + ')+';
+-exports.TIME_UNIT_STRICT_PATTERN = '(?:' + TIME_UNIT_STRICT + ')+';
++exports.TIME_UNIT_PATTERN = '(?:' + TIME_UNIT + '){1,10}';
++exports.TIME_UNIT_STRICT_PATTERN = '(?:' + TIME_UNIT_STRICT + '){1,10}';
+@@ -1361,0 +1362,4 @@ Chrono.prototype.parse = function (text, refDate, opt) {
++  var originalText = text;
++  text = text.replace(/\s{6,}/g, function (spaces) {
++    return spaces[0] + 'x'.repeat(spaces.length - 2) + spaces[spaces.length - 1];
++  });
+@@ -1375,0 +1380,3 @@ Chrono.prototype.parse = function (text, refDate, opt) {
++  allResults.forEach(function (result) {
++    result.text = originalText.slice(result.index, result.index + result.text.length);
++  });
+diff --git a/src/chrono.js b/src/chrono.js
+index 6580791..9b123f1 100644
+--- a/src/chrono.js
++++ b/src/chrono.js
+@@ -22,0 +23,4 @@ Chrono.prototype.parse = function(text, refDate, opt) {
++    var originalText = text;
++    text = text.replace(/\s{6,}/g, function (spaces) {
++        return spaces[0] + 'x'.repeat(spaces.length - 2) + spaces[spaces.length - 1];
++    });
+@@ -42,0 +47,3 @@ Chrono.prototype.parse = function(text, refDate, opt) {
++    allResults.forEach(function (result) {
++        result.text = originalText.slice(result.index, result.index + result.text.length);
++    });
+diff --git a/src/utils/EN.js b/src/utils/EN.js
+index 4444f1a..fb49a5c 100644
+--- a/src/utils/EN.js
++++ b/src/utils/EN.js
+@@ -118,2 +118,2 @@ var TIME_UNIT =
+-    '(' + exports.INTEGER_WORDS_PATTERN + '|[0-9]+|[0-9]+\.[0-9]+|an?(?:\\s*few)?|half(?:\\s*an?)?)\\s*' +
+-    '(sec(?:onds?)?|min(?:ute)?s?|h(?:r|rs|our|ours)?|weeks?|days?|months?|years?)\\s*';
++    '(' + exports.INTEGER_WORDS_PATTERN + '|[0-9]+|[0-9]+\.[0-9]+|an?(?:\\s{0,5}few)?|half(?:\\s{0,5}an?)?)\\s{0,5}' +
++    '(sec(?:onds?)?|min(?:ute)?s?|h(?:r|rs|our|ours)?|weeks?|days?|months?|years?)\\s{0,5}';
+@@ -122,2 +122,2 @@ var TIME_UNIT_STRICT =
+-    '(?:[0-9]+|an?)\\s*' +
+-    '(?:seconds?|minutes?|hours?|days?)\\s*';
++    '(?:[0-9]+|an?)\\s{0,5}' +
++    '(?:seconds?|minutes?|hours?|days?)\\s{0,5}';
+@@ -127,2 +127,2 @@ var PATTERN_TIME_UNIT = new RegExp(TIME_UNIT, 'i');
+-exports.TIME_UNIT_PATTERN = '(?:' + TIME_UNIT + ')+';
+-exports.TIME_UNIT_STRICT_PATTERN = '(?:' + TIME_UNIT_STRICT + ')+';
++exports.TIME_UNIT_PATTERN = '(?:' + TIME_UNIT + '){1,10}';
++exports.TIME_UNIT_STRICT_PATTERN = '(?:' + TIME_UNIT_STRICT + '){1,10}';
