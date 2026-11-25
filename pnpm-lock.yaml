@@ -191,8 +191,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@textlint-ja/textlint-rule-no-insert-re':
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.3
+        version: 1.0.3
       '@textlint-ja/textlint-rule-no-synonyms':
         specifier: 1.3.0
         version: 1.3.0(sudachi-synonyms-dictionary@20.0.1)
@@ -320,8 +320,8 @@ packages:
   '@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.1':
     resolution: {integrity: sha512-ayBSq7K54TeA23dJt/oZeC4532+IwJ6J7ejHvbLV3AgdqlyXEC3xkVsBFmxT90sUegWxpzJwu9qBeByfVXR2FA==}
 
-  '@textlint-ja/textlint-rule-no-insert-re@1.0.2':
-    resolution: {integrity: sha512-kMqopVUoMMbQAzrlfSU5ZXShvkFGLemJrtsJqg7IDUHflFExdDm7MKoj5vj4ra5u1VAyfQotFW7yFLiFdNWYiw==}
+  '@textlint-ja/textlint-rule-no-insert-re@1.0.3':
+    resolution: {integrity: sha512-NxC4xnw9Wvc4iUBOiIAFCx38MUQadWAXpoXaRu0s4kyU2raMfTtUCojos+EGquEwPzz8bZEGbmyyfpJFr6bKyw==}
 
   '@textlint-ja/textlint-rule-no-synonyms@1.3.0':
     resolution: {integrity: sha512-mOB85gFGnSx6LgoUdCQFyATjcfsi0UaWO8Q4EBna/cq+ZGlmg2vcDGozk1hNLhX8u1PMzZDxDwrQOqx1zW+42w==}
@@ -1030,6 +1030,9 @@ packages:
   kuromojin@3.0.1:
     resolution: {integrity: sha512-E4rLmbTid8ZGH8Fw421UXvfgCe0IXGFKhUw/IosBVW6ootxVGKGbtb0UPQAvPswgsXX/8UuPiE+amz1NN11Uzg==}
 
+  kuromojin@3.1.0:
+    resolution: {integrity: sha512-czp55A9IINhX8uGjD5zE9IKr+/oy4q8mUtUQi/xUkUkE93ER3COB92PONzX0CHiY4mrzjyuPeTg2swn7mUWEkg==}
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -1390,6 +1393,9 @@ packages:
 
   textlint-rule-helper@2.5.0:
     resolution: {integrity: sha512-QIbFPtyqLy0g5BJn8mryk9iHzGYicNaFIpLFPiEnb4RXxrEGeQ2W2aARQ9yEXLIAqo+OwK4ndWBAWkbgJEPzTQ==}
+
+  textlint-rule-helper@2.6.0:
+    resolution: {integrity: sha512-xmMYSJKI/LVKyEcda275/PyqR3NbHQwWGO+DOQuE7fOhZenaonV9ocptW7/Qj4vwI52YRyOYzTdqPi3oG5vOXA==}
 
   textlint-rule-ja-hiragana-daimeishi@1.0.0:
     resolution: {integrity: sha512-bJrKKZwMRD0o4fZ+VpHBjf3tMRfzOYFNglMtTL4IuX3O7j899bugrjJRRDwr4a1kFLu7bZOGPkBh4a2Zu/4tCw==}
@@ -1771,10 +1777,10 @@ snapshots:
       kuromojin: 3.0.1
       morpheme-match-all: 2.0.5
 
-  '@textlint-ja/textlint-rule-no-insert-re@1.0.2':
+  '@textlint-ja/textlint-rule-no-insert-re@1.0.3':
     dependencies:
-      kuromojin: 3.0.1
-      textlint-rule-helper: 2.5.0
+      kuromojin: 3.1.0
+      textlint-rule-helper: 2.6.0
 
   '@textlint-ja/textlint-rule-no-synonyms@1.3.0(sudachi-synonyms-dictionary@20.0.1)':
     dependencies:
@@ -2684,6 +2690,8 @@ snapshots:
       kuromoji: 0.1.2
       lru_map: 0.4.1
 
+  kuromojin@3.1.0: {}
+
   levn@0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -3197,6 +3205,11 @@ snapshots:
       '@textlint/ast-node-types': 15.8.0
       structured-source: 4.0.0
       unist-util-visit: 2.0.3
+
+  textlint-rule-helper@2.6.0:
+    dependencies:
+      '@textlint/ast-node-types': 15.8.0
+      structured-source: 4.0.0
 
   textlint-rule-ja-hiragana-daimeishi@1.0.0:
     dependencies:
