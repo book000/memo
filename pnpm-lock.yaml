@@ -240,8 +240,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0
       textlint-rule-ja-no-inappropriate-words:
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.0.1
+        version: 2.0.1
       textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet:
         specifier: 1.0.1
         version: 1.0.1
@@ -1428,8 +1428,8 @@ packages:
   textlint-rule-ja-no-abusage@3.0.1:
     resolution: {integrity: sha512-fcKUbRGOm5gNUUIJQjAQ+sNxSVA9na9RCTjPqEnhRIUl14WIuZTAkZnN+AaWlXZnjjvTVvZaduUuAPAR/rajug==}
 
-  textlint-rule-ja-no-inappropriate-words@2.0.0:
-    resolution: {integrity: sha512-gS2g8BqXv33D0QDz301aZh7EgWc2Vz70qBGJG0T3Dbtzxj/omqQCpxJtpVs5JKoGIBNkmxN5L+l0nf5TZ/luAw==}
+  textlint-rule-ja-no-inappropriate-words@2.0.1:
+    resolution: {integrity: sha512-tVSIASQJBnLG/Upids2OuRk0hdElfyLA7TX3AKQj3vXky3VUHwX+ss87LcG9oM4ObHPme8/YVF3BXZcD/dr0zQ==}
 
   textlint-rule-ja-no-mixed-period@3.0.2:
     resolution: {integrity: sha512-/WHRvbAXPJxjDAmVYjIp5qBHPS7Uqv3H+fH0oGMWzujEV4n2URtXmxqTUv7nd4giTRqeV2yuMZWYRRgA9Mh0Sg==}
@@ -3285,9 +3285,9 @@ snapshots:
       morpheme-match-textlint: 2.0.6
       textlint-rule-prh: 5.3.0
 
-  textlint-rule-ja-no-inappropriate-words@2.0.0:
+  textlint-rule-ja-no-inappropriate-words@2.0.1:
     dependencies:
-      kuromojin: 3.0.1
+      kuromojin: 3.1.0
 
   textlint-rule-ja-no-mixed-period@3.0.2:
     dependencies:
