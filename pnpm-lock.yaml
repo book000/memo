@@ -198,8 +198,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1
       '@textlint-ja/textlint-rule-no-insert-dropping-sa':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 2.0.2
+        version: 2.0.2
       '@textlint-ja/textlint-rule-no-insert-re':
         specifier: 1.0.3
         version: 1.0.3
@@ -327,8 +327,8 @@ packages:
   '@textlint-ja/textlint-rule-no-filler@1.1.1':
     resolution: {integrity: sha512-jve6AUj4Kcc5Fq/TH27JVByHxGjy8CChjpBzBVCCgzs/p2Rey4TnUwmUWKNTdSbG75XjPwGGMy1+GM6FOr4pdQ==}
 
-  '@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.1':
-    resolution: {integrity: sha512-ayBSq7K54TeA23dJt/oZeC4532+IwJ6J7ejHvbLV3AgdqlyXEC3xkVsBFmxT90sUegWxpzJwu9qBeByfVXR2FA==}
+  '@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.2':
+    resolution: {integrity: sha512-ZLAau3xtPiwtIeQ/SjO6s6yVy9SuID0zteHY0TEmBKsbrEJGOgRv2fcvyvcNx4N9KB+DONcgqhe+6NcClYn3Tg==}
 
   '@textlint-ja/textlint-rule-no-insert-re@1.0.3':
     resolution: {integrity: sha512-NxC4xnw9Wvc4iUBOiIAFCx38MUQadWAXpoXaRu0s4kyU2raMfTtUCojos+EGquEwPzz8bZEGbmyyfpJFr6bKyw==}
@@ -1761,10 +1761,10 @@ snapshots:
       sentence-splitter: 5.1.0
       textlint-util-to-string: 3.3.6
 
-  '@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.1':
+  '@textlint-ja/textlint-rule-no-insert-dropping-sa@2.0.2':
     dependencies:
       array-find-index: 1.0.2
-      kuromojin: 3.0.1
+      kuromojin: 3.1.0
       morpheme-match-all: 2.0.5
 
   '@textlint-ja/textlint-rule-no-insert-re@1.0.3':
